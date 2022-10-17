@@ -1,0 +1,8 @@
+/.idea
+/.git
+
+/node_modules
+
+# Next.js outputs
+/.next
+/out
