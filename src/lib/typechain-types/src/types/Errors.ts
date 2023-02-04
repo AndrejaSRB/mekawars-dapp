@@ -22,77 +22,373 @@ import type {
 
 export interface ErrorsInterface extends utils.Interface {
   functions: {
-    "E1()": FunctionFragment;
-    "E10()": FunctionFragment;
-    "E11()": FunctionFragment;
-    "E12()": FunctionFragment;
-    "E13()": FunctionFragment;
-    "E14()": FunctionFragment;
-    "E15()": FunctionFragment;
-    "E16()": FunctionFragment;
-    "E2()": FunctionFragment;
-    "E3()": FunctionFragment;
-    "E4()": FunctionFragment;
-    "E5()": FunctionFragment;
-    "E6()": FunctionFragment;
-    "E7()": FunctionFragment;
-    "E8()": FunctionFragment;
-    "E9()": FunctionFragment;
+    "BABY_OOGA_ALREADY_STAKED()": FunctionFragment;
+    "BOX_ALREADY_LEGENDARY()": FunctionFragment;
+    "CREW_ALREADY_IN_BUCKET()": FunctionFragment;
+    "CREW_IS_NOT_ACTIVE()": FunctionFragment;
+    "CREW_NOT_IN_BUCKET()": FunctionFragment;
+    "CREW_WAITING_FOR_MATCHRESOLVE()": FunctionFragment;
+    "DUPLICATE_OOGA_IN_FIRSTTEAM()": FunctionFragment;
+    "DURABILITY_IS_ZERO()": FunctionFragment;
+    "ELEMENT_NOT_FOUND_IN_ARRAY()": FunctionFragment;
+    "EQUIPED_TOO_MUCH_ITEMS()": FunctionFragment;
+    "EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS()": FunctionFragment;
+    "FIRST_TEAM_SIZE_TOO_LONG()": FunctionFragment;
+    "ITEM_INDEX_TOO_BIG()": FunctionFragment;
+    "ITEM_NOT_ACTIVE()": FunctionFragment;
+    "MATCHMAKE_ALREADY_REQUESTED()": FunctionFragment;
+    "MEKAAPE_NOT_IN_FIRSTTEAM()": FunctionFragment;
+    "MEKA_ITEM_ON_NON_MEKAAPE()": FunctionFragment;
+    "MIN_BUCKET_SIZE_NOT_REACHED()": FunctionFragment;
+    "MIN_TIME_NOT_PASSED()": FunctionFragment;
+    "NON_BASIC_ITEM()": FunctionFragment;
+    "NOT_BABY_OOGA()": FunctionFragment;
+    "NOT_ENOUGH_BABY_CHARGE()": FunctionFragment;
+    "NOT_ENOUGH_TIME_PASSED()": FunctionFragment;
+    "NOT_ROBO_OOGA()": FunctionFragment;
+    "NT_EXCEEDING_AVAILABLE_AMOUNT()": FunctionFragment;
+    "OOGAID_IS_NOT_MEKAAPE()": FunctionFragment;
+    "OOGA_LEVEL_LESS_THAN_ITEM_LEVEL()": FunctionFragment;
+    "OOGA_NOT_IN_CREW()": FunctionFragment;
+    "OPPONENT_NOT_FOUND()": FunctionFragment;
+    "RANDOM_SEED_STILL_NOT_RECEIVED()": FunctionFragment;
+    "ROBOOOGA_ITEM_ON_NON_ROBOOOGA()": FunctionFragment;
+    "SENDER_IS_NOT_CREW_OWNER()": FunctionFragment;
+    "SLOT_INDEX_TOO_BIG()": FunctionFragment;
+    "SLOT_IS_EMPTY()": FunctionFragment;
+    "WRONG_BOX_STATE()": FunctionFragment;
+    "WRONG_VRF_COORDINATOR()": FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "E1"
-      | "E10"
-      | "E11"
-      | "E12"
-      | "E13"
-      | "E14"
-      | "E15"
-      | "E16"
-      | "E2"
-      | "E3"
-      | "E4"
-      | "E5"
-      | "E6"
-      | "E7"
-      | "E8"
-      | "E9"
+      | "BABY_OOGA_ALREADY_STAKED"
+      | "BOX_ALREADY_LEGENDARY"
+      | "CREW_ALREADY_IN_BUCKET"
+      | "CREW_IS_NOT_ACTIVE"
+      | "CREW_NOT_IN_BUCKET"
+      | "CREW_WAITING_FOR_MATCHRESOLVE"
+      | "DUPLICATE_OOGA_IN_FIRSTTEAM"
+      | "DURABILITY_IS_ZERO"
+      | "ELEMENT_NOT_FOUND_IN_ARRAY"
+      | "EQUIPED_TOO_MUCH_ITEMS"
+      | "EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS"
+      | "FIRST_TEAM_SIZE_TOO_LONG"
+      | "ITEM_INDEX_TOO_BIG"
+      | "ITEM_NOT_ACTIVE"
+      | "MATCHMAKE_ALREADY_REQUESTED"
+      | "MEKAAPE_NOT_IN_FIRSTTEAM"
+      | "MEKA_ITEM_ON_NON_MEKAAPE"
+      | "MIN_BUCKET_SIZE_NOT_REACHED"
+      | "MIN_TIME_NOT_PASSED"
+      | "NON_BASIC_ITEM"
+      | "NOT_BABY_OOGA"
+      | "NOT_ENOUGH_BABY_CHARGE"
+      | "NOT_ENOUGH_TIME_PASSED"
+      | "NOT_ROBO_OOGA"
+      | "NT_EXCEEDING_AVAILABLE_AMOUNT"
+      | "OOGAID_IS_NOT_MEKAAPE"
+      | "OOGA_LEVEL_LESS_THAN_ITEM_LEVEL"
+      | "OOGA_NOT_IN_CREW"
+      | "OPPONENT_NOT_FOUND"
+      | "RANDOM_SEED_STILL_NOT_RECEIVED"
+      | "ROBOOOGA_ITEM_ON_NON_ROBOOOGA"
+      | "SENDER_IS_NOT_CREW_OWNER"
+      | "SLOT_INDEX_TOO_BIG"
+      | "SLOT_IS_EMPTY"
+      | "WRONG_BOX_STATE"
+      | "WRONG_VRF_COORDINATOR"
   ): FunctionFragment;
 
-  encodeFunctionData(functionFragment: "E1", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E10", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E11", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E12", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E13", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E14", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E15", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E16", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E2", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E3", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E4", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E5", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E6", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E7", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E8", values?: undefined): string;
-  encodeFunctionData(functionFragment: "E9", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "BABY_OOGA_ALREADY_STAKED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "BOX_ALREADY_LEGENDARY",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "CREW_ALREADY_IN_BUCKET",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "CREW_IS_NOT_ACTIVE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "CREW_NOT_IN_BUCKET",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "CREW_WAITING_FOR_MATCHRESOLVE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "DUPLICATE_OOGA_IN_FIRSTTEAM",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "DURABILITY_IS_ZERO",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "ELEMENT_NOT_FOUND_IN_ARRAY",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "EQUIPED_TOO_MUCH_ITEMS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "FIRST_TEAM_SIZE_TOO_LONG",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "ITEM_INDEX_TOO_BIG",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "ITEM_NOT_ACTIVE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MATCHMAKE_ALREADY_REQUESTED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MEKAAPE_NOT_IN_FIRSTTEAM",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MEKA_ITEM_ON_NON_MEKAAPE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MIN_BUCKET_SIZE_NOT_REACHED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MIN_TIME_NOT_PASSED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NON_BASIC_ITEM",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NOT_BABY_OOGA",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NOT_ENOUGH_BABY_CHARGE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NOT_ENOUGH_TIME_PASSED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NOT_ROBO_OOGA",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "NT_EXCEEDING_AVAILABLE_AMOUNT",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "OOGAID_IS_NOT_MEKAAPE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "OOGA_LEVEL_LESS_THAN_ITEM_LEVEL",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "OOGA_NOT_IN_CREW",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "OPPONENT_NOT_FOUND",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "RANDOM_SEED_STILL_NOT_RECEIVED",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "ROBOOOGA_ITEM_ON_NON_ROBOOOGA",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "SENDER_IS_NOT_CREW_OWNER",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "SLOT_INDEX_TOO_BIG",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "SLOT_IS_EMPTY",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "WRONG_BOX_STATE",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "WRONG_VRF_COORDINATOR",
+    values?: undefined
+  ): string;
 
-  decodeFunctionResult(functionFragment: "E1", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E10", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E11", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E12", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E13", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E14", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E15", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E16", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E2", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E3", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E4", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E5", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E6", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E7", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E8", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "E9", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "BABY_OOGA_ALREADY_STAKED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "BOX_ALREADY_LEGENDARY",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "CREW_ALREADY_IN_BUCKET",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "CREW_IS_NOT_ACTIVE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "CREW_NOT_IN_BUCKET",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "CREW_WAITING_FOR_MATCHRESOLVE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "DUPLICATE_OOGA_IN_FIRSTTEAM",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "DURABILITY_IS_ZERO",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "ELEMENT_NOT_FOUND_IN_ARRAY",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "EQUIPED_TOO_MUCH_ITEMS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "FIRST_TEAM_SIZE_TOO_LONG",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "ITEM_INDEX_TOO_BIG",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "ITEM_NOT_ACTIVE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MATCHMAKE_ALREADY_REQUESTED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MEKAAPE_NOT_IN_FIRSTTEAM",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MEKA_ITEM_ON_NON_MEKAAPE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MIN_BUCKET_SIZE_NOT_REACHED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MIN_TIME_NOT_PASSED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NON_BASIC_ITEM",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NOT_BABY_OOGA",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NOT_ENOUGH_BABY_CHARGE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NOT_ENOUGH_TIME_PASSED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NOT_ROBO_OOGA",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "NT_EXCEEDING_AVAILABLE_AMOUNT",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "OOGAID_IS_NOT_MEKAAPE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "OOGA_LEVEL_LESS_THAN_ITEM_LEVEL",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "OOGA_NOT_IN_CREW",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "OPPONENT_NOT_FOUND",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "RANDOM_SEED_STILL_NOT_RECEIVED",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "ROBOOOGA_ITEM_ON_NON_ROBOOOGA",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "SENDER_IS_NOT_CREW_OWNER",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "SLOT_INDEX_TOO_BIG",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "SLOT_IS_EMPTY",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "WRONG_BOX_STATE",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "WRONG_VRF_COORDINATOR",
+    data: BytesLike
+  ): Result;
 
   events: {};
 }
@@ -124,172 +420,452 @@ export interface Errors extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    E1(overrides?: CallOverrides): Promise<[string]>;
+    BABY_OOGA_ALREADY_STAKED(overrides?: CallOverrides): Promise<[string]>;
 
-    E10(overrides?: CallOverrides): Promise<[string]>;
+    BOX_ALREADY_LEGENDARY(overrides?: CallOverrides): Promise<[string]>;
 
-    E11(overrides?: CallOverrides): Promise<[string]>;
+    CREW_ALREADY_IN_BUCKET(overrides?: CallOverrides): Promise<[string]>;
 
-    E12(overrides?: CallOverrides): Promise<[string]>;
+    CREW_IS_NOT_ACTIVE(overrides?: CallOverrides): Promise<[string]>;
 
-    E13(overrides?: CallOverrides): Promise<[string]>;
+    CREW_NOT_IN_BUCKET(overrides?: CallOverrides): Promise<[string]>;
 
-    E14(overrides?: CallOverrides): Promise<[string]>;
+    CREW_WAITING_FOR_MATCHRESOLVE(overrides?: CallOverrides): Promise<[string]>;
 
-    E15(overrides?: CallOverrides): Promise<[string]>;
+    DUPLICATE_OOGA_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<[string]>;
 
-    E16(overrides?: CallOverrides): Promise<[string]>;
+    DURABILITY_IS_ZERO(overrides?: CallOverrides): Promise<[string]>;
 
-    E2(overrides?: CallOverrides): Promise<[string]>;
+    ELEMENT_NOT_FOUND_IN_ARRAY(overrides?: CallOverrides): Promise<[string]>;
 
-    E3(overrides?: CallOverrides): Promise<[string]>;
+    EQUIPED_TOO_MUCH_ITEMS(overrides?: CallOverrides): Promise<[string]>;
 
-    E4(overrides?: CallOverrides): Promise<[string]>;
+    EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS(
+      overrides?: CallOverrides
+    ): Promise<[string]>;
 
-    E5(overrides?: CallOverrides): Promise<[string]>;
+    FIRST_TEAM_SIZE_TOO_LONG(overrides?: CallOverrides): Promise<[string]>;
 
-    E6(overrides?: CallOverrides): Promise<[string]>;
+    ITEM_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<[string]>;
 
-    E7(overrides?: CallOverrides): Promise<[string]>;
+    ITEM_NOT_ACTIVE(overrides?: CallOverrides): Promise<[string]>;
 
-    E8(overrides?: CallOverrides): Promise<[string]>;
+    MATCHMAKE_ALREADY_REQUESTED(overrides?: CallOverrides): Promise<[string]>;
 
-    E9(overrides?: CallOverrides): Promise<[string]>;
+    MEKAAPE_NOT_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<[string]>;
+
+    MEKA_ITEM_ON_NON_MEKAAPE(overrides?: CallOverrides): Promise<[string]>;
+
+    MIN_BUCKET_SIZE_NOT_REACHED(overrides?: CallOverrides): Promise<[string]>;
+
+    MIN_TIME_NOT_PASSED(overrides?: CallOverrides): Promise<[string]>;
+
+    NON_BASIC_ITEM(overrides?: CallOverrides): Promise<[string]>;
+
+    NOT_BABY_OOGA(overrides?: CallOverrides): Promise<[string]>;
+
+    NOT_ENOUGH_BABY_CHARGE(overrides?: CallOverrides): Promise<[string]>;
+
+    NOT_ENOUGH_TIME_PASSED(overrides?: CallOverrides): Promise<[string]>;
+
+    NOT_ROBO_OOGA(overrides?: CallOverrides): Promise<[string]>;
+
+    NT_EXCEEDING_AVAILABLE_AMOUNT(overrides?: CallOverrides): Promise<[string]>;
+
+    OOGAID_IS_NOT_MEKAAPE(overrides?: CallOverrides): Promise<[string]>;
+
+    OOGA_LEVEL_LESS_THAN_ITEM_LEVEL(
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    OOGA_NOT_IN_CREW(overrides?: CallOverrides): Promise<[string]>;
+
+    OPPONENT_NOT_FOUND(overrides?: CallOverrides): Promise<[string]>;
+
+    RANDOM_SEED_STILL_NOT_RECEIVED(
+      overrides?: CallOverrides
+    ): Promise<[string]>;
+
+    ROBOOOGA_ITEM_ON_NON_ROBOOOGA(overrides?: CallOverrides): Promise<[string]>;
+
+    SENDER_IS_NOT_CREW_OWNER(overrides?: CallOverrides): Promise<[string]>;
+
+    SLOT_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<[string]>;
+
+    SLOT_IS_EMPTY(overrides?: CallOverrides): Promise<[string]>;
+
+    WRONG_BOX_STATE(overrides?: CallOverrides): Promise<[string]>;
+
+    WRONG_VRF_COORDINATOR(overrides?: CallOverrides): Promise<[string]>;
   };
 
-  E1(overrides?: CallOverrides): Promise<string>;
+  BABY_OOGA_ALREADY_STAKED(overrides?: CallOverrides): Promise<string>;
 
-  E10(overrides?: CallOverrides): Promise<string>;
+  BOX_ALREADY_LEGENDARY(overrides?: CallOverrides): Promise<string>;
 
-  E11(overrides?: CallOverrides): Promise<string>;
+  CREW_ALREADY_IN_BUCKET(overrides?: CallOverrides): Promise<string>;
 
-  E12(overrides?: CallOverrides): Promise<string>;
+  CREW_IS_NOT_ACTIVE(overrides?: CallOverrides): Promise<string>;
 
-  E13(overrides?: CallOverrides): Promise<string>;
+  CREW_NOT_IN_BUCKET(overrides?: CallOverrides): Promise<string>;
 
-  E14(overrides?: CallOverrides): Promise<string>;
+  CREW_WAITING_FOR_MATCHRESOLVE(overrides?: CallOverrides): Promise<string>;
 
-  E15(overrides?: CallOverrides): Promise<string>;
+  DUPLICATE_OOGA_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<string>;
 
-  E16(overrides?: CallOverrides): Promise<string>;
+  DURABILITY_IS_ZERO(overrides?: CallOverrides): Promise<string>;
 
-  E2(overrides?: CallOverrides): Promise<string>;
+  ELEMENT_NOT_FOUND_IN_ARRAY(overrides?: CallOverrides): Promise<string>;
 
-  E3(overrides?: CallOverrides): Promise<string>;
+  EQUIPED_TOO_MUCH_ITEMS(overrides?: CallOverrides): Promise<string>;
 
-  E4(overrides?: CallOverrides): Promise<string>;
+  EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS(
+    overrides?: CallOverrides
+  ): Promise<string>;
 
-  E5(overrides?: CallOverrides): Promise<string>;
+  FIRST_TEAM_SIZE_TOO_LONG(overrides?: CallOverrides): Promise<string>;
 
-  E6(overrides?: CallOverrides): Promise<string>;
+  ITEM_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<string>;
 
-  E7(overrides?: CallOverrides): Promise<string>;
+  ITEM_NOT_ACTIVE(overrides?: CallOverrides): Promise<string>;
 
-  E8(overrides?: CallOverrides): Promise<string>;
+  MATCHMAKE_ALREADY_REQUESTED(overrides?: CallOverrides): Promise<string>;
 
-  E9(overrides?: CallOverrides): Promise<string>;
+  MEKAAPE_NOT_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<string>;
+
+  MEKA_ITEM_ON_NON_MEKAAPE(overrides?: CallOverrides): Promise<string>;
+
+  MIN_BUCKET_SIZE_NOT_REACHED(overrides?: CallOverrides): Promise<string>;
+
+  MIN_TIME_NOT_PASSED(overrides?: CallOverrides): Promise<string>;
+
+  NON_BASIC_ITEM(overrides?: CallOverrides): Promise<string>;
+
+  NOT_BABY_OOGA(overrides?: CallOverrides): Promise<string>;
+
+  NOT_ENOUGH_BABY_CHARGE(overrides?: CallOverrides): Promise<string>;
+
+  NOT_ENOUGH_TIME_PASSED(overrides?: CallOverrides): Promise<string>;
+
+  NOT_ROBO_OOGA(overrides?: CallOverrides): Promise<string>;
+
+  NT_EXCEEDING_AVAILABLE_AMOUNT(overrides?: CallOverrides): Promise<string>;
+
+  OOGAID_IS_NOT_MEKAAPE(overrides?: CallOverrides): Promise<string>;
+
+  OOGA_LEVEL_LESS_THAN_ITEM_LEVEL(overrides?: CallOverrides): Promise<string>;
+
+  OOGA_NOT_IN_CREW(overrides?: CallOverrides): Promise<string>;
+
+  OPPONENT_NOT_FOUND(overrides?: CallOverrides): Promise<string>;
+
+  RANDOM_SEED_STILL_NOT_RECEIVED(overrides?: CallOverrides): Promise<string>;
+
+  ROBOOOGA_ITEM_ON_NON_ROBOOOGA(overrides?: CallOverrides): Promise<string>;
+
+  SENDER_IS_NOT_CREW_OWNER(overrides?: CallOverrides): Promise<string>;
+
+  SLOT_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<string>;
+
+  SLOT_IS_EMPTY(overrides?: CallOverrides): Promise<string>;
+
+  WRONG_BOX_STATE(overrides?: CallOverrides): Promise<string>;
+
+  WRONG_VRF_COORDINATOR(overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
-    E1(overrides?: CallOverrides): Promise<string>;
+    BABY_OOGA_ALREADY_STAKED(overrides?: CallOverrides): Promise<string>;
 
-    E10(overrides?: CallOverrides): Promise<string>;
+    BOX_ALREADY_LEGENDARY(overrides?: CallOverrides): Promise<string>;
 
-    E11(overrides?: CallOverrides): Promise<string>;
+    CREW_ALREADY_IN_BUCKET(overrides?: CallOverrides): Promise<string>;
 
-    E12(overrides?: CallOverrides): Promise<string>;
+    CREW_IS_NOT_ACTIVE(overrides?: CallOverrides): Promise<string>;
 
-    E13(overrides?: CallOverrides): Promise<string>;
+    CREW_NOT_IN_BUCKET(overrides?: CallOverrides): Promise<string>;
 
-    E14(overrides?: CallOverrides): Promise<string>;
+    CREW_WAITING_FOR_MATCHRESOLVE(overrides?: CallOverrides): Promise<string>;
 
-    E15(overrides?: CallOverrides): Promise<string>;
+    DUPLICATE_OOGA_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<string>;
 
-    E16(overrides?: CallOverrides): Promise<string>;
+    DURABILITY_IS_ZERO(overrides?: CallOverrides): Promise<string>;
 
-    E2(overrides?: CallOverrides): Promise<string>;
+    ELEMENT_NOT_FOUND_IN_ARRAY(overrides?: CallOverrides): Promise<string>;
 
-    E3(overrides?: CallOverrides): Promise<string>;
+    EQUIPED_TOO_MUCH_ITEMS(overrides?: CallOverrides): Promise<string>;
 
-    E4(overrides?: CallOverrides): Promise<string>;
+    EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS(
+      overrides?: CallOverrides
+    ): Promise<string>;
 
-    E5(overrides?: CallOverrides): Promise<string>;
+    FIRST_TEAM_SIZE_TOO_LONG(overrides?: CallOverrides): Promise<string>;
 
-    E6(overrides?: CallOverrides): Promise<string>;
+    ITEM_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<string>;
 
-    E7(overrides?: CallOverrides): Promise<string>;
+    ITEM_NOT_ACTIVE(overrides?: CallOverrides): Promise<string>;
 
-    E8(overrides?: CallOverrides): Promise<string>;
+    MATCHMAKE_ALREADY_REQUESTED(overrides?: CallOverrides): Promise<string>;
 
-    E9(overrides?: CallOverrides): Promise<string>;
+    MEKAAPE_NOT_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<string>;
+
+    MEKA_ITEM_ON_NON_MEKAAPE(overrides?: CallOverrides): Promise<string>;
+
+    MIN_BUCKET_SIZE_NOT_REACHED(overrides?: CallOverrides): Promise<string>;
+
+    MIN_TIME_NOT_PASSED(overrides?: CallOverrides): Promise<string>;
+
+    NON_BASIC_ITEM(overrides?: CallOverrides): Promise<string>;
+
+    NOT_BABY_OOGA(overrides?: CallOverrides): Promise<string>;
+
+    NOT_ENOUGH_BABY_CHARGE(overrides?: CallOverrides): Promise<string>;
+
+    NOT_ENOUGH_TIME_PASSED(overrides?: CallOverrides): Promise<string>;
+
+    NOT_ROBO_OOGA(overrides?: CallOverrides): Promise<string>;
+
+    NT_EXCEEDING_AVAILABLE_AMOUNT(overrides?: CallOverrides): Promise<string>;
+
+    OOGAID_IS_NOT_MEKAAPE(overrides?: CallOverrides): Promise<string>;
+
+    OOGA_LEVEL_LESS_THAN_ITEM_LEVEL(overrides?: CallOverrides): Promise<string>;
+
+    OOGA_NOT_IN_CREW(overrides?: CallOverrides): Promise<string>;
+
+    OPPONENT_NOT_FOUND(overrides?: CallOverrides): Promise<string>;
+
+    RANDOM_SEED_STILL_NOT_RECEIVED(overrides?: CallOverrides): Promise<string>;
+
+    ROBOOOGA_ITEM_ON_NON_ROBOOOGA(overrides?: CallOverrides): Promise<string>;
+
+    SENDER_IS_NOT_CREW_OWNER(overrides?: CallOverrides): Promise<string>;
+
+    SLOT_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<string>;
+
+    SLOT_IS_EMPTY(overrides?: CallOverrides): Promise<string>;
+
+    WRONG_BOX_STATE(overrides?: CallOverrides): Promise<string>;
+
+    WRONG_VRF_COORDINATOR(overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {};
 
   estimateGas: {
-    E1(overrides?: CallOverrides): Promise<BigNumber>;
+    BABY_OOGA_ALREADY_STAKED(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E10(overrides?: CallOverrides): Promise<BigNumber>;
+    BOX_ALREADY_LEGENDARY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E11(overrides?: CallOverrides): Promise<BigNumber>;
+    CREW_ALREADY_IN_BUCKET(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E12(overrides?: CallOverrides): Promise<BigNumber>;
+    CREW_IS_NOT_ACTIVE(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E13(overrides?: CallOverrides): Promise<BigNumber>;
+    CREW_NOT_IN_BUCKET(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E14(overrides?: CallOverrides): Promise<BigNumber>;
+    CREW_WAITING_FOR_MATCHRESOLVE(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    E15(overrides?: CallOverrides): Promise<BigNumber>;
+    DUPLICATE_OOGA_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E16(overrides?: CallOverrides): Promise<BigNumber>;
+    DURABILITY_IS_ZERO(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E2(overrides?: CallOverrides): Promise<BigNumber>;
+    ELEMENT_NOT_FOUND_IN_ARRAY(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E3(overrides?: CallOverrides): Promise<BigNumber>;
+    EQUIPED_TOO_MUCH_ITEMS(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E4(overrides?: CallOverrides): Promise<BigNumber>;
+    EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
 
-    E5(overrides?: CallOverrides): Promise<BigNumber>;
+    FIRST_TEAM_SIZE_TOO_LONG(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E6(overrides?: CallOverrides): Promise<BigNumber>;
+    ITEM_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E7(overrides?: CallOverrides): Promise<BigNumber>;
+    ITEM_NOT_ACTIVE(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E8(overrides?: CallOverrides): Promise<BigNumber>;
+    MATCHMAKE_ALREADY_REQUESTED(overrides?: CallOverrides): Promise<BigNumber>;
 
-    E9(overrides?: CallOverrides): Promise<BigNumber>;
+    MEKAAPE_NOT_IN_FIRSTTEAM(overrides?: CallOverrides): Promise<BigNumber>;
+
+    MEKA_ITEM_ON_NON_MEKAAPE(overrides?: CallOverrides): Promise<BigNumber>;
+
+    MIN_BUCKET_SIZE_NOT_REACHED(overrides?: CallOverrides): Promise<BigNumber>;
+
+    MIN_TIME_NOT_PASSED(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NON_BASIC_ITEM(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NOT_BABY_OOGA(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NOT_ENOUGH_BABY_CHARGE(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NOT_ENOUGH_TIME_PASSED(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NOT_ROBO_OOGA(overrides?: CallOverrides): Promise<BigNumber>;
+
+    NT_EXCEEDING_AVAILABLE_AMOUNT(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    OOGAID_IS_NOT_MEKAAPE(overrides?: CallOverrides): Promise<BigNumber>;
+
+    OOGA_LEVEL_LESS_THAN_ITEM_LEVEL(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    OOGA_NOT_IN_CREW(overrides?: CallOverrides): Promise<BigNumber>;
+
+    OPPONENT_NOT_FOUND(overrides?: CallOverrides): Promise<BigNumber>;
+
+    RANDOM_SEED_STILL_NOT_RECEIVED(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    ROBOOOGA_ITEM_ON_NON_ROBOOOGA(
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    SENDER_IS_NOT_CREW_OWNER(overrides?: CallOverrides): Promise<BigNumber>;
+
+    SLOT_INDEX_TOO_BIG(overrides?: CallOverrides): Promise<BigNumber>;
+
+    SLOT_IS_EMPTY(overrides?: CallOverrides): Promise<BigNumber>;
+
+    WRONG_BOX_STATE(overrides?: CallOverrides): Promise<BigNumber>;
+
+    WRONG_VRF_COORDINATOR(overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    E1(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    BABY_OOGA_ALREADY_STAKED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E10(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    BOX_ALREADY_LEGENDARY(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E11(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    CREW_ALREADY_IN_BUCKET(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E12(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    CREW_IS_NOT_ACTIVE(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E13(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    CREW_NOT_IN_BUCKET(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E14(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    CREW_WAITING_FOR_MATCHRESOLVE(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E15(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    DUPLICATE_OOGA_IN_FIRSTTEAM(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E16(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    DURABILITY_IS_ZERO(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E2(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    ELEMENT_NOT_FOUND_IN_ARRAY(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E3(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    EQUIPED_TOO_MUCH_ITEMS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E4(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    EQUIPED_TOO_MUCH_MEKASPECIAL_ITEMS(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E5(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    FIRST_TEAM_SIZE_TOO_LONG(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E6(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    ITEM_INDEX_TOO_BIG(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E7(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    ITEM_NOT_ACTIVE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    E8(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    MATCHMAKE_ALREADY_REQUESTED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
 
-    E9(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+    MEKAAPE_NOT_IN_FIRSTTEAM(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    MEKA_ITEM_ON_NON_MEKAAPE(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    MIN_BUCKET_SIZE_NOT_REACHED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    MIN_TIME_NOT_PASSED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    NON_BASIC_ITEM(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    NOT_BABY_OOGA(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    NOT_ENOUGH_BABY_CHARGE(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    NOT_ENOUGH_TIME_PASSED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    NOT_ROBO_OOGA(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    NT_EXCEEDING_AVAILABLE_AMOUNT(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    OOGAID_IS_NOT_MEKAAPE(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    OOGA_LEVEL_LESS_THAN_ITEM_LEVEL(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    OOGA_NOT_IN_CREW(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    OPPONENT_NOT_FOUND(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    RANDOM_SEED_STILL_NOT_RECEIVED(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    ROBOOOGA_ITEM_ON_NON_ROBOOOGA(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    SENDER_IS_NOT_CREW_OWNER(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    SLOT_INDEX_TOO_BIG(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    SLOT_IS_EMPTY(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    WRONG_BOX_STATE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
+
+    WRONG_VRF_COORDINATOR(
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
   };
 }

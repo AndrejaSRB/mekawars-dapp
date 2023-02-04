@@ -4,7 +4,10 @@
 export * as interfaces from "./interfaces";
 export * as mocks from "./mocks";
 export * as types from "./types";
-export { CombatLib__factory } from "./CombatLib__factory";
+export { Box__factory } from "./Box__factory";
 export { Crews__factory } from "./Crews__factory";
+export { Matchmaking__factory } from "./Matchmaking__factory";
 export { MekaApesERC721Poly__factory } from "./MekaApesERC721Poly__factory";
-export { MekawarsItemsERC721__factory } from "./MekawarsItemsERC721__factory";
+export { MekawarsItemsERC1155__factory } from "./MekawarsItemsERC1155__factory";
+export { NTPouch__factory } from "./NTPouch__factory";
+export { VRFConsumer__factory } from "./VRFConsumer__factory";

@@ -149,12 +149,60 @@ const _abi = [
         type: "uint256",
       },
     ],
+    name: "getOogaHealthAndAttack",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "oogaId",
+        type: "uint256",
+      },
+    ],
     name: "getOogaType",
     outputs: [
       {
         internalType: "enum OogaType",
         name: "",
         type: "uint8",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "oogaId",
+        type: "uint256",
+      },
+    ],
+    name: "getOogaTypeAndLevel",
+    outputs: [
+      {
+        internalType: "enum OogaType",
+        name: "",
+        type: "uint8",
+      },
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
       },
     ],
     stateMutability: "view",

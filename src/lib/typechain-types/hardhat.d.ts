@@ -13,6 +13,10 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
+      name: "VRFCoordinatorV2Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.VRFCoordinatorV2Interface__factory>;
+    getContractFactory(
       name: "AccessControlUpgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.AccessControlUpgradeable__factory>;
@@ -24,6 +28,22 @@ declare module "hardhat/types/runtime" {
       name: "Initializable",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Initializable__factory>;
+    getContractFactory(
+      name: "ERC1155Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1155Upgradeable__factory>;
+    getContractFactory(
+      name: "IERC1155MetadataURIUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1155MetadataURIUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC1155ReceiverUpgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1155ReceiverUpgradeable__factory>;
+    getContractFactory(
+      name: "IERC1155Upgradeable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1155Upgradeable__factory>;
     getContractFactory(
       name: "ERC721Upgradeable",
       signerOrOptions?: ethers.Signer | FactoryOptions
@@ -61,42 +81,83 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC165__factory>;
     getContractFactory(
-      name: "CombatLib",
+      name: "Box",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.CombatLib__factory>;
+    ): Promise<Contracts.Box__factory>;
     getContractFactory(
       name: "Crews",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Crews__factory>;
     getContractFactory(
+      name: "IBox",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IBox__factory>;
+    getContractFactory(
+      name: "ICrews",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ICrews__factory>;
+    getContractFactory(
+      name: "IMatchmaking",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IMatchmaking__factory>;
+    getContractFactory(
       name: "IMekaApesERC721Poly",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IMekaApesERC721Poly__factory>;
     getContractFactory(
-      name: "IMekawarsItemsERC721",
+      name: "IMekawarsItemsERC1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMekawarsItemsERC721__factory>;
+    ): Promise<Contracts.IMekawarsItemsERC1155__factory>;
+    getContractFactory(
+      name: "Matchmaking",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Matchmaking__factory>;
     getContractFactory(
       name: "MekaApesERC721Poly",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MekaApesERC721Poly__factory>;
     getContractFactory(
-      name: "MekawarsItemsERC721",
+      name: "MekawarsItemsERC1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MekawarsItemsERC721__factory>;
+    ): Promise<Contracts.MekawarsItemsERC1155__factory>;
     getContractFactory(
       name: "MockMekaApesERC721Poly",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MockMekaApesERC721Poly__factory>;
     getContractFactory(
-      name: "MockMekawarsItemsERC721",
+      name: "MockMekawarsItemsERC1155",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MockMekawarsItemsERC721__factory>;
+    ): Promise<Contracts.MockMekawarsItemsERC1155__factory>;
+    getContractFactory(
+      name: "MockNTPouch",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockNTPouch__factory>;
+    getContractFactory(
+      name: "IRNGConsumer",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IRNGConsumer__factory>;
+    getContractFactory(
+      name: "VRFManagerMock",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.VRFManagerMock__factory>;
+    getContractFactory(
+      name: "NTPouch",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.NTPouch__factory>;
     getContractFactory(
       name: "Errors",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Errors__factory>;
+    getContractFactory(
+      name: "VRFConsumer",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.VRFConsumer__factory>;
 
+    getContractAt(
+      name: "VRFCoordinatorV2Interface",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.VRFCoordinatorV2Interface>;
     getContractAt(
       name: "AccessControlUpgradeable",
       address: string,
@@ -112,6 +173,26 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Initializable>;
+    getContractAt(
+      name: "ERC1155Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1155Upgradeable>;
+    getContractAt(
+      name: "IERC1155MetadataURIUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1155MetadataURIUpgradeable>;
+    getContractAt(
+      name: "IERC1155ReceiverUpgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1155ReceiverUpgradeable>;
+    getContractAt(
+      name: "IERC1155Upgradeable",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1155Upgradeable>;
     getContractAt(
       name: "ERC721Upgradeable",
       address: string,
@@ -158,50 +239,95 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC165>;
     getContractAt(
-      name: "CombatLib",
+      name: "Box",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.CombatLib>;
+    ): Promise<Contracts.Box>;
     getContractAt(
       name: "Crews",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Crews>;
     getContractAt(
+      name: "IBox",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IBox>;
+    getContractAt(
+      name: "ICrews",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ICrews>;
+    getContractAt(
+      name: "IMatchmaking",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IMatchmaking>;
+    getContractAt(
       name: "IMekaApesERC721Poly",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.IMekaApesERC721Poly>;
     getContractAt(
-      name: "IMekawarsItemsERC721",
+      name: "IMekawarsItemsERC1155",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.IMekawarsItemsERC721>;
+    ): Promise<Contracts.IMekawarsItemsERC1155>;
+    getContractAt(
+      name: "Matchmaking",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Matchmaking>;
     getContractAt(
       name: "MekaApesERC721Poly",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MekaApesERC721Poly>;
     getContractAt(
-      name: "MekawarsItemsERC721",
+      name: "MekawarsItemsERC1155",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MekawarsItemsERC721>;
+    ): Promise<Contracts.MekawarsItemsERC1155>;
     getContractAt(
       name: "MockMekaApesERC721Poly",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.MockMekaApesERC721Poly>;
     getContractAt(
-      name: "MockMekawarsItemsERC721",
+      name: "MockMekawarsItemsERC1155",
       address: string,
       signer?: ethers.Signer
-    ): Promise<Contracts.MockMekawarsItemsERC721>;
+    ): Promise<Contracts.MockMekawarsItemsERC1155>;
+    getContractAt(
+      name: "MockNTPouch",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockNTPouch>;
+    getContractAt(
+      name: "IRNGConsumer",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IRNGConsumer>;
+    getContractAt(
+      name: "VRFManagerMock",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.VRFManagerMock>;
+    getContractAt(
+      name: "NTPouch",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.NTPouch>;
     getContractAt(
       name: "Errors",
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Errors>;
+    getContractAt(
+      name: "VRFConsumer",
+      address: string,
+      signer?: ethers.Signer
+    ): Promise<Contracts.VRFConsumer>;
 
     // default types
     getContractFactory(

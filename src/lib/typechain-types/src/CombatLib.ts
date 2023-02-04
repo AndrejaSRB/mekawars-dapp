@@ -21,7 +21,9 @@ import type {
   PromiseOrValue,
 } from "../common";
 
-export type MekaApeStruct = {
+export type OogaStruct = {
+  oogaType: PromiseOrValue<BigNumberish>;
+  level: PromiseOrValue<BigNumberish>;
   teamId: PromiseOrValue<BigNumberish>;
   apeId: PromiseOrValue<BigNumberish>;
   health: PromiseOrValue<BigNumberish>;
@@ -30,7 +32,9 @@ export type MekaApeStruct = {
   isDead: PromiseOrValue<boolean>;
 };
 
-export type MekaApeStructOutput = [
+export type OogaStructOutput = [
+  number,
+  number,
   BigNumber,
   BigNumber,
   BigNumber,
@@ -38,6 +42,8 @@ export type MekaApeStructOutput = [
   BigNumber,
   boolean
 ] & {
+  oogaType: number;
+  level: number;
   teamId: BigNumber;
   apeId: BigNumber;
   health: BigNumber;
@@ -48,8 +54,8 @@ export type MekaApeStructOutput = [
 
 export interface CombatLibInterface extends utils.Interface {
   functions: {
-    "calculateDamage((uint256,uint256,int256,uint256,uint256,bool),(uint256,uint256,int256,uint256,uint256,bool))": FunctionFragment;
-    "getOogaById(uint256,(uint256,uint256,int256,uint256,uint256,bool)[])": FunctionFragment;
+    "calculateDamage((uint8,uint8,uint256,uint256,int256,uint256,uint256,bool),(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool))": FunctionFragment;
+    "getOogaById(uint256,(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool)[])": FunctionFragment;
   };
 
   getFunction(
@@ -58,11 +64,11 @@ export interface CombatLibInterface extends utils.Interface {
 
   encodeFunctionData(
     functionFragment: "calculateDamage",
-    values: [MekaApeStruct, MekaApeStruct]
+    values: [OogaStruct, OogaStruct]
   ): string;
   encodeFunctionData(
     functionFragment: "getOogaById",
-    values: [PromiseOrValue<BigNumberish>, MekaApeStruct[]]
+    values: [PromiseOrValue<BigNumberish>, OogaStruct[]]
   ): string;
 
   decodeFunctionResult(
@@ -105,70 +111,70 @@ export interface CombatLib extends BaseContract {
 
   functions: {
     calculateDamage(
-      attacker: MekaApeStruct,
-      defender: MekaApeStruct,
+      attacker: OogaStruct,
+      defender: OogaStruct,
       overrides?: CallOverrides
     ): Promise<[BigNumber]>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
-      oogas: MekaApeStruct[],
+      oogas: OogaStruct[],
       overrides?: CallOverrides
-    ): Promise<[MekaApeStructOutput]>;
+    ): Promise<[OogaStructOutput]>;
   };
 
   calculateDamage(
-    attacker: MekaApeStruct,
-    defender: MekaApeStruct,
+    attacker: OogaStruct,
+    defender: OogaStruct,
     overrides?: CallOverrides
   ): Promise<BigNumber>;
 
   getOogaById(
     id: PromiseOrValue<BigNumberish>,
-    oogas: MekaApeStruct[],
+    oogas: OogaStruct[],
     overrides?: CallOverrides
-  ): Promise<MekaApeStructOutput>;
+  ): Promise<OogaStructOutput>;
 
   callStatic: {
     calculateDamage(
-      attacker: MekaApeStruct,
-      defender: MekaApeStruct,
+      attacker: OogaStruct,
+      defender: OogaStruct,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
-      oogas: MekaApeStruct[],
+      oogas: OogaStruct[],
       overrides?: CallOverrides
-    ): Promise<MekaApeStructOutput>;
+    ): Promise<OogaStructOutput>;
   };
 
   filters: {};
 
   estimateGas: {
     calculateDamage(
-      attacker: MekaApeStruct,
-      defender: MekaApeStruct,
+      attacker: OogaStruct,
+      defender: OogaStruct,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
-      oogas: MekaApeStruct[],
+      oogas: OogaStruct[],
       overrides?: CallOverrides
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     calculateDamage(
-      attacker: MekaApeStruct,
-      defender: MekaApeStruct,
+      attacker: OogaStruct,
+      defender: OogaStruct,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
-      oogas: MekaApeStruct[],
+      oogas: OogaStruct[],
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
   };

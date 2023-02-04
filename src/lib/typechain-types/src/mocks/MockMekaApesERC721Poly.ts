@@ -30,11 +30,15 @@ import type {
 export type OogaStruct = {
   oogaType: PromiseOrValue<BigNumberish>;
   level: PromiseOrValue<BigNumberish>;
+  health: PromiseOrValue<BigNumberish>;
+  attack: PromiseOrValue<BigNumberish>;
 };
 
-export type OogaStructOutput = [number, number] & {
+export type OogaStructOutput = [number, number, BigNumber, BigNumber] & {
   oogaType: number;
   level: number;
+  health: BigNumber;
+  attack: BigNumber;
 };
 
 export interface MockMekaApesERC721PolyInterface extends utils.Interface {
@@ -43,14 +47,16 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
+    "getOogaHealthAndAttack(uint256)": FunctionFragment;
     "getOogaType(uint256)": FunctionFragment;
+    "getOogaTypeAndLevel(uint256)": FunctionFragment;
     "getRoleAdmin(bytes32)": FunctionFragment;
     "grantRole(bytes32,address)": FunctionFragment;
     "hasRole(bytes32,address)": FunctionFragment;
     "initialize()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "lastOogaId()": FunctionFragment;
-    "mockMint(address,(uint8,uint8))": FunctionFragment;
+    "mockMint(address,(uint8,uint8,uint256,uint256))": FunctionFragment;
     "name()": FunctionFragment;
     "oogas(uint256)": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
@@ -71,7 +77,9 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
       | "approve"
       | "balanceOf"
       | "getApproved"
+      | "getOogaHealthAndAttack"
       | "getOogaType"
+      | "getOogaTypeAndLevel"
       | "getRoleAdmin"
       | "grantRole"
       | "hasRole"
@@ -110,7 +118,15 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
+    functionFragment: "getOogaHealthAndAttack",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
     functionFragment: "getOogaType",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getOogaTypeAndLevel",
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
@@ -208,7 +224,15 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "getOogaHealthAndAttack",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getOogaType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getOogaTypeAndLevel",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -262,6 +286,7 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
     "RoleAdminChanged(bytes32,bytes32,bytes32)": EventFragment;
     "RoleGranted(bytes32,address,address)": EventFragment;
     "RoleRevoked(bytes32,address,address)": EventFragment;
+    "SetOogaAttributes(uint256,tuple)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
   };
 
@@ -271,6 +296,7 @@ export interface MockMekaApesERC721PolyInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "SetOogaAttributes"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
 }
 
@@ -342,6 +368,18 @@ export type RoleRevokedEvent = TypedEvent<
 
 export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
+export interface SetOogaAttributesEventObject {
+  oogaId: BigNumber;
+  ooga: OogaStructOutput;
+}
+export type SetOogaAttributesEvent = TypedEvent<
+  [BigNumber, OogaStructOutput],
+  SetOogaAttributesEventObject
+>;
+
+export type SetOogaAttributesEventFilter =
+  TypedEventFilter<SetOogaAttributesEvent>;
+
 export interface TransferEventObject {
   from: string;
   to: string;
@@ -399,10 +437,20 @@ export interface MockMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber]>;
+
     getOogaType(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<[number]>;
+
+    getOogaTypeAndLevel(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[number, BigNumber]>;
 
     getRoleAdmin(
       role: PromiseOrValue<BytesLike>,
@@ -444,7 +492,14 @@ export interface MockMekaApesERC721Poly extends BaseContract {
     oogas(
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
-    ): Promise<[number, number] & { oogaType: number; level: number }>;
+    ): Promise<
+      [number, number, BigNumber, BigNumber] & {
+        oogaType: number;
+        level: number;
+        health: BigNumber;
+        attack: BigNumber;
+      }
+    >;
 
     ownerOf(
       tokenId: PromiseOrValue<BigNumberish>,
@@ -522,10 +577,20 @@ export interface MockMekaApesERC721Poly extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  getOogaHealthAndAttack(
+    oogaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<[BigNumber, BigNumber]>;
+
   getOogaType(
     oogaId: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
   ): Promise<number>;
+
+  getOogaTypeAndLevel(
+    oogaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<[number, BigNumber]>;
 
   getRoleAdmin(
     role: PromiseOrValue<BytesLike>,
@@ -567,7 +632,14 @@ export interface MockMekaApesERC721Poly extends BaseContract {
   oogas(
     arg0: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
-  ): Promise<[number, number] & { oogaType: number; level: number }>;
+  ): Promise<
+    [number, number, BigNumber, BigNumber] & {
+      oogaType: number;
+      level: number;
+      health: BigNumber;
+      attack: BigNumber;
+    }
+  >;
 
   ownerOf(
     tokenId: PromiseOrValue<BigNumberish>,
@@ -645,10 +717,20 @@ export interface MockMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber]>;
+
     getOogaType(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<number>;
+
+    getOogaTypeAndLevel(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[number, BigNumber]>;
 
     getRoleAdmin(
       role: PromiseOrValue<BytesLike>,
@@ -688,7 +770,14 @@ export interface MockMekaApesERC721Poly extends BaseContract {
     oogas(
       arg0: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
-    ): Promise<[number, number] & { oogaType: number; level: number }>;
+    ): Promise<
+      [number, number, BigNumber, BigNumber] & {
+        oogaType: number;
+        level: number;
+        health: BigNumber;
+        attack: BigNumber;
+      }
+    >;
 
     ownerOf(
       tokenId: PromiseOrValue<BigNumberish>,
@@ -807,6 +896,15 @@ export interface MockMekaApesERC721Poly extends BaseContract {
       sender?: PromiseOrValue<string> | null
     ): RoleRevokedEventFilter;
 
+    "SetOogaAttributes(uint256,tuple)"(
+      oogaId?: PromiseOrValue<BigNumberish> | null,
+      ooga?: null
+    ): SetOogaAttributesEventFilter;
+    SetOogaAttributes(
+      oogaId?: PromiseOrValue<BigNumberish> | null,
+      ooga?: null
+    ): SetOogaAttributesEventFilter;
+
     "Transfer(address,address,uint256)"(
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
@@ -838,7 +936,17 @@ export interface MockMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getOogaType(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getOogaTypeAndLevel(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -964,7 +1072,17 @@ export interface MockMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getOogaType(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getOogaTypeAndLevel(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

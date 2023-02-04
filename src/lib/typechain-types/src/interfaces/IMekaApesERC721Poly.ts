@@ -32,7 +32,9 @@ export interface IMekaApesERC721PolyInterface extends utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
+    "getOogaHealthAndAttack(uint256)": FunctionFragment;
     "getOogaType(uint256)": FunctionFragment;
+    "getOogaTypeAndLevel(uint256)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
@@ -47,7 +49,9 @@ export interface IMekaApesERC721PolyInterface extends utils.Interface {
       | "approve"
       | "balanceOf"
       | "getApproved"
+      | "getOogaHealthAndAttack"
       | "getOogaType"
+      | "getOogaTypeAndLevel"
       | "isApprovedForAll"
       | "ownerOf"
       | "safeTransferFrom(address,address,uint256)"
@@ -70,7 +74,15 @@ export interface IMekaApesERC721PolyInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
+    functionFragment: "getOogaHealthAndAttack",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
     functionFragment: "getOogaType",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getOogaTypeAndLevel",
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
@@ -122,7 +134,15 @@ export interface IMekaApesERC721PolyInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
+    functionFragment: "getOogaHealthAndAttack",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getOogaType",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getOogaTypeAndLevel",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -241,10 +261,20 @@ export interface IMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string] & { operator: string }>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber]>;
+
     getOogaType(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<[number]>;
+
+    getOogaTypeAndLevel(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[number, BigNumber]>;
 
     isApprovedForAll(
       owner: PromiseOrValue<string>,
@@ -307,10 +337,20 @@ export interface IMekaApesERC721Poly extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  getOogaHealthAndAttack(
+    oogaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<[BigNumber, BigNumber]>;
+
   getOogaType(
     oogaId: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
   ): Promise<number>;
+
+  getOogaTypeAndLevel(
+    oogaId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<[number, BigNumber]>;
 
   isApprovedForAll(
     owner: PromiseOrValue<string>,
@@ -373,10 +413,20 @@ export interface IMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[BigNumber, BigNumber]>;
+
     getOogaType(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<number>;
+
+    getOogaTypeAndLevel(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<[number, BigNumber]>;
 
     isApprovedForAll(
       owner: PromiseOrValue<string>,
@@ -475,7 +525,17 @@ export interface IMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getOogaType(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getOogaTypeAndLevel(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -542,7 +602,17 @@ export interface IMekaApesERC721Poly extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getOogaHealthAndAttack(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getOogaType(
+      oogaId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getOogaTypeAndLevel(
       oogaId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
