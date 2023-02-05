@@ -1,0 +1,6 @@
+query GetNTPouches {
+  ntpouches {
+    id
+    amount
+  }
+}

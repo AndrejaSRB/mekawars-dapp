@@ -1,5 +1,5 @@
 import { Flex, Text } from "@chakra-ui/react";
-import { FC } from "react";
+import type { FC } from "react";
 
 interface SwitchNetworkProps {
   chainId: number;
@@ -19,7 +19,8 @@ const SwitchNetwork: FC<SwitchNetworkProps> = ({ chainId }) => {
           fontWeight={600}
           borderRadius={8}
           my={4}
-          fontSize="sm">
+          fontSize="sm"
+        >
           <Text>
             Your wallet is connected to the {chainId} network. To use MekaWars
             switch network to Polygon Mumbai.

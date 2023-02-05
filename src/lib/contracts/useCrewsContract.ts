@@ -1,5 +1,6 @@
 import { useWeb3Context } from "../../context";
-import { Crews, Crews__factory } from "../typechain-types";
+import type { Crews } from "../typechain-types";
+import { Crews__factory } from "../typechain-types";
 import { useState, useEffect } from "react";
 
 const useCrewsContract = () => {

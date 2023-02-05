@@ -1,8 +1,6 @@
 import { useWeb3Context } from "../../context";
-import {
-  MockMekaApesERC721Poly__factory,
-  MockMekaApesERC721Poly,
-} from "../typechain-types";
+import type { MockMekaApesERC721Poly } from "../typechain-types";
+import { MockMekaApesERC721Poly__factory } from "../typechain-types";
 import { useEffect, useState } from "react";
 
 const useMockMekaApesERC = () => {

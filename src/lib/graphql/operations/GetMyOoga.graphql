@@ -1,0 +1,18 @@
+query GetMyOogas($address: String!) {
+  oogas(where: { owner: $address }) {
+    id
+    level
+    oogaType
+    health
+    inCrew {
+      id
+      active
+      boxSlots
+      durability
+      firstTeam
+      mekaLeader
+      owner
+      rating
+    }
+  }
+}

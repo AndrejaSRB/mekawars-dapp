@@ -1,5 +1,6 @@
-import { Button, ButtonProps } from "@chakra-ui/react";
-import { FC } from "react";
+import type { ButtonProps } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
+import type { FC } from "react";
 
 const CustomButton: FC<ButtonProps> = (props) => (
   <Button

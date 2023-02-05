@@ -1,5 +1,6 @@
 import { useWeb3Context } from "../../context";
-import { MockNTPouch, MockNTPouch__factory } from "../typechain-types";
+import type { MockNTPouch } from "../typechain-types";
+import { MockNTPouch__factory } from "../typechain-types";
 import { useEffect, useState } from "react";
 
 const useMockNTPouchContract = () => {

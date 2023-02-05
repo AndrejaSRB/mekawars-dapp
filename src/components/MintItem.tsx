@@ -1,9 +1,7 @@
 import { useWeb3Context } from "../context";
-import useMockMekaApesERC from "../lib/contracts/useMockMekaApesERC721";
 import useMockMekaWarsERC1155Items from "../lib/contracts/useMockMekaWarsERC1155Items";
-import OogaType from "../types/OogaType";
+import { useGetItemListQuery } from "../lib/graphql/operations/GetItemList.generated";
 import CustomButton from "./CustomButton";
-import CustomNumberField from "./CustomNumberField";
 import {
   Box,
   Flex,
@@ -11,14 +9,17 @@ import {
   GridItem,
   Heading,
   Input,
-  Select,
   Text,
 } from "@chakra-ui/react";
-import { ChangeEvent, FC, useState } from "react";
+import type { ChangeEvent, FC } from "react";
+import { useState } from "react";
 
 const MintItem: FC = () => {
   const [itemId, setItemId] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const { address } = useWeb3Context();
+
+  const { refetch } = useGetItemListQuery();
 
   const { contract } = useMockMekaWarsERC1155Items();
 
@@ -29,8 +30,18 @@ const MintItem: FC = () => {
   const handleClickMint = async () => {
     if (address && contract && itemId) {
       const tsx = await contract.mockMint(address, itemId);
-      await tsx.wait();
-      // RERETACH
+      setLoading(true);
+      tsx
+        .wait()
+        .then(async () => {
+          setLoading(false);
+
+          await refetch();
+        })
+        .finally(() => {
+          setLoading(false);
+          setItemId("");
+        });
     }
   };
 
@@ -46,7 +57,7 @@ const MintItem: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint}>
+      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
         Mint item
       </CustomButton>
     </Box>

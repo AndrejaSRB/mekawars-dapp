@@ -1,5 +1,6 @@
 import { useWeb3Context } from "../context";
 import useMockNTPouchContract from "../lib/contracts/useMockNTPouchContract";
+import { useGetNtPouchesQuery } from "../lib/graphql/operations/GetNTPouches.generated";
 import CustomButton from "./CustomButton";
 import CustomNumberField from "./CustomNumberField";
 import {
@@ -9,15 +10,17 @@ import {
   GridItem,
   Heading,
   Input,
-  Select,
   Text,
 } from "@chakra-ui/react";
-import { ChangeEvent, FC, useState } from "react";
+import type { ChangeEvent, FC } from "react";
+import { useState } from "react";
 
 const MintNTPouch: FC = () => {
   const [amount, setAmount] = useState<number>(1);
   const [pouchId, setPouchID] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const { address } = useWeb3Context();
+  const { refetch } = useGetNtPouchesQuery();
 
   const { contract } = useMockNTPouchContract();
 
@@ -32,8 +35,19 @@ const MintNTPouch: FC = () => {
     if (address && contract && pouchId) {
       const tsx = await contract.mockMint(address, pouchId, amount);
 
-      await tsx.wait();
-      // RERETACH
+      setLoading(true);
+      tsx
+        .wait()
+        .then(async () => {
+          setLoading(false);
+          await refetch();
+        })
+        .finally(() => {
+          setLoading(false);
+
+          setPouchID("");
+          setAmount(1);
+        });
     }
   };
 
@@ -48,7 +62,8 @@ const MintNTPouch: FC = () => {
         templateColumns={{
           base: "repeat(1, 1fr)",
           md: "repeat(2, 1fr)",
-        }}>
+        }}
+      >
         <GridItem as={Flex} flexDir="column">
           <Text mb={1}>Amount:</Text>
 
@@ -68,7 +83,7 @@ const MintNTPouch: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint}>
+      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
         Mint NTPouch
       </CustomButton>
     </Box>

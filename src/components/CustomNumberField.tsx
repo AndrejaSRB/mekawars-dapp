@@ -5,7 +5,7 @@ import {
   NumberInputField,
   NumberInputStepper,
 } from "@chakra-ui/react";
-import { FC } from "react";
+import type { FC } from "react";
 
 interface CustomNumberFieldProps {
   defaultValue: number;
@@ -27,7 +27,8 @@ const CustomNumberField: FC<CustomNumberFieldProps> = ({
     min={min}
     max={max}
     value={value}
-    onChange={onChange}>
+    onChange={onChange}
+  >
     <NumberInputField />
     <NumberInputStepper>
       <NumberIncrementStepper />

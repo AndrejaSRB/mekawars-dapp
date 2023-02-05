@@ -1,10 +1,10 @@
-import MintItem from "../components/MintItem";
-import MintNTPouch from "../components/MintNTPouch";
-import MintOoga from "../components/MintOoga";
 import Navigation from "../components/Navigation";
 import SwitchNetwork from "../components/SwitchNetwork";
 import { useWeb3Context } from "../context";
-import { Box, Grid, Text } from "@chakra-ui/react";
+import ConnectYourWallet from "./components/ConnectYourWallet";
+import MyCrews from "./components/MyCrews";
+import MyOogas from "./components/MyOogas";
+import { Box, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
@@ -18,19 +18,14 @@ const Home: NextPage = () => {
 
       {address && <Text>Address: {address}</Text>}
 
-      {!!address && (
+      {address ? (
         <>
-          <Grid
-            gap={4}
-            templateColumns={{
-              base: "repeat(1, 1fr)",
-              md: "repeat(2, 1fr)",
-            }}>
-            <MintOoga />
-            <MintItem />
-            <MintNTPouch />
-          </Grid>
+          <MyCrews />
+
+          <MyOogas />
         </>
+      ) : (
+        <ConnectYourWallet />
       )}
     </Box>
   );

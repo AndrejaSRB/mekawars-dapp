@@ -1,9 +1,5 @@
-import {
-  Web3ProviderState,
-  Web3Action,
-  web3InitialState,
-  web3Reducer,
-} from "../reducers";
+import type { Web3ProviderState, Web3Action } from "../reducers";
+import { web3InitialState, web3Reducer } from "../reducers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import { ethers } from "ethers";
 import { useEffect, useReducer, useCallback } from "react";

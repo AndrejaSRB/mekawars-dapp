@@ -1,0 +1,11 @@
+query GetItemList {
+  items {
+    id
+    itemType
+    attack
+    health
+    season
+    level
+    abilities
+  }
+}

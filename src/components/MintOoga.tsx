@@ -1,6 +1,7 @@
 import { useWeb3Context } from "../context";
 import useMockMekaApesERC from "../lib/contracts/useMockMekaApesERC721";
-import OogaType from "../types/OogaType";
+import { useGetMyOogasLazyQuery } from "../lib/graphql/operations/GetMyOoga.generated";
+import type OogaType from "../types/OogaType";
 import CustomButton from "./CustomButton";
 import CustomNumberField from "./CustomNumberField";
 import {
@@ -12,14 +13,17 @@ import {
   Select,
   Text,
 } from "@chakra-ui/react";
-import { ChangeEvent, FC, useState } from "react";
+import type { ChangeEvent, FC } from "react";
+import { useState } from "react";
 
 const MintOoga: FC = () => {
   const [oogaType, setOogaType] = useState<OogaType>(0);
   const [level, setLevel] = useState<number>(1);
   const [health, setHealth] = useState<number>(1);
   const [attack, setAttack] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
   const { address } = useWeb3Context();
+  const [getMyOogas] = useGetMyOogasLazyQuery();
 
   const { contract } = useMockMekaApesERC();
 
@@ -48,8 +52,25 @@ const MintOoga: FC = () => {
         attack,
       });
 
-      await tsx.wait();
-      // RERETACH
+      setLoading(true);
+      tsx
+        .wait()
+        .then(async () => {
+          setLoading(false);
+
+          await getMyOogas({
+            variables: {
+              address,
+            },
+          });
+        })
+        .finally(() => {
+          setLoading(false);
+
+          setLevel(1);
+          setHealth(1);
+          setAttack(1);
+        });
     }
   };
 
@@ -64,14 +85,16 @@ const MintOoga: FC = () => {
         templateColumns={{
           base: "repeat(1, 1fr)",
           md: "repeat(2, 1fr)",
-        }}>
+        }}
+      >
         <GridItem as={Flex} flexDir="column">
           <Text mb={1}>Ooga Type:</Text>
 
           <Select
             placeholder="Pick Ooga Type"
             value={oogaType}
-            onChange={handleChangeOogaType}>
+            onChange={handleChangeOogaType}
+          >
             <option value={0}>Genesis</option>
             <option value={1}>Baby Ooga</option>
             <option value={2}>Robo Ooga</option>
@@ -116,7 +139,7 @@ const MintOoga: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint}>
+      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
         Mint Ooga
       </CustomButton>
     </Box>

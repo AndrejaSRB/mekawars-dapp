@@ -1,8 +1,6 @@
 import { useWeb3Context } from "../../context";
-import {
-  MockMekawarsItemsERC1155__factory,
-  MockMekawarsItemsERC1155,
-} from "../typechain-types";
+import type { MockMekawarsItemsERC1155 } from "../typechain-types";
+import { MockMekawarsItemsERC1155__factory } from "../typechain-types";
 import { useEffect, useState } from "react";
 
 const useMockMekaWarsERC1155Items = () => {

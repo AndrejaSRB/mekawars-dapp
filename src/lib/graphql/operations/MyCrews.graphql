@@ -1,0 +1,12 @@
+query MyCrews($address: String!) {
+  crews(where: { owner: $address }) {
+    id
+    owner
+    active
+    boxSlots
+    durability
+    firstTeam
+    mekaLeader
+    rating
+  }
+}
