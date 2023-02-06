@@ -3,13 +3,12 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
 import type {
   IMekawarsItemsERC1155,
   IMekawarsItemsERC1155Interface,
 } from "../../../src/interfaces/IMekawarsItemsERC1155";
+import type { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from "ethers";
 
 const _abi = [
   {

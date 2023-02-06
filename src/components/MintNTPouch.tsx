@@ -1,23 +1,15 @@
-import { useWeb3Context } from "../context";
-import useMockNTPouchContract from "../lib/contracts/useMockNTPouchContract";
-import { useGetNtPouchesQuery } from "../lib/graphql/operations/GetNTPouches.generated";
-import CustomButton from "./CustomButton";
-import CustomNumberField from "./CustomNumberField";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Input,
-  Text,
-} from "@chakra-ui/react";
-import type { ChangeEvent, FC } from "react";
-import { useState } from "react";
+import type { ChangeEvent, FC } from 'react';
+import { useState } from 'react';
+import { Box, Flex, Grid, GridItem, Heading, Input, Text } from '@chakra-ui/react';
+import { useWeb3Context } from '../context';
+import useMockNTPouchContract from '../lib/contracts/useMockNTPouchContract';
+import { useGetNtPouchesQuery } from '../lib/graphql/operations/GetNTPouches.generated';
+import CustomButton from './CustomButton';
+import CustomNumberField from './CustomNumberField';
 
 const MintNTPouch: FC = () => {
   const [amount, setAmount] = useState<number>(1);
-  const [pouchId, setPouchID] = useState<string>("");
+  const [pouchId, setPouchID] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const { address } = useWeb3Context();
   const { refetch } = useGetNtPouchesQuery();
@@ -33,7 +25,7 @@ const MintNTPouch: FC = () => {
   };
   const handleClickMint = async () => {
     if (address && contract && pouchId) {
-      const tsx = await contract.mockMint(address, pouchId, amount);
+      const tsx = await contract.mockMint(address, +pouchId, +amount);
 
       setLoading(true);
       tsx
@@ -45,7 +37,7 @@ const MintNTPouch: FC = () => {
         .finally(() => {
           setLoading(false);
 
-          setPouchID("");
+          setPouchID('');
           setAmount(1);
         });
     }
@@ -60,20 +52,14 @@ const MintNTPouch: FC = () => {
         gap={4}
         mt={4}
         templateColumns={{
-          base: "repeat(1, 1fr)",
-          md: "repeat(2, 1fr)",
+          base: 'repeat(1, 1fr)',
+          md: 'repeat(2, 1fr)',
         }}
       >
         <GridItem as={Flex} flexDir="column">
           <Text mb={1}>Amount:</Text>
 
-          <CustomNumberField
-            defaultValue={1}
-            min={1}
-            max={100}
-            onChange={handleChangeAmount}
-            value={amount}
-          />
+          <CustomNumberField defaultValue={1} min={1} max={100} onChange={handleChangeAmount} value={amount} />
         </GridItem>
 
         <GridItem as={Flex} flexDir="column">
@@ -83,7 +69,7 @@ const MintNTPouch: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
+      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading} w="100%">
         Mint NTPouch
       </CustomButton>
     </Box>

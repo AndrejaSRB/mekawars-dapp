@@ -1,0 +1,33 @@
+query GetUser($address: String!) {
+  user(id: $address) {
+    id
+    itemAmounts {
+      id
+      amount
+      item {
+        id
+        abilities
+        attack
+        health
+        itemType
+        level
+        season
+      }
+    }
+    notStakedOogas {
+      id
+      oogaType
+      level
+      health
+    }
+    ntPouchAmounts {
+      id
+      amount
+      ntPouch {
+        id
+        active
+        amount
+      }
+    }
+  }
+}

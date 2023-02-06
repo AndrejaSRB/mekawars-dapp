@@ -1,0 +1,36 @@
+query GetMyCrew($crewId: String!) {
+  crew(id: $crewId) {
+    id
+    mekaLeader {
+      id
+    }
+    rating
+    level
+    durability
+    ntAmount
+    oogasInCrew {
+      id
+      oogaType
+    }
+    firstTeam {
+      oogaType
+      id
+      orderIndexInFirstTeam
+    }
+    inventory {
+      id
+      active
+      index
+      charge
+      attributes {
+        attack
+        health
+        id
+        abilities
+        itemType
+        level
+        season
+      }
+    }
+  }
+}

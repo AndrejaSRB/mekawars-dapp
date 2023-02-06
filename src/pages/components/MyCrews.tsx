@@ -1,21 +1,22 @@
-import { useWeb3Context } from "../../context";
-import { useMyCrewsLazyQuery } from "../../lib/graphql/operations/MyCrews.generated";
-import type { Crew } from "../../lib/graphql/types";
-import { Heading, Grid, Box, Text, GridItem } from "@chakra-ui/react";
-import type { FC } from "react";
-import { useCallback, useEffect } from "react";
+import type { FC } from 'react';
+import { useCallback, useEffect } from 'react';
+import { Heading, Grid, Box, Text, GridItem, Flex } from '@chakra-ui/react';
+import { useWeb3Context } from '../../context';
+import { useMyCrewsLazyQuery } from '../../lib/graphql/operations/MyCrews.generated';
+import type { Crew } from '../../lib/graphql/types';
+import CrewItem from './CrewItem';
+
+export type SmallCrew = 'id' | 'mekaLeader' | 'durability' | 'active' | 'rating';
 
 const MyCrews: FC = () => {
   const { address } = useWeb3Context();
-  const [getMyCrews, { data: myCrews }] = useMyCrewsLazyQuery();
+  const [getMyCrews, { data: myCrews }] = useMyCrewsLazyQuery({
+    fetchPolicy: 'no-cache',
+  });
 
   const renderMyCrews = useCallback(
-    (crew: Crew | undefined) => (
-      <GridItem>
-        <Text key={crew?.id}>Crew: {crew?.id}</Text>
-      </GridItem>
-    ),
-    []
+    (crew: Pick<Crew, SmallCrew> | undefined) => <CrewItem key={crew?.id} crew={crew} />,
+    [],
   );
 
   useEffect(() => {
@@ -35,9 +36,9 @@ const MyCrews: FC = () => {
         mt={4}
         gap={3}
         templateColumns={{
-          base: "repeat(3, 1fr)",
-          md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)",
+          base: 'repeat(3, 1fr)',
+          md: 'repeat(3, 1fr)',
+          lg: 'repeat(4, 1fr)',
         }}
       >
         {myCrews?.crews && myCrews?.crews?.length > 0 ? (

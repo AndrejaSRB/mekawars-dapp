@@ -3,13 +3,12 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
 import type {
   ERC165Upgradeable,
   ERC165UpgradeableInterface,
 } from "../../../../../../lib/openzeppelin-contracts-upgradeable/contracts/utils/introspection/ERC165Upgradeable";
+import type { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from "ethers";
 
 const _abi = [
   {

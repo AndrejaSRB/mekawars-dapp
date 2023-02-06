@@ -1,54 +1,36 @@
-import type * as Types from "../types";
-import { gql } from "@apollo/client";
-import * as Apollo from "@apollo/client";
+import * as Types from '../types';
 
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type GetMyOogasQueryVariables = Types.Exact<{
-  address: Types.Scalars["String"];
+  address: Types.Scalars['String'];
 }>;
 
-export type GetMyOogasQuery = {
-  __typename?: "Query";
-  oogas: Array<{
-    __typename?: "Ooga";
-    id: string;
-    level?: number | null;
-    oogaType?: number | null;
-    health?: string | null;
-    inCrew?: {
-      __typename?: "Crew";
-      id: string;
-      active: boolean;
-      boxSlots: Array<BoxSlot>;
-      durability: string;
-      firstTeam: Array<Ooga>;
-      mekaLeader: Ooga;
-      owner: User;
-      rating: string;
-    } | null;
-  }>;
-};
+
+export type GetMyOogasQuery = { __typename?: 'Query', oogas: Array<{ __typename?: 'Ooga', id: string, level?: number | null, oogaType?: number | null, health?: string | null, inCrew?: { __typename?: 'Crew', id: string, active: boolean, boxSlots: Array<BoxSlot>, durability: string, firstTeam: Array<Ooga>, mekaLeader: Ooga, owner: User, rating: string } | null }> };
+
 
 export const GetMyOogasDocument = gql`
-  query GetMyOogas($address: String!) {
-    oogas(where: { owner: $address }) {
+    query GetMyOogas($address: String!) {
+  oogas(where: {owner: $address}) {
+    id
+    level
+    oogaType
+    health
+    inCrew {
       id
-      level
-      oogaType
-      health
-      inCrew {
-        id
-        active
-        boxSlots
-        durability
-        firstTeam
-        mekaLeader
-        owner
-        rating
-      }
+      active
+      boxSlots
+      durability
+      firstTeam
+      mekaLeader
+      owner
+      rating
     }
   }
-`;
+}
+    `;
 
 /**
  * __useGetMyOogasQuery__
@@ -66,35 +48,14 @@ export const GetMyOogasDocument = gql`
  *   },
  * });
  */
-export function useGetMyOogasQuery(
-  baseOptions: Apollo.QueryHookOptions<
-    GetMyOogasQuery,
-    GetMyOogasQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetMyOogasQuery, GetMyOogasQueryVariables>(
-    GetMyOogasDocument,
-    options
-  );
-}
-export function useGetMyOogasLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    GetMyOogasQuery,
-    GetMyOogasQueryVariables
-  >
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetMyOogasQuery, GetMyOogasQueryVariables>(
-    GetMyOogasDocument,
-    options
-  );
-}
+export function useGetMyOogasQuery(baseOptions: Apollo.QueryHookOptions<GetMyOogasQuery, GetMyOogasQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetMyOogasQuery, GetMyOogasQueryVariables>(GetMyOogasDocument, options);
+      }
+export function useGetMyOogasLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetMyOogasQuery, GetMyOogasQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetMyOogasQuery, GetMyOogasQueryVariables>(GetMyOogasDocument, options);
+        }
 export type GetMyOogasQueryHookResult = ReturnType<typeof useGetMyOogasQuery>;
-export type GetMyOogasLazyQueryHookResult = ReturnType<
-  typeof useGetMyOogasLazyQuery
->;
-export type GetMyOogasQueryResult = Apollo.QueryResult<
-  GetMyOogasQuery,
-  GetMyOogasQueryVariables
->;
+export type GetMyOogasLazyQueryHookResult = ReturnType<typeof useGetMyOogasLazyQuery>;
+export type GetMyOogasQueryResult = Apollo.QueryResult<GetMyOogasQuery, GetMyOogasQueryVariables>;

@@ -139,7 +139,12 @@ const MintOoga: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
+      <CustomButton
+        mt={4}
+        onClick={handleClickMint}
+        isLoading={loading}
+        w="100%"
+      >
         Mint Ooga
       </CustomButton>
     </Box>

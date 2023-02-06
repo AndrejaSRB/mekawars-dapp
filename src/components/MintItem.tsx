@@ -1,21 +1,13 @@
-import { useWeb3Context } from "../context";
-import useMockMekaWarsERC1155Items from "../lib/contracts/useMockMekaWarsERC1155Items";
-import { useGetItemListQuery } from "../lib/graphql/operations/GetItemList.generated";
-import CustomButton from "./CustomButton";
-import {
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Input,
-  Text,
-} from "@chakra-ui/react";
-import type { ChangeEvent, FC } from "react";
-import { useState } from "react";
+import type { ChangeEvent, FC } from 'react';
+import { useState } from 'react';
+import { Box, Flex, Grid, GridItem, Heading, Input, Text } from '@chakra-ui/react';
+import { useWeb3Context } from '../context';
+import useMockMekaWarsERC1155Items from '../lib/contracts/useMockMekaWarsERC1155Items';
+import { useGetItemListQuery } from '../lib/graphql/operations/GetItemList.generated';
+import CustomButton from './CustomButton';
 
 const MintItem: FC = () => {
-  const [itemId, setItemId] = useState<string>("");
+  const [itemId, setItemId] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const { address } = useWeb3Context();
 
@@ -29,7 +21,7 @@ const MintItem: FC = () => {
 
   const handleClickMint = async () => {
     if (address && contract && itemId) {
-      const tsx = await contract.mockMint(address, itemId);
+      const tsx = await contract.mockMint(address, +itemId);
       setLoading(true);
       tsx
         .wait()
@@ -40,7 +32,7 @@ const MintItem: FC = () => {
         })
         .finally(() => {
           setLoading(false);
-          setItemId("");
+          setItemId('');
         });
     }
   };
@@ -57,7 +49,7 @@ const MintItem: FC = () => {
         </GridItem>
       </Grid>
 
-      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading}>
+      <CustomButton mt={4} onClick={handleClickMint} isLoading={loading} w="100%">
         Mint item
       </CustomButton>
     </Box>

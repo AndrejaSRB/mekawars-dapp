@@ -3,13 +3,12 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
 import type {
   IERC1155MetadataURIUpgradeable,
   IERC1155MetadataURIUpgradeableInterface,
 } from "../../../../../../../lib/openzeppelin-contracts-upgradeable/contracts/token/ERC1155/extensions/IERC1155MetadataURIUpgradeable";
+import type { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from "ethers";
 
 const _abi = [
   {

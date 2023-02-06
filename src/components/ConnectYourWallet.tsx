@@ -8,11 +8,12 @@ const ConnectYourWallet: FC = () => (
     bg="orange.300"
     py={2}
     px={8}
-    color="#121212"
+    color="primaryBlack.100"
     fontWeight={600}
     borderRadius={8}
     my={4}
-    fontSize="sm">
+    fontSize="sm"
+  >
     <Text>Connect your wallet.</Text>
   </Flex>
 );

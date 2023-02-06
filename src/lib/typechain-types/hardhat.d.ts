@@ -3,14 +3,12 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { ethers } from "ethers";
+import * as Contracts from ".";
 import {
   FactoryOptions,
   HardhatEthersHelpers as HardhatEthersHelpersBase,
 } from "@nomiclabs/hardhat-ethers/types";
-
-import * as Contracts from ".";
+import { ethers } from "ethers";
 
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {

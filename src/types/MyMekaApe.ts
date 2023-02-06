@@ -1,4 +1,4 @@
-type MyOoga = {
+type MyMekaApe = {
   id: string;
   level?: number | null | undefined;
   oogaType?: number | null | undefined;
@@ -11,4 +11,4 @@ type MyOoga = {
     | undefined;
 };
 
-export default MyOoga;
+export default MyMekaApe;

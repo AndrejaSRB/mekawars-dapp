@@ -1,46 +1,29 @@
-import { useWeb3Context } from "../../context";
-import { useGetMyOogasLazyQuery } from "../../lib/graphql/operations/GetMyOoga.generated";
-import type { Ooga } from "../../lib/graphql/types";
-import OogaItem from "./OogaItem";
-import { Heading, Grid, Box } from "@chakra-ui/react";
-import type { FC } from "react";
-import { useCallback, useEffect } from "react";
+import { FC, useCallback } from 'react';
+import { Heading, Grid, Box } from '@chakra-ui/react';
+import { Ooga, User } from '../../lib/graphql/types';
+import OogaItem from './OogaItem';
 
-const MyOogas: FC = () => {
-  const { address } = useWeb3Context();
-  const [getMyOogas, { data: myOogas }] = useGetMyOogasLazyQuery();
-
+interface MyOogasProps {
+  oogas: Pick<User, 'notStakedOogas'> | undefined | null;
+}
+const MyOogas: FC<MyOogasProps> = ({ oogas }) => {
   const renderMyOogas = useCallback((ooga: Ooga) => {
-    if (ooga?.oogaType === 3 && !ooga?.inCrew) {
-      return <OogaItem ooga={ooga} key={ooga?.id} />;
-    } else {
-      return null;
-    }
+    return <OogaItem key={ooga?.id} ooga={ooga} />;
   }, []);
-
-  useEffect(() => {
-    if (address) {
-      getMyOogas({
-        variables: {
-          address,
-        },
-      });
-    }
-  }, [address, getMyOogas]);
 
   return (
     <Box mt={4}>
-      <Heading>My MekaApes Without Crew:</Heading>
+      <Heading>My Oogas:</Heading>
       <Grid
         mt={4}
         gap={3}
         templateColumns={{
-          base: "repeat(3, 1fr)",
-          md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)",
+          base: 'repeat(3, 1fr)',
+          md: 'repeat(3, 1fr)',
+          lg: 'repeat(4, 1fr)',
         }}
       >
-        {myOogas?.oogas?.map(renderMyOogas)}
+        {oogas?.notStakedOogas?.map(renderMyOogas)}
       </Grid>
     </Box>
   );

@@ -3,10 +3,9 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
 import type { ICrews, ICrewsInterface } from "../../../src/interfaces/ICrews";
+import type { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from "ethers";
 
 const _abi = [
   {

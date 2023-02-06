@@ -4,6 +4,19 @@
 
 /* eslint-disable */
 import type {
+  TypedEventFilter,
+  TypedEvent,
+  TypedListener,
+  OnEvent,
+  PromiseOrValue,
+} from "../../../../common";
+import type {
+  FunctionFragment,
+  Result,
+  EventFragment,
+} from "@ethersproject/abi";
+import type { Listener, Provider } from "@ethersproject/providers";
+import type {
   BaseContract,
   BigNumber,
   BytesLike,
@@ -14,19 +27,6 @@ import type {
   Signer,
   utils,
 } from "ethers";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../../../common";
 
 export interface AccessControlUpgradeableInterface extends utils.Interface {
   functions: {

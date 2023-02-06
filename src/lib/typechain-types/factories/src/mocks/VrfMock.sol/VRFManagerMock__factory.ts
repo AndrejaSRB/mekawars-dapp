@@ -3,13 +3,13 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import { Signer, utils, Contract, ContractFactory, Overrides } from "ethers";
-import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../../common";
 import type {
   VRFManagerMock,
   VRFManagerMockInterface,
 } from "../../../../src/mocks/VrfMock.sol/VRFManagerMock";
+import type { Provider, TransactionRequest } from "@ethersproject/providers";
+import { Signer, utils, Contract, ContractFactory, Overrides } from "ethers";
 
 const _abi = [
   {

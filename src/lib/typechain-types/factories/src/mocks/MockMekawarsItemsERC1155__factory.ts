@@ -3,13 +3,13 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import { Signer, utils, Contract, ContractFactory, Overrides } from "ethers";
-import type { Provider, TransactionRequest } from "@ethersproject/providers";
 import type { PromiseOrValue } from "../../../common";
 import type {
   MockMekawarsItemsERC1155,
   MockMekawarsItemsERC1155Interface,
 } from "../../../src/mocks/MockMekawarsItemsERC1155";
+import type { Provider, TransactionRequest } from "@ethersproject/providers";
+import { Signer, utils, Contract, ContractFactory, Overrides } from "ethers";
 
 const _abi = [
   {

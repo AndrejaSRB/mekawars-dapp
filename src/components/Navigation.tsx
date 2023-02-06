@@ -34,6 +34,16 @@ const Navigation = () => {
             Mint
           </Text>
         </NextLink>
+
+        <NextLink href="/buckets">
+          <Text
+            cursor="pointer"
+            ml={4}
+            fontWeight={router.pathname === "/buckets" ? 800 : 300}
+          >
+            Buckets
+          </Text>
+        </NextLink>
       </Flex>
 
       <Box>

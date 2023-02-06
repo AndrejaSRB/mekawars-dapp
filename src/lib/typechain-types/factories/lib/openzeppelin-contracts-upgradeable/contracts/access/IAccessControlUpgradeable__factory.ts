@@ -3,13 +3,12 @@
 /* tslint:disable */
 
 /* eslint-disable */
-
-import { Contract, Signer, utils } from "ethers";
-import type { Provider } from "@ethersproject/providers";
 import type {
   IAccessControlUpgradeable,
   IAccessControlUpgradeableInterface,
 } from "../../../../../lib/openzeppelin-contracts-upgradeable/contracts/access/IAccessControlUpgradeable";
+import type { Provider } from "@ethersproject/providers";
+import { Contract, Signer, utils } from "ethers";
 
 const _abi = [
   {

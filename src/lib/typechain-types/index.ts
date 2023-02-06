@@ -4,10 +4,13 @@
 
 /* eslint-disable */
 import type * as chainlink from "./@chainlink";
-export type { chainlink };
 import type * as lib from "./lib";
-export type { lib };
 import type * as src from "./src";
+
+export type { chainlink };
+
+export type { lib };
+
 export type { src };
 export * as factories from "./factories";
 export type { VRFCoordinatorV2Interface } from "./@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface";

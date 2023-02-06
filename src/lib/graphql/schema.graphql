@@ -1367,6 +1367,141 @@ enum ChangeBucketState_orderBy {
   transactionHash
 }
 
+type ContractParameter {
+  box_babyOogaChargeNeededForUpgrade: BigInt
+  box_boxWaitingTime: BigInt
+  box_instantOpenBoxPrice: BigInt
+  crews_burnInventoryItemNTAmount: BigInt
+  crews_crewStartDurability: BigInt
+  id: String!
+  matchmaking_durabilityDecrease: BigInt
+  matchmaking_maxBucketSize: BigInt
+  matchmaking_maxRatingDiff: BigInt
+  matchmaking_minBucketSize: BigInt
+  matchmaking_minTimeOffset: BigInt
+}
+
+input ContractParameter_filter {
+  """Filter for the block changed event."""
+  _change_block: BlockChangedFilter
+  and: [ContractParameter_filter]
+  box_babyOogaChargeNeededForUpgrade: BigInt
+  box_babyOogaChargeNeededForUpgrade_gt: BigInt
+  box_babyOogaChargeNeededForUpgrade_gte: BigInt
+  box_babyOogaChargeNeededForUpgrade_in: [BigInt!]
+  box_babyOogaChargeNeededForUpgrade_lt: BigInt
+  box_babyOogaChargeNeededForUpgrade_lte: BigInt
+  box_babyOogaChargeNeededForUpgrade_not: BigInt
+  box_babyOogaChargeNeededForUpgrade_not_in: [BigInt!]
+  box_boxWaitingTime: BigInt
+  box_boxWaitingTime_gt: BigInt
+  box_boxWaitingTime_gte: BigInt
+  box_boxWaitingTime_in: [BigInt!]
+  box_boxWaitingTime_lt: BigInt
+  box_boxWaitingTime_lte: BigInt
+  box_boxWaitingTime_not: BigInt
+  box_boxWaitingTime_not_in: [BigInt!]
+  box_instantOpenBoxPrice: BigInt
+  box_instantOpenBoxPrice_gt: BigInt
+  box_instantOpenBoxPrice_gte: BigInt
+  box_instantOpenBoxPrice_in: [BigInt!]
+  box_instantOpenBoxPrice_lt: BigInt
+  box_instantOpenBoxPrice_lte: BigInt
+  box_instantOpenBoxPrice_not: BigInt
+  box_instantOpenBoxPrice_not_in: [BigInt!]
+  crews_burnInventoryItemNTAmount: BigInt
+  crews_burnInventoryItemNTAmount_gt: BigInt
+  crews_burnInventoryItemNTAmount_gte: BigInt
+  crews_burnInventoryItemNTAmount_in: [BigInt!]
+  crews_burnInventoryItemNTAmount_lt: BigInt
+  crews_burnInventoryItemNTAmount_lte: BigInt
+  crews_burnInventoryItemNTAmount_not: BigInt
+  crews_burnInventoryItemNTAmount_not_in: [BigInt!]
+  crews_crewStartDurability: BigInt
+  crews_crewStartDurability_gt: BigInt
+  crews_crewStartDurability_gte: BigInt
+  crews_crewStartDurability_in: [BigInt!]
+  crews_crewStartDurability_lt: BigInt
+  crews_crewStartDurability_lte: BigInt
+  crews_crewStartDurability_not: BigInt
+  crews_crewStartDurability_not_in: [BigInt!]
+  id: String
+  id_contains: String
+  id_contains_nocase: String
+  id_ends_with: String
+  id_ends_with_nocase: String
+  id_gt: String
+  id_gte: String
+  id_in: [String!]
+  id_lt: String
+  id_lte: String
+  id_not: String
+  id_not_contains: String
+  id_not_contains_nocase: String
+  id_not_ends_with: String
+  id_not_ends_with_nocase: String
+  id_not_in: [String!]
+  id_not_starts_with: String
+  id_not_starts_with_nocase: String
+  id_starts_with: String
+  id_starts_with_nocase: String
+  matchmaking_durabilityDecrease: BigInt
+  matchmaking_durabilityDecrease_gt: BigInt
+  matchmaking_durabilityDecrease_gte: BigInt
+  matchmaking_durabilityDecrease_in: [BigInt!]
+  matchmaking_durabilityDecrease_lt: BigInt
+  matchmaking_durabilityDecrease_lte: BigInt
+  matchmaking_durabilityDecrease_not: BigInt
+  matchmaking_durabilityDecrease_not_in: [BigInt!]
+  matchmaking_maxBucketSize: BigInt
+  matchmaking_maxBucketSize_gt: BigInt
+  matchmaking_maxBucketSize_gte: BigInt
+  matchmaking_maxBucketSize_in: [BigInt!]
+  matchmaking_maxBucketSize_lt: BigInt
+  matchmaking_maxBucketSize_lte: BigInt
+  matchmaking_maxBucketSize_not: BigInt
+  matchmaking_maxBucketSize_not_in: [BigInt!]
+  matchmaking_maxRatingDiff: BigInt
+  matchmaking_maxRatingDiff_gt: BigInt
+  matchmaking_maxRatingDiff_gte: BigInt
+  matchmaking_maxRatingDiff_in: [BigInt!]
+  matchmaking_maxRatingDiff_lt: BigInt
+  matchmaking_maxRatingDiff_lte: BigInt
+  matchmaking_maxRatingDiff_not: BigInt
+  matchmaking_maxRatingDiff_not_in: [BigInt!]
+  matchmaking_minBucketSize: BigInt
+  matchmaking_minBucketSize_gt: BigInt
+  matchmaking_minBucketSize_gte: BigInt
+  matchmaking_minBucketSize_in: [BigInt!]
+  matchmaking_minBucketSize_lt: BigInt
+  matchmaking_minBucketSize_lte: BigInt
+  matchmaking_minBucketSize_not: BigInt
+  matchmaking_minBucketSize_not_in: [BigInt!]
+  matchmaking_minTimeOffset: BigInt
+  matchmaking_minTimeOffset_gt: BigInt
+  matchmaking_minTimeOffset_gte: BigInt
+  matchmaking_minTimeOffset_in: [BigInt!]
+  matchmaking_minTimeOffset_lt: BigInt
+  matchmaking_minTimeOffset_lte: BigInt
+  matchmaking_minTimeOffset_not: BigInt
+  matchmaking_minTimeOffset_not_in: [BigInt!]
+  or: [ContractParameter_filter]
+}
+
+enum ContractParameter_orderBy {
+  box_babyOogaChargeNeededForUpgrade
+  box_boxWaitingTime
+  box_instantOpenBoxPrice
+  crews_burnInventoryItemNTAmount
+  crews_crewStartDurability
+  id
+  matchmaking_durabilityDecrease
+  matchmaking_maxBucketSize
+  matchmaking_maxRatingDiff
+  matchmaking_minBucketSize
+  matchmaking_minTimeOffset
+}
+
 type Crew {
   active: Boolean!
   boxSlots(first: Int = 100, orderBy: BoxSlot_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: BoxSlot_filter): [BoxSlot!]!
@@ -4948,6 +5083,7 @@ type Ooga {
   inCrew: Crew
   level: Int
   oogaType: Int
+  orderIndexInFirstTeam: Int
   owner: User
 }
 
@@ -5029,6 +5165,14 @@ input Ooga_filter {
   oogaType_not: Int
   oogaType_not_in: [Int!]
   or: [Ooga_filter]
+  orderIndexInFirstTeam: Int
+  orderIndexInFirstTeam_gt: Int
+  orderIndexInFirstTeam_gte: Int
+  orderIndexInFirstTeam_in: [Int!]
+  orderIndexInFirstTeam_lt: Int
+  orderIndexInFirstTeam_lte: Int
+  orderIndexInFirstTeam_not: Int
+  orderIndexInFirstTeam_not_in: [Int!]
   owner: String
   owner_: User_filter
   owner_contains: String
@@ -5059,6 +5203,7 @@ enum Ooga_orderBy {
   inCrew
   level
   oogaType
+  orderIndexInFirstTeam
   owner
 }
 
@@ -5578,6 +5723,34 @@ type Query {
     subgraphError: _SubgraphErrorPolicy_! = deny
     where: ChangeBucketState_filter
   ): [ChangeBucketState!]!
+  contractParameter(
+    """
+    The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.
+    """
+    block: Block_height
+    id: ID!
+
+    """
+    Set to `allow` to receive data even if the subgraph has skipped over errors while syncing.
+    """
+    subgraphError: _SubgraphErrorPolicy_! = deny
+  ): ContractParameter
+  contractParameters(
+    """
+    The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.
+    """
+    block: Block_height
+    first: Int = 100
+    orderBy: ContractParameter_orderBy
+    orderDirection: OrderDirection
+    skip: Int = 0
+
+    """
+    Set to `allow` to receive data even if the subgraph has skipped over errors while syncing.
+    """
+    subgraphError: _SubgraphErrorPolicy_! = deny
+    where: ContractParameter_filter
+  ): [ContractParameter!]!
   crew(
     """
     The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.
@@ -8988,6 +9161,34 @@ type Subscription {
     subgraphError: _SubgraphErrorPolicy_! = deny
     where: ChangeBucketState_filter
   ): [ChangeBucketState!]!
+  contractParameter(
+    """
+    The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.
+    """
+    block: Block_height
+    id: ID!
+
+    """
+    Set to `allow` to receive data even if the subgraph has skipped over errors while syncing.
+    """
+    subgraphError: _SubgraphErrorPolicy_! = deny
+  ): ContractParameter
+  contractParameters(
+    """
+    The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.
+    """
+    block: Block_height
+    first: Int = 100
+    orderBy: ContractParameter_orderBy
+    orderDirection: OrderDirection
+    skip: Int = 0
+
+    """
+    Set to `allow` to receive data even if the subgraph has skipped over errors while syncing.
+    """
+    subgraphError: _SubgraphErrorPolicy_! = deny
+    where: ContractParameter_filter
+  ): [ContractParameter!]!
   crew(
     """
     The block at which the query should be executed. Can either be a `{ hash: Bytes }` value containing a block hash, a `{ number: Int }` containing the block number, or a `{ number_gte: Int }` containing the minimum block number. In the case of `number_gte`, the query will be executed on the latest block only if the subgraph has progressed to or past the minimum block number. Defaults to the latest block when omitted.

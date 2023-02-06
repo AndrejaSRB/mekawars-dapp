@@ -3,9 +3,6 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type { BaseContract, Signer, utils } from "ethers";
-import type { EventFragment } from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
 import type {
   TypedEventFilter,
   TypedEvent,
@@ -13,6 +10,9 @@ import type {
   OnEvent,
   PromiseOrValue,
 } from "../../../../common";
+import type { EventFragment } from "@ethersproject/abi";
+import type { Listener, Provider } from "@ethersproject/providers";
+import type { BaseContract, Signer, utils } from "ethers";
 
 export interface ContextUpgradeableInterface extends utils.Interface {
   functions: {};

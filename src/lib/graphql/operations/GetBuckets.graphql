@@ -1,0 +1,7 @@
+query GetBuckets {
+  buckets {
+    id
+    state
+    createdAt
+  }
+}
