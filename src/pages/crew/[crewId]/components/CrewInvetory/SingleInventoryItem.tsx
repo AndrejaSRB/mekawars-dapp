@@ -1,13 +1,24 @@
-import { FC, useCallback } from 'react';
-import { GridItem, Flex, Text } from '@chakra-ui/react';
+import { ChangeEvent, FC, useCallback, useState } from 'react';
+import { GridItem, Flex, Text, Input } from '@chakra-ui/react';
+import CustomButton from '../../../../../components/CustomButton';
+import useCrewsContract from '../../../../../lib/contracts/useCrewsContract';
 import { InventoryItem } from '../../../../../lib/graphql/types';
 import GetItemAbility from '../../../../../types/GetItemAbility';
+import { RefetchCrew } from '../../index.page';
 
 interface SingleInvetoryItemProps {
-  item: Pick<InventoryItem, 'id' | 'attributes'> | undefined | null;
+  item: Pick<InventoryItem, 'id' | 'attributes' | 'index'> | undefined | null;
+  sortedCrewsIds: string[] | undefined;
+  crewId: string | undefined;
+  refetch: RefetchCrew;
 }
 
-const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item }) => {
+const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item, crewId, sortedCrewsIds, refetch }) => {
+  const [oogaId, setOogaId] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const { contract } = useCrewsContract();
+
   const renderAbilities = useCallback(
     (abilities: number | null) => (
       <Text ml={1} key={Math.random()} as="span">
@@ -16,6 +27,41 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item }) => {
     ),
     [],
   );
+  const handleChangeOogaId = (event: ChangeEvent<HTMLInputElement>) => {
+    setOogaId(event.target.value);
+  };
+
+  const handleClickSet = async () => {
+    if (crewId && sortedCrewsIds && oogaId !== '' && item) {
+      const moveItems = [
+        {
+          itemIndex: +item.index,
+          equipToOogaId: +oogaId,
+        },
+      ];
+
+      await contract
+        ?.editFirstTeamAndEquipItems(+crewId, sortedCrewsIds, moveItems)
+        .then(async (tsx) => {
+          setLoading(true);
+
+          tsx
+            .wait()
+            .then(async () => {
+              setLoading(false);
+              await refetch();
+            })
+            .finally(async () => {
+              setLoading(false);
+
+              setOogaId('');
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
 
   return (
     <GridItem as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
@@ -23,6 +69,13 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item }) => {
         <Text fontSize="sm">ID:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
           {item?.id}
+        </Text>
+      </Flex>
+
+      <Flex align="center">
+        <Text fontSize="sm">Index:</Text>
+        <Text ml={1} fontSize="sm" fontWeight={800}>
+          {item?.index}
         </Text>
       </Flex>
 
@@ -41,12 +94,31 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item }) => {
       </Flex>
 
       <Flex align="center">
+        <Text fontSize="sm">Level:</Text>
+        <Text ml={1} fontSize="sm" fontWeight={800}>
+          {item?.attributes?.level}
+        </Text>
+      </Flex>
+
+      <Flex align="center">
         <Text fontSize="sm">Abbilities:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
           {item?.attributes?.abilities && item?.attributes?.abilities.length > 0
             ? item?.attributes?.abilities.map(renderAbilities)
             : 'N/A'}
         </Text>
+      </Flex>
+
+      <Flex align="center" flexDir="column" mt={4} borderTopWidth="1px" pt={2}>
+        <Text fontSize="sm">
+          Enter the Ooga ID you want to associate the item. If you enter 0, that means the item will be removed from the
+          current Ooga. Ooga level must be bigger or equal with the level of the item.
+        </Text>
+        <Input value={oogaId} onChange={handleChangeOogaId} placeholder="Enter Ooga Id" mt={2} />
+
+        <CustomButton size="sm" w="100%" mt={1} isLoading={loading} onClick={handleClickSet}>
+          Set
+        </CustomButton>
       </Flex>
     </GridItem>
   );

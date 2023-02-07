@@ -11,6 +11,7 @@ query GetMyCrew($crewId: String!) {
     oogasInCrew {
       id
       oogaType
+      level
     }
     firstTeam {
       oogaType
@@ -30,6 +31,22 @@ query GetMyCrew($crewId: String!) {
         itemType
         level
         season
+      }
+    }
+    currentlyInBucket {
+      id
+      randomSeed
+      createdAt
+      state
+      resolvedMatches {
+        id
+        wonCrewId
+      }
+      crewIds {
+        id
+        firstTeam {
+          id
+        }
       }
     }
   }

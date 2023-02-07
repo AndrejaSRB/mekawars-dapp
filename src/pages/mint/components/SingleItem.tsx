@@ -23,7 +23,6 @@ const SingleItem: FC<ItemProps> = ({ item }) => {
     [],
   );
 
-  console.log('item', item?.itemType);
   return (
     <GridItem key={item?.id} as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
       <Flex align="center">

@@ -8,7 +8,7 @@ interface MyNTPouchesProps {
 }
 const MyNTPouches: FC<MyNTPouchesProps> = ({ list }) => {
   const renderNTPouches = useCallback((ntPouch: UserNtPouchAmount) => {
-    return <NTPouch key={ntPouch?.ntPouch?.id} ntPouch={ntPouch} />;
+    return <NTPouch key={`puch-${ntPouch?.ntPouch?.id}`} ntPouch={ntPouch} />;
   }, []);
 
   return (

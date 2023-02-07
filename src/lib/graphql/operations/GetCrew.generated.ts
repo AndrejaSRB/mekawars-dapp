@@ -8,7 +8,7 @@ export type GetMyCrewQueryVariables = Types.Exact<{
 }>;
 
 
-export type GetMyCrewQuery = { __typename?: 'Query', crew?: { __typename?: 'Crew', id: string, rating: string, level?: string | null, durability: string, ntAmount?: string | null, mekaLeader: { __typename?: 'Ooga', id: string }, oogasInCrew?: Array<{ __typename?: 'Ooga', id: string, oogaType?: number | null }> | null, firstTeam: Array<{ __typename?: 'Ooga', oogaType?: number | null, id: string, orderIndexInFirstTeam?: number | null }>, inventory?: Array<{ __typename?: 'InventoryItem', id: string, active: boolean, index: number, charge?: string | null, attributes?: { __typename?: 'Item', attack: string, health: string, id: string, abilities: Array<number | null>, itemType: number, level: string, season: string } | null }> | null } | null };
+export type GetMyCrewQuery = { __typename?: 'Query', crew?: { __typename?: 'Crew', id: string, rating: string, level?: string | null, durability: string, ntAmount?: string | null, mekaLeader: { __typename?: 'Ooga', id: string }, oogasInCrew?: Array<{ __typename?: 'Ooga', id: string, oogaType?: number | null, level?: number | null }> | null, firstTeam: Array<{ __typename?: 'Ooga', oogaType?: number | null, id: string, orderIndexInFirstTeam?: number | null }>, inventory?: Array<{ __typename?: 'InventoryItem', id: string, active: boolean, index: number, charge?: string | null, attributes?: { __typename?: 'Item', attack: string, health: string, id: string, abilities: Array<number | null>, itemType: number, level: string, season: string } | null }> | null, currentlyInBucket?: { __typename?: 'Bucket', id: string, randomSeed?: string | null, createdAt?: string | null, state?: number | null, resolvedMatches: Array<{ __typename?: 'Match', id: string, wonCrewId?: string | null }>, crewIds?: Array<{ __typename?: 'CrewInBucket', id: string, firstTeam: Array<{ __typename?: 'Ooga', id: string }> }> | null } | null } | null };
 
 
 export const GetMyCrewDocument = gql`
@@ -25,6 +25,7 @@ export const GetMyCrewDocument = gql`
     oogasInCrew {
       id
       oogaType
+      level
     }
     firstTeam {
       oogaType
@@ -44,6 +45,22 @@ export const GetMyCrewDocument = gql`
         itemType
         level
         season
+      }
+    }
+    currentlyInBucket {
+      id
+      randomSeed
+      createdAt
+      state
+      resolvedMatches {
+        id
+        wonCrewId
+      }
+      crewIds {
+        id
+        firstTeam {
+          id
+        }
       }
     }
   }

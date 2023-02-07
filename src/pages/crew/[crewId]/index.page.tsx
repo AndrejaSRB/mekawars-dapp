@@ -1,14 +1,16 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useMemo } from 'react';
 import { ApolloQueryResult } from '@apollo/client';
 import { Box, Grid, Text } from '@chakra-ui/react';
 import ConnectYourWallet from '../../../components/ConnectYourWallet';
 import Navigation from '../../../components/Navigation';
 import { useWeb3Context } from '../../../context';
 import { GetMyCrewQuery, useGetMyCrewQuery } from '../../../lib/graphql/operations/GetCrew.generated';
-import { Exact } from '../../../lib/graphql/types';
+import { Exact, Ooga } from '../../../lib/graphql/types';
 import flatten from '../../../utils/flatten';
 import AddItemToInventory from './components/AddItemToInventory';
+import BoxSlots from './components/BoxSlots/BoxSlots';
 import BuyMysteryBox from './components/BuyBox';
 import CrewInvetory from './components/CrewInvetory/CrewInvetory';
 import CrewStats from './components/CrewStats';
@@ -36,6 +38,21 @@ const CrewPage: NextPage = () => {
     },
   });
 
+  // Order First Team Oogas by orderIndexInFirstTeam
+  const sortedCrews = useMemo(() => {
+    if (data?.crew?.firstTeam && data?.crew?.firstTeam?.length > 0) {
+      let unorderedFirstTeamList = [...data?.crew?.firstTeam];
+
+      return unorderedFirstTeamList.sort(
+        (a: Ooga, b: Ooga) => (a.orderIndexInFirstTeam as number) - (b.orderIndexInFirstTeam as number),
+      );
+    } else {
+      return [];
+    }
+  }, [data?.crew?.firstTeam]);
+
+  const sortedCrewsIds = useMemo(() => sortedCrews && sortedCrews?.map((crew) => crew.id), [sortedCrews]);
+
   return (
     <Box maxW={1024} m="0 auto" p={4}>
       <Navigation />
@@ -44,15 +61,23 @@ const CrewPage: NextPage = () => {
         <>
           <Text>Crew ID: {crewId}</Text>
 
-          <JoinToMatchMakingQueue crewId={crewId} />
+          <JoinToMatchMakingQueue crewId={crewId} crew={data?.crew} />
 
           <CrewStats crewStats={data?.crew} />
 
-          <FirstTeam firstTeamList={data?.crew} refetch={refetch} crewId={crewId} isLoading={loading} />
+          <FirstTeam sortedCrews={sortedCrews} refetch={refetch} crewId={crewId} isLoading={loading} />
 
           <StakedRobos oogasList={data?.crew} isLoading={loading} />
 
-          <CrewInvetory inventoryList={data?.crew} isLoading={loading} />
+          <BoxSlots />
+
+          <CrewInvetory
+            crew={data?.crew}
+            isLoading={loading}
+            sortedCrewsIds={sortedCrewsIds}
+            refetch={refetch}
+            crewId={crewId}
+          />
 
           <Grid
             gap={4}

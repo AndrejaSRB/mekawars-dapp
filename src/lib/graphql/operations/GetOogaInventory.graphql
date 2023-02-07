@@ -1,0 +1,11 @@
+query GetOogaInventory($oogaId: String!) {
+  inventoryItems(where: { equipedToOoga_: { id: $oogaId } }) {
+    index
+    active
+    id
+    equipedToOoga {
+      id
+      oogaType
+    }
+  }
+}

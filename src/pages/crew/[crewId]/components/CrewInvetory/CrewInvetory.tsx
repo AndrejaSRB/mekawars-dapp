@@ -1,15 +1,30 @@
 import { FC, useCallback } from 'react';
 import { Grid, Heading, Box, Text } from '@chakra-ui/react';
 import { Crew, InventoryItem } from '../../../../../lib/graphql/types';
+import { RefetchCrew } from '../../index.page';
 import SingleInventoryItem from './SingleInventoryItem';
 
 interface CrewInvetoryProps {
-  inventoryList: Pick<Crew, 'inventory'> | undefined | null;
+  crew: Pick<Crew, 'inventory'> | undefined | null;
   isLoading: boolean;
+  sortedCrewsIds: string[] | undefined;
+  refetch: RefetchCrew;
+  crewId: string | undefined;
 }
 
-const CrewInvetory: FC<CrewInvetoryProps> = ({ inventoryList, isLoading }) => {
-  const renderItem = useCallback((item: InventoryItem) => <SingleInventoryItem key={item.id} item={item} />, []);
+const CrewInvetory: FC<CrewInvetoryProps> = ({ crew, isLoading, sortedCrewsIds, refetch, crewId }) => {
+  const renderItem = useCallback(
+    (item: InventoryItem) => (
+      <SingleInventoryItem
+        key={item.id}
+        item={item}
+        sortedCrewsIds={sortedCrewsIds}
+        crewId={crewId}
+        refetch={refetch}
+      />
+    ),
+    [],
+  );
 
   return (
     <Box mt={4}>
@@ -21,7 +36,7 @@ const CrewInvetory: FC<CrewInvetoryProps> = ({ inventoryList, isLoading }) => {
         templateColumns={{
           base: 'repeat(2, 1fr)',
           md: 'repeat(3, 1fr)',
-          lg: 'repeat(4, 1fr)',
+          lg: 'repeat(, 1fr)',
         }}
         borderColor="gray.500"
         borderWidth="1px"
@@ -30,8 +45,8 @@ const CrewInvetory: FC<CrewInvetoryProps> = ({ inventoryList, isLoading }) => {
       >
         {isLoading ? (
           <Text>Loading...</Text>
-        ) : inventoryList?.inventory && inventoryList?.inventory?.length > 0 ? (
-          inventoryList?.inventory?.map(renderItem)
+        ) : crew?.inventory && crew?.inventory?.length > 0 ? (
+          crew?.inventory?.map(renderItem)
         ) : (
           <Text>There are no items.</Text>
         )}

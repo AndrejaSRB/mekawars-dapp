@@ -6,30 +6,17 @@ import EditFirstTeam from './EditFirstTeam';
 import TeamItem from './TeamItem';
 
 interface FirstTeamProps {
-  firstTeamList: Pick<Crew, 'firstTeam'> | undefined | null;
   crewId: string | undefined;
   refetch: RefetchCrew;
   isLoading: boolean;
+  sortedCrews: Ooga[] | undefined | null;
 }
 
-const FirstTeam: FC<FirstTeamProps> = ({ firstTeamList, crewId, refetch, isLoading }) => {
+const FirstTeam: FC<FirstTeamProps> = ({ sortedCrews, crewId, refetch, isLoading }) => {
   const renderOogas = useCallback(
     (ooga: Ooga) => <TeamItem key={ooga.id} id={ooga?.id} oogaType={ooga?.oogaType} />,
     [],
   );
-
-  // Order First Team Oogas by orderIndexInFirstTeam
-  const sortedTeam = useMemo(() => {
-    if (firstTeamList?.firstTeam && firstTeamList?.firstTeam?.length > 0) {
-      let unorderedFirstTeamList = [...firstTeamList.firstTeam];
-
-      return unorderedFirstTeamList.sort(
-        (a: Ooga, b: Ooga) => (a.orderIndexInFirstTeam as number) - (b.orderIndexInFirstTeam as number),
-      );
-    } else {
-      return [];
-    }
-  }, [firstTeamList?.firstTeam]);
 
   return (
     <Box mt={4}>
@@ -47,7 +34,7 @@ const FirstTeam: FC<FirstTeamProps> = ({ firstTeamList, crewId, refetch, isLoadi
         borderRadius={8}
         p={3}
       >
-        {isLoading ? <Text>Loading...</Text> : sortedTeam?.map(renderOogas)}
+        {isLoading ? <Text>Loading...</Text> : sortedCrews?.map(renderOogas)}
       </Grid>
 
       <EditFirstTeam refetch={refetch} crewId={crewId} />
