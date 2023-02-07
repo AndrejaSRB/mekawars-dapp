@@ -1,7 +1,7 @@
-import type NTPouch from "../../../types/NTPouch";
-import { GridItem, Flex, Heading, Grid, Box, Text } from "@chakra-ui/react";
-import type { FC } from "react";
-import { useCallback } from "react";
+import type { FC } from 'react';
+import { useCallback } from 'react';
+import { GridItem, Flex, Heading, Grid, Box, Text } from '@chakra-ui/react';
+import type NTPouch from '../../../types/NTPouch';
 
 interface NTPouchesProps {
   ntpouches: NTPouch[] | undefined;
@@ -10,14 +10,7 @@ interface NTPouchesProps {
 const NTPouches: FC<NTPouchesProps> = ({ ntpouches }) => {
   const renderPouches = useCallback(
     (item: NTPouch) => (
-      <GridItem
-        key={item.id}
-        as={Flex}
-        flexDir="column"
-        border="1px solid white"
-        borderRadius={8}
-        p={3}
-      >
+      <GridItem key={item.id} as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
         <Flex align="center">
           <Text fontSize="sm">ID:</Text>
           <Text ml={1} fontSize="sm" fontWeight={800}>
@@ -33,7 +26,7 @@ const NTPouches: FC<NTPouchesProps> = ({ ntpouches }) => {
         </Flex>
       </GridItem>
     ),
-    []
+    [],
   );
 
   return (
@@ -44,9 +37,9 @@ const NTPouches: FC<NTPouchesProps> = ({ ntpouches }) => {
         mt={4}
         gap={3}
         templateColumns={{
-          base: "repeat(3, 1fr)",
-          md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)",
+          base: 'repeat(3, 1fr)',
+          md: 'repeat(3, 1fr)',
+          lg: 'repeat(4, 1fr)',
         }}
       >
         {ntpouches?.map(renderPouches)}

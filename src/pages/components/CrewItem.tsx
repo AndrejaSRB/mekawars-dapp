@@ -1,9 +1,9 @@
-import CustomButton from "../../components/CustomButton";
-import type { Crew } from "../../lib/graphql/types";
-import { SmallCrew } from "./MyCrews";
-import { GridItem, Flex, Text } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import { FC } from "react";
+import { useRouter } from 'next/router';
+import { FC } from 'react';
+import { GridItem, Flex, Text } from '@chakra-ui/react';
+import CustomButton from '../../components/CustomButton';
+import type { Crew } from '../../lib/graphql/types';
+import { SmallCrew } from './MyCrews';
 
 interface CrewProps {
   crew: Pick<Crew, SmallCrew> | undefined;
@@ -18,14 +18,7 @@ const CrewItem: FC<CrewProps> = ({ crew }) => {
   };
 
   return (
-    <GridItem
-      key={crew?.id}
-      as={Flex}
-      flexDir="column"
-      border="1px solid white"
-      borderRadius={8}
-      p={3}
-    >
+    <GridItem key={crew?.id} as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
       <Flex align="center">
         <Text fontSize="sm">Crew ID:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
@@ -57,7 +50,7 @@ const CrewItem: FC<CrewProps> = ({ crew }) => {
       <Flex align="center">
         <Text fontSize="sm">active:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
-          {crew?.active ? "Active" : "Inactive"}
+          {crew?.active ? 'Active' : 'Inactive'}
         </Text>
       </Flex>
       <CustomButton size="sm" mt={2} onClick={handleOpenCrew}>

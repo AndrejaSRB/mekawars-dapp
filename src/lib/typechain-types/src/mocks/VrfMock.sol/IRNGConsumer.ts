@@ -4,15 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../../common";
-import type { FunctionFragment, Result } from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -23,24 +14,24 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../../../common';
 
 export interface IRNGConsumerInterface extends utils.Interface {
   functions: {
-    "fulfillRandomWords(uint256,uint256[])": FunctionFragment;
+    'fulfillRandomWords(uint256,uint256[])': FunctionFragment;
   };
 
-  getFunction(nameOrSignatureOrTopic: "fulfillRandomWords"): FunctionFragment;
+  getFunction(nameOrSignatureOrTopic: 'fulfillRandomWords'): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: "fulfillRandomWords",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
+    functionFragment: 'fulfillRandomWords',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "fulfillRandomWords",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'fulfillRandomWords', data: BytesLike): Result;
 
   events: {};
 }
@@ -55,16 +46,12 @@ export interface IRNGConsumer extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -75,21 +62,21 @@ export interface IRNGConsumer extends BaseContract {
     fulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
   };
 
   fulfillRandomWords(
     requestId: PromiseOrValue<BigNumberish>,
     randomWords: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     fulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
@@ -99,7 +86,7 @@ export interface IRNGConsumer extends BaseContract {
     fulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
   };
 
@@ -107,7 +94,7 @@ export interface IRNGConsumer extends BaseContract {
     fulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

@@ -1,9 +1,9 @@
-import type { Web3ProviderState, Web3Action } from "../reducers";
-import { web3InitialState, web3Reducer } from "../reducers";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import { ethers } from "ethers";
-import { useEffect, useReducer, useCallback } from "react";
-import Web3Modal from "web3modal";
+import { ethers } from 'ethers';
+import Web3Modal from 'web3modal';
+import { useEffect, useReducer, useCallback } from 'react';
+import WalletConnectProvider from '@walletconnect/web3-provider';
+import type { Web3ProviderState, Web3Action } from '../reducers';
+import { web3InitialState, web3Reducer } from '../reducers';
 
 const providerOptions = {
   walletconnect: {
@@ -12,18 +12,18 @@ const providerOptions = {
       infuraId: process.env.NEXT_PUBLIC_INFURA_ID,
 
       rpc: {
-        137: "https://rpc-mainnet.maticvigil.com/",
-        80001: "https://rpc.ankr.com/polygon_mumbai",
+        137: 'https://rpc-mainnet.maticvigil.com/',
+        80001: 'https://rpc.ankr.com/polygon_mumbai',
       },
-      network: "matic",
+      network: 'matic',
     },
   },
 };
 
 let web3Modal: Web3Modal | null;
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   web3Modal = new Web3Modal({
-    network: "maticmum", // optional
+    network: 'maticmum', // optional
     cacheProvider: true,
     providerOptions, // required
   });
@@ -43,31 +43,31 @@ export const useWeb3 = () => {
         const network = await web3Provider.getNetwork();
 
         dispatch({
-          type: "SET_WEB3_PROVIDER",
+          type: 'SET_WEB3_PROVIDER',
           provider,
           web3Provider,
           address,
           network,
         } as Web3Action);
       } catch (e) {
-        console.log("connect error", e);
+        console.log('connect error', e);
       }
     } else {
-      console.error("No Web3Modal");
+      console.error('No Web3Modal');
     }
   }, []);
 
   const disconnect = useCallback(async () => {
     if (web3Modal) {
       web3Modal.clearCachedProvider();
-      if (provider?.disconnect && typeof provider.disconnect === "function") {
+      if (provider?.disconnect && typeof provider.disconnect === 'function') {
         await provider.disconnect();
       }
       dispatch({
-        type: "RESET_WEB3_PROVIDER",
+        type: 'RESET_WEB3_PROVIDER',
       } as Web3Action);
     } else {
-      console.error("No Web3Modal");
+      console.error('No Web3Modal');
     }
   }, [provider]);
 
@@ -83,37 +83,37 @@ export const useWeb3 = () => {
     if (provider?.on) {
       const handleAccountsChanged = (accounts: string[]) => {
         dispatch({
-          type: "SET_ADDRESS",
+          type: 'SET_ADDRESS',
           address: accounts[0],
         } as Web3Action);
       };
 
       // https://docs.ethers.io/v5/concepts/best-practices/#best-practices--network-changes
       const handleChainChanged = (_hexChainId: string) => {
-        if (typeof window !== "undefined") {
-          console.log("switched to chain...", _hexChainId);
+        if (typeof window !== 'undefined') {
+          console.log('switched to chain...', _hexChainId);
           window.location.reload();
         } else {
-          console.log("window is undefined");
+          console.log('window is undefined');
         }
       };
 
       const handleDisconnect = (error: { code: number; message: string }) => {
         // eslint-disable-next-line no-console
-        console.log("disconnect", error);
+        console.log('disconnect', error);
         disconnect();
       };
 
-      provider.on("accountsChanged", handleAccountsChanged);
-      provider.on("chainChanged", handleChainChanged);
-      provider.on("disconnect", handleDisconnect);
+      provider.on('accountsChanged', handleAccountsChanged);
+      provider.on('chainChanged', handleChainChanged);
+      provider.on('disconnect', handleDisconnect);
 
       // Subscription Cleanup
       return () => {
         if (provider.removeListener) {
-          provider.removeListener("accountsChanged", handleAccountsChanged);
-          provider.removeListener("chainChanged", handleChainChanged);
-          provider.removeListener("disconnect", handleDisconnect);
+          provider.removeListener('accountsChanged', handleAccountsChanged);
+          provider.removeListener('chainChanged', handleChainChanged);
+          provider.removeListener('disconnect', handleDisconnect);
         }
       };
     }

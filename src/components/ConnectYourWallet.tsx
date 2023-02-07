@@ -1,5 +1,5 @@
-import { Flex, Text } from "@chakra-ui/react";
-import type { FC } from "react";
+import type { FC } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
 const ConnectYourWallet: FC = () => (
   <Flex

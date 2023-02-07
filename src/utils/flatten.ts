@@ -3,7 +3,7 @@
  * @param source The query param source.
  */
 export default function flatten<T extends string = string>(
-  source: string | string[] | null | undefined
+  source: string | string[] | null | undefined,
 ): T | undefined {
   if (!source) {
     return undefined;

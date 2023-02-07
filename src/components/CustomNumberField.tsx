@@ -1,11 +1,11 @@
+import type { FC } from 'react';
 import {
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
-} from "@chakra-ui/react";
-import type { FC } from "react";
+} from '@chakra-ui/react';
 
 interface CustomNumberFieldProps {
   defaultValue: number;
@@ -15,20 +15,8 @@ interface CustomNumberFieldProps {
   value: number;
 }
 
-const CustomNumberField: FC<CustomNumberFieldProps> = ({
-  defaultValue,
-  min,
-  max,
-  onChange,
-  value,
-}) => (
-  <NumberInput
-    defaultValue={defaultValue}
-    min={min}
-    max={max}
-    value={value}
-    onChange={onChange}
-  >
+const CustomNumberField: FC<CustomNumberFieldProps> = ({ defaultValue, min, max, onChange, value }) => (
+  <NumberInput defaultValue={defaultValue} min={min} max={max} value={value} onChange={onChange}>
     <NumberInputField />
     <NumberInputStepper>
       <NumberIncrementStepper />

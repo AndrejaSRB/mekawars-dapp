@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export type CombatOogaStruct = {
   oogaType: PromiseOrValue<BigNumberish>;
@@ -38,14 +28,7 @@ export type CombatOogaStruct = {
   oogaId: PromiseOrValue<BigNumberish>;
 };
 
-export type CombatOogaStructOutput = [
-  number,
-  boolean,
-  number[],
-  BigNumber,
-  BigNumber,
-  BigNumber
-] & {
+export type CombatOogaStructOutput = [number, boolean, number[], BigNumber, BigNumber, BigNumber] & {
   oogaType: number;
   isDead: boolean;
   abilities: number[];
@@ -60,11 +43,7 @@ export type CombatTeamStruct = {
   mekaSpecialAbilities: PromiseOrValue<BigNumberish>[];
 };
 
-export type CombatTeamStructOutput = [
-  BigNumber,
-  CombatOogaStructOutput[],
-  number[]
-] & {
+export type CombatTeamStructOutput = [BigNumber, CombatOogaStructOutput[], number[]] & {
   crewId: BigNumber;
   oogas: CombatOogaStructOutput[];
   mekaSpecialAbilities: number[];
@@ -84,430 +63,268 @@ export declare namespace ICrews {
 
 export interface CrewsInterface extends utils.Interface {
   functions: {
-    "DEFAULT_ADMIN_ROLE()": FunctionFragment;
-    "MEKAWARS_CONTRACT()": FunctionFragment;
-    "addAndRemoveRobosFromCrew(uint256,uint256[],uint256[])": FunctionFragment;
-    "addItemToInventory(uint256,uint256)": FunctionFragment;
-    "addRobosToCrew(uint256,uint256[])": FunctionFragment;
-    "aftermatchChanges(uint256,uint256,uint256,uint256,uint256)": FunctionFragment;
-    "burnInventoryItemNTAmount()": FunctionFragment;
-    "checkActiveCrewAndOwner(uint256,address)": FunctionFragment;
-    "crews(uint256)": FunctionFragment;
-    "currentSeason()": FunctionFragment;
-    "decreaseRating(uint256,uint256)": FunctionFragment;
-    "deleteItemFromInventory(uint256,uint256)": FunctionFragment;
-    "editFirstTeamAndEquipItems(uint256,uint256[],(uint256,uint256)[])": FunctionFragment;
-    "getCombatTeam(uint256)": FunctionFragment;
-    "getCrewOwner(uint256)": FunctionFragment;
-    "getDurability(uint256)": FunctionFragment;
-    "getLevel(uint256)": FunctionFragment;
-    "getRating(uint256)": FunctionFragment;
-    "getRoleAdmin(bytes32)": FunctionFragment;
-    "grantRole(bytes32,address)": FunctionFragment;
-    "hasRole(bytes32,address)": FunctionFragment;
-    "increaseRating(uint256,uint256)": FunctionFragment;
-    "initialize()": FunctionFragment;
-    "lastCrewId()": FunctionFragment;
-    "makeNewCrew(uint256)": FunctionFragment;
-    "matchmaking()": FunctionFragment;
-    "maxItemsEquipedPerOoga()": FunctionFragment;
-    "maxRobosInFirstTeam()": FunctionFragment;
-    "mekaApes()": FunctionFragment;
-    "mekawarsItems()": FunctionFragment;
-    "oogaInCrewId(uint256)": FunctionFragment;
-    "payNT(uint256,uint256)": FunctionFragment;
-    "receiveNT(uint256,uint256)": FunctionFragment;
-    "removeCrew(uint256,uint256[])": FunctionFragment;
-    "removeRobosFromCrew(uint256,uint256[])": FunctionFragment;
-    "renounceRole(bytes32,address)": FunctionFragment;
-    "revokeRole(bytes32,address)": FunctionFragment;
-    "setContracts(address,address,address)": FunctionFragment;
-    "setupParameters(uint256)": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
+    'DEFAULT_ADMIN_ROLE()': FunctionFragment;
+    'MEKAWARS_CONTRACT()': FunctionFragment;
+    'addAndRemoveRobosFromCrew(uint256,uint256[],uint256[])': FunctionFragment;
+    'addItemToInventory(uint256,uint256)': FunctionFragment;
+    'addRobosToCrew(uint256,uint256[])': FunctionFragment;
+    'aftermatchChanges(uint256,uint256,uint256,uint256,uint256)': FunctionFragment;
+    'burnInventoryItemNTAmount()': FunctionFragment;
+    'checkActiveCrewAndOwner(uint256,address)': FunctionFragment;
+    'crews(uint256)': FunctionFragment;
+    'currentSeason()': FunctionFragment;
+    'decreaseRating(uint256,uint256)': FunctionFragment;
+    'deleteItemFromInventory(uint256,uint256)': FunctionFragment;
+    'editFirstTeamAndEquipItems(uint256,uint256[],(uint256,uint256)[])': FunctionFragment;
+    'getCombatTeam(uint256)': FunctionFragment;
+    'getCrewOwner(uint256)': FunctionFragment;
+    'getDurability(uint256)': FunctionFragment;
+    'getLevel(uint256)': FunctionFragment;
+    'getRating(uint256)': FunctionFragment;
+    'getRoleAdmin(bytes32)': FunctionFragment;
+    'grantRole(bytes32,address)': FunctionFragment;
+    'hasRole(bytes32,address)': FunctionFragment;
+    'increaseRating(uint256,uint256)': FunctionFragment;
+    'initialize()': FunctionFragment;
+    'lastCrewId()': FunctionFragment;
+    'makeNewCrew(uint256)': FunctionFragment;
+    'matchmaking()': FunctionFragment;
+    'maxItemsEquipedPerOoga()': FunctionFragment;
+    'maxRobosInFirstTeam()': FunctionFragment;
+    'mekaApes()': FunctionFragment;
+    'mekawarsItems()': FunctionFragment;
+    'oogaInCrewId(uint256)': FunctionFragment;
+    'payNT(uint256,uint256)': FunctionFragment;
+    'receiveNT(uint256,uint256)': FunctionFragment;
+    'removeCrew(uint256,uint256[])': FunctionFragment;
+    'removeRobosFromCrew(uint256,uint256[])': FunctionFragment;
+    'renounceRole(bytes32,address)': FunctionFragment;
+    'revokeRole(bytes32,address)': FunctionFragment;
+    'setContracts(address,address,address)': FunctionFragment;
+    'setupParameters(uint256)': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "DEFAULT_ADMIN_ROLE"
-      | "MEKAWARS_CONTRACT"
-      | "addAndRemoveRobosFromCrew"
-      | "addItemToInventory"
-      | "addRobosToCrew"
-      | "aftermatchChanges"
-      | "burnInventoryItemNTAmount"
-      | "checkActiveCrewAndOwner"
-      | "crews"
-      | "currentSeason"
-      | "decreaseRating"
-      | "deleteItemFromInventory"
-      | "editFirstTeamAndEquipItems"
-      | "getCombatTeam"
-      | "getCrewOwner"
-      | "getDurability"
-      | "getLevel"
-      | "getRating"
-      | "getRoleAdmin"
-      | "grantRole"
-      | "hasRole"
-      | "increaseRating"
-      | "initialize"
-      | "lastCrewId"
-      | "makeNewCrew"
-      | "matchmaking"
-      | "maxItemsEquipedPerOoga"
-      | "maxRobosInFirstTeam"
-      | "mekaApes"
-      | "mekawarsItems"
-      | "oogaInCrewId"
-      | "payNT"
-      | "receiveNT"
-      | "removeCrew"
-      | "removeRobosFromCrew"
-      | "renounceRole"
-      | "revokeRole"
-      | "setContracts"
-      | "setupParameters"
-      | "supportsInterface"
+      | 'DEFAULT_ADMIN_ROLE'
+      | 'MEKAWARS_CONTRACT'
+      | 'addAndRemoveRobosFromCrew'
+      | 'addItemToInventory'
+      | 'addRobosToCrew'
+      | 'aftermatchChanges'
+      | 'burnInventoryItemNTAmount'
+      | 'checkActiveCrewAndOwner'
+      | 'crews'
+      | 'currentSeason'
+      | 'decreaseRating'
+      | 'deleteItemFromInventory'
+      | 'editFirstTeamAndEquipItems'
+      | 'getCombatTeam'
+      | 'getCrewOwner'
+      | 'getDurability'
+      | 'getLevel'
+      | 'getRating'
+      | 'getRoleAdmin'
+      | 'grantRole'
+      | 'hasRole'
+      | 'increaseRating'
+      | 'initialize'
+      | 'lastCrewId'
+      | 'makeNewCrew'
+      | 'matchmaking'
+      | 'maxItemsEquipedPerOoga'
+      | 'maxRobosInFirstTeam'
+      | 'mekaApes'
+      | 'mekawarsItems'
+      | 'oogaInCrewId'
+      | 'payNT'
+      | 'receiveNT'
+      | 'removeCrew'
+      | 'removeRobosFromCrew'
+      | 'renounceRole'
+      | 'revokeRole'
+      | 'setContracts'
+      | 'setupParameters'
+      | 'supportsInterface',
   ): FunctionFragment;
 
+  encodeFunctionData(functionFragment: 'DEFAULT_ADMIN_ROLE', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'MEKAWARS_CONTRACT', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    functionFragment: 'addAndRemoveRobosFromCrew',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[], PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "MEKAWARS_CONTRACT",
-    values?: undefined
+    functionFragment: 'addItemToInventory',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "addAndRemoveRobosFromCrew",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>[],
-      PromiseOrValue<BigNumberish>[]
-    ]
+    functionFragment: 'addRobosToCrew',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "addItemToInventory",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "addRobosToCrew",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "aftermatchChanges",
+    functionFragment: 'aftermatchChanges',
     values: [
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
-    ]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "burnInventoryItemNTAmount",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "checkActiveCrewAndOwner",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "crews",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "currentSeason",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "decreaseRating",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "deleteItemFromInventory",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "editFirstTeamAndEquipItems",
-    values: [
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>[],
-      ICrews.ItemMoveStruct[]
-    ]
+    ],
+  ): string;
+  encodeFunctionData(functionFragment: 'burnInventoryItemNTAmount', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'checkActiveCrewAndOwner',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'crews', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'currentSeason', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'decreaseRating',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getCombatTeam",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'deleteItemFromInventory',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getCrewOwner",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'editFirstTeamAndEquipItems',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[], ICrews.ItemMoveStruct[]],
+  ): string;
+  encodeFunctionData(functionFragment: 'getCombatTeam', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getCrewOwner', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getDurability', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getLevel', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getRating', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getRoleAdmin', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(
+    functionFragment: 'grantRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'hasRole', values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]): string;
+  encodeFunctionData(
+    functionFragment: 'increaseRating',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'initialize', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'lastCrewId', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'makeNewCrew', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'matchmaking', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'maxItemsEquipedPerOoga', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'maxRobosInFirstTeam', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'mekaApes', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'mekawarsItems', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'oogaInCrewId', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(
+    functionFragment: 'payNT',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getDurability",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'receiveNT',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getLevel",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'removeCrew',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "getRating",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'removeRobosFromCrew',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "getRoleAdmin",
-    values: [PromiseOrValue<BytesLike>]
+    functionFragment: 'renounceRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "grantRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
+    functionFragment: 'revokeRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "hasRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
+    functionFragment: 'setContracts',
+    values: [PromiseOrValue<string>, PromiseOrValue<string>, PromiseOrValue<string>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "increaseRating",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "lastCrewId",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "makeNewCrew",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "matchmaking",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "maxItemsEquipedPerOoga",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "maxRobosInFirstTeam",
-    values?: undefined
-  ): string;
-  encodeFunctionData(functionFragment: "mekaApes", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "mekawarsItems",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "oogaInCrewId",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "payNT",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "receiveNT",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeCrew",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "removeRobosFromCrew",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "revokeRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setContracts",
-    values: [
-      PromiseOrValue<string>,
-      PromiseOrValue<string>,
-      PromiseOrValue<string>
-    ]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setupParameters",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
+  encodeFunctionData(functionFragment: 'setupParameters', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'supportsInterface', values: [PromiseOrValue<BytesLike>]): string;
 
-  decodeFunctionResult(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "MEKAWARS_CONTRACT",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addAndRemoveRobosFromCrew",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addItemToInventory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "addRobosToCrew",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "aftermatchChanges",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "burnInventoryItemNTAmount",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "checkActiveCrewAndOwner",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "crews", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "currentSeason",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "decreaseRating",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "deleteItemFromInventory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "editFirstTeamAndEquipItems",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCombatTeam",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getCrewOwner",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getDurability",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "getLevel", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getRating", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getRoleAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "increaseRating",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "lastCrewId", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "makeNewCrew",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "matchmaking",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "maxItemsEquipedPerOoga",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "maxRobosInFirstTeam",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "mekaApes", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "mekawarsItems",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "oogaInCrewId",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "payNT", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "receiveNT", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "removeCrew", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "removeRobosFromCrew",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceRole",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setContracts",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setupParameters",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'DEFAULT_ADMIN_ROLE', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'MEKAWARS_CONTRACT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'addAndRemoveRobosFromCrew', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'addItemToInventory', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'addRobosToCrew', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'aftermatchChanges', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'burnInventoryItemNTAmount', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'checkActiveCrewAndOwner', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'crews', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'currentSeason', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'decreaseRating', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'deleteItemFromInventory', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'editFirstTeamAndEquipItems', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getCombatTeam', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getCrewOwner', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getDurability', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getLevel', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRating', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRoleAdmin', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'grantRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'hasRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'increaseRating', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'lastCrewId', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'makeNewCrew', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'matchmaking', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'maxItemsEquipedPerOoga', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'maxRobosInFirstTeam', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mekaApes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mekawarsItems', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'oogaInCrewId', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'payNT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'receiveNT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'removeCrew', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'removeRobosFromCrew', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'renounceRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'revokeRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setContracts', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setupParameters', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'supportsInterface', data: BytesLike): Result;
 
   events: {
-    "AddItemToInventory(uint256,uint256,uint256)": EventFragment;
-    "AddRoboToCrew(uint256,uint256)": EventFragment;
-    "DeleteItemToInventory(uint256,uint256)": EventFragment;
-    "DurabilityChange(uint256,uint256)": EventFragment;
-    "EquipItemToOoga(uint256,uint256,uint256)": EventFragment;
-    "EquipSpecialItem(uint256,uint256,uint256)": EventFragment;
-    "Initialized(uint8)": EventFragment;
-    "LevelChange(uint256,uint256)": EventFragment;
-    "MakeNewCrew(address,uint256,uint256,uint256,uint256)": EventFragment;
-    "NTChange(uint256,uint256,int256)": EventFragment;
-    "NewFirstTeam(uint256,uint256[])": EventFragment;
-    "RatingChange(uint256,uint256)": EventFragment;
-    "RemoveCrew(address,uint256)": EventFragment;
-    "RemoveRoboFromCrew(uint256,uint256)": EventFragment;
-    "RoleAdminChanged(bytes32,bytes32,bytes32)": EventFragment;
-    "RoleGranted(bytes32,address,address)": EventFragment;
-    "RoleRevoked(bytes32,address,address)": EventFragment;
+    'AddItemToInventory(uint256,uint256,uint256)': EventFragment;
+    'AddRoboToCrew(uint256,uint256)': EventFragment;
+    'DeleteItemToInventory(uint256,uint256)': EventFragment;
+    'DurabilityChange(uint256,uint256)': EventFragment;
+    'EquipItemToOoga(uint256,uint256,uint256)': EventFragment;
+    'EquipSpecialItem(uint256,uint256,uint256)': EventFragment;
+    'Initialized(uint8)': EventFragment;
+    'LevelChange(uint256,uint256)': EventFragment;
+    'MakeNewCrew(address,uint256,uint256,uint256,uint256)': EventFragment;
+    'NTChange(uint256,uint256,int256)': EventFragment;
+    'NewFirstTeam(uint256,uint256[])': EventFragment;
+    'RatingChange(uint256,uint256)': EventFragment;
+    'RemoveCrew(address,uint256)': EventFragment;
+    'RemoveRoboFromCrew(uint256,uint256)': EventFragment;
+    'RoleAdminChanged(bytes32,bytes32,bytes32)': EventFragment;
+    'RoleGranted(bytes32,address,address)': EventFragment;
+    'RoleRevoked(bytes32,address,address)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "AddItemToInventory"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "AddRoboToCrew"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "DeleteItemToInventory"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "DurabilityChange"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "EquipItemToOoga"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "EquipSpecialItem"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "LevelChange"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "MakeNewCrew"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "NTChange"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "NewFirstTeam"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RatingChange"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RemoveCrew"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RemoveRoboFromCrew"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'AddItemToInventory'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'AddRoboToCrew'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'DeleteItemToInventory'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'DurabilityChange'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'EquipItemToOoga'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'EquipSpecialItem'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'Initialized'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'LevelChange'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'MakeNewCrew'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'NTChange'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'NewFirstTeam'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RatingChange'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RemoveCrew'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RemoveRoboFromCrew'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleAdminChanged'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleGranted'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleRevoked'): EventFragment;
 }
 
 export interface AddItemToInventoryEventObject {
@@ -515,22 +332,15 @@ export interface AddItemToInventoryEventObject {
   itemId: BigNumber;
   itemIndexInInventory: BigNumber;
 }
-export type AddItemToInventoryEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  AddItemToInventoryEventObject
->;
+export type AddItemToInventoryEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], AddItemToInventoryEventObject>;
 
-export type AddItemToInventoryEventFilter =
-  TypedEventFilter<AddItemToInventoryEvent>;
+export type AddItemToInventoryEventFilter = TypedEventFilter<AddItemToInventoryEvent>;
 
 export interface AddRoboToCrewEventObject {
   crewId: BigNumber;
   roboId: BigNumber;
 }
-export type AddRoboToCrewEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  AddRoboToCrewEventObject
->;
+export type AddRoboToCrewEvent = TypedEvent<[BigNumber, BigNumber], AddRoboToCrewEventObject>;
 
 export type AddRoboToCrewEventFilter = TypedEventFilter<AddRoboToCrewEvent>;
 
@@ -538,35 +348,24 @@ export interface DeleteItemToInventoryEventObject {
   crewId: BigNumber;
   itemIndex: BigNumber;
 }
-export type DeleteItemToInventoryEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  DeleteItemToInventoryEventObject
->;
+export type DeleteItemToInventoryEvent = TypedEvent<[BigNumber, BigNumber], DeleteItemToInventoryEventObject>;
 
-export type DeleteItemToInventoryEventFilter =
-  TypedEventFilter<DeleteItemToInventoryEvent>;
+export type DeleteItemToInventoryEventFilter = TypedEventFilter<DeleteItemToInventoryEvent>;
 
 export interface DurabilityChangeEventObject {
   crewId: BigNumber;
   newDurability: BigNumber;
 }
-export type DurabilityChangeEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  DurabilityChangeEventObject
->;
+export type DurabilityChangeEvent = TypedEvent<[BigNumber, BigNumber], DurabilityChangeEventObject>;
 
-export type DurabilityChangeEventFilter =
-  TypedEventFilter<DurabilityChangeEvent>;
+export type DurabilityChangeEventFilter = TypedEventFilter<DurabilityChangeEvent>;
 
 export interface EquipItemToOogaEventObject {
   crewId: BigNumber;
   itemIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type EquipItemToOogaEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  EquipItemToOogaEventObject
->;
+export type EquipItemToOogaEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], EquipItemToOogaEventObject>;
 
 export type EquipItemToOogaEventFilter = TypedEventFilter<EquipItemToOogaEvent>;
 
@@ -575,13 +374,9 @@ export interface EquipSpecialItemEventObject {
   itemIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type EquipSpecialItemEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  EquipSpecialItemEventObject
->;
+export type EquipSpecialItemEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], EquipSpecialItemEventObject>;
 
-export type EquipSpecialItemEventFilter =
-  TypedEventFilter<EquipSpecialItemEvent>;
+export type EquipSpecialItemEventFilter = TypedEventFilter<EquipSpecialItemEvent>;
 
 export interface InitializedEventObject {
   version: number;
@@ -594,10 +389,7 @@ export interface LevelChangeEventObject {
   crewId: BigNumber;
   newLevel: BigNumber;
 }
-export type LevelChangeEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  LevelChangeEventObject
->;
+export type LevelChangeEvent = TypedEvent<[BigNumber, BigNumber], LevelChangeEventObject>;
 
 export type LevelChangeEventFilter = TypedEventFilter<LevelChangeEvent>;
 
@@ -608,10 +400,7 @@ export interface MakeNewCrewEventObject {
   rating: BigNumber;
   durability: BigNumber;
 }
-export type MakeNewCrewEvent = TypedEvent<
-  [string, BigNumber, BigNumber, BigNumber, BigNumber],
-  MakeNewCrewEventObject
->;
+export type MakeNewCrewEvent = TypedEvent<[string, BigNumber, BigNumber, BigNumber, BigNumber], MakeNewCrewEventObject>;
 
 export type MakeNewCrewEventFilter = TypedEventFilter<MakeNewCrewEvent>;
 
@@ -620,10 +409,7 @@ export interface NTChangeEventObject {
   newNTamount: BigNumber;
   change: BigNumber;
 }
-export type NTChangeEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  NTChangeEventObject
->;
+export type NTChangeEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], NTChangeEventObject>;
 
 export type NTChangeEventFilter = TypedEventFilter<NTChangeEvent>;
 
@@ -631,10 +417,7 @@ export interface NewFirstTeamEventObject {
   crewId: BigNumber;
   newFirstTeam: BigNumber[];
 }
-export type NewFirstTeamEvent = TypedEvent<
-  [BigNumber, BigNumber[]],
-  NewFirstTeamEventObject
->;
+export type NewFirstTeamEvent = TypedEvent<[BigNumber, BigNumber[]], NewFirstTeamEventObject>;
 
 export type NewFirstTeamEventFilter = TypedEventFilter<NewFirstTeamEvent>;
 
@@ -642,10 +425,7 @@ export interface RatingChangeEventObject {
   crewId: BigNumber;
   newRating: BigNumber;
 }
-export type RatingChangeEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  RatingChangeEventObject
->;
+export type RatingChangeEvent = TypedEvent<[BigNumber, BigNumber], RatingChangeEventObject>;
 
 export type RatingChangeEventFilter = TypedEventFilter<RatingChangeEvent>;
 
@@ -653,10 +433,7 @@ export interface RemoveCrewEventObject {
   user: string;
   crewId: BigNumber;
 }
-export type RemoveCrewEvent = TypedEvent<
-  [string, BigNumber],
-  RemoveCrewEventObject
->;
+export type RemoveCrewEvent = TypedEvent<[string, BigNumber], RemoveCrewEventObject>;
 
 export type RemoveCrewEventFilter = TypedEventFilter<RemoveCrewEvent>;
 
@@ -664,36 +441,25 @@ export interface RemoveRoboFromCrewEventObject {
   crewId: BigNumber;
   roboId: BigNumber;
 }
-export type RemoveRoboFromCrewEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  RemoveRoboFromCrewEventObject
->;
+export type RemoveRoboFromCrewEvent = TypedEvent<[BigNumber, BigNumber], RemoveRoboFromCrewEventObject>;
 
-export type RemoveRoboFromCrewEventFilter =
-  TypedEventFilter<RemoveRoboFromCrewEvent>;
+export type RemoveRoboFromCrewEventFilter = TypedEventFilter<RemoveRoboFromCrewEvent>;
 
 export interface RoleAdminChangedEventObject {
   role: string;
   previousAdminRole: string;
   newAdminRole: string;
 }
-export type RoleAdminChangedEvent = TypedEvent<
-  [string, string, string],
-  RoleAdminChangedEventObject
->;
+export type RoleAdminChangedEvent = TypedEvent<[string, string, string], RoleAdminChangedEventObject>;
 
-export type RoleAdminChangedEventFilter =
-  TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 
 export interface RoleGrantedEventObject {
   role: string;
   account: string;
   sender: string;
 }
-export type RoleGrantedEvent = TypedEvent<
-  [string, string, string],
-  RoleGrantedEventObject
->;
+export type RoleGrantedEvent = TypedEvent<[string, string, string], RoleGrantedEventObject>;
 
 export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 
@@ -702,10 +468,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
-export type RoleRevokedEvent = TypedEvent<
-  [string, string, string],
-  RoleRevokedEventObject
->;
+export type RoleRevokedEvent = TypedEvent<[string, string, string], RoleRevokedEventObject>;
 
 export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
@@ -719,16 +482,12 @@ export interface Crews extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -744,19 +503,19 @@ export interface Crews extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       removeRoboIds: PromiseOrValue<BigNumberish>[],
       addRoboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     addItemToInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     addRobosToCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     aftermatchChanges(
@@ -765,7 +524,7 @@ export interface Crews extends BaseContract {
       winRatingIncrease: PromiseOrValue<BigNumberish>,
       loseRatingDecrease: PromiseOrValue<BigNumberish>,
       durabilityDecrease: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     burnInventoryItemNTAmount(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -773,22 +532,14 @@ export interface Crews extends BaseContract {
     checkActiveCrewAndOwner(
       crewId: PromiseOrValue<BigNumberish>,
       user: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[void]>;
 
     crews(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
-      [
-        string,
-        boolean,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber
-      ] & {
+      [string, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         owner: string;
         active: boolean;
         mekaLeader: BigNumber;
@@ -804,79 +555,59 @@ export interface Crews extends BaseContract {
     decreaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     deleteItemFromInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     editFirstTeamAndEquipItems(
       crewId: PromiseOrValue<BigNumberish>,
       newFirstTeam: PromiseOrValue<BigNumberish>[],
       moveItems: ICrews.ItemMoveStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    getCombatTeam(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[CombatTeamStructOutput]>;
+    getCombatTeam(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[CombatTeamStructOutput]>;
 
-    getCrewOwner(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getCrewOwner(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[string]>;
 
-    getDurability(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    getDurability(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getLevel(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    getLevel(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getRating(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    getRating(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[string]>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     increaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
     lastCrewId(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     makeNewCrew(
       mekaApeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     matchmaking(overrides?: CallOverrides): Promise<[string]>;
@@ -889,63 +620,57 @@ export interface Crews extends BaseContract {
 
     mekawarsItems(overrides?: CallOverrides): Promise<[string]>;
 
-    oogaInCrewId(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    oogaInCrewId(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     payNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     receiveNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     removeCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     removeRobosFromCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setContracts(
       mekaApescontract: PromiseOrValue<string>,
       mekawarsItemsContract: PromiseOrValue<string>,
       matchmakingContract: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setupParameters(
       _burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[boolean]>;
   };
 
   DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<string>;
@@ -956,19 +681,19 @@ export interface Crews extends BaseContract {
     crewId: PromiseOrValue<BigNumberish>,
     removeRoboIds: PromiseOrValue<BigNumberish>[],
     addRoboIds: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   addItemToInventory(
     crewId: PromiseOrValue<BigNumberish>,
     itemId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   addRobosToCrew(
     crewId: PromiseOrValue<BigNumberish>,
     roboIds: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   aftermatchChanges(
@@ -977,7 +702,7 @@ export interface Crews extends BaseContract {
     winRatingIncrease: PromiseOrValue<BigNumberish>,
     loseRatingDecrease: PromiseOrValue<BigNumberish>,
     durabilityDecrease: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   burnInventoryItemNTAmount(overrides?: CallOverrides): Promise<BigNumber>;
@@ -985,12 +710,12 @@ export interface Crews extends BaseContract {
   checkActiveCrewAndOwner(
     crewId: PromiseOrValue<BigNumberish>,
     user: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<void>;
 
   crews(
     arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [string, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
       owner: string;
@@ -1008,79 +733,59 @@ export interface Crews extends BaseContract {
   decreaseRating(
     crewId: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   deleteItemFromInventory(
     crewId: PromiseOrValue<BigNumberish>,
     itemIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   editFirstTeamAndEquipItems(
     crewId: PromiseOrValue<BigNumberish>,
     newFirstTeam: PromiseOrValue<BigNumberish>[],
     moveItems: ICrews.ItemMoveStruct[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  getCombatTeam(
-    crewId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<CombatTeamStructOutput>;
+  getCombatTeam(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<CombatTeamStructOutput>;
 
-  getCrewOwner(
-    crewId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getCrewOwner(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
 
-  getDurability(
-    crewId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getDurability(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getLevel(
-    crewId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getLevel(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getRating(
-    crewId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  getRating(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-  getRoleAdmin(
-    role: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
   grantRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   increaseRating(
     crewId: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  initialize(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+  initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
   lastCrewId(overrides?: CallOverrides): Promise<BigNumber>;
 
   makeNewCrew(
     mekaApeId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   matchmaking(overrides?: CallOverrides): Promise<string>;
@@ -1093,63 +798,57 @@ export interface Crews extends BaseContract {
 
   mekawarsItems(overrides?: CallOverrides): Promise<string>;
 
-  oogaInCrewId(
-    arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  oogaInCrewId(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
   payNT(
     crewId: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   receiveNT(
     crewId: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   removeCrew(
     crewId: PromiseOrValue<BigNumberish>,
     roboIds: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   removeRobosFromCrew(
     crewId: PromiseOrValue<BigNumberish>,
     roboIds: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setContracts(
     mekaApescontract: PromiseOrValue<string>,
     mekawarsItemsContract: PromiseOrValue<string>,
     matchmakingContract: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setupParameters(
     _burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
     DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<string>;
@@ -1160,19 +859,19 @@ export interface Crews extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       removeRoboIds: PromiseOrValue<BigNumberish>[],
       addRoboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     addItemToInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     addRobosToCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     aftermatchChanges(
@@ -1181,7 +880,7 @@ export interface Crews extends BaseContract {
       winRatingIncrease: PromiseOrValue<BigNumberish>,
       loseRatingDecrease: PromiseOrValue<BigNumberish>,
       durabilityDecrease: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     burnInventoryItemNTAmount(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1189,22 +888,14 @@ export interface Crews extends BaseContract {
     checkActiveCrewAndOwner(
       crewId: PromiseOrValue<BigNumberish>,
       user: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     crews(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
-      [
-        string,
-        boolean,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber,
-        BigNumber
-      ] & {
+      [string, boolean, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber] & {
         owner: string;
         active: boolean;
         mekaLeader: BigNumber;
@@ -1220,78 +911,57 @@ export interface Crews extends BaseContract {
     decreaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     deleteItemFromInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     editFirstTeamAndEquipItems(
       crewId: PromiseOrValue<BigNumberish>,
       newFirstTeam: PromiseOrValue<BigNumberish>[],
       moveItems: ICrews.ItemMoveStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    getCombatTeam(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<CombatTeamStructOutput>;
+    getCombatTeam(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<CombatTeamStructOutput>;
 
-    getCrewOwner(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getCrewOwner(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
 
-    getDurability(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getDurability(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getLevel(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getLevel(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRating(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRating(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     increaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
 
     lastCrewId(overrides?: CallOverrides): Promise<BigNumber>;
 
-    makeNewCrew(
-      mekaApeId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    makeNewCrew(mekaApeId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     matchmaking(overrides?: CallOverrides): Promise<string>;
 
@@ -1303,231 +973,206 @@ export interface Crews extends BaseContract {
 
     mekawarsItems(overrides?: CallOverrides): Promise<string>;
 
-    oogaInCrewId(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    oogaInCrewId(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     payNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     receiveNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     removeCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     removeRobosFromCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setContracts(
       mekaApescontract: PromiseOrValue<string>,
       mekawarsItemsContract: PromiseOrValue<string>,
       matchmakingContract: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setupParameters(
-      _burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setupParameters(_burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<void>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {
-    "AddItemToInventory(uint256,uint256,uint256)"(
+    'AddItemToInventory(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemId?: null,
-      itemIndexInInventory?: null
+      itemIndexInInventory?: null,
     ): AddItemToInventoryEventFilter;
     AddItemToInventory(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemId?: null,
-      itemIndexInInventory?: null
+      itemIndexInInventory?: null,
     ): AddItemToInventoryEventFilter;
 
-    "AddRoboToCrew(uint256,uint256)"(
+    'AddRoboToCrew(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      roboId?: PromiseOrValue<BigNumberish> | null
+      roboId?: PromiseOrValue<BigNumberish> | null,
     ): AddRoboToCrewEventFilter;
     AddRoboToCrew(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      roboId?: PromiseOrValue<BigNumberish> | null
+      roboId?: PromiseOrValue<BigNumberish> | null,
     ): AddRoboToCrewEventFilter;
 
-    "DeleteItemToInventory(uint256,uint256)"(
+    'DeleteItemToInventory(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      itemIndex?: null
+      itemIndex?: null,
     ): DeleteItemToInventoryEventFilter;
     DeleteItemToInventory(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      itemIndex?: null
+      itemIndex?: null,
     ): DeleteItemToInventoryEventFilter;
 
-    "DurabilityChange(uint256,uint256)"(
+    'DurabilityChange(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      newDurability?: null
+      newDurability?: null,
     ): DurabilityChangeEventFilter;
-    DurabilityChange(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      newDurability?: null
-    ): DurabilityChangeEventFilter;
+    DurabilityChange(crewId?: PromiseOrValue<BigNumberish> | null, newDurability?: null): DurabilityChangeEventFilter;
 
-    "EquipItemToOoga(uint256,uint256,uint256)"(
+    'EquipItemToOoga(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemIndex?: null,
-      oogaId?: null
+      oogaId?: null,
     ): EquipItemToOogaEventFilter;
     EquipItemToOoga(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemIndex?: null,
-      oogaId?: null
+      oogaId?: null,
     ): EquipItemToOogaEventFilter;
 
-    "EquipSpecialItem(uint256,uint256,uint256)"(
+    'EquipSpecialItem(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemIndex?: null,
-      oogaId?: null
+      oogaId?: null,
     ): EquipSpecialItemEventFilter;
     EquipSpecialItem(
       crewId?: PromiseOrValue<BigNumberish> | null,
       itemIndex?: null,
-      oogaId?: null
+      oogaId?: null,
     ): EquipSpecialItemEventFilter;
 
-    "Initialized(uint8)"(version?: null): InitializedEventFilter;
+    'Initialized(uint8)'(version?: null): InitializedEventFilter;
     Initialized(version?: null): InitializedEventFilter;
 
-    "LevelChange(uint256,uint256)"(
+    'LevelChange(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      newLevel?: null
+      newLevel?: null,
     ): LevelChangeEventFilter;
-    LevelChange(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      newLevel?: null
-    ): LevelChangeEventFilter;
+    LevelChange(crewId?: PromiseOrValue<BigNumberish> | null, newLevel?: null): LevelChangeEventFilter;
 
-    "MakeNewCrew(address,uint256,uint256,uint256,uint256)"(
+    'MakeNewCrew(address,uint256,uint256,uint256,uint256)'(
       user?: PromiseOrValue<string> | null,
       crewId?: PromiseOrValue<BigNumberish> | null,
       mekaApeId?: PromiseOrValue<BigNumberish> | null,
       rating?: null,
-      durability?: null
+      durability?: null,
     ): MakeNewCrewEventFilter;
     MakeNewCrew(
       user?: PromiseOrValue<string> | null,
       crewId?: PromiseOrValue<BigNumberish> | null,
       mekaApeId?: PromiseOrValue<BigNumberish> | null,
       rating?: null,
-      durability?: null
+      durability?: null,
     ): MakeNewCrewEventFilter;
 
-    "NTChange(uint256,uint256,int256)"(
+    'NTChange(uint256,uint256,int256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       newNTamount?: null,
-      change?: null
+      change?: null,
     ): NTChangeEventFilter;
-    NTChange(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      newNTamount?: null,
-      change?: null
-    ): NTChangeEventFilter;
+    NTChange(crewId?: PromiseOrValue<BigNumberish> | null, newNTamount?: null, change?: null): NTChangeEventFilter;
 
-    "NewFirstTeam(uint256,uint256[])"(
+    'NewFirstTeam(uint256,uint256[])'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      newFirstTeam?: null
+      newFirstTeam?: null,
     ): NewFirstTeamEventFilter;
-    NewFirstTeam(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      newFirstTeam?: null
-    ): NewFirstTeamEventFilter;
+    NewFirstTeam(crewId?: PromiseOrValue<BigNumberish> | null, newFirstTeam?: null): NewFirstTeamEventFilter;
 
-    "RatingChange(uint256,uint256)"(
+    'RatingChange(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      newRating?: null
+      newRating?: null,
     ): RatingChangeEventFilter;
-    RatingChange(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      newRating?: null
-    ): RatingChangeEventFilter;
+    RatingChange(crewId?: PromiseOrValue<BigNumberish> | null, newRating?: null): RatingChangeEventFilter;
 
-    "RemoveCrew(address,uint256)"(
+    'RemoveCrew(address,uint256)'(
       user?: PromiseOrValue<string> | null,
-      crewId?: PromiseOrValue<BigNumberish> | null
+      crewId?: PromiseOrValue<BigNumberish> | null,
     ): RemoveCrewEventFilter;
     RemoveCrew(
       user?: PromiseOrValue<string> | null,
-      crewId?: PromiseOrValue<BigNumberish> | null
+      crewId?: PromiseOrValue<BigNumberish> | null,
     ): RemoveCrewEventFilter;
 
-    "RemoveRoboFromCrew(uint256,uint256)"(
+    'RemoveRoboFromCrew(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      roboId?: PromiseOrValue<BigNumberish> | null
+      roboId?: PromiseOrValue<BigNumberish> | null,
     ): RemoveRoboFromCrewEventFilter;
     RemoveRoboFromCrew(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      roboId?: PromiseOrValue<BigNumberish> | null
+      roboId?: PromiseOrValue<BigNumberish> | null,
     ): RemoveRoboFromCrewEventFilter;
 
-    "RoleAdminChanged(bytes32,bytes32,bytes32)"(
+    'RoleAdminChanged(bytes32,bytes32,bytes32)'(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
 
-    "RoleGranted(bytes32,address,address)"(
+    'RoleGranted(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
 
-    "RoleRevoked(bytes32,address,address)"(
+    'RoleRevoked(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
   };
 
@@ -1540,19 +1185,19 @@ export interface Crews extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       removeRoboIds: PromiseOrValue<BigNumberish>[],
       addRoboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     addItemToInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     addRobosToCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     aftermatchChanges(
@@ -1561,7 +1206,7 @@ export interface Crews extends BaseContract {
       winRatingIncrease: PromiseOrValue<BigNumberish>,
       loseRatingDecrease: PromiseOrValue<BigNumberish>,
       durabilityDecrease: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     burnInventoryItemNTAmount(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1569,92 +1214,69 @@ export interface Crews extends BaseContract {
     checkActiveCrewAndOwner(
       crewId: PromiseOrValue<BigNumberish>,
       user: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    crews(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    crews(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     currentSeason(overrides?: CallOverrides): Promise<BigNumber>;
 
     decreaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     deleteItemFromInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     editFirstTeamAndEquipItems(
       crewId: PromiseOrValue<BigNumberish>,
       newFirstTeam: PromiseOrValue<BigNumberish>[],
       moveItems: ICrews.ItemMoveStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getCombatTeam(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCombatTeam(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getCrewOwner(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getCrewOwner(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getDurability(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getDurability(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getLevel(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getLevel(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRating(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRating(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     increaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<BigNumber>;
 
     lastCrewId(overrides?: CallOverrides): Promise<BigNumber>;
 
     makeNewCrew(
       mekaApeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     matchmaking(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1667,69 +1289,61 @@ export interface Crews extends BaseContract {
 
     mekawarsItems(overrides?: CallOverrides): Promise<BigNumber>;
 
-    oogaInCrewId(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    oogaInCrewId(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     payNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     receiveNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     removeCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     removeRobosFromCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setContracts(
       mekaApescontract: PromiseOrValue<string>,
       mekawarsItemsContract: PromiseOrValue<string>,
       matchmakingContract: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setupParameters(
       _burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     MEKAWARS_CONTRACT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
@@ -1737,19 +1351,19 @@ export interface Crews extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       removeRoboIds: PromiseOrValue<BigNumberish>[],
       addRoboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     addItemToInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     addRobosToCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     aftermatchChanges(
@@ -1758,174 +1372,139 @@ export interface Crews extends BaseContract {
       winRatingIncrease: PromiseOrValue<BigNumberish>,
       loseRatingDecrease: PromiseOrValue<BigNumberish>,
       durabilityDecrease: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    burnInventoryItemNTAmount(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    burnInventoryItemNTAmount(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     checkActiveCrewAndOwner(
       crewId: PromiseOrValue<BigNumberish>,
       user: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    crews(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    crews(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     currentSeason(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     decreaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     deleteItemFromInventory(
       crewId: PromiseOrValue<BigNumberish>,
       itemIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     editFirstTeamAndEquipItems(
       crewId: PromiseOrValue<BigNumberish>,
       newFirstTeam: PromiseOrValue<BigNumberish>[],
       moveItems: ICrews.ItemMoveStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    getCombatTeam(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCombatTeam(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getCrewOwner(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getCrewOwner(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getDurability(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getDurability(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getLevel(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getLevel(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getRating(
-      crewId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getRating(crewId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     increaseRating(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<PopulatedTransaction>;
 
     lastCrewId(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     makeNewCrew(
       mekaApeId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     matchmaking(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    maxItemsEquipedPerOoga(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    maxItemsEquipedPerOoga(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    maxRobosInFirstTeam(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    maxRobosInFirstTeam(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     mekaApes(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     mekawarsItems(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    oogaInCrewId(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    oogaInCrewId(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     payNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     receiveNT(
       crewId: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     removeCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     removeRobosFromCrew(
       crewId: PromiseOrValue<BigNumberish>,
       roboIds: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setContracts(
       mekaApescontract: PromiseOrValue<string>,
       mekawarsItemsContract: PromiseOrValue<string>,
       matchmakingContract: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setupParameters(
       _burnInventoryItemNTAmount: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

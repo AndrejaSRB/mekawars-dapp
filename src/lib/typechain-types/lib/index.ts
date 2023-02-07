@@ -3,8 +3,8 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type * as openzeppelinContracts from "./openzeppelin-contracts";
-import type * as openzeppelinContractsUpgradeable from "./openzeppelin-contracts-upgradeable";
+import type * as openzeppelinContracts from './openzeppelin-contracts';
+import type * as openzeppelinContractsUpgradeable from './openzeppelin-contracts-upgradeable';
 
 export type { openzeppelinContracts };
 

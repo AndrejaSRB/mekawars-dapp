@@ -3,31 +3,28 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type {
-  IRNGConsumer,
-  IRNGConsumerInterface,
-} from "../../../../src/mocks/VrfMock.sol/IRNGConsumer";
-import type { Provider } from "@ethersproject/providers";
-import { Contract, Signer, utils } from "ethers";
+import { Contract, Signer, utils } from 'ethers';
+import type { Provider } from '@ethersproject/providers';
+import type { IRNGConsumer, IRNGConsumerInterface } from '../../../../src/mocks/VrfMock.sol/IRNGConsumer';
 
 const _abi = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "requestId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'requestId',
+        type: 'uint256',
       },
       {
-        internalType: "uint256[]",
-        name: "randomWords",
-        type: "uint256[]",
+        internalType: 'uint256[]',
+        name: 'randomWords',
+        type: 'uint256[]',
       },
     ],
-    name: "fulfillRandomWords",
+    name: 'fulfillRandomWords',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
 ];
 
@@ -36,10 +33,7 @@ export class IRNGConsumer__factory {
   static createInterface(): IRNGConsumerInterface {
     return new utils.Interface(_abi) as IRNGConsumerInterface;
   }
-  static connect(
-    address: string,
-    signerOrProvider: Signer | Provider
-  ): IRNGConsumer {
+  static connect(address: string, signerOrProvider: Signer | Provider): IRNGConsumer {
     return new Contract(address, _abi, signerOrProvider) as IRNGConsumer;
   }
 }

@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../../common';
 
 export declare namespace IBox {
   export type BoxStructStruct = {
@@ -45,42 +35,39 @@ export declare namespace IBox {
 
 export interface IBoxInterface extends utils.Interface {
   functions: {
-    "matchWonBox(uint256,uint256)": FunctionFragment;
+    'matchWonBox(uint256,uint256)': FunctionFragment;
   };
 
-  getFunction(nameOrSignatureOrTopic: "matchWonBox"): FunctionFragment;
+  getFunction(nameOrSignatureOrTopic: 'matchWonBox'): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: "matchWonBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'matchWonBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "matchWonBox",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'matchWonBox', data: BytesLike): Result;
 
   events: {
-    "BoxOpened(uint256,uint256,uint8,uint256,uint256[])": EventFragment;
-    "BoxUpgraded(uint256,uint256,uint8,uint8)": EventFragment;
-    "BuyMysteryBox(uint256,uint256)": EventFragment;
-    "MysteryBoxOpened(uint256,uint256,uint256,uint256[])": EventFragment;
-    "OpenBox(uint256,uint256,uint8)": EventFragment;
-    "StakeBabyOoga(uint256,uint256,uint256)": EventFragment;
-    "UnstakeBabyOoga(uint256,uint256,uint256)": EventFragment;
-    "UpgradeBox(uint256,uint256,uint256,uint8)": EventFragment;
-    "WonBoxFromMatch(uint256,uint256,uint256,tuple)": EventFragment;
+    'BoxOpened(uint256,uint256,uint8,uint256,uint256[])': EventFragment;
+    'BoxUpgraded(uint256,uint256,uint8,uint8)': EventFragment;
+    'BuyMysteryBox(uint256,uint256)': EventFragment;
+    'MysteryBoxOpened(uint256,uint256,uint256,uint256[])': EventFragment;
+    'OpenBox(uint256,uint256,uint8)': EventFragment;
+    'StakeBabyOoga(uint256,uint256,uint256)': EventFragment;
+    'UnstakeBabyOoga(uint256,uint256,uint256)': EventFragment;
+    'UpgradeBox(uint256,uint256,uint256,uint8)': EventFragment;
+    'WonBoxFromMatch(uint256,uint256,uint256,tuple)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "BoxOpened"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "BoxUpgraded"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "BuyMysteryBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "MysteryBoxOpened"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "OpenBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "StakeBabyOoga"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "UnstakeBabyOoga"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "UpgradeBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "WonBoxFromMatch"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BoxOpened'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BoxUpgraded'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BuyMysteryBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'MysteryBoxOpened'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'OpenBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'StakeBabyOoga'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'UnstakeBabyOoga'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'UpgradeBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'WonBoxFromMatch'): EventFragment;
 }
 
 export interface BoxOpenedEventObject {
@@ -90,10 +77,7 @@ export interface BoxOpenedEventObject {
   NTWon: BigNumber;
   itemsWon: BigNumber[];
 }
-export type BoxOpenedEvent = TypedEvent<
-  [BigNumber, BigNumber, number, BigNumber, BigNumber[]],
-  BoxOpenedEventObject
->;
+export type BoxOpenedEvent = TypedEvent<[BigNumber, BigNumber, number, BigNumber, BigNumber[]], BoxOpenedEventObject>;
 
 export type BoxOpenedEventFilter = TypedEventFilter<BoxOpenedEvent>;
 
@@ -103,10 +87,7 @@ export interface BoxUpgradedEventObject {
   newRarity: number;
   newSlotState: number;
 }
-export type BoxUpgradedEvent = TypedEvent<
-  [BigNumber, BigNumber, number, number],
-  BoxUpgradedEventObject
->;
+export type BoxUpgradedEvent = TypedEvent<[BigNumber, BigNumber, number, number], BoxUpgradedEventObject>;
 
 export type BoxUpgradedEventFilter = TypedEventFilter<BoxUpgradedEvent>;
 
@@ -114,10 +95,7 @@ export interface BuyMysteryBoxEventObject {
   crewId: BigNumber;
   level: BigNumber;
 }
-export type BuyMysteryBoxEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  BuyMysteryBoxEventObject
->;
+export type BuyMysteryBoxEvent = TypedEvent<[BigNumber, BigNumber], BuyMysteryBoxEventObject>;
 
 export type BuyMysteryBoxEventFilter = TypedEventFilter<BuyMysteryBoxEvent>;
 
@@ -132,18 +110,14 @@ export type MysteryBoxOpenedEvent = TypedEvent<
   MysteryBoxOpenedEventObject
 >;
 
-export type MysteryBoxOpenedEventFilter =
-  TypedEventFilter<MysteryBoxOpenedEvent>;
+export type MysteryBoxOpenedEventFilter = TypedEventFilter<MysteryBoxOpenedEvent>;
 
 export interface OpenBoxEventObject {
   crewId: BigNumber;
   slotIndex: BigNumber;
   newSlotState: number;
 }
-export type OpenBoxEvent = TypedEvent<
-  [BigNumber, BigNumber, number],
-  OpenBoxEventObject
->;
+export type OpenBoxEvent = TypedEvent<[BigNumber, BigNumber, number], OpenBoxEventObject>;
 
 export type OpenBoxEventFilter = TypedEventFilter<OpenBoxEvent>;
 
@@ -152,10 +126,7 @@ export interface StakeBabyOogaEventObject {
   slotIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type StakeBabyOogaEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  StakeBabyOogaEventObject
->;
+export type StakeBabyOogaEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], StakeBabyOogaEventObject>;
 
 export type StakeBabyOogaEventFilter = TypedEventFilter<StakeBabyOogaEvent>;
 
@@ -164,10 +135,7 @@ export interface UnstakeBabyOogaEventObject {
   slotIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type UnstakeBabyOogaEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  UnstakeBabyOogaEventObject
->;
+export type UnstakeBabyOogaEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], UnstakeBabyOogaEventObject>;
 
 export type UnstakeBabyOogaEventFilter = TypedEventFilter<UnstakeBabyOogaEvent>;
 
@@ -177,10 +145,7 @@ export interface UpgradeBoxEventObject {
   newBabyOogaCharge: BigNumber;
   newSlotState: number;
 }
-export type UpgradeBoxEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber, number],
-  UpgradeBoxEventObject
->;
+export type UpgradeBoxEvent = TypedEvent<[BigNumber, BigNumber, BigNumber, number], UpgradeBoxEventObject>;
 
 export type UpgradeBoxEventFilter = TypedEventFilter<UpgradeBoxEvent>;
 
@@ -207,16 +172,12 @@ export interface IBox extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -227,132 +188,125 @@ export interface IBox extends BaseContract {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
   };
 
   matchWonBox(
     crewId: PromiseOrValue<BigNumberish>,
     randomSeed: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
-    "BoxOpened(uint256,uint256,uint8,uint256,uint256[])"(
+    'BoxOpened(uint256,uint256,uint8,uint256,uint256[])'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newSlotState?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): BoxOpenedEventFilter;
     BoxOpened(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newSlotState?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): BoxOpenedEventFilter;
 
-    "BoxUpgraded(uint256,uint256,uint8,uint8)"(
+    'BoxUpgraded(uint256,uint256,uint8,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newRarity?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): BoxUpgradedEventFilter;
     BoxUpgraded(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newRarity?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): BoxUpgradedEventFilter;
 
-    "BuyMysteryBox(uint256,uint256)"(
+    'BuyMysteryBox(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      level?: null
+      level?: null,
     ): BuyMysteryBoxEventFilter;
-    BuyMysteryBox(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      level?: null
-    ): BuyMysteryBoxEventFilter;
+    BuyMysteryBox(crewId?: PromiseOrValue<BigNumberish> | null, level?: null): BuyMysteryBoxEventFilter;
 
-    "MysteryBoxOpened(uint256,uint256,uint256,uint256[])"(
+    'MysteryBoxOpened(uint256,uint256,uint256,uint256[])'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       level?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): MysteryBoxOpenedEventFilter;
     MysteryBoxOpened(
       crewId?: PromiseOrValue<BigNumberish> | null,
       level?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): MysteryBoxOpenedEventFilter;
 
-    "OpenBox(uint256,uint256,uint8)"(
+    'OpenBox(uint256,uint256,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): OpenBoxEventFilter;
-    OpenBox(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      slotIndex?: null,
-      newSlotState?: null
-    ): OpenBoxEventFilter;
+    OpenBox(crewId?: PromiseOrValue<BigNumberish> | null, slotIndex?: null, newSlotState?: null): OpenBoxEventFilter;
 
-    "StakeBabyOoga(uint256,uint256,uint256)"(
+    'StakeBabyOoga(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): StakeBabyOogaEventFilter;
     StakeBabyOoga(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): StakeBabyOogaEventFilter;
 
-    "UnstakeBabyOoga(uint256,uint256,uint256)"(
+    'UnstakeBabyOoga(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): UnstakeBabyOogaEventFilter;
     UnstakeBabyOoga(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): UnstakeBabyOogaEventFilter;
 
-    "UpgradeBox(uint256,uint256,uint256,uint8)"(
+    'UpgradeBox(uint256,uint256,uint256,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): UpgradeBoxEventFilter;
     UpgradeBox(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): UpgradeBoxEventFilter;
 
-    "WonBoxFromMatch(uint256,uint256,uint256,tuple)"(
+    'WonBoxFromMatch(uint256,uint256,uint256,tuple)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      box?: null
+      box?: null,
     ): WonBoxFromMatchEventFilter;
     WonBoxFromMatch(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      box?: null
+      box?: null,
     ): WonBoxFromMatchEventFilter;
   };
 
@@ -360,7 +314,7 @@ export interface IBox extends BaseContract {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
   };
 
@@ -368,7 +322,7 @@ export interface IBox extends BaseContract {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

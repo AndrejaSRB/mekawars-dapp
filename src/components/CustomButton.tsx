@@ -1,6 +1,6 @@
-import type { ButtonProps } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/react";
-import type { FC } from "react";
+import type { FC } from 'react';
+import type { ButtonProps } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
 const CustomButton: FC<ButtonProps> = (props) => (
   <Button
@@ -11,15 +11,15 @@ const CustomButton: FC<ButtonProps> = (props) => (
     lineHeight="24px"
     color="#121212"
     _hover={{
-      bg: "rgba(255, 255, 255, 0.92)",
+      bg: 'rgba(255, 255, 255, 0.92)',
       _disabled: {
-        bg: "white.100",
-        opacity: "0.45",
+        bg: 'white.100',
+        opacity: '0.45',
       },
     }}
     _disabled={{
-      bg: "#ffffff",
-      opacity: "0.45",
+      bg: '#ffffff',
+      opacity: '0.45',
     }}
   />
 );

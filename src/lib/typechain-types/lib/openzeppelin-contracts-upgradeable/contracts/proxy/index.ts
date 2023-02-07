@@ -3,6 +3,6 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type * as utils from "./utils";
+import type * as utils from './utils';
 
 export type { utils };

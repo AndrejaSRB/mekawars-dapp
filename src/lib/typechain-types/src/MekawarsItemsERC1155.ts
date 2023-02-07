@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export type ItemStruct = {
   itemType: PromiseOrValue<BigNumberish>;
@@ -38,14 +28,7 @@ export type ItemStruct = {
   abilities: PromiseOrValue<BigNumberish>[];
 };
 
-export type ItemStructOutput = [
-  number,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  number[]
-] & {
+export type ItemStructOutput = [number, BigNumber, BigNumber, BigNumber, BigNumber, number[]] & {
   itemType: number;
   attack: BigNumber;
   health: BigNumber;
@@ -56,259 +39,175 @@ export type ItemStructOutput = [
 
 export interface MekawarsItemsERC1155Interface extends utils.Interface {
   functions: {
-    "BOX_CONTRACT()": FunctionFragment;
-    "CREWS_CONTRACT()": FunctionFragment;
-    "DEFAULT_ADMIN_ROLE()": FunctionFragment;
-    "balanceOf(address,uint256)": FunctionFragment;
-    "balanceOfBatch(address[],uint256[])": FunctionFragment;
-    "burnForInventory(address,uint256)": FunctionFragment;
-    "getItemAttributes(uint256)": FunctionFragment;
-    "getRoleAdmin(bytes32)": FunctionFragment;
-    "grantRole(bytes32,address)": FunctionFragment;
-    "hasRole(bytes32,address)": FunctionFragment;
-    "initialize()": FunctionFragment;
-    "isApprovedForAll(address,address)": FunctionFragment;
-    "itemAttributes(uint256)": FunctionFragment;
-    "mintItemFromBox(address,uint256)": FunctionFragment;
-    "renounceRole(bytes32,address)": FunctionFragment;
-    "revokeRole(bytes32,address)": FunctionFragment;
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": FunctionFragment;
-    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
-    "setApprovalForAll(address,bool)": FunctionFragment;
-    "setItemAttributes(uint256,(uint8,uint256,uint256,uint256,uint256,uint8[]))": FunctionFragment;
-    "setItemAttributesBatch(uint256[],(uint8,uint256,uint256,uint256,uint256,uint8[])[])": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
-    "uri(uint256)": FunctionFragment;
+    'BOX_CONTRACT()': FunctionFragment;
+    'CREWS_CONTRACT()': FunctionFragment;
+    'DEFAULT_ADMIN_ROLE()': FunctionFragment;
+    'balanceOf(address,uint256)': FunctionFragment;
+    'balanceOfBatch(address[],uint256[])': FunctionFragment;
+    'burnForInventory(address,uint256)': FunctionFragment;
+    'getItemAttributes(uint256)': FunctionFragment;
+    'getRoleAdmin(bytes32)': FunctionFragment;
+    'grantRole(bytes32,address)': FunctionFragment;
+    'hasRole(bytes32,address)': FunctionFragment;
+    'initialize()': FunctionFragment;
+    'isApprovedForAll(address,address)': FunctionFragment;
+    'itemAttributes(uint256)': FunctionFragment;
+    'mintItemFromBox(address,uint256)': FunctionFragment;
+    'renounceRole(bytes32,address)': FunctionFragment;
+    'revokeRole(bytes32,address)': FunctionFragment;
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)': FunctionFragment;
+    'safeTransferFrom(address,address,uint256,uint256,bytes)': FunctionFragment;
+    'setApprovalForAll(address,bool)': FunctionFragment;
+    'setItemAttributes(uint256,(uint8,uint256,uint256,uint256,uint256,uint8[]))': FunctionFragment;
+    'setItemAttributesBatch(uint256[],(uint8,uint256,uint256,uint256,uint256,uint8[])[])': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
+    'uri(uint256)': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "BOX_CONTRACT"
-      | "CREWS_CONTRACT"
-      | "DEFAULT_ADMIN_ROLE"
-      | "balanceOf"
-      | "balanceOfBatch"
-      | "burnForInventory"
-      | "getItemAttributes"
-      | "getRoleAdmin"
-      | "grantRole"
-      | "hasRole"
-      | "initialize"
-      | "isApprovedForAll"
-      | "itemAttributes"
-      | "mintItemFromBox"
-      | "renounceRole"
-      | "revokeRole"
-      | "safeBatchTransferFrom"
-      | "safeTransferFrom"
-      | "setApprovalForAll"
-      | "setItemAttributes"
-      | "setItemAttributesBatch"
-      | "supportsInterface"
-      | "uri"
+      | 'BOX_CONTRACT'
+      | 'CREWS_CONTRACT'
+      | 'DEFAULT_ADMIN_ROLE'
+      | 'balanceOf'
+      | 'balanceOfBatch'
+      | 'burnForInventory'
+      | 'getItemAttributes'
+      | 'getRoleAdmin'
+      | 'grantRole'
+      | 'hasRole'
+      | 'initialize'
+      | 'isApprovedForAll'
+      | 'itemAttributes'
+      | 'mintItemFromBox'
+      | 'renounceRole'
+      | 'revokeRole'
+      | 'safeBatchTransferFrom'
+      | 'safeTransferFrom'
+      | 'setApprovalForAll'
+      | 'setItemAttributes'
+      | 'setItemAttributesBatch'
+      | 'supportsInterface'
+      | 'uri',
   ): FunctionFragment;
 
+  encodeFunctionData(functionFragment: 'BOX_CONTRACT', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'CREWS_CONTRACT', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'DEFAULT_ADMIN_ROLE', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "BOX_CONTRACT",
-    values?: undefined
+    functionFragment: 'balanceOf',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "CREWS_CONTRACT",
-    values?: undefined
+    functionFragment: 'balanceOfBatch',
+    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    functionFragment: 'burnForInventory',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'getItemAttributes', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getRoleAdmin', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(
+    functionFragment: 'grantRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'hasRole', values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: 'initialize', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'isApprovedForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'itemAttributes', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(
+    functionFragment: 'mintItemFromBox',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOf",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'renounceRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOfBatch",
-    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]]
+    functionFragment: 'revokeRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "burnForInventory",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getItemAttributes",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getRoleAdmin",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "grantRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "hasRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isApprovedForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "itemAttributes",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mintItemFromBox",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "revokeRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "safeBatchTransferFrom",
+    functionFragment: 'safeBatchTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>[],
       PromiseOrValue<BigNumberish>[],
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "safeTransferFrom",
+    functionFragment: 'safeTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "setApprovalForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<boolean>]
+    functionFragment: 'setApprovalForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<boolean>],
   ): string;
+  encodeFunctionData(functionFragment: 'setItemAttributes', values: [PromiseOrValue<BigNumberish>, ItemStruct]): string;
   encodeFunctionData(
-    functionFragment: "setItemAttributes",
-    values: [PromiseOrValue<BigNumberish>, ItemStruct]
+    functionFragment: 'setItemAttributesBatch',
+    values: [PromiseOrValue<BigNumberish>[], ItemStruct[]],
   ): string;
-  encodeFunctionData(
-    functionFragment: "setItemAttributesBatch",
-    values: [PromiseOrValue<BigNumberish>[], ItemStruct[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "uri",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
+  encodeFunctionData(functionFragment: 'supportsInterface', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(functionFragment: 'uri', values: [PromiseOrValue<BigNumberish>]): string;
 
-  decodeFunctionResult(
-    functionFragment: "BOX_CONTRACT",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "CREWS_CONTRACT",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "balanceOfBatch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "burnForInventory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getItemAttributes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getRoleAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "isApprovedForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "itemAttributes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mintItemFromBox",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceRole",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "safeBatchTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "safeTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setApprovalForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setItemAttributes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setItemAttributesBatch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "uri", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'BOX_CONTRACT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'CREWS_CONTRACT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'DEFAULT_ADMIN_ROLE', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOf', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOfBatch', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'burnForInventory', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getItemAttributes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRoleAdmin', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'grantRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'hasRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'isApprovedForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'itemAttributes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mintItemFromBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'renounceRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'revokeRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeBatchTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setApprovalForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setItemAttributes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setItemAttributesBatch', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'supportsInterface', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'uri', data: BytesLike): Result;
 
   events: {
-    "ApprovalForAll(address,address,bool)": EventFragment;
-    "Initialized(uint8)": EventFragment;
-    "RoleAdminChanged(bytes32,bytes32,bytes32)": EventFragment;
-    "RoleGranted(bytes32,address,address)": EventFragment;
-    "RoleRevoked(bytes32,address,address)": EventFragment;
-    "SetItemAttributes(uint256,tuple)": EventFragment;
-    "TransferBatch(address,address,address,uint256[],uint256[])": EventFragment;
-    "TransferSingle(address,address,address,uint256,uint256)": EventFragment;
-    "URI(string,uint256)": EventFragment;
+    'ApprovalForAll(address,address,bool)': EventFragment;
+    'Initialized(uint8)': EventFragment;
+    'RoleAdminChanged(bytes32,bytes32,bytes32)': EventFragment;
+    'RoleGranted(bytes32,address,address)': EventFragment;
+    'RoleRevoked(bytes32,address,address)': EventFragment;
+    'SetItemAttributes(uint256,tuple)': EventFragment;
+    'TransferBatch(address,address,address,uint256[],uint256[])': EventFragment;
+    'TransferSingle(address,address,address,uint256,uint256)': EventFragment;
+    'URI(string,uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "SetItemAttributes"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferBatch"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferSingle"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "URI"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'ApprovalForAll'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'Initialized'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleAdminChanged'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleGranted'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleRevoked'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'SetItemAttributes'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferBatch'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferSingle'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'URI'): EventFragment;
 }
 
 export interface ApprovalForAllEventObject {
@@ -316,10 +215,7 @@ export interface ApprovalForAllEventObject {
   operator: string;
   approved: boolean;
 }
-export type ApprovalForAllEvent = TypedEvent<
-  [string, string, boolean],
-  ApprovalForAllEventObject
->;
+export type ApprovalForAllEvent = TypedEvent<[string, string, boolean], ApprovalForAllEventObject>;
 
 export type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
 
@@ -335,23 +231,16 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
-export type RoleAdminChangedEvent = TypedEvent<
-  [string, string, string],
-  RoleAdminChangedEventObject
->;
+export type RoleAdminChangedEvent = TypedEvent<[string, string, string], RoleAdminChangedEventObject>;
 
-export type RoleAdminChangedEventFilter =
-  TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 
 export interface RoleGrantedEventObject {
   role: string;
   account: string;
   sender: string;
 }
-export type RoleGrantedEvent = TypedEvent<
-  [string, string, string],
-  RoleGrantedEventObject
->;
+export type RoleGrantedEvent = TypedEvent<[string, string, string], RoleGrantedEventObject>;
 
 export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 
@@ -360,10 +249,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
-export type RoleRevokedEvent = TypedEvent<
-  [string, string, string],
-  RoleRevokedEventObject
->;
+export type RoleRevokedEvent = TypedEvent<[string, string, string], RoleRevokedEventObject>;
 
 export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
@@ -371,13 +257,9 @@ export interface SetItemAttributesEventObject {
   itemId: BigNumber;
   item: ItemStructOutput;
 }
-export type SetItemAttributesEvent = TypedEvent<
-  [BigNumber, ItemStructOutput],
-  SetItemAttributesEventObject
->;
+export type SetItemAttributesEvent = TypedEvent<[BigNumber, ItemStructOutput], SetItemAttributesEventObject>;
 
-export type SetItemAttributesEventFilter =
-  TypedEventFilter<SetItemAttributesEvent>;
+export type SetItemAttributesEventFilter = TypedEventFilter<SetItemAttributesEvent>;
 
 export interface TransferBatchEventObject {
   operator: string;
@@ -400,10 +282,7 @@ export interface TransferSingleEventObject {
   id: BigNumber;
   value: BigNumber;
 }
-export type TransferSingleEvent = TypedEvent<
-  [string, string, string, BigNumber, BigNumber],
-  TransferSingleEventObject
->;
+export type TransferSingleEvent = TypedEvent<[string, string, string, BigNumber, BigNumber], TransferSingleEventObject>;
 
 export type TransferSingleEventFilter = TypedEventFilter<TransferSingleEvent>;
 
@@ -425,16 +304,12 @@ export interface MekawarsItemsERC1155 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -451,56 +326,48 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]]>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[ItemStructOutput]>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[ItemStructOutput]>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[string]>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     itemAttributes(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, BigNumber, BigNumber, BigNumber, BigNumber] & {
         itemType: number;
@@ -514,19 +381,19 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeBatchTransferFrom(
@@ -535,7 +402,7 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeTransferFrom(
@@ -544,36 +411,30 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setItemAttributes(
       itemId: PromiseOrValue<BigNumberish>,
       item: ItemStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setItemAttributesBatch(
       itemIds: PromiseOrValue<BigNumberish>[],
       items: ItemStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[boolean]>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[string]>;
   };
 
   BOX_CONTRACT(overrides?: CallOverrides): Promise<string>;
@@ -585,56 +446,48 @@ export interface MekawarsItemsERC1155 extends BaseContract {
   balanceOf(
     account: PromiseOrValue<string>,
     id: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   balanceOfBatch(
     accounts: PromiseOrValue<string>[],
     ids: PromiseOrValue<BigNumberish>[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   burnForInventory(
     user: PromiseOrValue<string>,
     itemId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  getItemAttributes(
-    itemId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<ItemStructOutput>;
+  getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<ItemStructOutput>;
 
-  getRoleAdmin(
-    role: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
   grantRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
-  initialize(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+  initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
   isApprovedForAll(
     account: PromiseOrValue<string>,
     operator: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   itemAttributes(
     arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [number, BigNumber, BigNumber, BigNumber, BigNumber] & {
       itemType: number;
@@ -648,19 +501,19 @@ export interface MekawarsItemsERC1155 extends BaseContract {
   mintItemFromBox(
     user: PromiseOrValue<string>,
     itemId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeBatchTransferFrom(
@@ -669,7 +522,7 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     ids: PromiseOrValue<BigNumberish>[],
     amounts: PromiseOrValue<BigNumberish>[],
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeTransferFrom(
@@ -678,36 +531,30 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     id: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setApprovalForAll(
     operator: PromiseOrValue<string>,
     approved: PromiseOrValue<boolean>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setItemAttributes(
     itemId: PromiseOrValue<BigNumberish>,
     item: ItemStruct,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setItemAttributesBatch(
     itemIds: PromiseOrValue<BigNumberish>[],
     items: ItemStruct[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
-  uri(
-    arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
 
   callStatic: {
     BOX_CONTRACT(overrides?: CallOverrides): Promise<string>;
@@ -719,41 +566,35 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<ItemStructOutput>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<ItemStructOutput>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<ItemStructOutput>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
@@ -761,12 +602,12 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     itemAttributes(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, BigNumber, BigNumber, BigNumber, BigNumber] & {
         itemType: number;
@@ -780,19 +621,19 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeBatchTransferFrom(
@@ -801,7 +642,7 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeTransferFrom(
@@ -810,129 +651,113 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      item: ItemStruct,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setItemAttributes(itemId: PromiseOrValue<BigNumberish>, item: ItemStruct, overrides?: CallOverrides): Promise<void>;
 
     setItemAttributesBatch(
       itemIds: PromiseOrValue<BigNumberish>[],
       items: ItemStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
   };
 
   filters: {
-    "ApprovalForAll(address,address,bool)"(
+    'ApprovalForAll(address,address,bool)'(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
     ApprovalForAll(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
 
-    "Initialized(uint8)"(version?: null): InitializedEventFilter;
+    'Initialized(uint8)'(version?: null): InitializedEventFilter;
     Initialized(version?: null): InitializedEventFilter;
 
-    "RoleAdminChanged(bytes32,bytes32,bytes32)"(
+    'RoleAdminChanged(bytes32,bytes32,bytes32)'(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
 
-    "RoleGranted(bytes32,address,address)"(
+    'RoleGranted(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
 
-    "RoleRevoked(bytes32,address,address)"(
+    'RoleRevoked(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
 
-    "SetItemAttributes(uint256,tuple)"(
+    'SetItemAttributes(uint256,tuple)'(
       itemId?: PromiseOrValue<BigNumberish> | null,
-      item?: null
+      item?: null,
     ): SetItemAttributesEventFilter;
-    SetItemAttributes(
-      itemId?: PromiseOrValue<BigNumberish> | null,
-      item?: null
-    ): SetItemAttributesEventFilter;
+    SetItemAttributes(itemId?: PromiseOrValue<BigNumberish> | null, item?: null): SetItemAttributesEventFilter;
 
-    "TransferBatch(address,address,address,uint256[],uint256[])"(
+    'TransferBatch(address,address,address,uint256[],uint256[])'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
     TransferBatch(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
 
-    "TransferSingle(address,address,address,uint256,uint256)"(
+    'TransferSingle(address,address,address,uint256,uint256)'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
     TransferSingle(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
 
-    "URI(string,uint256)"(
-      value?: null,
-      id?: PromiseOrValue<BigNumberish> | null
-    ): URIEventFilter;
+    'URI(string,uint256)'(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
     URI(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
   };
 
@@ -946,74 +771,63 @@ export interface MekawarsItemsERC1155 extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<BigNumber>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    itemAttributes(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    itemAttributes(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeBatchTransferFrom(
@@ -1022,7 +836,7 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeTransferFrom(
@@ -1031,36 +845,30 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setItemAttributes(
       itemId: PromiseOrValue<BigNumberish>,
       item: ItemStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setItemAttributesBatch(
       itemIds: PromiseOrValue<BigNumberish>[],
       items: ItemStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -1068,81 +876,68 @@ export interface MekawarsItemsERC1155 extends BaseContract {
 
     CREWS_CONTRACT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<PopulatedTransaction>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    itemAttributes(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    itemAttributes(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeBatchTransferFrom(
@@ -1151,7 +946,7 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeTransferFrom(
@@ -1160,35 +955,29 @@ export interface MekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setItemAttributes(
       itemId: PromiseOrValue<BigNumberish>,
       item: ItemStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setItemAttributesBatch(
       itemIds: PromiseOrValue<BigNumberish>[],
       items: ItemStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

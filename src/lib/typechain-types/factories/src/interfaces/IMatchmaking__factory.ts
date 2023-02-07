@@ -3,12 +3,9 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type {
-  IMatchmaking,
-  IMatchmakingInterface,
-} from "../../../src/interfaces/IMatchmaking";
-import type { Provider } from "@ethersproject/providers";
-import { Contract, Signer, utils } from "ethers";
+import { Contract, Signer, utils } from 'ethers';
+import type { Provider } from '@ethersproject/providers';
+import type { IMatchmaking, IMatchmakingInterface } from '../../../src/interfaces/IMatchmaking';
 
 const _abi = [
   {
@@ -16,139 +13,139 @@ const _abi = [
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "crewId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'crewId',
+        type: 'uint256',
       },
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
     ],
-    name: "AddCrewToBucket",
-    type: "event",
+    name: 'AddCrewToBucket',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "enum IMatchmaking.BucketState",
-        name: "newBucketState",
-        type: "uint8",
+        internalType: 'enum IMatchmaking.BucketState',
+        name: 'newBucketState',
+        type: 'uint8',
       },
     ],
-    name: "ChangeBucketState",
-    type: "event",
+    name: 'ChangeBucketState',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "createdAt",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'createdAt',
+        type: 'uint256',
       },
     ],
-    name: "NewBucket",
-    type: "event",
+    name: 'NewBucket',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "crewId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'crewId',
+        type: 'uint256',
       },
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
     ],
-    name: "RemoveCrewFromBucket",
-    type: "event",
+    name: 'RemoveCrewFromBucket',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "crewIdFirst",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'crewIdFirst',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "crewIdSecond",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'crewIdSecond',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "winCrewId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'winCrewId',
+        type: 'uint256',
       },
     ],
-    name: "ResolveMatch",
-    type: "event",
+    name: 'ResolveMatch',
+    type: 'event',
   },
   {
     anonymous: false,
     inputs: [
       {
         indexed: true,
-        internalType: "uint256",
-        name: "bucketIndex",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'bucketIndex',
+        type: 'uint256',
       },
       {
         indexed: false,
-        internalType: "uint256",
-        name: "randomSeed",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'randomSeed',
+        type: 'uint256',
       },
     ],
-    name: "SetBucketRandomSeed",
-    type: "event",
+    name: 'SetBucketRandomSeed',
+    type: 'event',
   },
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "crewId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'crewId',
+        type: 'uint256',
       },
     ],
-    name: "checkCrewWaitingForMatchResolve",
+    name: 'checkCrewWaitingForMatchResolve',
     outputs: [],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
 ];
 
@@ -157,10 +154,7 @@ export class IMatchmaking__factory {
   static createInterface(): IMatchmakingInterface {
     return new utils.Interface(_abi) as IMatchmakingInterface;
   }
-  static connect(
-    address: string,
-    signerOrProvider: Signer | Provider
-  ): IMatchmaking {
+  static connect(address: string, signerOrProvider: Signer | Provider): IMatchmaking {
     return new Contract(address, _abi, signerOrProvider) as IMatchmaking;
   }
 }

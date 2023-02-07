@@ -1,6 +1,6 @@
-import { useWeb3Context } from "../context/";
-import { Button } from "@chakra-ui/react";
-import React from "react";
+import React from 'react';
+import { Button } from '@chakra-ui/react';
+import { useWeb3Context } from '../context/';
 
 interface ConnectProps {
   connect: (() => Promise<void>) | null;
@@ -32,9 +32,5 @@ const DisconnectButton = ({ disconnect }: DisconnectProps) => {
 export function Web3Button() {
   const { web3Provider, connect, disconnect } = useWeb3Context();
 
-  return web3Provider ? (
-    <DisconnectButton disconnect={disconnect} />
-  ) : (
-    <ConnectButton connect={connect} />
-  );
+  return web3Provider ? <DisconnectButton disconnect={disconnect} /> : <ConnectButton connect={connect} />;
 }

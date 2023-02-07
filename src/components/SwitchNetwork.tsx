@@ -1,5 +1,5 @@
-import { Flex, Text } from "@chakra-ui/react";
-import type { FC } from "react";
+import type { FC } from 'react';
+import { Flex, Text } from '@chakra-ui/react';
 
 interface SwitchNetworkProps {
   chainId: number;
@@ -22,8 +22,7 @@ const SwitchNetwork: FC<SwitchNetworkProps> = ({ chainId }) => {
           fontSize="sm"
         >
           <Text>
-            Your wallet is connected to the {chainId} network. To use MekaWars
-            switch network to Polygon Mumbai.
+            Your wallet is connected to the {chainId} network. To use MekaWars switch network to Polygon Mumbai.
           </Text>
         </Flex>
       ) : null}

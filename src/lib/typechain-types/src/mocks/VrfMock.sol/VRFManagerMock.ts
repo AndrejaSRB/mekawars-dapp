@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,47 +14,36 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../../../common';
 
 export interface VRFManagerMockInterface extends utils.Interface {
   functions: {
-    "fulfill(uint256)": FunctionFragment;
-    "getRandomNumber()": FunctionFragment;
-    "setNumWords(address,uint256)": FunctionFragment;
+    'fulfill(uint256)': FunctionFragment;
+    'getRandomNumber()': FunctionFragment;
+    'setNumWords(address,uint256)': FunctionFragment;
   };
 
-  getFunction(
-    nameOrSignatureOrTopic: "fulfill" | "getRandomNumber" | "setNumWords"
-  ): FunctionFragment;
+  getFunction(nameOrSignatureOrTopic: 'fulfill' | 'getRandomNumber' | 'setNumWords'): FunctionFragment;
 
+  encodeFunctionData(functionFragment: 'fulfill', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'getRandomNumber', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "fulfill",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getRandomNumber",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setNumWords",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'setNumWords',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
 
-  decodeFunctionResult(functionFragment: "fulfill", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getRandomNumber",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setNumWords",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'fulfill', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRandomNumber', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setNumWords', data: BytesLike): Result;
 
   events: {
-    "NewRequest(uint256)": EventFragment;
+    'NewRequest(uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "NewRequest"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'NewRequest'): EventFragment;
 }
 
 export interface NewRequestEventObject {
@@ -87,16 +63,12 @@ export interface VRFManagerMock extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -106,86 +78,75 @@ export interface VRFManagerMock extends BaseContract {
   functions: {
     fulfill(
       _requestId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    getRandomNumber(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+    getRandomNumber(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
     setNumWords(
       _contract: PromiseOrValue<string>,
       _num: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
   };
 
   fulfill(
     _requestId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  getRandomNumber(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+  getRandomNumber(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
   setNumWords(
     _contract: PromiseOrValue<string>,
     _num: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
-    fulfill(
-      _requestId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    fulfill(_requestId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<void>;
 
     getRandomNumber(overrides?: CallOverrides): Promise<BigNumber>;
 
     setNumWords(
       _contract: PromiseOrValue<string>,
       _num: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
-    "NewRequest(uint256)"(id?: null): NewRequestEventFilter;
+    'NewRequest(uint256)'(id?: null): NewRequestEventFilter;
     NewRequest(id?: null): NewRequestEventFilter;
   };
 
   estimateGas: {
     fulfill(
       _requestId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getRandomNumber(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    getRandomNumber(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<BigNumber>;
 
     setNumWords(
       _contract: PromiseOrValue<string>,
       _num: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
     fulfill(
       _requestId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    getRandomNumber(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
+    getRandomNumber(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<PopulatedTransaction>;
 
     setNumWords(
       _contract: PromiseOrValue<string>,
       _num: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

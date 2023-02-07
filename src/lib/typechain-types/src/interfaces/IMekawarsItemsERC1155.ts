@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../../common';
 
 export type ItemStruct = {
   itemType: PromiseOrValue<BigNumberish>;
@@ -38,14 +28,7 @@ export type ItemStruct = {
   abilities: PromiseOrValue<BigNumberish>[];
 };
 
-export type ItemStructOutput = [
-  number,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  number[]
-] & {
+export type ItemStructOutput = [number, BigNumber, BigNumber, BigNumber, BigNumber, number[]] & {
   itemType: number;
   attack: BigNumber;
   health: BigNumber;
@@ -56,134 +39,101 @@ export type ItemStructOutput = [
 
 export interface IMekawarsItemsERC1155Interface extends utils.Interface {
   functions: {
-    "balanceOf(address,uint256)": FunctionFragment;
-    "balanceOfBatch(address[],uint256[])": FunctionFragment;
-    "burnForInventory(address,uint256)": FunctionFragment;
-    "getItemAttributes(uint256)": FunctionFragment;
-    "isApprovedForAll(address,address)": FunctionFragment;
-    "mintItemFromBox(address,uint256)": FunctionFragment;
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": FunctionFragment;
-    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
-    "setApprovalForAll(address,bool)": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
+    'balanceOf(address,uint256)': FunctionFragment;
+    'balanceOfBatch(address[],uint256[])': FunctionFragment;
+    'burnForInventory(address,uint256)': FunctionFragment;
+    'getItemAttributes(uint256)': FunctionFragment;
+    'isApprovedForAll(address,address)': FunctionFragment;
+    'mintItemFromBox(address,uint256)': FunctionFragment;
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)': FunctionFragment;
+    'safeTransferFrom(address,address,uint256,uint256,bytes)': FunctionFragment;
+    'setApprovalForAll(address,bool)': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "balanceOf"
-      | "balanceOfBatch"
-      | "burnForInventory"
-      | "getItemAttributes"
-      | "isApprovedForAll"
-      | "mintItemFromBox"
-      | "safeBatchTransferFrom"
-      | "safeTransferFrom"
-      | "setApprovalForAll"
-      | "supportsInterface"
+      | 'balanceOf'
+      | 'balanceOfBatch'
+      | 'burnForInventory'
+      | 'getItemAttributes'
+      | 'isApprovedForAll'
+      | 'mintItemFromBox'
+      | 'safeBatchTransferFrom'
+      | 'safeTransferFrom'
+      | 'setApprovalForAll'
+      | 'supportsInterface',
   ): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: "balanceOf",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'balanceOf',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOfBatch",
-    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]]
+    functionFragment: 'balanceOfBatch',
+    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "burnForInventory",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'burnForInventory',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'getItemAttributes', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(
+    functionFragment: 'isApprovedForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getItemAttributes",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'mintItemFromBox',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "isApprovedForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mintItemFromBox",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "safeBatchTransferFrom",
+    functionFragment: 'safeBatchTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>[],
       PromiseOrValue<BigNumberish>[],
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "safeTransferFrom",
+    functionFragment: 'safeTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "setApprovalForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<boolean>]
+    functionFragment: 'setApprovalForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<boolean>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
+  encodeFunctionData(functionFragment: 'supportsInterface', values: [PromiseOrValue<BytesLike>]): string;
 
-  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "balanceOfBatch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "burnForInventory",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getItemAttributes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "isApprovedForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mintItemFromBox",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "safeBatchTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "safeTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setApprovalForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'balanceOf', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOfBatch', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'burnForInventory', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getItemAttributes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'isApprovedForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mintItemFromBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeBatchTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setApprovalForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'supportsInterface', data: BytesLike): Result;
 
   events: {
-    "ApprovalForAll(address,address,bool)": EventFragment;
-    "TransferBatch(address,address,address,uint256[],uint256[])": EventFragment;
-    "TransferSingle(address,address,address,uint256,uint256)": EventFragment;
-    "URI(string,uint256)": EventFragment;
+    'ApprovalForAll(address,address,bool)': EventFragment;
+    'TransferBatch(address,address,address,uint256[],uint256[])': EventFragment;
+    'TransferSingle(address,address,address,uint256,uint256)': EventFragment;
+    'URI(string,uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferBatch"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferSingle"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "URI"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'ApprovalForAll'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferBatch'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferSingle'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'URI'): EventFragment;
 }
 
 export interface ApprovalForAllEventObject {
@@ -191,10 +141,7 @@ export interface ApprovalForAllEventObject {
   operator: string;
   approved: boolean;
 }
-export type ApprovalForAllEvent = TypedEvent<
-  [string, string, boolean],
-  ApprovalForAllEventObject
->;
+export type ApprovalForAllEvent = TypedEvent<[string, string, boolean], ApprovalForAllEventObject>;
 
 export type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
 
@@ -219,10 +166,7 @@ export interface TransferSingleEventObject {
   id: BigNumber;
   value: BigNumber;
 }
-export type TransferSingleEvent = TypedEvent<
-  [string, string, string, BigNumber, BigNumber],
-  TransferSingleEventObject
->;
+export type TransferSingleEvent = TypedEvent<[string, string, string, BigNumber, BigNumber], TransferSingleEventObject>;
 
 export type TransferSingleEventFilter = TypedEventFilter<TransferSingleEvent>;
 
@@ -244,16 +188,12 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -264,36 +204,33 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]]>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[ItemStructOutput]>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[ItemStructOutput]>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeBatchTransferFrom(
@@ -302,7 +239,7 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeTransferFrom(
@@ -311,54 +248,48 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[boolean]>;
   };
 
   balanceOf(
     account: PromiseOrValue<string>,
     id: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   balanceOfBatch(
     accounts: PromiseOrValue<string>[],
     ids: PromiseOrValue<BigNumberish>[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   burnForInventory(
     user: PromiseOrValue<string>,
     itemId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  getItemAttributes(
-    itemId: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<ItemStructOutput>;
+  getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<ItemStructOutput>;
 
   isApprovedForAll(
     account: PromiseOrValue<string>,
     operator: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   mintItemFromBox(
     user: PromiseOrValue<string>,
     itemId: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeBatchTransferFrom(
@@ -367,7 +298,7 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
     ids: PromiseOrValue<BigNumberish>[],
     amounts: PromiseOrValue<BigNumberish>[],
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeTransferFrom(
@@ -376,54 +307,48 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
     id: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setApprovalForAll(
     operator: PromiseOrValue<string>,
     approved: PromiseOrValue<boolean>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
   callStatic: {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<ItemStructOutput>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<ItemStructOutput>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<ItemStructOutput>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeBatchTransferFrom(
@@ -432,7 +357,7 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeTransferFrom(
@@ -441,67 +366,61 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
   };
 
   filters: {
-    "ApprovalForAll(address,address,bool)"(
+    'ApprovalForAll(address,address,bool)'(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
     ApprovalForAll(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
 
-    "TransferBatch(address,address,address,uint256[],uint256[])"(
+    'TransferBatch(address,address,address,uint256[],uint256[])'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
     TransferBatch(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
 
-    "TransferSingle(address,address,address,uint256,uint256)"(
+    'TransferSingle(address,address,address,uint256,uint256)'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
     TransferSingle(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
 
-    "URI(string,uint256)"(
-      value?: null,
-      id?: PromiseOrValue<BigNumberish> | null
-    ): URIEventFilter;
+    'URI(string,uint256)'(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
     URI(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
   };
 
@@ -509,36 +428,33 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeBatchTransferFrom(
@@ -547,7 +463,7 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeTransferFrom(
@@ -556,55 +472,49 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     burnForInventory(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    getItemAttributes(
-      itemId: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getItemAttributes(itemId: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     mintItemFromBox(
       user: PromiseOrValue<string>,
       itemId: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeBatchTransferFrom(
@@ -613,7 +523,7 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeTransferFrom(
@@ -622,18 +532,15 @@ export interface IMekawarsItemsERC1155 extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

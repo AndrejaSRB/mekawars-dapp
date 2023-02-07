@@ -4,15 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type { FunctionFragment, Result } from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -23,77 +14,47 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export interface VRFConsumerInterface extends utils.Interface {
   functions: {
-    "rawFulfillRandomWords(uint256,uint256[])": FunctionFragment;
-    "vrf_callbackGasLimit()": FunctionFragment;
-    "vrf_coordinator()": FunctionFragment;
-    "vrf_keyHash()": FunctionFragment;
-    "vrf_requestConfirmations()": FunctionFragment;
-    "vrf_subscriptionId()": FunctionFragment;
+    'rawFulfillRandomWords(uint256,uint256[])': FunctionFragment;
+    'vrf_callbackGasLimit()': FunctionFragment;
+    'vrf_coordinator()': FunctionFragment;
+    'vrf_keyHash()': FunctionFragment;
+    'vrf_requestConfirmations()': FunctionFragment;
+    'vrf_subscriptionId()': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "rawFulfillRandomWords"
-      | "vrf_callbackGasLimit"
-      | "vrf_coordinator"
-      | "vrf_keyHash"
-      | "vrf_requestConfirmations"
-      | "vrf_subscriptionId"
+      | 'rawFulfillRandomWords'
+      | 'vrf_callbackGasLimit'
+      | 'vrf_coordinator'
+      | 'vrf_keyHash'
+      | 'vrf_requestConfirmations'
+      | 'vrf_subscriptionId',
   ): FunctionFragment;
 
   encodeFunctionData(
-    functionFragment: "rawFulfillRandomWords",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
+    functionFragment: 'rawFulfillRandomWords',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_callbackGasLimit",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_coordinator",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_keyHash",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_requestConfirmations",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_subscriptionId",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: 'vrf_callbackGasLimit', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_coordinator', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_keyHash', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_requestConfirmations', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_subscriptionId', values?: undefined): string;
 
-  decodeFunctionResult(
-    functionFragment: "rawFulfillRandomWords",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_callbackGasLimit",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_coordinator",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_keyHash",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_requestConfirmations",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_subscriptionId",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'rawFulfillRandomWords', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_callbackGasLimit', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_coordinator', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_keyHash', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_requestConfirmations', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_subscriptionId', data: BytesLike): Result;
 
   events: {};
 }
@@ -108,16 +69,12 @@ export interface VRFConsumer extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -128,7 +85,7 @@ export interface VRFConsumer extends BaseContract {
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     vrf_callbackGasLimit(overrides?: CallOverrides): Promise<[number]>;
@@ -145,7 +102,7 @@ export interface VRFConsumer extends BaseContract {
   rawFulfillRandomWords(
     requestId: PromiseOrValue<BigNumberish>,
     randomWords: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   vrf_callbackGasLimit(overrides?: CallOverrides): Promise<number>;
@@ -162,7 +119,7 @@ export interface VRFConsumer extends BaseContract {
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     vrf_callbackGasLimit(overrides?: CallOverrides): Promise<number>;
@@ -182,7 +139,7 @@ export interface VRFConsumer extends BaseContract {
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     vrf_callbackGasLimit(overrides?: CallOverrides): Promise<BigNumber>;
@@ -200,23 +157,17 @@ export interface VRFConsumer extends BaseContract {
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    vrf_callbackGasLimit(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_callbackGasLimit(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     vrf_coordinator(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     vrf_keyHash(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    vrf_requestConfirmations(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_requestConfirmations(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    vrf_subscriptionId(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_subscriptionId(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

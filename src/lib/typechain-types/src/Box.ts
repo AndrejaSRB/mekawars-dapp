@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export declare namespace IBox {
   export type BoxStructStruct = {
@@ -58,11 +48,7 @@ export declare namespace IBox {
     results: IBox.LootResultStruct[];
   };
 
-  export type LootTableStructOutput = [
-    BigNumber,
-    BigNumber,
-    IBox.LootResultStructOutput[]
-  ] & {
+  export type LootTableStructOutput = [BigNumber, BigNumber, IBox.LootResultStructOutput[]] & {
     ntAmountPrize: BigNumber;
     totalWeight: BigNumber;
     results: IBox.LootResultStructOutput[];
@@ -71,425 +57,268 @@ export declare namespace IBox {
 
 export interface BoxInterface extends utils.Interface {
   functions: {
-    "DEFAULT_ADMIN_ROLE()": FunctionFragment;
-    "MATCHMAKING_CONTRACT()": FunctionFragment;
-    "babyOogaChargeNeededForUpgrade()": FunctionFragment;
-    "boxRarityProbabilities(uint256)": FunctionFragment;
-    "boxRarityProbabilitiesSum()": FunctionFragment;
-    "boxWaitingTime()": FunctionFragment;
-    "buyMysteryBox(uint256,uint256)": FunctionFragment;
-    "crews()": FunctionFragment;
-    "getRoleAdmin(bytes32)": FunctionFragment;
-    "grantRole(bytes32,address)": FunctionFragment;
-    "hasRole(bytes32,address)": FunctionFragment;
-    "initialize(address,address)": FunctionFragment;
-    "instantOpenBox(uint256,uint256)": FunctionFragment;
-    "instantOpenBoxPrice()": FunctionFragment;
-    "lootTables(uint8,uint256)": FunctionFragment;
-    "matchWonBox(uint256,uint256)": FunctionFragment;
-    "maxSlotsAvailable()": FunctionFragment;
-    "mekawarsItems()": FunctionFragment;
-    "mysteryBoxLootTables(uint256)": FunctionFragment;
-    "mysteryBoxPrices(uint256)": FunctionFragment;
-    "openBox(uint256,uint256)": FunctionFragment;
-    "rawFulfillRandomWords(uint256,uint256[])": FunctionFragment;
-    "renounceRole(bytes32,address)": FunctionFragment;
-    "revokeRole(bytes32,address)": FunctionFragment;
-    "setContracts(address,address)": FunctionFragment;
-    "setLootTables(uint8[],uint256[],(uint256,uint256,(uint256,uint256[])[])[],uint256[],(uint256,uint256,(uint256,uint256[])[])[])": FunctionFragment;
-    "setVrfParameters(address,uint64,uint32,uint16,bytes32)": FunctionFragment;
-    "setupParameters(uint256,uint256,uint256[],uint256,uint256[])": FunctionFragment;
-    "slots(uint256,uint256)": FunctionFragment;
-    "stakeBabyOoga(uint256,uint256,uint256)": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
-    "unstakeBabyOoga(uint256,uint256)": FunctionFragment;
-    "upgradeBox(uint256,uint256)": FunctionFragment;
-    "vrfRequests(uint256)": FunctionFragment;
-    "vrf_callbackGasLimit()": FunctionFragment;
-    "vrf_coordinator()": FunctionFragment;
-    "vrf_keyHash()": FunctionFragment;
-    "vrf_requestConfirmations()": FunctionFragment;
-    "vrf_subscriptionId()": FunctionFragment;
+    'DEFAULT_ADMIN_ROLE()': FunctionFragment;
+    'MATCHMAKING_CONTRACT()': FunctionFragment;
+    'babyOogaChargeNeededForUpgrade()': FunctionFragment;
+    'boxRarityProbabilities(uint256)': FunctionFragment;
+    'boxRarityProbabilitiesSum()': FunctionFragment;
+    'boxWaitingTime()': FunctionFragment;
+    'buyMysteryBox(uint256,uint256)': FunctionFragment;
+    'crews()': FunctionFragment;
+    'getRoleAdmin(bytes32)': FunctionFragment;
+    'grantRole(bytes32,address)': FunctionFragment;
+    'hasRole(bytes32,address)': FunctionFragment;
+    'initialize(address,address)': FunctionFragment;
+    'instantOpenBox(uint256,uint256)': FunctionFragment;
+    'instantOpenBoxPrice()': FunctionFragment;
+    'lootTables(uint8,uint256)': FunctionFragment;
+    'matchWonBox(uint256,uint256)': FunctionFragment;
+    'maxSlotsAvailable()': FunctionFragment;
+    'mekawarsItems()': FunctionFragment;
+    'mysteryBoxLootTables(uint256)': FunctionFragment;
+    'mysteryBoxPrices(uint256)': FunctionFragment;
+    'openBox(uint256,uint256)': FunctionFragment;
+    'rawFulfillRandomWords(uint256,uint256[])': FunctionFragment;
+    'renounceRole(bytes32,address)': FunctionFragment;
+    'revokeRole(bytes32,address)': FunctionFragment;
+    'setContracts(address,address)': FunctionFragment;
+    'setLootTables(uint8[],uint256[],(uint256,uint256,(uint256,uint256[])[])[],uint256[],(uint256,uint256,(uint256,uint256[])[])[])': FunctionFragment;
+    'setVrfParameters(address,uint64,uint32,uint16,bytes32)': FunctionFragment;
+    'setupParameters(uint256,uint256,uint256[],uint256,uint256[])': FunctionFragment;
+    'slots(uint256,uint256)': FunctionFragment;
+    'stakeBabyOoga(uint256,uint256,uint256)': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
+    'unstakeBabyOoga(uint256,uint256)': FunctionFragment;
+    'upgradeBox(uint256,uint256)': FunctionFragment;
+    'vrfRequests(uint256)': FunctionFragment;
+    'vrf_callbackGasLimit()': FunctionFragment;
+    'vrf_coordinator()': FunctionFragment;
+    'vrf_keyHash()': FunctionFragment;
+    'vrf_requestConfirmations()': FunctionFragment;
+    'vrf_subscriptionId()': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "DEFAULT_ADMIN_ROLE"
-      | "MATCHMAKING_CONTRACT"
-      | "babyOogaChargeNeededForUpgrade"
-      | "boxRarityProbabilities"
-      | "boxRarityProbabilitiesSum"
-      | "boxWaitingTime"
-      | "buyMysteryBox"
-      | "crews"
-      | "getRoleAdmin"
-      | "grantRole"
-      | "hasRole"
-      | "initialize"
-      | "instantOpenBox"
-      | "instantOpenBoxPrice"
-      | "lootTables"
-      | "matchWonBox"
-      | "maxSlotsAvailable"
-      | "mekawarsItems"
-      | "mysteryBoxLootTables"
-      | "mysteryBoxPrices"
-      | "openBox"
-      | "rawFulfillRandomWords"
-      | "renounceRole"
-      | "revokeRole"
-      | "setContracts"
-      | "setLootTables"
-      | "setVrfParameters"
-      | "setupParameters"
-      | "slots"
-      | "stakeBabyOoga"
-      | "supportsInterface"
-      | "unstakeBabyOoga"
-      | "upgradeBox"
-      | "vrfRequests"
-      | "vrf_callbackGasLimit"
-      | "vrf_coordinator"
-      | "vrf_keyHash"
-      | "vrf_requestConfirmations"
-      | "vrf_subscriptionId"
+      | 'DEFAULT_ADMIN_ROLE'
+      | 'MATCHMAKING_CONTRACT'
+      | 'babyOogaChargeNeededForUpgrade'
+      | 'boxRarityProbabilities'
+      | 'boxRarityProbabilitiesSum'
+      | 'boxWaitingTime'
+      | 'buyMysteryBox'
+      | 'crews'
+      | 'getRoleAdmin'
+      | 'grantRole'
+      | 'hasRole'
+      | 'initialize'
+      | 'instantOpenBox'
+      | 'instantOpenBoxPrice'
+      | 'lootTables'
+      | 'matchWonBox'
+      | 'maxSlotsAvailable'
+      | 'mekawarsItems'
+      | 'mysteryBoxLootTables'
+      | 'mysteryBoxPrices'
+      | 'openBox'
+      | 'rawFulfillRandomWords'
+      | 'renounceRole'
+      | 'revokeRole'
+      | 'setContracts'
+      | 'setLootTables'
+      | 'setVrfParameters'
+      | 'setupParameters'
+      | 'slots'
+      | 'stakeBabyOoga'
+      | 'supportsInterface'
+      | 'unstakeBabyOoga'
+      | 'upgradeBox'
+      | 'vrfRequests'
+      | 'vrf_callbackGasLimit'
+      | 'vrf_coordinator'
+      | 'vrf_keyHash'
+      | 'vrf_requestConfirmations'
+      | 'vrf_subscriptionId',
   ): FunctionFragment;
 
+  encodeFunctionData(functionFragment: 'DEFAULT_ADMIN_ROLE', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'MATCHMAKING_CONTRACT', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'babyOogaChargeNeededForUpgrade', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'boxRarityProbabilities', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'boxRarityProbabilitiesSum', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'boxWaitingTime', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    functionFragment: 'buyMysteryBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'crews', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'getRoleAdmin', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(
+    functionFragment: 'grantRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'hasRole', values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: 'initialize', values: [PromiseOrValue<string>, PromiseOrValue<string>]): string;
+  encodeFunctionData(
+    functionFragment: 'instantOpenBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'instantOpenBoxPrice', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'lootTables',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "MATCHMAKING_CONTRACT",
-    values?: undefined
+    functionFragment: 'matchWonBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'maxSlotsAvailable', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'mekawarsItems', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'mysteryBoxLootTables', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'mysteryBoxPrices', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(
+    functionFragment: 'openBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "babyOogaChargeNeededForUpgrade",
-    values?: undefined
+    functionFragment: 'rawFulfillRandomWords',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]],
   ): string;
   encodeFunctionData(
-    functionFragment: "boxRarityProbabilities",
-    values: [PromiseOrValue<BigNumberish>]
+    functionFragment: 'renounceRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "boxRarityProbabilitiesSum",
-    values?: undefined
+    functionFragment: 'revokeRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "boxWaitingTime",
-    values?: undefined
+    functionFragment: 'setContracts',
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "buyMysteryBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(functionFragment: "crews", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "getRoleAdmin",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "grantRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "hasRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "instantOpenBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "instantOpenBoxPrice",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "lootTables",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "matchWonBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "maxSlotsAvailable",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mekawarsItems",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mysteryBoxLootTables",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "mysteryBoxPrices",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "openBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "rawFulfillRandomWords",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>[]]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "revokeRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setContracts",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "setLootTables",
+    functionFragment: 'setLootTables',
     values: [
       PromiseOrValue<BigNumberish>[],
       PromiseOrValue<BigNumberish>[],
       IBox.LootTableStruct[],
       PromiseOrValue<BigNumberish>[],
-      IBox.LootTableStruct[]
-    ]
+      IBox.LootTableStruct[],
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "setVrfParameters",
+    functionFragment: 'setVrfParameters',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "setupParameters",
+    functionFragment: 'setupParameters',
     values: [
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>[],
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>[]
-    ]
+      PromiseOrValue<BigNumberish>[],
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "slots",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'slots',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "stakeBabyOoga",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
-    ]
+    functionFragment: 'stakeBabyOoga',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'supportsInterface', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(
+    functionFragment: 'unstakeBabyOoga',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [PromiseOrValue<BytesLike>]
+    functionFragment: 'upgradeBox',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
-  encodeFunctionData(
-    functionFragment: "unstakeBabyOoga",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "upgradeBox",
-    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrfRequests",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_callbackGasLimit",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_coordinator",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_keyHash",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_requestConfirmations",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "vrf_subscriptionId",
-    values?: undefined
-  ): string;
+  encodeFunctionData(functionFragment: 'vrfRequests', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(functionFragment: 'vrf_callbackGasLimit', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_coordinator', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_keyHash', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_requestConfirmations', values?: undefined): string;
+  encodeFunctionData(functionFragment: 'vrf_subscriptionId', values?: undefined): string;
 
-  decodeFunctionResult(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "MATCHMAKING_CONTRACT",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "babyOogaChargeNeededForUpgrade",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "boxRarityProbabilities",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "boxRarityProbabilitiesSum",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "boxWaitingTime",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "buyMysteryBox",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "crews", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "getRoleAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "instantOpenBox",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "instantOpenBoxPrice",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "lootTables", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "matchWonBox",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "maxSlotsAvailable",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mekawarsItems",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mysteryBoxLootTables",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "mysteryBoxPrices",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "openBox", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "rawFulfillRandomWords",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceRole",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "setContracts",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setLootTables",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setVrfParameters",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setupParameters",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "slots", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "stakeBabyOoga",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "unstakeBabyOoga",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "upgradeBox", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "vrfRequests",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_callbackGasLimit",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_coordinator",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_keyHash",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_requestConfirmations",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "vrf_subscriptionId",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'DEFAULT_ADMIN_ROLE', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'MATCHMAKING_CONTRACT', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'babyOogaChargeNeededForUpgrade', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'boxRarityProbabilities', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'boxRarityProbabilitiesSum', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'boxWaitingTime', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'buyMysteryBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'crews', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRoleAdmin', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'grantRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'hasRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'instantOpenBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'instantOpenBoxPrice', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'lootTables', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'matchWonBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'maxSlotsAvailable', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mekawarsItems', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mysteryBoxLootTables', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'mysteryBoxPrices', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'openBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'rawFulfillRandomWords', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'renounceRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'revokeRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setContracts', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setLootTables', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setVrfParameters', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setupParameters', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'slots', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'stakeBabyOoga', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'supportsInterface', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'unstakeBabyOoga', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'upgradeBox', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrfRequests', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_callbackGasLimit', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_coordinator', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_keyHash', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_requestConfirmations', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'vrf_subscriptionId', data: BytesLike): Result;
 
   events: {
-    "BoxOpened(uint256,uint256,uint8,uint256,uint256[])": EventFragment;
-    "BoxUpgraded(uint256,uint256,uint8,uint8)": EventFragment;
-    "BuyMysteryBox(uint256,uint256)": EventFragment;
-    "Initialized(uint8)": EventFragment;
-    "MysteryBoxOpened(uint256,uint256,uint256,uint256[])": EventFragment;
-    "OpenBox(uint256,uint256,uint8)": EventFragment;
-    "RoleAdminChanged(bytes32,bytes32,bytes32)": EventFragment;
-    "RoleGranted(bytes32,address,address)": EventFragment;
-    "RoleRevoked(bytes32,address,address)": EventFragment;
-    "StakeBabyOoga(uint256,uint256,uint256)": EventFragment;
-    "UnstakeBabyOoga(uint256,uint256,uint256)": EventFragment;
-    "UpgradeBox(uint256,uint256,uint256,uint8)": EventFragment;
-    "WonBoxFromMatch(uint256,uint256,uint256,tuple)": EventFragment;
+    'BoxOpened(uint256,uint256,uint8,uint256,uint256[])': EventFragment;
+    'BoxUpgraded(uint256,uint256,uint8,uint8)': EventFragment;
+    'BuyMysteryBox(uint256,uint256)': EventFragment;
+    'Initialized(uint8)': EventFragment;
+    'MysteryBoxOpened(uint256,uint256,uint256,uint256[])': EventFragment;
+    'OpenBox(uint256,uint256,uint8)': EventFragment;
+    'RoleAdminChanged(bytes32,bytes32,bytes32)': EventFragment;
+    'RoleGranted(bytes32,address,address)': EventFragment;
+    'RoleRevoked(bytes32,address,address)': EventFragment;
+    'StakeBabyOoga(uint256,uint256,uint256)': EventFragment;
+    'UnstakeBabyOoga(uint256,uint256,uint256)': EventFragment;
+    'UpgradeBox(uint256,uint256,uint256,uint8)': EventFragment;
+    'WonBoxFromMatch(uint256,uint256,uint256,tuple)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "BoxOpened"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "BoxUpgraded"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "BuyMysteryBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "MysteryBoxOpened"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "OpenBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "StakeBabyOoga"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "UnstakeBabyOoga"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "UpgradeBox"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "WonBoxFromMatch"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BoxOpened'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BoxUpgraded'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'BuyMysteryBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'Initialized'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'MysteryBoxOpened'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'OpenBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleAdminChanged'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleGranted'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleRevoked'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'StakeBabyOoga'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'UnstakeBabyOoga'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'UpgradeBox'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'WonBoxFromMatch'): EventFragment;
 }
 
 export interface BoxOpenedEventObject {
@@ -499,10 +328,7 @@ export interface BoxOpenedEventObject {
   NTWon: BigNumber;
   itemsWon: BigNumber[];
 }
-export type BoxOpenedEvent = TypedEvent<
-  [BigNumber, BigNumber, number, BigNumber, BigNumber[]],
-  BoxOpenedEventObject
->;
+export type BoxOpenedEvent = TypedEvent<[BigNumber, BigNumber, number, BigNumber, BigNumber[]], BoxOpenedEventObject>;
 
 export type BoxOpenedEventFilter = TypedEventFilter<BoxOpenedEvent>;
 
@@ -512,10 +338,7 @@ export interface BoxUpgradedEventObject {
   newRarity: number;
   newSlotState: number;
 }
-export type BoxUpgradedEvent = TypedEvent<
-  [BigNumber, BigNumber, number, number],
-  BoxUpgradedEventObject
->;
+export type BoxUpgradedEvent = TypedEvent<[BigNumber, BigNumber, number, number], BoxUpgradedEventObject>;
 
 export type BoxUpgradedEventFilter = TypedEventFilter<BoxUpgradedEvent>;
 
@@ -523,10 +346,7 @@ export interface BuyMysteryBoxEventObject {
   crewId: BigNumber;
   level: BigNumber;
 }
-export type BuyMysteryBoxEvent = TypedEvent<
-  [BigNumber, BigNumber],
-  BuyMysteryBoxEventObject
->;
+export type BuyMysteryBoxEvent = TypedEvent<[BigNumber, BigNumber], BuyMysteryBoxEventObject>;
 
 export type BuyMysteryBoxEventFilter = TypedEventFilter<BuyMysteryBoxEvent>;
 
@@ -548,18 +368,14 @@ export type MysteryBoxOpenedEvent = TypedEvent<
   MysteryBoxOpenedEventObject
 >;
 
-export type MysteryBoxOpenedEventFilter =
-  TypedEventFilter<MysteryBoxOpenedEvent>;
+export type MysteryBoxOpenedEventFilter = TypedEventFilter<MysteryBoxOpenedEvent>;
 
 export interface OpenBoxEventObject {
   crewId: BigNumber;
   slotIndex: BigNumber;
   newSlotState: number;
 }
-export type OpenBoxEvent = TypedEvent<
-  [BigNumber, BigNumber, number],
-  OpenBoxEventObject
->;
+export type OpenBoxEvent = TypedEvent<[BigNumber, BigNumber, number], OpenBoxEventObject>;
 
 export type OpenBoxEventFilter = TypedEventFilter<OpenBoxEvent>;
 
@@ -568,23 +384,16 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
-export type RoleAdminChangedEvent = TypedEvent<
-  [string, string, string],
-  RoleAdminChangedEventObject
->;
+export type RoleAdminChangedEvent = TypedEvent<[string, string, string], RoleAdminChangedEventObject>;
 
-export type RoleAdminChangedEventFilter =
-  TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 
 export interface RoleGrantedEventObject {
   role: string;
   account: string;
   sender: string;
 }
-export type RoleGrantedEvent = TypedEvent<
-  [string, string, string],
-  RoleGrantedEventObject
->;
+export type RoleGrantedEvent = TypedEvent<[string, string, string], RoleGrantedEventObject>;
 
 export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 
@@ -593,10 +402,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
-export type RoleRevokedEvent = TypedEvent<
-  [string, string, string],
-  RoleRevokedEventObject
->;
+export type RoleRevokedEvent = TypedEvent<[string, string, string], RoleRevokedEventObject>;
 
 export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
@@ -605,10 +411,7 @@ export interface StakeBabyOogaEventObject {
   slotIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type StakeBabyOogaEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  StakeBabyOogaEventObject
->;
+export type StakeBabyOogaEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], StakeBabyOogaEventObject>;
 
 export type StakeBabyOogaEventFilter = TypedEventFilter<StakeBabyOogaEvent>;
 
@@ -617,10 +420,7 @@ export interface UnstakeBabyOogaEventObject {
   slotIndex: BigNumber;
   oogaId: BigNumber;
 }
-export type UnstakeBabyOogaEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  UnstakeBabyOogaEventObject
->;
+export type UnstakeBabyOogaEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], UnstakeBabyOogaEventObject>;
 
 export type UnstakeBabyOogaEventFilter = TypedEventFilter<UnstakeBabyOogaEvent>;
 
@@ -630,10 +430,7 @@ export interface UpgradeBoxEventObject {
   newBabyOogaCharge: BigNumber;
   newSlotState: number;
 }
-export type UpgradeBoxEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber, number],
-  UpgradeBoxEventObject
->;
+export type UpgradeBoxEvent = TypedEvent<[BigNumber, BigNumber, BigNumber, number], UpgradeBoxEventObject>;
 
 export type UpgradeBoxEventFilter = TypedEventFilter<UpgradeBoxEvent>;
 
@@ -660,16 +457,12 @@ export interface Box extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -681,14 +474,9 @@ export interface Box extends BaseContract {
 
     MATCHMAKING_CONTRACT(overrides?: CallOverrides): Promise<[string]>;
 
-    babyOogaChargeNeededForUpgrade(
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    babyOogaChargeNeededForUpgrade(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    boxRarityProbabilities(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    boxRarityProbabilities(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     boxRarityProbabilitiesSum(overrides?: CallOverrides): Promise<[BigNumber]>;
 
@@ -697,38 +485,35 @@ export interface Box extends BaseContract {
     buyMysteryBox(
       crewId: PromiseOrValue<BigNumberish>,
       level: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     crews(overrides?: CallOverrides): Promise<[string]>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[string]>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     initialize(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     instantOpenBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     instantOpenBoxPrice(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -736,7 +521,7 @@ export interface Box extends BaseContract {
     lootTables(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & {
         ntAmountPrize: BigNumber;
@@ -747,7 +532,7 @@ export interface Box extends BaseContract {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     maxSlotsAvailable(overrides?: CallOverrides): Promise<[BigNumber]>;
@@ -756,7 +541,7 @@ export interface Box extends BaseContract {
 
     mysteryBoxLootTables(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & {
         ntAmountPrize: BigNumber;
@@ -764,39 +549,36 @@ export interface Box extends BaseContract {
       }
     >;
 
-    mysteryBoxPrices(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    mysteryBoxPrices(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     openBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setContracts(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setLootTables(
@@ -805,7 +587,7 @@ export interface Box extends BaseContract {
       _lootTables: IBox.LootTableStruct[],
       _mysteryBoxLevels: PromiseOrValue<BigNumberish>[],
       _mysteryBoxLootTables: IBox.LootTableStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setVrfParameters(
@@ -814,7 +596,7 @@ export interface Box extends BaseContract {
       callbackGasLimit: PromiseOrValue<BigNumberish>,
       requestConfirmations: PromiseOrValue<BigNumberish>,
       keyHash: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setupParameters(
@@ -823,13 +605,13 @@ export interface Box extends BaseContract {
       _boxRarityProbabilities: PromiseOrValue<BigNumberish>[],
       _instantOpenBoxPrice: PromiseOrValue<BigNumberish>,
       _mysteryBoxPrices: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     slots(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, IBox.BoxStructStructOutput, BigNumber, BigNumber] & {
         state: number;
@@ -843,29 +625,26 @@ export interface Box extends BaseContract {
       oogaId: PromiseOrValue<BigNumberish>,
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[boolean]>;
 
     unstakeBabyOoga(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     upgradeBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     vrfRequests(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, BigNumber, BigNumber, BigNumber] & {
         requestType: number;
@@ -892,10 +671,7 @@ export interface Box extends BaseContract {
 
   babyOogaChargeNeededForUpgrade(overrides?: CallOverrides): Promise<BigNumber>;
 
-  boxRarityProbabilities(
-    arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  boxRarityProbabilities(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
   boxRarityProbabilitiesSum(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -904,38 +680,35 @@ export interface Box extends BaseContract {
   buyMysteryBox(
     crewId: PromiseOrValue<BigNumberish>,
     level: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   crews(overrides?: CallOverrides): Promise<string>;
 
-  getRoleAdmin(
-    role: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
   grantRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   initialize(
     mekaApesERC721Address: PromiseOrValue<string>,
     crewsAddress: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   instantOpenBox(
     crewId: PromiseOrValue<BigNumberish>,
     slotIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   instantOpenBoxPrice(overrides?: CallOverrides): Promise<BigNumber>;
@@ -943,7 +716,7 @@ export interface Box extends BaseContract {
   lootTables(
     arg0: PromiseOrValue<BigNumberish>,
     arg1: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & {
       ntAmountPrize: BigNumber;
@@ -954,7 +727,7 @@ export interface Box extends BaseContract {
   matchWonBox(
     crewId: PromiseOrValue<BigNumberish>,
     randomSeed: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   maxSlotsAvailable(overrides?: CallOverrides): Promise<BigNumber>;
@@ -963,7 +736,7 @@ export interface Box extends BaseContract {
 
   mysteryBoxLootTables(
     arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [BigNumber, BigNumber] & {
       ntAmountPrize: BigNumber;
@@ -971,39 +744,36 @@ export interface Box extends BaseContract {
     }
   >;
 
-  mysteryBoxPrices(
-    arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  mysteryBoxPrices(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
   openBox(
     crewId: PromiseOrValue<BigNumberish>,
     slotIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   rawFulfillRandomWords(
     requestId: PromiseOrValue<BigNumberish>,
     randomWords: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   renounceRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setContracts(
     mekaApesERC721Address: PromiseOrValue<string>,
     crewsAddress: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setLootTables(
@@ -1012,7 +782,7 @@ export interface Box extends BaseContract {
     _lootTables: IBox.LootTableStruct[],
     _mysteryBoxLevels: PromiseOrValue<BigNumberish>[],
     _mysteryBoxLootTables: IBox.LootTableStruct[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setVrfParameters(
@@ -1021,7 +791,7 @@ export interface Box extends BaseContract {
     callbackGasLimit: PromiseOrValue<BigNumberish>,
     requestConfirmations: PromiseOrValue<BigNumberish>,
     keyHash: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setupParameters(
@@ -1030,13 +800,13 @@ export interface Box extends BaseContract {
     _boxRarityProbabilities: PromiseOrValue<BigNumberish>[],
     _instantOpenBoxPrice: PromiseOrValue<BigNumberish>,
     _mysteryBoxPrices: PromiseOrValue<BigNumberish>[],
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   slots(
     arg0: PromiseOrValue<BigNumberish>,
     arg1: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [number, IBox.BoxStructStructOutput, BigNumber, BigNumber] & {
       state: number;
@@ -1050,29 +820,26 @@ export interface Box extends BaseContract {
     oogaId: PromiseOrValue<BigNumberish>,
     crewId: PromiseOrValue<BigNumberish>,
     slotIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
   unstakeBabyOoga(
     crewId: PromiseOrValue<BigNumberish>,
     slotIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   upgradeBox(
     crewId: PromiseOrValue<BigNumberish>,
     slotIndex: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   vrfRequests(
     arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<
     [number, BigNumber, BigNumber, BigNumber] & {
       requestType: number;
@@ -1097,14 +864,9 @@ export interface Box extends BaseContract {
 
     MATCHMAKING_CONTRACT(overrides?: CallOverrides): Promise<string>;
 
-    babyOogaChargeNeededForUpgrade(
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    babyOogaChargeNeededForUpgrade(overrides?: CallOverrides): Promise<BigNumber>;
 
-    boxRarityProbabilities(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    boxRarityProbabilities(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     boxRarityProbabilitiesSum(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1113,38 +875,35 @@ export interface Box extends BaseContract {
     buyMysteryBox(
       crewId: PromiseOrValue<BigNumberish>,
       level: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     crews(overrides?: CallOverrides): Promise<string>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     initialize(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     instantOpenBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     instantOpenBoxPrice(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1152,7 +911,7 @@ export interface Box extends BaseContract {
     lootTables(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & {
         ntAmountPrize: BigNumber;
@@ -1163,7 +922,7 @@ export interface Box extends BaseContract {
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     maxSlotsAvailable(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1172,7 +931,7 @@ export interface Box extends BaseContract {
 
     mysteryBoxLootTables(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [BigNumber, BigNumber] & {
         ntAmountPrize: BigNumber;
@@ -1180,39 +939,36 @@ export interface Box extends BaseContract {
       }
     >;
 
-    mysteryBoxPrices(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    mysteryBoxPrices(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     openBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setContracts(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setLootTables(
@@ -1221,7 +977,7 @@ export interface Box extends BaseContract {
       _lootTables: IBox.LootTableStruct[],
       _mysteryBoxLevels: PromiseOrValue<BigNumberish>[],
       _mysteryBoxLootTables: IBox.LootTableStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setVrfParameters(
@@ -1230,7 +986,7 @@ export interface Box extends BaseContract {
       callbackGasLimit: PromiseOrValue<BigNumberish>,
       requestConfirmations: PromiseOrValue<BigNumberish>,
       keyHash: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setupParameters(
@@ -1239,13 +995,13 @@ export interface Box extends BaseContract {
       _boxRarityProbabilities: PromiseOrValue<BigNumberish>[],
       _instantOpenBoxPrice: PromiseOrValue<BigNumberish>,
       _mysteryBoxPrices: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     slots(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, IBox.BoxStructStructOutput, BigNumber, BigNumber] & {
         state: number;
@@ -1259,29 +1015,26 @@ export interface Box extends BaseContract {
       oogaId: PromiseOrValue<BigNumberish>,
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
     unstakeBabyOoga(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     upgradeBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     vrfRequests(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<
       [number, BigNumber, BigNumber, BigNumber] & {
         requestType: number;
@@ -1303,149 +1056,142 @@ export interface Box extends BaseContract {
   };
 
   filters: {
-    "BoxOpened(uint256,uint256,uint8,uint256,uint256[])"(
+    'BoxOpened(uint256,uint256,uint8,uint256,uint256[])'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newSlotState?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): BoxOpenedEventFilter;
     BoxOpened(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newSlotState?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): BoxOpenedEventFilter;
 
-    "BoxUpgraded(uint256,uint256,uint8,uint8)"(
+    'BoxUpgraded(uint256,uint256,uint8,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newRarity?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): BoxUpgradedEventFilter;
     BoxUpgraded(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newRarity?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): BoxUpgradedEventFilter;
 
-    "BuyMysteryBox(uint256,uint256)"(
+    'BuyMysteryBox(uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
-      level?: null
+      level?: null,
     ): BuyMysteryBoxEventFilter;
-    BuyMysteryBox(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      level?: null
-    ): BuyMysteryBoxEventFilter;
+    BuyMysteryBox(crewId?: PromiseOrValue<BigNumberish> | null, level?: null): BuyMysteryBoxEventFilter;
 
-    "Initialized(uint8)"(version?: null): InitializedEventFilter;
+    'Initialized(uint8)'(version?: null): InitializedEventFilter;
     Initialized(version?: null): InitializedEventFilter;
 
-    "MysteryBoxOpened(uint256,uint256,uint256,uint256[])"(
+    'MysteryBoxOpened(uint256,uint256,uint256,uint256[])'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       level?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): MysteryBoxOpenedEventFilter;
     MysteryBoxOpened(
       crewId?: PromiseOrValue<BigNumberish> | null,
       level?: null,
       NTWon?: null,
-      itemsWon?: null
+      itemsWon?: null,
     ): MysteryBoxOpenedEventFilter;
 
-    "OpenBox(uint256,uint256,uint8)"(
+    'OpenBox(uint256,uint256,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): OpenBoxEventFilter;
-    OpenBox(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      slotIndex?: null,
-      newSlotState?: null
-    ): OpenBoxEventFilter;
+    OpenBox(crewId?: PromiseOrValue<BigNumberish> | null, slotIndex?: null, newSlotState?: null): OpenBoxEventFilter;
 
-    "RoleAdminChanged(bytes32,bytes32,bytes32)"(
+    'RoleAdminChanged(bytes32,bytes32,bytes32)'(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
 
-    "RoleGranted(bytes32,address,address)"(
+    'RoleGranted(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
 
-    "RoleRevoked(bytes32,address,address)"(
+    'RoleRevoked(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
 
-    "StakeBabyOoga(uint256,uint256,uint256)"(
+    'StakeBabyOoga(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): StakeBabyOogaEventFilter;
     StakeBabyOoga(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): StakeBabyOogaEventFilter;
 
-    "UnstakeBabyOoga(uint256,uint256,uint256)"(
+    'UnstakeBabyOoga(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): UnstakeBabyOogaEventFilter;
     UnstakeBabyOoga(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
-      oogaId?: PromiseOrValue<BigNumberish> | null
+      oogaId?: PromiseOrValue<BigNumberish> | null,
     ): UnstakeBabyOogaEventFilter;
 
-    "UpgradeBox(uint256,uint256,uint256,uint8)"(
+    'UpgradeBox(uint256,uint256,uint256,uint8)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): UpgradeBoxEventFilter;
     UpgradeBox(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      newSlotState?: null
+      newSlotState?: null,
     ): UpgradeBoxEventFilter;
 
-    "WonBoxFromMatch(uint256,uint256,uint256,tuple)"(
+    'WonBoxFromMatch(uint256,uint256,uint256,tuple)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      box?: null
+      box?: null,
     ): WonBoxFromMatchEventFilter;
     WonBoxFromMatch(
       crewId?: PromiseOrValue<BigNumberish> | null,
       slotIndex?: null,
       newBabyOogaCharge?: null,
-      box?: null
+      box?: null,
     ): WonBoxFromMatchEventFilter;
   };
 
@@ -1454,14 +1200,9 @@ export interface Box extends BaseContract {
 
     MATCHMAKING_CONTRACT(overrides?: CallOverrides): Promise<BigNumber>;
 
-    babyOogaChargeNeededForUpgrade(
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    babyOogaChargeNeededForUpgrade(overrides?: CallOverrides): Promise<BigNumber>;
 
-    boxRarityProbabilities(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    boxRarityProbabilities(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     boxRarityProbabilitiesSum(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1470,38 +1211,35 @@ export interface Box extends BaseContract {
     buyMysteryBox(
       crewId: PromiseOrValue<BigNumberish>,
       level: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     crews(overrides?: CallOverrides): Promise<BigNumber>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     initialize(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     instantOpenBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     instantOpenBoxPrice(overrides?: CallOverrides): Promise<BigNumber>;
@@ -1509,57 +1247,51 @@ export interface Box extends BaseContract {
     lootTables(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     maxSlotsAvailable(overrides?: CallOverrides): Promise<BigNumber>;
 
     mekawarsItems(overrides?: CallOverrides): Promise<BigNumber>;
 
-    mysteryBoxLootTables(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    mysteryBoxLootTables(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    mysteryBoxPrices(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    mysteryBoxPrices(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     openBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setContracts(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setLootTables(
@@ -1568,7 +1300,7 @@ export interface Box extends BaseContract {
       _lootTables: IBox.LootTableStruct[],
       _mysteryBoxLevels: PromiseOrValue<BigNumberish>[],
       _mysteryBoxLootTables: IBox.LootTableStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setVrfParameters(
@@ -1577,7 +1309,7 @@ export interface Box extends BaseContract {
       callbackGasLimit: PromiseOrValue<BigNumberish>,
       requestConfirmations: PromiseOrValue<BigNumberish>,
       keyHash: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setupParameters(
@@ -1586,43 +1318,37 @@ export interface Box extends BaseContract {
       _boxRarityProbabilities: PromiseOrValue<BigNumberish>[],
       _instantOpenBoxPrice: PromiseOrValue<BigNumberish>,
       _mysteryBoxPrices: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     slots(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     stakeBabyOoga(
       oogaId: PromiseOrValue<BigNumberish>,
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
     unstakeBabyOoga(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     upgradeBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    vrfRequests(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    vrfRequests(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     vrf_callbackGasLimit(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -1636,124 +1362,105 @@ export interface Box extends BaseContract {
   };
 
   populateTransaction: {
-    DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    MATCHMAKING_CONTRACT(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    MATCHMAKING_CONTRACT(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    babyOogaChargeNeededForUpgrade(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    babyOogaChargeNeededForUpgrade(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     boxRarityProbabilities(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    boxRarityProbabilitiesSum(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    boxRarityProbabilitiesSum(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     boxWaitingTime(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     buyMysteryBox(
       crewId: PromiseOrValue<BigNumberish>,
       level: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     crews(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     initialize(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     instantOpenBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    instantOpenBoxPrice(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    instantOpenBoxPrice(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     lootTables(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     matchWonBox(
       crewId: PromiseOrValue<BigNumberish>,
       randomSeed: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     maxSlotsAvailable(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     mekawarsItems(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    mysteryBoxLootTables(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    mysteryBoxLootTables(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    mysteryBoxPrices(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    mysteryBoxPrices(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     openBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     rawFulfillRandomWords(
       requestId: PromiseOrValue<BigNumberish>,
       randomWords: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setContracts(
       mekaApesERC721Address: PromiseOrValue<string>,
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setLootTables(
@@ -1762,7 +1469,7 @@ export interface Box extends BaseContract {
       _lootTables: IBox.LootTableStruct[],
       _mysteryBoxLevels: PromiseOrValue<BigNumberish>[],
       _mysteryBoxLootTables: IBox.LootTableStruct[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setVrfParameters(
@@ -1771,7 +1478,7 @@ export interface Box extends BaseContract {
       callbackGasLimit: PromiseOrValue<BigNumberish>,
       requestConfirmations: PromiseOrValue<BigNumberish>,
       keyHash: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setupParameters(
@@ -1780,58 +1487,46 @@ export interface Box extends BaseContract {
       _boxRarityProbabilities: PromiseOrValue<BigNumberish>[],
       _instantOpenBoxPrice: PromiseOrValue<BigNumberish>,
       _mysteryBoxPrices: PromiseOrValue<BigNumberish>[],
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     slots(
       arg0: PromiseOrValue<BigNumberish>,
       arg1: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     stakeBabyOoga(
       oogaId: PromiseOrValue<BigNumberish>,
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     unstakeBabyOoga(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     upgradeBox(
       crewId: PromiseOrValue<BigNumberish>,
       slotIndex: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    vrfRequests(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrfRequests(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    vrf_callbackGasLimit(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_callbackGasLimit(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     vrf_coordinator(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     vrf_keyHash(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    vrf_requestConfirmations(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_requestConfirmations(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    vrf_subscriptionId(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    vrf_subscriptionId(overrides?: CallOverrides): Promise<PopulatedTransaction>;
   };
 }

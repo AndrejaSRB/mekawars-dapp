@@ -4,15 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type { FunctionFragment, Result } from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -21,7 +12,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export type OogaStruct = {
   oogaType: PromiseOrValue<BigNumberish>;
@@ -34,16 +28,7 @@ export type OogaStruct = {
   isDead: PromiseOrValue<boolean>;
 };
 
-export type OogaStructOutput = [
-  number,
-  number,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  BigNumber,
-  boolean
-] & {
+export type OogaStructOutput = [number, number, BigNumber, BigNumber, BigNumber, BigNumber, BigNumber, boolean] & {
   oogaType: number;
   level: number;
   teamId: BigNumber;
@@ -56,31 +41,17 @@ export type OogaStructOutput = [
 
 export interface CombatLibInterface extends utils.Interface {
   functions: {
-    "calculateDamage((uint8,uint8,uint256,uint256,int256,uint256,uint256,bool),(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool))": FunctionFragment;
-    "getOogaById(uint256,(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool)[])": FunctionFragment;
+    'calculateDamage((uint8,uint8,uint256,uint256,int256,uint256,uint256,bool),(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool))': FunctionFragment;
+    'getOogaById(uint256,(uint8,uint8,uint256,uint256,int256,uint256,uint256,bool)[])': FunctionFragment;
   };
 
-  getFunction(
-    nameOrSignatureOrTopic: "calculateDamage" | "getOogaById"
-  ): FunctionFragment;
+  getFunction(nameOrSignatureOrTopic: 'calculateDamage' | 'getOogaById'): FunctionFragment;
 
-  encodeFunctionData(
-    functionFragment: "calculateDamage",
-    values: [OogaStruct, OogaStruct]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getOogaById",
-    values: [PromiseOrValue<BigNumberish>, OogaStruct[]]
-  ): string;
+  encodeFunctionData(functionFragment: 'calculateDamage', values: [OogaStruct, OogaStruct]): string;
+  encodeFunctionData(functionFragment: 'getOogaById', values: [PromiseOrValue<BigNumberish>, OogaStruct[]]): string;
 
-  decodeFunctionResult(
-    functionFragment: "calculateDamage",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getOogaById",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'calculateDamage', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getOogaById', data: BytesLike): Result;
 
   events: {};
 }
@@ -95,16 +66,12 @@ export interface CombatLib extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -112,72 +79,52 @@ export interface CombatLib extends BaseContract {
   removeListener: OnEvent<this>;
 
   functions: {
-    calculateDamage(
-      attacker: OogaStruct,
-      defender: OogaStruct,
-      overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    calculateDamage(attacker: OogaStruct, defender: OogaStruct, overrides?: CallOverrides): Promise<[BigNumber]>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
       oogas: OogaStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[OogaStructOutput]>;
   };
 
-  calculateDamage(
-    attacker: OogaStruct,
-    defender: OogaStruct,
-    overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  calculateDamage(attacker: OogaStruct, defender: OogaStruct, overrides?: CallOverrides): Promise<BigNumber>;
 
   getOogaById(
     id: PromiseOrValue<BigNumberish>,
     oogas: OogaStruct[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<OogaStructOutput>;
 
   callStatic: {
-    calculateDamage(
-      attacker: OogaStruct,
-      defender: OogaStruct,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateDamage(attacker: OogaStruct, defender: OogaStruct, overrides?: CallOverrides): Promise<BigNumber>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
       oogas: OogaStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<OogaStructOutput>;
   };
 
   filters: {};
 
   estimateGas: {
-    calculateDamage(
-      attacker: OogaStruct,
-      defender: OogaStruct,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    calculateDamage(attacker: OogaStruct, defender: OogaStruct, overrides?: CallOverrides): Promise<BigNumber>;
 
-    getOogaById(
-      id: PromiseOrValue<BigNumberish>,
-      oogas: OogaStruct[],
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getOogaById(id: PromiseOrValue<BigNumberish>, oogas: OogaStruct[], overrides?: CallOverrides): Promise<BigNumber>;
   };
 
   populateTransaction: {
     calculateDamage(
       attacker: OogaStruct,
       defender: OogaStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     getOogaById(
       id: PromiseOrValue<BigNumberish>,
       oogas: OogaStruct[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
   };
 }

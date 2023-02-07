@@ -1,4 +1,4 @@
-import type { ethers } from "ethers";
+import type { ethers } from 'ethers';
 
 export type Web3ProviderState = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,30 +21,27 @@ export const web3InitialState: Web3ProviderState = {
 
 export type Web3Action =
   | {
-      type: "SET_WEB3_PROVIDER";
-      provider?: Web3ProviderState["provider"];
-      web3Provider?: Web3ProviderState["web3Provider"];
-      address?: Web3ProviderState["address"];
-      network?: Web3ProviderState["network"];
+      type: 'SET_WEB3_PROVIDER';
+      provider?: Web3ProviderState['provider'];
+      web3Provider?: Web3ProviderState['web3Provider'];
+      address?: Web3ProviderState['address'];
+      network?: Web3ProviderState['network'];
     }
   | {
-      type: "SET_ADDRESS";
-      address?: Web3ProviderState["address"];
+      type: 'SET_ADDRESS';
+      address?: Web3ProviderState['address'];
     }
   | {
-      type: "SET_NETWORK";
-      network?: Web3ProviderState["network"];
+      type: 'SET_NETWORK';
+      network?: Web3ProviderState['network'];
     }
   | {
-      type: "RESET_WEB3_PROVIDER";
+      type: 'RESET_WEB3_PROVIDER';
     };
 
-export function web3Reducer(
-  state: Web3ProviderState,
-  action: Web3Action
-): Web3ProviderState {
+export function web3Reducer(state: Web3ProviderState, action: Web3Action): Web3ProviderState {
   switch (action.type) {
-    case "SET_WEB3_PROVIDER":
+    case 'SET_WEB3_PROVIDER':
       return {
         ...state,
         provider: action.provider,
@@ -52,17 +49,17 @@ export function web3Reducer(
         address: action.address,
         network: action.network,
       };
-    case "SET_ADDRESS":
+    case 'SET_ADDRESS':
       return {
         ...state,
         address: action.address,
       };
-    case "SET_NETWORK":
+    case 'SET_NETWORK':
       return {
         ...state,
         network: action.network,
       };
-    case "RESET_WEB3_PROVIDER":
+    case 'RESET_WEB3_PROVIDER':
       return web3InitialState;
     default:
       throw new Error();

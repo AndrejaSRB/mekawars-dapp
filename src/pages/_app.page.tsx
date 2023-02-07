@@ -1,12 +1,12 @@
-import { Web3ContextProvider } from "../context/index";
-import theme from "../styles/theme";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { ChakraProvider } from "@chakra-ui/react";
-import type { AppProps } from "next/app";
-import Head from "next/head";
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { ChakraProvider } from '@chakra-ui/react';
+import { Web3ContextProvider } from '../context/index';
+import theme from '../styles/theme';
 
 const client = new ApolloClient({
-  uri: "https://api.thegraph.com/subgraphs/name/duxxud/mekawars-mumbai",
+  uri: 'https://api.thegraph.com/subgraphs/name/duxxud/mekawars-mumbai',
   cache: new InMemoryCache(),
 });
 

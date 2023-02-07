@@ -3,9 +3,9 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type * as vrfMockSol from "./VrfMock.sol";
+import type * as vrfMockSol from './VrfMock.sol';
 
 export type { vrfMockSol };
-export type { MockMekaApesERC721Poly } from "./MockMekaApesERC721Poly";
-export type { MockMekawarsItemsERC1155 } from "./MockMekawarsItemsERC1155";
-export type { MockNTPouch } from "./MockNTPouch";
+export type { MockMekaApesERC721Poly } from './MockMekaApesERC721Poly';
+export type { MockMekawarsItemsERC1155 } from './MockMekawarsItemsERC1155';
+export type { MockNTPouch } from './MockNTPouch';

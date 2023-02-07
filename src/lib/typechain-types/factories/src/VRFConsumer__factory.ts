@@ -3,93 +3,93 @@
 /* tslint:disable */
 
 /* eslint-disable */
-import type { VRFConsumer, VRFConsumerInterface } from "../../src/VRFConsumer";
-import type { Provider } from "@ethersproject/providers";
-import { Contract, Signer, utils } from "ethers";
+import { Contract, Signer, utils } from 'ethers';
+import type { Provider } from '@ethersproject/providers';
+import type { VRFConsumer, VRFConsumerInterface } from '../../src/VRFConsumer';
 
 const _abi = [
   {
     inputs: [
       {
-        internalType: "uint256",
-        name: "requestId",
-        type: "uint256",
+        internalType: 'uint256',
+        name: 'requestId',
+        type: 'uint256',
       },
       {
-        internalType: "uint256[]",
-        name: "randomWords",
-        type: "uint256[]",
+        internalType: 'uint256[]',
+        name: 'randomWords',
+        type: 'uint256[]',
       },
     ],
-    name: "rawFulfillRandomWords",
+    name: 'rawFulfillRandomWords',
     outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    stateMutability: 'nonpayable',
+    type: 'function',
   },
   {
     inputs: [],
-    name: "vrf_callbackGasLimit",
+    name: 'vrf_callbackGasLimit',
     outputs: [
       {
-        internalType: "uint32",
-        name: "",
-        type: "uint32",
+        internalType: 'uint32',
+        name: '',
+        type: 'uint32',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [],
-    name: "vrf_coordinator",
+    name: 'vrf_coordinator',
     outputs: [
       {
-        internalType: "contract VRFCoordinatorV2Interface",
-        name: "",
-        type: "address",
+        internalType: 'contract VRFCoordinatorV2Interface',
+        name: '',
+        type: 'address',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [],
-    name: "vrf_keyHash",
+    name: 'vrf_keyHash',
     outputs: [
       {
-        internalType: "bytes32",
-        name: "",
-        type: "bytes32",
+        internalType: 'bytes32',
+        name: '',
+        type: 'bytes32',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [],
-    name: "vrf_requestConfirmations",
+    name: 'vrf_requestConfirmations',
     outputs: [
       {
-        internalType: "uint16",
-        name: "",
-        type: "uint16",
+        internalType: 'uint16',
+        name: '',
+        type: 'uint16',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
   {
     inputs: [],
-    name: "vrf_subscriptionId",
+    name: 'vrf_subscriptionId',
     outputs: [
       {
-        internalType: "uint64",
-        name: "",
-        type: "uint64",
+        internalType: 'uint64',
+        name: '',
+        type: 'uint64',
       },
     ],
-    stateMutability: "view",
-    type: "function",
+    stateMutability: 'view',
+    type: 'function',
   },
 ];
 
@@ -98,10 +98,7 @@ export class VRFConsumer__factory {
   static createInterface(): VRFConsumerInterface {
     return new utils.Interface(_abi) as VRFConsumerInterface;
   }
-  static connect(
-    address: string,
-    signerOrProvider: Signer | Provider
-  ): VRFConsumer {
+  static connect(address: string, signerOrProvider: Signer | Provider): VRFConsumer {
     return new Contract(address, _abi, signerOrProvider) as VRFConsumer;
   }
 }

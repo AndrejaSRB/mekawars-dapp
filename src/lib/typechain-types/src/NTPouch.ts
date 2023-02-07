@@ -4,19 +4,6 @@
 
 /* eslint-disable */
 import type {
-  TypedEventFilter,
-  TypedEvent,
-  TypedListener,
-  OnEvent,
-  PromiseOrValue,
-} from "../common";
-import type {
-  FunctionFragment,
-  Result,
-  EventFragment,
-} from "@ethersproject/abi";
-import type { Listener, Provider } from "@ethersproject/providers";
-import type {
   BaseContract,
   BigNumber,
   BigNumberish,
@@ -27,7 +14,10 @@ import type {
   PopulatedTransaction,
   Signer,
   utils,
-} from "ethers";
+} from 'ethers';
+import type { FunctionFragment, Result, EventFragment } from '@ethersproject/abi';
+import type { Listener, Provider } from '@ethersproject/providers';
+import type { TypedEventFilter, TypedEvent, TypedListener, OnEvent, PromiseOrValue } from '../common';
 
 export type PouchAttributesStruct = {
   active: PromiseOrValue<boolean>;
@@ -41,242 +31,171 @@ export type PouchAttributesStructOutput = [boolean, BigNumber] & {
 
 export interface NTPouchInterface extends utils.Interface {
   functions: {
-    "DEFAULT_ADMIN_ROLE()": FunctionFragment;
-    "balanceOf(address,uint256)": FunctionFragment;
-    "balanceOfBatch(address[],uint256[])": FunctionFragment;
-    "crews()": FunctionFragment;
-    "depositPouch(uint256,uint256,uint256)": FunctionFragment;
-    "getRoleAdmin(bytes32)": FunctionFragment;
-    "grantRole(bytes32,address)": FunctionFragment;
-    "hasRole(bytes32,address)": FunctionFragment;
-    "initialize()": FunctionFragment;
-    "isApprovedForAll(address,address)": FunctionFragment;
-    "poches(uint256)": FunctionFragment;
-    "renounceRole(bytes32,address)": FunctionFragment;
-    "revokeRole(bytes32,address)": FunctionFragment;
-    "safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)": FunctionFragment;
-    "safeTransferFrom(address,address,uint256,uint256,bytes)": FunctionFragment;
-    "setApprovalForAll(address,bool)": FunctionFragment;
-    "setPouchAttributes(uint256,(bool,uint256))": FunctionFragment;
-    "setupContracts(address)": FunctionFragment;
-    "supportsInterface(bytes4)": FunctionFragment;
-    "uri(uint256)": FunctionFragment;
-    "withdrawPouch(uint256,uint256,uint256)": FunctionFragment;
+    'DEFAULT_ADMIN_ROLE()': FunctionFragment;
+    'balanceOf(address,uint256)': FunctionFragment;
+    'balanceOfBatch(address[],uint256[])': FunctionFragment;
+    'crews()': FunctionFragment;
+    'depositPouch(uint256,uint256,uint256)': FunctionFragment;
+    'getRoleAdmin(bytes32)': FunctionFragment;
+    'grantRole(bytes32,address)': FunctionFragment;
+    'hasRole(bytes32,address)': FunctionFragment;
+    'initialize()': FunctionFragment;
+    'isApprovedForAll(address,address)': FunctionFragment;
+    'poches(uint256)': FunctionFragment;
+    'renounceRole(bytes32,address)': FunctionFragment;
+    'revokeRole(bytes32,address)': FunctionFragment;
+    'safeBatchTransferFrom(address,address,uint256[],uint256[],bytes)': FunctionFragment;
+    'safeTransferFrom(address,address,uint256,uint256,bytes)': FunctionFragment;
+    'setApprovalForAll(address,bool)': FunctionFragment;
+    'setPouchAttributes(uint256,(bool,uint256))': FunctionFragment;
+    'setupContracts(address)': FunctionFragment;
+    'supportsInterface(bytes4)': FunctionFragment;
+    'uri(uint256)': FunctionFragment;
+    'withdrawPouch(uint256,uint256,uint256)': FunctionFragment;
   };
 
   getFunction(
     nameOrSignatureOrTopic:
-      | "DEFAULT_ADMIN_ROLE"
-      | "balanceOf"
-      | "balanceOfBatch"
-      | "crews"
-      | "depositPouch"
-      | "getRoleAdmin"
-      | "grantRole"
-      | "hasRole"
-      | "initialize"
-      | "isApprovedForAll"
-      | "poches"
-      | "renounceRole"
-      | "revokeRole"
-      | "safeBatchTransferFrom"
-      | "safeTransferFrom"
-      | "setApprovalForAll"
-      | "setPouchAttributes"
-      | "setupContracts"
-      | "supportsInterface"
-      | "uri"
-      | "withdrawPouch"
+      | 'DEFAULT_ADMIN_ROLE'
+      | 'balanceOf'
+      | 'balanceOfBatch'
+      | 'crews'
+      | 'depositPouch'
+      | 'getRoleAdmin'
+      | 'grantRole'
+      | 'hasRole'
+      | 'initialize'
+      | 'isApprovedForAll'
+      | 'poches'
+      | 'renounceRole'
+      | 'revokeRole'
+      | 'safeBatchTransferFrom'
+      | 'safeTransferFrom'
+      | 'setApprovalForAll'
+      | 'setPouchAttributes'
+      | 'setupContracts'
+      | 'supportsInterface'
+      | 'uri'
+      | 'withdrawPouch',
   ): FunctionFragment;
 
+  encodeFunctionData(functionFragment: 'DEFAULT_ADMIN_ROLE', values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    values?: undefined
+    functionFragment: 'balanceOf',
+    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>],
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOf",
-    values: [PromiseOrValue<string>, PromiseOrValue<BigNumberish>]
+    functionFragment: 'balanceOfBatch',
+    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]],
+  ): string;
+  encodeFunctionData(functionFragment: 'crews', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'depositPouch',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
+  ): string;
+  encodeFunctionData(functionFragment: 'getRoleAdmin', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(
+    functionFragment: 'grantRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'hasRole', values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: 'initialize', values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: 'isApprovedForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<string>],
+  ): string;
+  encodeFunctionData(functionFragment: 'poches', values: [PromiseOrValue<BigNumberish>]): string;
+  encodeFunctionData(
+    functionFragment: 'renounceRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "balanceOfBatch",
-    values: [PromiseOrValue<string>[], PromiseOrValue<BigNumberish>[]]
-  ): string;
-  encodeFunctionData(functionFragment: "crews", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "depositPouch",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
-    ]
+    functionFragment: 'revokeRole',
+    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>],
   ): string;
   encodeFunctionData(
-    functionFragment: "getRoleAdmin",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "grantRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "hasRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "initialize",
-    values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "isApprovedForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "poches",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "renounceRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "revokeRole",
-    values: [PromiseOrValue<BytesLike>, PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "safeBatchTransferFrom",
+    functionFragment: 'safeBatchTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>[],
       PromiseOrValue<BigNumberish>[],
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "safeTransferFrom",
+    functionFragment: 'safeTransferFrom',
     values: [
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<BigNumberish>,
       PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BytesLike>
-    ]
+      PromiseOrValue<BytesLike>,
+    ],
   ): string;
   encodeFunctionData(
-    functionFragment: "setApprovalForAll",
-    values: [PromiseOrValue<string>, PromiseOrValue<boolean>]
+    functionFragment: 'setApprovalForAll',
+    values: [PromiseOrValue<string>, PromiseOrValue<boolean>],
   ): string;
   encodeFunctionData(
-    functionFragment: "setPouchAttributes",
-    values: [PromiseOrValue<BigNumberish>, PouchAttributesStruct]
+    functionFragment: 'setPouchAttributes',
+    values: [PromiseOrValue<BigNumberish>, PouchAttributesStruct],
   ): string;
+  encodeFunctionData(functionFragment: 'setupContracts', values: [PromiseOrValue<string>]): string;
+  encodeFunctionData(functionFragment: 'supportsInterface', values: [PromiseOrValue<BytesLike>]): string;
+  encodeFunctionData(functionFragment: 'uri', values: [PromiseOrValue<BigNumberish>]): string;
   encodeFunctionData(
-    functionFragment: "setupContracts",
-    values: [PromiseOrValue<string>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "supportsInterface",
-    values: [PromiseOrValue<BytesLike>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "uri",
-    values: [PromiseOrValue<BigNumberish>]
-  ): string;
-  encodeFunctionData(
-    functionFragment: "withdrawPouch",
-    values: [
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>,
-      PromiseOrValue<BigNumberish>
-    ]
+    functionFragment: 'withdrawPouch',
+    values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>],
   ): string;
 
-  decodeFunctionResult(
-    functionFragment: "DEFAULT_ADMIN_ROLE",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "balanceOfBatch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "crews", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "depositPouch",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getRoleAdmin",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "grantRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "hasRole", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "initialize", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "isApprovedForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "poches", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "renounceRole",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "revokeRole", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "safeBatchTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "safeTransferFrom",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setApprovalForAll",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setPouchAttributes",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "setupContracts",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "supportsInterface",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(functionFragment: "uri", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "withdrawPouch",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: 'DEFAULT_ADMIN_ROLE', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOf', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'balanceOfBatch', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'crews', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'depositPouch', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'getRoleAdmin', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'grantRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'hasRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'initialize', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'isApprovedForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'poches', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'renounceRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'revokeRole', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeBatchTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'safeTransferFrom', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setApprovalForAll', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setPouchAttributes', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'setupContracts', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'supportsInterface', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'uri', data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: 'withdrawPouch', data: BytesLike): Result;
 
   events: {
-    "ApprovalForAll(address,address,bool)": EventFragment;
-    "DepositPouch(uint256,uint256,uint256)": EventFragment;
-    "Initialized(uint8)": EventFragment;
-    "RoleAdminChanged(bytes32,bytes32,bytes32)": EventFragment;
-    "RoleGranted(bytes32,address,address)": EventFragment;
-    "RoleRevoked(bytes32,address,address)": EventFragment;
-    "SetPouchAttributes(uint256,tuple)": EventFragment;
-    "TransferBatch(address,address,address,uint256[],uint256[])": EventFragment;
-    "TransferSingle(address,address,address,uint256,uint256)": EventFragment;
-    "URI(string,uint256)": EventFragment;
-    "WithdrawPouch(uint256,uint256,uint256)": EventFragment;
+    'ApprovalForAll(address,address,bool)': EventFragment;
+    'DepositPouch(uint256,uint256,uint256)': EventFragment;
+    'Initialized(uint8)': EventFragment;
+    'RoleAdminChanged(bytes32,bytes32,bytes32)': EventFragment;
+    'RoleGranted(bytes32,address,address)': EventFragment;
+    'RoleRevoked(bytes32,address,address)': EventFragment;
+    'SetPouchAttributes(uint256,tuple)': EventFragment;
+    'TransferBatch(address,address,address,uint256[],uint256[])': EventFragment;
+    'TransferSingle(address,address,address,uint256,uint256)': EventFragment;
+    'URI(string,uint256)': EventFragment;
+    'WithdrawPouch(uint256,uint256,uint256)': EventFragment;
   };
 
-  getEvent(nameOrSignatureOrTopic: "ApprovalForAll"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "DepositPouch"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "Initialized"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleAdminChanged"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleGranted"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "RoleRevoked"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "SetPouchAttributes"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferBatch"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "TransferSingle"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "URI"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "WithdrawPouch"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'ApprovalForAll'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'DepositPouch'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'Initialized'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleAdminChanged'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleGranted'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'RoleRevoked'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'SetPouchAttributes'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferBatch'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'TransferSingle'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'URI'): EventFragment;
+  getEvent(nameOrSignatureOrTopic: 'WithdrawPouch'): EventFragment;
 }
 
 export interface ApprovalForAllEventObject {
@@ -284,10 +203,7 @@ export interface ApprovalForAllEventObject {
   operator: string;
   approved: boolean;
 }
-export type ApprovalForAllEvent = TypedEvent<
-  [string, string, boolean],
-  ApprovalForAllEventObject
->;
+export type ApprovalForAllEvent = TypedEvent<[string, string, boolean], ApprovalForAllEventObject>;
 
 export type ApprovalForAllEventFilter = TypedEventFilter<ApprovalForAllEvent>;
 
@@ -296,10 +212,7 @@ export interface DepositPouchEventObject {
   pouchId: BigNumber;
   amount: BigNumber;
 }
-export type DepositPouchEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  DepositPouchEventObject
->;
+export type DepositPouchEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], DepositPouchEventObject>;
 
 export type DepositPouchEventFilter = TypedEventFilter<DepositPouchEvent>;
 
@@ -315,23 +228,16 @@ export interface RoleAdminChangedEventObject {
   previousAdminRole: string;
   newAdminRole: string;
 }
-export type RoleAdminChangedEvent = TypedEvent<
-  [string, string, string],
-  RoleAdminChangedEventObject
->;
+export type RoleAdminChangedEvent = TypedEvent<[string, string, string], RoleAdminChangedEventObject>;
 
-export type RoleAdminChangedEventFilter =
-  TypedEventFilter<RoleAdminChangedEvent>;
+export type RoleAdminChangedEventFilter = TypedEventFilter<RoleAdminChangedEvent>;
 
 export interface RoleGrantedEventObject {
   role: string;
   account: string;
   sender: string;
 }
-export type RoleGrantedEvent = TypedEvent<
-  [string, string, string],
-  RoleGrantedEventObject
->;
+export type RoleGrantedEvent = TypedEvent<[string, string, string], RoleGrantedEventObject>;
 
 export type RoleGrantedEventFilter = TypedEventFilter<RoleGrantedEvent>;
 
@@ -340,10 +246,7 @@ export interface RoleRevokedEventObject {
   account: string;
   sender: string;
 }
-export type RoleRevokedEvent = TypedEvent<
-  [string, string, string],
-  RoleRevokedEventObject
->;
+export type RoleRevokedEvent = TypedEvent<[string, string, string], RoleRevokedEventObject>;
 
 export type RoleRevokedEventFilter = TypedEventFilter<RoleRevokedEvent>;
 
@@ -356,8 +259,7 @@ export type SetPouchAttributesEvent = TypedEvent<
   SetPouchAttributesEventObject
 >;
 
-export type SetPouchAttributesEventFilter =
-  TypedEventFilter<SetPouchAttributesEvent>;
+export type SetPouchAttributesEventFilter = TypedEventFilter<SetPouchAttributesEvent>;
 
 export interface TransferBatchEventObject {
   operator: string;
@@ -380,10 +282,7 @@ export interface TransferSingleEventObject {
   id: BigNumber;
   value: BigNumber;
 }
-export type TransferSingleEvent = TypedEvent<
-  [string, string, string, BigNumber, BigNumber],
-  TransferSingleEventObject
->;
+export type TransferSingleEvent = TypedEvent<[string, string, string, BigNumber, BigNumber], TransferSingleEventObject>;
 
 export type TransferSingleEventFilter = TypedEventFilter<TransferSingleEvent>;
 
@@ -400,10 +299,7 @@ export interface WithdrawPouchEventObject {
   pouchId: BigNumber;
   amount: BigNumber;
 }
-export type WithdrawPouchEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  WithdrawPouchEventObject
->;
+export type WithdrawPouchEvent = TypedEvent<[BigNumber, BigNumber, BigNumber], WithdrawPouchEventObject>;
 
 export type WithdrawPouchEventFilter = TypedEventFilter<WithdrawPouchEvent>;
 
@@ -417,16 +313,12 @@ export interface NTPouch extends BaseContract {
   queryFilter<TEvent extends TypedEvent>(
     event: TypedEventFilter<TEvent>,
     fromBlockOrBlockhash?: string | number | undefined,
-    toBlock?: string | number | undefined
+    toBlock?: string | number | undefined,
   ): Promise<Array<TEvent>>;
 
-  listeners<TEvent extends TypedEvent>(
-    eventFilter?: TypedEventFilter<TEvent>
-  ): Array<TypedListener<TEvent>>;
+  listeners<TEvent extends TypedEvent>(eventFilter?: TypedEventFilter<TEvent>): Array<TypedListener<TEvent>>;
   listeners(eventName?: string): Array<Listener>;
-  removeAllListeners<TEvent extends TypedEvent>(
-    eventFilter: TypedEventFilter<TEvent>
-  ): this;
+  removeAllListeners<TEvent extends TypedEvent>(eventFilter: TypedEventFilter<TEvent>): this;
   removeAllListeners(eventName?: string): this;
   off: OnEvent<this>;
   on: OnEvent<this>;
@@ -439,13 +331,13 @@ export interface NTPouch extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber]>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[BigNumber[]]>;
 
     crews(overrides?: CallOverrides): Promise<[string]>;
@@ -454,51 +346,46 @@ export interface NTPouch extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[string]>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean]>;
 
     poches(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean, BigNumber] & { active: boolean; amount: BigNumber }>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeBatchTransferFrom(
@@ -507,7 +394,7 @@ export interface NTPouch extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     safeTransferFrom(
@@ -516,41 +403,35 @@ export interface NTPouch extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setPouchAttributes(
       pouchId: PromiseOrValue<BigNumberish>,
       pouchAttributes: PouchAttributesStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
     setupContracts(
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<[boolean]>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<[boolean]>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<[string]>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<[string]>;
 
     withdrawPouch(
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<ContractTransaction>;
   };
 
@@ -559,13 +440,13 @@ export interface NTPouch extends BaseContract {
   balanceOf(
     account: PromiseOrValue<string>,
     id: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber>;
 
   balanceOfBatch(
     accounts: PromiseOrValue<string>[],
     ids: PromiseOrValue<BigNumberish>[],
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<BigNumber[]>;
 
   crews(overrides?: CallOverrides): Promise<string>;
@@ -574,51 +455,46 @@ export interface NTPouch extends BaseContract {
     crewId: PromiseOrValue<BigNumberish>,
     pouchId: PromiseOrValue<BigNumberish>,
     numOfPouches: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  getRoleAdmin(
-    role: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
   grantRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   hasRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
-  initialize(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
+  initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<ContractTransaction>;
 
   isApprovedForAll(
     account: PromiseOrValue<string>,
     operator: PromiseOrValue<string>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<boolean>;
 
   poches(
     arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
+    overrides?: CallOverrides,
   ): Promise<[boolean, BigNumber] & { active: boolean; amount: BigNumber }>;
 
   renounceRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   revokeRole(
     role: PromiseOrValue<BytesLike>,
     account: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeBatchTransferFrom(
@@ -627,7 +503,7 @@ export interface NTPouch extends BaseContract {
     ids: PromiseOrValue<BigNumberish>[],
     amounts: PromiseOrValue<BigNumberish>[],
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   safeTransferFrom(
@@ -636,41 +512,35 @@ export interface NTPouch extends BaseContract {
     id: PromiseOrValue<BigNumberish>,
     amount: PromiseOrValue<BigNumberish>,
     data: PromiseOrValue<BytesLike>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setApprovalForAll(
     operator: PromiseOrValue<string>,
     approved: PromiseOrValue<boolean>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setPouchAttributes(
     pouchId: PromiseOrValue<BigNumberish>,
     pouchAttributes: PouchAttributesStruct,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   setupContracts(
     crewsAddress: PromiseOrValue<string>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
-  supportsInterface(
-    interfaceId: PromiseOrValue<BytesLike>,
-    overrides?: CallOverrides
-  ): Promise<boolean>;
+  supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
-  uri(
-    arg0: PromiseOrValue<BigNumberish>,
-    overrides?: CallOverrides
-  ): Promise<string>;
+  uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
 
   withdrawPouch(
     crewId: PromiseOrValue<BigNumberish>,
     pouchId: PromiseOrValue<BigNumberish>,
     numOfPouches: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: PromiseOrValue<string> },
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -679,13 +549,13 @@ export interface NTPouch extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber[]>;
 
     crews(overrides?: CallOverrides): Promise<string>;
@@ -694,24 +564,21 @@ export interface NTPouch extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<string>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     initialize(overrides?: CallOverrides): Promise<void>;
@@ -719,24 +586,24 @@ export interface NTPouch extends BaseContract {
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<boolean>;
 
     poches(
       arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<[boolean, BigNumber] & { active: boolean; amount: BigNumber }>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeBatchTransferFrom(
@@ -745,7 +612,7 @@ export interface NTPouch extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     safeTransferFrom(
@@ -754,157 +621,141 @@ export interface NTPouch extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
     setPouchAttributes(
       pouchId: PromiseOrValue<BigNumberish>,
       pouchAttributes: PouchAttributesStruct,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
 
-    setupContracts(
-      crewsAddress: PromiseOrValue<string>,
-      overrides?: CallOverrides
-    ): Promise<void>;
+    setupContracts(crewsAddress: PromiseOrValue<string>, overrides?: CallOverrides): Promise<void>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<boolean>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<boolean>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<string>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<string>;
 
     withdrawPouch(
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<void>;
   };
 
   filters: {
-    "ApprovalForAll(address,address,bool)"(
+    'ApprovalForAll(address,address,bool)'(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
     ApprovalForAll(
       account?: PromiseOrValue<string> | null,
       operator?: PromiseOrValue<string> | null,
-      approved?: null
+      approved?: null,
     ): ApprovalForAllEventFilter;
 
-    "DepositPouch(uint256,uint256,uint256)"(
+    'DepositPouch(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       pouchId?: null,
-      amount?: null
+      amount?: null,
     ): DepositPouchEventFilter;
-    DepositPouch(
-      crewId?: PromiseOrValue<BigNumberish> | null,
-      pouchId?: null,
-      amount?: null
-    ): DepositPouchEventFilter;
+    DepositPouch(crewId?: PromiseOrValue<BigNumberish> | null, pouchId?: null, amount?: null): DepositPouchEventFilter;
 
-    "Initialized(uint8)"(version?: null): InitializedEventFilter;
+    'Initialized(uint8)'(version?: null): InitializedEventFilter;
     Initialized(version?: null): InitializedEventFilter;
 
-    "RoleAdminChanged(bytes32,bytes32,bytes32)"(
+    'RoleAdminChanged(bytes32,bytes32,bytes32)'(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
     RoleAdminChanged(
       role?: PromiseOrValue<BytesLike> | null,
       previousAdminRole?: PromiseOrValue<BytesLike> | null,
-      newAdminRole?: PromiseOrValue<BytesLike> | null
+      newAdminRole?: PromiseOrValue<BytesLike> | null,
     ): RoleAdminChangedEventFilter;
 
-    "RoleGranted(bytes32,address,address)"(
+    'RoleGranted(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
     RoleGranted(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleGrantedEventFilter;
 
-    "RoleRevoked(bytes32,address,address)"(
+    'RoleRevoked(bytes32,address,address)'(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
     RoleRevoked(
       role?: PromiseOrValue<BytesLike> | null,
       account?: PromiseOrValue<string> | null,
-      sender?: PromiseOrValue<string> | null
+      sender?: PromiseOrValue<string> | null,
     ): RoleRevokedEventFilter;
 
-    "SetPouchAttributes(uint256,tuple)"(
+    'SetPouchAttributes(uint256,tuple)'(
       pouchId?: PromiseOrValue<BigNumberish> | null,
-      pouchAttributes?: null
+      pouchAttributes?: null,
     ): SetPouchAttributesEventFilter;
     SetPouchAttributes(
       pouchId?: PromiseOrValue<BigNumberish> | null,
-      pouchAttributes?: null
+      pouchAttributes?: null,
     ): SetPouchAttributesEventFilter;
 
-    "TransferBatch(address,address,address,uint256[],uint256[])"(
+    'TransferBatch(address,address,address,uint256[],uint256[])'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
     TransferBatch(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       ids?: null,
-      values?: null
+      values?: null,
     ): TransferBatchEventFilter;
 
-    "TransferSingle(address,address,address,uint256,uint256)"(
+    'TransferSingle(address,address,address,uint256,uint256)'(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
     TransferSingle(
       operator?: PromiseOrValue<string> | null,
       from?: PromiseOrValue<string> | null,
       to?: PromiseOrValue<string> | null,
       id?: null,
-      value?: null
+      value?: null,
     ): TransferSingleEventFilter;
 
-    "URI(string,uint256)"(
-      value?: null,
-      id?: PromiseOrValue<BigNumberish> | null
-    ): URIEventFilter;
+    'URI(string,uint256)'(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
     URI(value?: null, id?: PromiseOrValue<BigNumberish> | null): URIEventFilter;
 
-    "WithdrawPouch(uint256,uint256,uint256)"(
+    'WithdrawPouch(uint256,uint256,uint256)'(
       crewId?: PromiseOrValue<BigNumberish> | null,
       pouchId?: null,
-      amount?: null
+      amount?: null,
     ): WithdrawPouchEventFilter;
     WithdrawPouch(
       crewId?: PromiseOrValue<BigNumberish> | null,
       pouchId?: null,
-      amount?: null
+      amount?: null,
     ): WithdrawPouchEventFilter;
   };
 
@@ -914,13 +765,13 @@ export interface NTPouch extends BaseContract {
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
     crews(overrides?: CallOverrides): Promise<BigNumber>;
@@ -929,51 +780,43 @@ export interface NTPouch extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<BigNumber>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<BigNumber>;
 
-    poches(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    poches(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeBatchTransferFrom(
@@ -982,7 +825,7 @@ export interface NTPouch extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     safeTransferFrom(
@@ -991,59 +834,51 @@ export interface NTPouch extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setPouchAttributes(
       pouchId: PromiseOrValue<BigNumberish>,
       pouchAttributes: PouchAttributesStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
     setupContracts(
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<BigNumber>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<BigNumber>;
 
     withdrawPouch(
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<BigNumber>;
   };
 
   populateTransaction: {
-    DEFAULT_ADMIN_ROLE(
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    DEFAULT_ADMIN_ROLE(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     balanceOf(
       account: PromiseOrValue<string>,
       id: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     balanceOfBatch(
       accounts: PromiseOrValue<string>[],
       ids: PromiseOrValue<BigNumberish>[],
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
     crews(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -1052,51 +887,43 @@ export interface NTPouch extends BaseContract {
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    getRoleAdmin(
-      role: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    getRoleAdmin(role: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     grantRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     hasRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    initialize(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
+    initialize(overrides?: Overrides & { from?: PromiseOrValue<string> }): Promise<PopulatedTransaction>;
 
     isApprovedForAll(
       account: PromiseOrValue<string>,
       operator: PromiseOrValue<string>,
-      overrides?: CallOverrides
+      overrides?: CallOverrides,
     ): Promise<PopulatedTransaction>;
 
-    poches(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    poches(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     renounceRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     revokeRole(
       role: PromiseOrValue<BytesLike>,
       account: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeBatchTransferFrom(
@@ -1105,7 +932,7 @@ export interface NTPouch extends BaseContract {
       ids: PromiseOrValue<BigNumberish>[],
       amounts: PromiseOrValue<BigNumberish>[],
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     safeTransferFrom(
@@ -1114,41 +941,35 @@ export interface NTPouch extends BaseContract {
       id: PromiseOrValue<BigNumberish>,
       amount: PromiseOrValue<BigNumberish>,
       data: PromiseOrValue<BytesLike>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setApprovalForAll(
       operator: PromiseOrValue<string>,
       approved: PromiseOrValue<boolean>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setPouchAttributes(
       pouchId: PromiseOrValue<BigNumberish>,
       pouchAttributes: PouchAttributesStruct,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
     setupContracts(
       crewsAddress: PromiseOrValue<string>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
 
-    supportsInterface(
-      interfaceId: PromiseOrValue<BytesLike>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    supportsInterface(interfaceId: PromiseOrValue<BytesLike>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    uri(
-      arg0: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
+    uri(arg0: PromiseOrValue<BigNumberish>, overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     withdrawPouch(
       crewId: PromiseOrValue<BigNumberish>,
       pouchId: PromiseOrValue<BigNumberish>,
       numOfPouches: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: PromiseOrValue<string> },
     ): Promise<PopulatedTransaction>;
   };
 }

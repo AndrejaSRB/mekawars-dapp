@@ -90,7 +90,7 @@ export enum AddCrewToBucket_OrderBy {
   bucketIndex = 'bucketIndex',
   crewId = 'crewId',
   id = 'id',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type AddItemToInventory = {
@@ -178,7 +178,7 @@ export enum AddItemToInventory_OrderBy {
   id = 'id',
   itemId = 'itemId',
   itemIndexInInventory = 'itemIndexInInventory',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type AddRoboToCrew = {
@@ -256,7 +256,7 @@ export enum AddRoboToCrew_OrderBy {
   crewId = 'crewId',
   id = 'id',
   roboId = 'roboId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Approval = {
@@ -355,7 +355,7 @@ export enum ApprovalForAll_OrderBy {
   id = 'id',
   operator = 'operator',
   owner = 'owner',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Approval_Filter = {
@@ -436,7 +436,7 @@ export enum Approval_OrderBy {
   id = 'id',
   owner = 'owner',
   tokenId = 'tokenId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type BlockChangedFilter = {
@@ -514,7 +514,7 @@ export enum BoxInitialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type BoxOpened = {
@@ -620,7 +620,7 @@ export enum BoxOpened_OrderBy {
   itemsWon = 'itemsWon',
   newSlotState = 'newSlotState',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type BoxRoleAdminChanged = {
@@ -714,7 +714,7 @@ export enum BoxRoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type BoxRoleGranted = {
@@ -808,7 +808,7 @@ export enum BoxRoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type BoxRoleRevoked = {
@@ -902,7 +902,7 @@ export enum BoxRoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type BoxSlot = {
@@ -1044,7 +1044,7 @@ export enum BoxSlot_OrderBy {
   id = 'id',
   index = 'index',
   stakedBabyOoga = 'stakedBabyOoga',
-  state = 'state'
+  state = 'state',
 }
 
 export type BoxUpgraded = {
@@ -1142,7 +1142,7 @@ export enum BoxUpgraded_OrderBy {
   newRarity = 'newRarity',
   newSlotState = 'newSlotState',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Bucket = {
@@ -1155,7 +1155,6 @@ export type Bucket = {
   state?: Maybe<Scalars['Int']>;
 };
 
-
 export type BucketCrewIdsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<CrewInBucket_OrderBy>;
@@ -1163,7 +1162,6 @@ export type BucketCrewIdsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<CrewInBucket_Filter>;
 };
-
 
 export type BucketResolvedMatchesArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -1238,7 +1236,7 @@ export enum Bucket_OrderBy {
   id = 'id',
   randomSeed = 'randomSeed',
   resolvedMatches = 'resolvedMatches',
-  state = 'state'
+  state = 'state',
 }
 
 export type BuyMysteryBox = {
@@ -1316,7 +1314,7 @@ export enum BuyMysteryBox_OrderBy {
   crewId = 'crewId',
   id = 'id',
   level = 'level',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type ChangeBucketState = {
@@ -1394,7 +1392,7 @@ export enum ChangeBucketState_OrderBy {
   bucketIndex = 'bucketIndex',
   id = 'id',
   newBucketState = 'newBucketState',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type ContractParameter = {
@@ -1530,7 +1528,7 @@ export enum ContractParameter_OrderBy {
   matchmaking_maxBucketSize = 'matchmaking_maxBucketSize',
   matchmaking_maxRatingDiff = 'matchmaking_maxRatingDiff',
   matchmaking_minBucketSize = 'matchmaking_minBucketSize',
-  matchmaking_minTimeOffset = 'matchmaking_minTimeOffset'
+  matchmaking_minTimeOffset = 'matchmaking_minTimeOffset',
 }
 
 export type Crew = {
@@ -1550,7 +1548,6 @@ export type Crew = {
   rating: Scalars['BigInt'];
 };
 
-
 export type CrewBoxSlotsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<BoxSlot_OrderBy>;
@@ -1558,7 +1555,6 @@ export type CrewBoxSlotsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<BoxSlot_Filter>;
 };
-
 
 export type CrewFirstTeamArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -1568,7 +1564,6 @@ export type CrewFirstTeamArgs = {
   where?: InputMaybe<Ooga_Filter>;
 };
 
-
 export type CrewInventoryArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<InventoryItem_OrderBy>;
@@ -1576,7 +1571,6 @@ export type CrewInventoryArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<InventoryItem_Filter>;
 };
-
 
 export type CrewOogasInCrewArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -1593,7 +1587,6 @@ export type CrewInBucket = {
   firstTeam: Array<Ooga>;
   id: Scalars['String'];
 };
-
 
 export type CrewInBucketFirstTeamArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -1683,7 +1676,7 @@ export enum CrewInBucket_OrderBy {
   bucket = 'bucket',
   crew = 'crew',
   firstTeam = 'firstTeam',
-  id = 'id'
+  id = 'id',
 }
 
 export type Crew_Filter = {
@@ -1835,7 +1828,7 @@ export enum Crew_OrderBy {
   ntAmount = 'ntAmount',
   oogasInCrew = 'oogasInCrew',
   owner = 'owner',
-  rating = 'rating'
+  rating = 'rating',
 }
 
 export type CrewsInitialized = {
@@ -1903,7 +1896,7 @@ export enum CrewsInitialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type CrewsRoleAdminChanged = {
@@ -1997,7 +1990,7 @@ export enum CrewsRoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type CrewsRoleGranted = {
@@ -2091,7 +2084,7 @@ export enum CrewsRoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type CrewsRoleRevoked = {
@@ -2185,7 +2178,7 @@ export enum CrewsRoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type DeleteItemToInventory = {
@@ -2263,7 +2256,7 @@ export enum DeleteItemToInventory_OrderBy {
   crewId = 'crewId',
   id = 'id',
   itemIndex = 'itemIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type DepositPouch = {
@@ -2351,7 +2344,7 @@ export enum DepositPouch_OrderBy {
   crewId = 'crewId',
   id = 'id',
   pouchId = 'pouchId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type DurabilityChange = {
@@ -2429,7 +2422,7 @@ export enum DurabilityChange_OrderBy {
   crewId = 'crewId',
   id = 'id',
   newDurability = 'newDurability',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type EquipItemToOoga = {
@@ -2517,7 +2510,7 @@ export enum EquipItemToOoga_OrderBy {
   id = 'id',
   itemIndex = 'itemIndex',
   oogaId = 'oogaId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type EquipSpecialItem = {
@@ -2605,7 +2598,7 @@ export enum EquipSpecialItem_OrderBy {
   id = 'id',
   itemIndex = 'itemIndex',
   oogaId = 'oogaId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Initialized = {
@@ -2673,7 +2666,7 @@ export enum Initialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type InventoryItem = {
@@ -2804,7 +2797,7 @@ export enum InventoryItem_OrderBy {
   equipedToOoga = 'equipedToOoga',
   id = 'id',
   inCrew = 'inCrew',
-  index = 'index'
+  index = 'index',
 }
 
 export type Item = {
@@ -2920,7 +2913,7 @@ export enum Item_OrderBy {
   itemType = 'itemType',
   level = 'level',
   season = 'season',
-  uri = 'uri'
+  uri = 'uri',
 }
 
 export type LevelChange = {
@@ -2998,7 +2991,7 @@ export enum LevelChange_OrderBy {
   crewId = 'crewId',
   id = 'id',
   newLevel = 'newLevel',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MakeNewCrew = {
@@ -3108,7 +3101,7 @@ export enum MakeNewCrew_OrderBy {
   mekaApeId = 'mekaApeId',
   rating = 'rating',
   transactionHash = 'transactionHash',
-  user = 'user'
+  user = 'user',
 }
 
 export type Match = {
@@ -3235,7 +3228,7 @@ export enum Match_OrderBy {
   firstCrew = 'firstCrew',
   id = 'id',
   secondCrew = 'secondCrew',
-  wonCrewId = 'wonCrewId'
+  wonCrewId = 'wonCrewId',
 }
 
 export type MatchmakingInitialized = {
@@ -3303,7 +3296,7 @@ export enum MatchmakingInitialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type MatchmakingRoleAdminChanged = {
@@ -3397,7 +3390,7 @@ export enum MatchmakingRoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MatchmakingRoleGranted = {
@@ -3491,7 +3484,7 @@ export enum MatchmakingRoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MatchmakingRoleRevoked = {
@@ -3585,7 +3578,7 @@ export enum MatchmakingRoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MekawarsItemsApprovalForAll = {
@@ -3673,7 +3666,7 @@ export enum MekawarsItemsApprovalForAll_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   operator = 'operator',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MekawarsItemsInitialized = {
@@ -3741,7 +3734,7 @@ export enum MekawarsItemsInitialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type MekawarsItemsRoleAdminChanged = {
@@ -3835,7 +3828,7 @@ export enum MekawarsItemsRoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MekawarsItemsRoleGranted = {
@@ -3929,7 +3922,7 @@ export enum MekawarsItemsRoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MekawarsItemsRoleRevoked = {
@@ -4023,7 +4016,7 @@ export enum MekawarsItemsRoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type MysteryBoxOpened = {
@@ -4119,7 +4112,7 @@ export enum MysteryBoxOpened_OrderBy {
   id = 'id',
   itemsWon = 'itemsWon',
   level = 'level',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtChange = {
@@ -4207,7 +4200,7 @@ export enum NtChange_OrderBy {
   crewId = 'crewId',
   id = 'id',
   newNTamount = 'newNTamount',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtPouch = {
@@ -4303,7 +4296,7 @@ export enum NtPouchApprovalForAll_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   operator = 'operator',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtPouchInitialized = {
@@ -4371,7 +4364,7 @@ export enum NtPouchInitialized_OrderBy {
   blockTimestamp = 'blockTimestamp',
   id = 'id',
   transactionHash = 'transactionHash',
-  version = 'version'
+  version = 'version',
 }
 
 export type NtPouchRoleAdminChanged = {
@@ -4465,7 +4458,7 @@ export enum NtPouchRoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtPouchRoleGranted = {
@@ -4559,7 +4552,7 @@ export enum NtPouchRoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtPouchRoleRevoked = {
@@ -4653,7 +4646,7 @@ export enum NtPouchRoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NtPouchTransferBatch = {
@@ -4763,7 +4756,7 @@ export enum NtPouchTransferBatch_OrderBy {
   operator = 'operator',
   to = 'to',
   transactionHash = 'transactionHash',
-  values = 'values'
+  values = 'values',
 }
 
 export type NtPouchTransferSingle = {
@@ -4877,7 +4870,7 @@ export enum NtPouchTransferSingle_OrderBy {
   to = 'to',
   tokenId = 'tokenId',
   transactionHash = 'transactionHash',
-  value = 'value'
+  value = 'value',
 }
 
 export type NtPouchUri = {
@@ -4967,7 +4960,7 @@ export enum NtPouchUri_OrderBy {
   id = 'id',
   tokenId = 'tokenId',
   transactionHash = 'transactionHash',
-  value = 'value'
+  value = 'value',
 }
 
 export type NtPouch_Filter = {
@@ -5033,7 +5026,7 @@ export enum NtPouch_OrderBy {
   active = 'active',
   amount = 'amount',
   id = 'id',
-  uri = 'uri'
+  uri = 'uri',
 }
 
 export type NewBucket = {
@@ -5111,7 +5104,7 @@ export enum NewBucket_OrderBy {
   bucketIndex = 'bucketIndex',
   createdAt = 'createdAt',
   id = 'id',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type NewFirstTeam = {
@@ -5187,7 +5180,7 @@ export enum NewFirstTeam_OrderBy {
   crewId = 'crewId',
   id = 'id',
   newFirstTeam = 'newFirstTeam',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Ooga = {
@@ -5319,7 +5312,7 @@ export enum Ooga_OrderBy {
   level = 'level',
   oogaType = 'oogaType',
   orderIndexInFirstTeam = 'orderIndexInFirstTeam',
-  owner = 'owner'
+  owner = 'owner',
 }
 
 export type OpenBox = {
@@ -5407,13 +5400,13 @@ export enum OpenBox_OrderBy {
   id = 'id',
   newSlotState = 'newSlotState',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 /** Defines the order direction, either ascending or descending */
 export enum OrderDirection {
   asc = 'asc',
-  desc = 'desc'
+  desc = 'desc',
 }
 
 export type Query = {
@@ -5584,18 +5577,15 @@ export type Query = {
   wonBoxFromMatches: Array<WonBoxFromMatch>;
 };
 
-
 export type Query_MetaArgs = {
   block?: InputMaybe<Block_Height>;
 };
-
 
 export type QueryAddCrewToBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryAddCrewToBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5607,7 +5597,6 @@ export type QueryAddCrewToBucketsArgs = {
   where?: InputMaybe<AddCrewToBucket_Filter>;
 };
 
-
 export type QueryAddItemToInventoriesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -5618,20 +5607,17 @@ export type QueryAddItemToInventoriesArgs = {
   where?: InputMaybe<AddItemToInventory_Filter>;
 };
 
-
 export type QueryAddItemToInventoryArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryAddRoboToCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryAddRoboToCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5643,20 +5629,17 @@ export type QueryAddRoboToCrewsArgs = {
   where?: InputMaybe<AddRoboToCrew_Filter>;
 };
 
-
 export type QueryApprovalArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5668,7 +5651,6 @@ export type QueryApprovalForAllsArgs = {
   where?: InputMaybe<ApprovalForAll_Filter>;
 };
 
-
 export type QueryApprovalsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -5679,13 +5661,11 @@ export type QueryApprovalsArgs = {
   where?: InputMaybe<Approval_Filter>;
 };
 
-
 export type QueryBoxInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5697,13 +5677,11 @@ export type QueryBoxInitializedsArgs = {
   where?: InputMaybe<BoxInitialized_Filter>;
 };
 
-
 export type QueryBoxOpenedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxOpenedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5715,13 +5693,11 @@ export type QueryBoxOpenedsArgs = {
   where?: InputMaybe<BoxOpened_Filter>;
 };
 
-
 export type QueryBoxRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5733,13 +5709,11 @@ export type QueryBoxRoleAdminChangedsArgs = {
   where?: InputMaybe<BoxRoleAdminChanged_Filter>;
 };
 
-
 export type QueryBoxRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5751,13 +5725,11 @@ export type QueryBoxRoleGrantedsArgs = {
   where?: InputMaybe<BoxRoleGranted_Filter>;
 };
 
-
 export type QueryBoxRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5769,13 +5741,11 @@ export type QueryBoxRoleRevokedsArgs = {
   where?: InputMaybe<BoxRoleRevoked_Filter>;
 };
 
-
 export type QueryBoxSlotArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxSlotsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5787,13 +5757,11 @@ export type QueryBoxSlotsArgs = {
   where?: InputMaybe<BoxSlot_Filter>;
 };
 
-
 export type QueryBoxUpgradedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBoxUpgradedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5805,13 +5773,11 @@ export type QueryBoxUpgradedsArgs = {
   where?: InputMaybe<BoxUpgraded_Filter>;
 };
 
-
 export type QueryBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5823,13 +5789,11 @@ export type QueryBucketsArgs = {
   where?: InputMaybe<Bucket_Filter>;
 };
 
-
 export type QueryBuyMysteryBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryBuyMysteryBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5841,13 +5805,11 @@ export type QueryBuyMysteryBoxesArgs = {
   where?: InputMaybe<BuyMysteryBox_Filter>;
 };
 
-
 export type QueryChangeBucketStateArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryChangeBucketStatesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5859,13 +5821,11 @@ export type QueryChangeBucketStatesArgs = {
   where?: InputMaybe<ChangeBucketState_Filter>;
 };
 
-
 export type QueryContractParameterArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryContractParametersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5877,20 +5837,17 @@ export type QueryContractParametersArgs = {
   where?: InputMaybe<ContractParameter_Filter>;
 };
 
-
 export type QueryCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryCrewInBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryCrewInBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5902,7 +5859,6 @@ export type QueryCrewInBucketsArgs = {
   where?: InputMaybe<CrewInBucket_Filter>;
 };
 
-
 export type QueryCrewsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -5913,13 +5869,11 @@ export type QueryCrewsArgs = {
   where?: InputMaybe<Crew_Filter>;
 };
 
-
 export type QueryCrewsInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryCrewsInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5931,13 +5885,11 @@ export type QueryCrewsInitializedsArgs = {
   where?: InputMaybe<CrewsInitialized_Filter>;
 };
 
-
 export type QueryCrewsRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryCrewsRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5949,13 +5901,11 @@ export type QueryCrewsRoleAdminChangedsArgs = {
   where?: InputMaybe<CrewsRoleAdminChanged_Filter>;
 };
 
-
 export type QueryCrewsRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryCrewsRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5967,13 +5917,11 @@ export type QueryCrewsRoleGrantedsArgs = {
   where?: InputMaybe<CrewsRoleGranted_Filter>;
 };
 
-
 export type QueryCrewsRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryCrewsRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -5985,7 +5933,6 @@ export type QueryCrewsRoleRevokedsArgs = {
   where?: InputMaybe<CrewsRoleRevoked_Filter>;
 };
 
-
 export type QueryDeleteItemToInventoriesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -5996,20 +5943,17 @@ export type QueryDeleteItemToInventoriesArgs = {
   where?: InputMaybe<DeleteItemToInventory_Filter>;
 };
 
-
 export type QueryDeleteItemToInventoryArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryDepositPouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryDepositPouchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6021,13 +5965,11 @@ export type QueryDepositPouchesArgs = {
   where?: InputMaybe<DepositPouch_Filter>;
 };
 
-
 export type QueryDurabilityChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryDurabilityChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6039,13 +5981,11 @@ export type QueryDurabilityChangesArgs = {
   where?: InputMaybe<DurabilityChange_Filter>;
 };
 
-
 export type QueryEquipItemToOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryEquipItemToOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6057,13 +5997,11 @@ export type QueryEquipItemToOogasArgs = {
   where?: InputMaybe<EquipItemToOoga_Filter>;
 };
 
-
 export type QueryEquipSpecialItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryEquipSpecialItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6075,13 +6013,11 @@ export type QueryEquipSpecialItemsArgs = {
   where?: InputMaybe<EquipSpecialItem_Filter>;
 };
 
-
 export type QueryInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6093,13 +6029,11 @@ export type QueryInitializedsArgs = {
   where?: InputMaybe<Initialized_Filter>;
 };
 
-
 export type QueryInventoryItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryInventoryItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6111,13 +6045,11 @@ export type QueryInventoryItemsArgs = {
   where?: InputMaybe<InventoryItem_Filter>;
 };
 
-
 export type QueryItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6129,13 +6061,11 @@ export type QueryItemsArgs = {
   where?: InputMaybe<Item_Filter>;
 };
 
-
 export type QueryLevelChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryLevelChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6147,13 +6077,11 @@ export type QueryLevelChangesArgs = {
   where?: InputMaybe<LevelChange_Filter>;
 };
 
-
 export type QueryMakeNewCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMakeNewCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6165,13 +6093,11 @@ export type QueryMakeNewCrewsArgs = {
   where?: InputMaybe<MakeNewCrew_Filter>;
 };
 
-
 export type QueryMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6183,13 +6109,11 @@ export type QueryMatchesArgs = {
   where?: InputMaybe<Match_Filter>;
 };
 
-
 export type QueryMatchmakingInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMatchmakingInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6201,13 +6125,11 @@ export type QueryMatchmakingInitializedsArgs = {
   where?: InputMaybe<MatchmakingInitialized_Filter>;
 };
 
-
 export type QueryMatchmakingRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMatchmakingRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6219,13 +6141,11 @@ export type QueryMatchmakingRoleAdminChangedsArgs = {
   where?: InputMaybe<MatchmakingRoleAdminChanged_Filter>;
 };
 
-
 export type QueryMatchmakingRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMatchmakingRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6237,13 +6157,11 @@ export type QueryMatchmakingRoleGrantedsArgs = {
   where?: InputMaybe<MatchmakingRoleGranted_Filter>;
 };
 
-
 export type QueryMatchmakingRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMatchmakingRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6255,13 +6173,11 @@ export type QueryMatchmakingRoleRevokedsArgs = {
   where?: InputMaybe<MatchmakingRoleRevoked_Filter>;
 };
 
-
 export type QueryMekawarsItemsApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMekawarsItemsApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6273,13 +6189,11 @@ export type QueryMekawarsItemsApprovalForAllsArgs = {
   where?: InputMaybe<MekawarsItemsApprovalForAll_Filter>;
 };
 
-
 export type QueryMekawarsItemsInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMekawarsItemsInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6291,13 +6205,11 @@ export type QueryMekawarsItemsInitializedsArgs = {
   where?: InputMaybe<MekawarsItemsInitialized_Filter>;
 };
 
-
 export type QueryMekawarsItemsRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMekawarsItemsRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6309,13 +6221,11 @@ export type QueryMekawarsItemsRoleAdminChangedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleAdminChanged_Filter>;
 };
 
-
 export type QueryMekawarsItemsRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMekawarsItemsRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6327,13 +6237,11 @@ export type QueryMekawarsItemsRoleGrantedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleGranted_Filter>;
 };
 
-
 export type QueryMekawarsItemsRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMekawarsItemsRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6345,13 +6253,11 @@ export type QueryMekawarsItemsRoleRevokedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleRevoked_Filter>;
 };
 
-
 export type QueryMysteryBoxOpenedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryMysteryBoxOpenedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6363,13 +6269,11 @@ export type QueryMysteryBoxOpenedsArgs = {
   where?: InputMaybe<MysteryBoxOpened_Filter>;
 };
 
-
 export type QueryNewBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNewBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6381,13 +6285,11 @@ export type QueryNewBucketsArgs = {
   where?: InputMaybe<NewBucket_Filter>;
 };
 
-
 export type QueryNewFirstTeamArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNewFirstTeamsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6399,13 +6301,11 @@ export type QueryNewFirstTeamsArgs = {
   where?: InputMaybe<NewFirstTeam_Filter>;
 };
 
-
 export type QueryNtchangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtchangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6417,20 +6317,17 @@ export type QueryNtchangesArgs = {
   where?: InputMaybe<NtChange_Filter>;
 };
 
-
 export type QueryNtpouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryNtpouchApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6442,13 +6339,11 @@ export type QueryNtpouchApprovalForAllsArgs = {
   where?: InputMaybe<NtPouchApprovalForAll_Filter>;
 };
 
-
 export type QueryNtpouchInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6460,13 +6355,11 @@ export type QueryNtpouchInitializedsArgs = {
   where?: InputMaybe<NtPouchInitialized_Filter>;
 };
 
-
 export type QueryNtpouchRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6478,13 +6371,11 @@ export type QueryNtpouchRoleAdminChangedsArgs = {
   where?: InputMaybe<NtPouchRoleAdminChanged_Filter>;
 };
 
-
 export type QueryNtpouchRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6496,13 +6387,11 @@ export type QueryNtpouchRoleGrantedsArgs = {
   where?: InputMaybe<NtPouchRoleGranted_Filter>;
 };
 
-
 export type QueryNtpouchRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6514,13 +6403,11 @@ export type QueryNtpouchRoleRevokedsArgs = {
   where?: InputMaybe<NtPouchRoleRevoked_Filter>;
 };
 
-
 export type QueryNtpouchTransferBatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchTransferBatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6532,13 +6419,11 @@ export type QueryNtpouchTransferBatchesArgs = {
   where?: InputMaybe<NtPouchTransferBatch_Filter>;
 };
 
-
 export type QueryNtpouchTransferSingleArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchTransferSinglesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6550,13 +6435,11 @@ export type QueryNtpouchTransferSinglesArgs = {
   where?: InputMaybe<NtPouchTransferSingle_Filter>;
 };
 
-
 export type QueryNtpouchUriArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryNtpouchUrIsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6568,7 +6451,6 @@ export type QueryNtpouchUrIsArgs = {
   where?: InputMaybe<NtPouchUri_Filter>;
 };
 
-
 export type QueryNtpouchesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -6579,13 +6461,11 @@ export type QueryNtpouchesArgs = {
   where?: InputMaybe<NtPouch_Filter>;
 };
 
-
 export type QueryOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6597,13 +6477,11 @@ export type QueryOogasArgs = {
   where?: InputMaybe<Ooga_Filter>;
 };
 
-
 export type QueryOpenBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryOpenBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6615,13 +6493,11 @@ export type QueryOpenBoxesArgs = {
   where?: InputMaybe<OpenBox_Filter>;
 };
 
-
 export type QueryRatingChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRatingChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6633,20 +6509,17 @@ export type QueryRatingChangesArgs = {
   where?: InputMaybe<RatingChange_Filter>;
 };
 
-
 export type QueryRemoveCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryRemoveCrewFromBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRemoveCrewFromBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6658,7 +6531,6 @@ export type QueryRemoveCrewFromBucketsArgs = {
   where?: InputMaybe<RemoveCrewFromBucket_Filter>;
 };
 
-
 export type QueryRemoveCrewsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -6669,13 +6541,11 @@ export type QueryRemoveCrewsArgs = {
   where?: InputMaybe<RemoveCrew_Filter>;
 };
 
-
 export type QueryRemoveRoboFromCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRemoveRoboFromCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6687,13 +6557,11 @@ export type QueryRemoveRoboFromCrewsArgs = {
   where?: InputMaybe<RemoveRoboFromCrew_Filter>;
 };
 
-
 export type QueryResolveMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryResolveMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6705,13 +6573,11 @@ export type QueryResolveMatchesArgs = {
   where?: InputMaybe<ResolveMatch_Filter>;
 };
 
-
 export type QueryRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6723,13 +6589,11 @@ export type QueryRoleAdminChangedsArgs = {
   where?: InputMaybe<RoleAdminChanged_Filter>;
 };
 
-
 export type QueryRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6741,13 +6605,11 @@ export type QueryRoleGrantedsArgs = {
   where?: InputMaybe<RoleGranted_Filter>;
 };
 
-
 export type QueryRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6759,13 +6621,11 @@ export type QueryRoleRevokedsArgs = {
   where?: InputMaybe<RoleRevoked_Filter>;
 };
 
-
 export type QuerySetBucketRandomSeedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QuerySetBucketRandomSeedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6777,13 +6637,11 @@ export type QuerySetBucketRandomSeedsArgs = {
   where?: InputMaybe<SetBucketRandomSeed_Filter>;
 };
 
-
 export type QuerySetItemAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QuerySetItemAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6795,13 +6653,11 @@ export type QuerySetItemAttributesArgs = {
   where?: InputMaybe<SetItemAttribute_Filter>;
 };
 
-
 export type QuerySetOogaAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QuerySetOogaAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6813,13 +6669,11 @@ export type QuerySetOogaAttributesArgs = {
   where?: InputMaybe<SetOogaAttribute_Filter>;
 };
 
-
 export type QuerySetPouchAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QuerySetPouchAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6831,13 +6685,11 @@ export type QuerySetPouchAttributesArgs = {
   where?: InputMaybe<SetPouchAttribute_Filter>;
 };
 
-
 export type QueryStakeBabyOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryStakeBabyOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6849,20 +6701,17 @@ export type QueryStakeBabyOogasArgs = {
   where?: InputMaybe<StakeBabyOoga_Filter>;
 };
 
-
 export type QueryTransferArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryTransferBatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryTransferBatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6874,13 +6723,11 @@ export type QueryTransferBatchesArgs = {
   where?: InputMaybe<TransferBatch_Filter>;
 };
 
-
 export type QueryTransferSingleArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryTransferSinglesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6892,7 +6739,6 @@ export type QueryTransferSinglesArgs = {
   where?: InputMaybe<TransferSingle_Filter>;
 };
 
-
 export type QueryTransfersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -6903,13 +6749,11 @@ export type QueryTransfersArgs = {
   where?: InputMaybe<Transfer_Filter>;
 };
 
-
 export type QueryUnstakeBabyOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryUnstakeBabyOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6921,13 +6765,11 @@ export type QueryUnstakeBabyOogasArgs = {
   where?: InputMaybe<UnstakeBabyOoga_Filter>;
 };
 
-
 export type QueryUpgradeBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryUpgradeBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6939,13 +6781,11 @@ export type QueryUpgradeBoxesArgs = {
   where?: InputMaybe<UpgradeBox_Filter>;
 };
 
-
 export type QueryUriArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryUrisArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6957,20 +6797,17 @@ export type QueryUrisArgs = {
   where?: InputMaybe<Uri_Filter>;
 };
 
-
 export type QueryUserArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type QueryUserItemAmountArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryUserItemAmountsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -6982,13 +6819,11 @@ export type QueryUserItemAmountsArgs = {
   where?: InputMaybe<UserItemAmount_Filter>;
 };
 
-
 export type QueryUserNtPouchAmountArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryUserNtPouchAmountsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -7000,7 +6835,6 @@ export type QueryUserNtPouchAmountsArgs = {
   where?: InputMaybe<UserNtPouchAmount_Filter>;
 };
 
-
 export type QueryUsersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -7011,13 +6845,11 @@ export type QueryUsersArgs = {
   where?: InputMaybe<User_Filter>;
 };
 
-
 export type QueryWithdrawPouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryWithdrawPouchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -7029,13 +6861,11 @@ export type QueryWithdrawPouchesArgs = {
   where?: InputMaybe<WithdrawPouch_Filter>;
 };
 
-
 export type QueryWonBoxFromMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type QueryWonBoxFromMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -7122,7 +6952,7 @@ export enum RatingChange_OrderBy {
   crewId = 'crewId',
   id = 'id',
   newRating = 'newRating',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type RemoveCrew = {
@@ -7210,7 +7040,7 @@ export enum RemoveCrewFromBucket_OrderBy {
   bucketIndex = 'bucketIndex',
   crewId = 'crewId',
   id = 'id',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type RemoveCrew_Filter = {
@@ -7280,7 +7110,7 @@ export enum RemoveCrew_OrderBy {
   crewId = 'crewId',
   id = 'id',
   transactionHash = 'transactionHash',
-  user = 'user'
+  user = 'user',
 }
 
 export type RemoveRoboFromCrew = {
@@ -7358,7 +7188,7 @@ export enum RemoveRoboFromCrew_OrderBy {
   crewId = 'crewId',
   id = 'id',
   roboId = 'roboId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type ResolveMatch = {
@@ -7456,7 +7286,7 @@ export enum ResolveMatch_OrderBy {
   crewIdSecond = 'crewIdSecond',
   id = 'id',
   transactionHash = 'transactionHash',
-  winCrewId = 'winCrewId'
+  winCrewId = 'winCrewId',
 }
 
 export type RoleAdminChanged = {
@@ -7550,7 +7380,7 @@ export enum RoleAdminChanged_OrderBy {
   newAdminRole = 'newAdminRole',
   previousAdminRole = 'previousAdminRole',
   role = 'role',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type RoleGranted = {
@@ -7644,7 +7474,7 @@ export enum RoleGranted_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type RoleRevoked = {
@@ -7738,7 +7568,7 @@ export enum RoleRevoked_OrderBy {
   id = 'id',
   role = 'role',
   sender = 'sender',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type SetBucketRandomSeed = {
@@ -7816,7 +7646,7 @@ export enum SetBucketRandomSeed_OrderBy {
   bucketIndex = 'bucketIndex',
   id = 'id',
   randomSeed = 'randomSeed',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type SetItemAttribute = {
@@ -7942,7 +7772,7 @@ export enum SetItemAttribute_OrderBy {
   item_itemType = 'item_itemType',
   item_level = 'item_level',
   item_season = 'item_season',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type SetOogaAttribute = {
@@ -8050,7 +7880,7 @@ export enum SetOogaAttribute_OrderBy {
   ooga_health = 'ooga_health',
   ooga_level = 'ooga_level',
   ooga_oogaType = 'ooga_oogaType',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type SetPouchAttribute = {
@@ -8134,7 +7964,7 @@ export enum SetPouchAttribute_OrderBy {
   pouchAttributes_active = 'pouchAttributes_active',
   pouchAttributes_amount = 'pouchAttributes_amount',
   pouchId = 'pouchId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type StakeBabyOoga = {
@@ -8222,7 +8052,7 @@ export enum StakeBabyOoga_OrderBy {
   id = 'id',
   oogaId = 'oogaId',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Subscription = {
@@ -8393,18 +8223,15 @@ export type Subscription = {
   wonBoxFromMatches: Array<WonBoxFromMatch>;
 };
 
-
 export type Subscription_MetaArgs = {
   block?: InputMaybe<Block_Height>;
 };
-
 
 export type SubscriptionAddCrewToBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionAddCrewToBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8416,7 +8243,6 @@ export type SubscriptionAddCrewToBucketsArgs = {
   where?: InputMaybe<AddCrewToBucket_Filter>;
 };
 
-
 export type SubscriptionAddItemToInventoriesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -8427,20 +8253,17 @@ export type SubscriptionAddItemToInventoriesArgs = {
   where?: InputMaybe<AddItemToInventory_Filter>;
 };
 
-
 export type SubscriptionAddItemToInventoryArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionAddRoboToCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionAddRoboToCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8452,20 +8275,17 @@ export type SubscriptionAddRoboToCrewsArgs = {
   where?: InputMaybe<AddRoboToCrew_Filter>;
 };
 
-
 export type SubscriptionApprovalArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8477,7 +8297,6 @@ export type SubscriptionApprovalForAllsArgs = {
   where?: InputMaybe<ApprovalForAll_Filter>;
 };
 
-
 export type SubscriptionApprovalsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -8488,13 +8307,11 @@ export type SubscriptionApprovalsArgs = {
   where?: InputMaybe<Approval_Filter>;
 };
 
-
 export type SubscriptionBoxInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8506,13 +8323,11 @@ export type SubscriptionBoxInitializedsArgs = {
   where?: InputMaybe<BoxInitialized_Filter>;
 };
 
-
 export type SubscriptionBoxOpenedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxOpenedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8524,13 +8339,11 @@ export type SubscriptionBoxOpenedsArgs = {
   where?: InputMaybe<BoxOpened_Filter>;
 };
 
-
 export type SubscriptionBoxRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8542,13 +8355,11 @@ export type SubscriptionBoxRoleAdminChangedsArgs = {
   where?: InputMaybe<BoxRoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionBoxRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8560,13 +8371,11 @@ export type SubscriptionBoxRoleGrantedsArgs = {
   where?: InputMaybe<BoxRoleGranted_Filter>;
 };
 
-
 export type SubscriptionBoxRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8578,13 +8387,11 @@ export type SubscriptionBoxRoleRevokedsArgs = {
   where?: InputMaybe<BoxRoleRevoked_Filter>;
 };
 
-
 export type SubscriptionBoxSlotArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxSlotsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8596,13 +8403,11 @@ export type SubscriptionBoxSlotsArgs = {
   where?: InputMaybe<BoxSlot_Filter>;
 };
 
-
 export type SubscriptionBoxUpgradedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBoxUpgradedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8614,13 +8419,11 @@ export type SubscriptionBoxUpgradedsArgs = {
   where?: InputMaybe<BoxUpgraded_Filter>;
 };
 
-
 export type SubscriptionBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8632,13 +8435,11 @@ export type SubscriptionBucketsArgs = {
   where?: InputMaybe<Bucket_Filter>;
 };
 
-
 export type SubscriptionBuyMysteryBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionBuyMysteryBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8650,13 +8451,11 @@ export type SubscriptionBuyMysteryBoxesArgs = {
   where?: InputMaybe<BuyMysteryBox_Filter>;
 };
 
-
 export type SubscriptionChangeBucketStateArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionChangeBucketStatesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8668,13 +8467,11 @@ export type SubscriptionChangeBucketStatesArgs = {
   where?: InputMaybe<ChangeBucketState_Filter>;
 };
 
-
 export type SubscriptionContractParameterArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionContractParametersArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8686,20 +8483,17 @@ export type SubscriptionContractParametersArgs = {
   where?: InputMaybe<ContractParameter_Filter>;
 };
 
-
 export type SubscriptionCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionCrewInBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionCrewInBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8711,7 +8505,6 @@ export type SubscriptionCrewInBucketsArgs = {
   where?: InputMaybe<CrewInBucket_Filter>;
 };
 
-
 export type SubscriptionCrewsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -8722,13 +8515,11 @@ export type SubscriptionCrewsArgs = {
   where?: InputMaybe<Crew_Filter>;
 };
 
-
 export type SubscriptionCrewsInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionCrewsInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8740,13 +8531,11 @@ export type SubscriptionCrewsInitializedsArgs = {
   where?: InputMaybe<CrewsInitialized_Filter>;
 };
 
-
 export type SubscriptionCrewsRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionCrewsRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8758,13 +8547,11 @@ export type SubscriptionCrewsRoleAdminChangedsArgs = {
   where?: InputMaybe<CrewsRoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionCrewsRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionCrewsRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8776,13 +8563,11 @@ export type SubscriptionCrewsRoleGrantedsArgs = {
   where?: InputMaybe<CrewsRoleGranted_Filter>;
 };
 
-
 export type SubscriptionCrewsRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionCrewsRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8794,7 +8579,6 @@ export type SubscriptionCrewsRoleRevokedsArgs = {
   where?: InputMaybe<CrewsRoleRevoked_Filter>;
 };
 
-
 export type SubscriptionDeleteItemToInventoriesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -8805,20 +8589,17 @@ export type SubscriptionDeleteItemToInventoriesArgs = {
   where?: InputMaybe<DeleteItemToInventory_Filter>;
 };
 
-
 export type SubscriptionDeleteItemToInventoryArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionDepositPouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionDepositPouchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8830,13 +8611,11 @@ export type SubscriptionDepositPouchesArgs = {
   where?: InputMaybe<DepositPouch_Filter>;
 };
 
-
 export type SubscriptionDurabilityChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionDurabilityChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8848,13 +8627,11 @@ export type SubscriptionDurabilityChangesArgs = {
   where?: InputMaybe<DurabilityChange_Filter>;
 };
 
-
 export type SubscriptionEquipItemToOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionEquipItemToOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8866,13 +8643,11 @@ export type SubscriptionEquipItemToOogasArgs = {
   where?: InputMaybe<EquipItemToOoga_Filter>;
 };
 
-
 export type SubscriptionEquipSpecialItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionEquipSpecialItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8884,13 +8659,11 @@ export type SubscriptionEquipSpecialItemsArgs = {
   where?: InputMaybe<EquipSpecialItem_Filter>;
 };
 
-
 export type SubscriptionInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8902,13 +8675,11 @@ export type SubscriptionInitializedsArgs = {
   where?: InputMaybe<Initialized_Filter>;
 };
 
-
 export type SubscriptionInventoryItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionInventoryItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8920,13 +8691,11 @@ export type SubscriptionInventoryItemsArgs = {
   where?: InputMaybe<InventoryItem_Filter>;
 };
 
-
 export type SubscriptionItemArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionItemsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8938,13 +8707,11 @@ export type SubscriptionItemsArgs = {
   where?: InputMaybe<Item_Filter>;
 };
 
-
 export type SubscriptionLevelChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionLevelChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8956,13 +8723,11 @@ export type SubscriptionLevelChangesArgs = {
   where?: InputMaybe<LevelChange_Filter>;
 };
 
-
 export type SubscriptionMakeNewCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMakeNewCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8974,13 +8739,11 @@ export type SubscriptionMakeNewCrewsArgs = {
   where?: InputMaybe<MakeNewCrew_Filter>;
 };
 
-
 export type SubscriptionMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -8992,13 +8755,11 @@ export type SubscriptionMatchesArgs = {
   where?: InputMaybe<Match_Filter>;
 };
 
-
 export type SubscriptionMatchmakingInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMatchmakingInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9010,13 +8771,11 @@ export type SubscriptionMatchmakingInitializedsArgs = {
   where?: InputMaybe<MatchmakingInitialized_Filter>;
 };
 
-
 export type SubscriptionMatchmakingRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMatchmakingRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9028,13 +8787,11 @@ export type SubscriptionMatchmakingRoleAdminChangedsArgs = {
   where?: InputMaybe<MatchmakingRoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionMatchmakingRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMatchmakingRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9046,13 +8803,11 @@ export type SubscriptionMatchmakingRoleGrantedsArgs = {
   where?: InputMaybe<MatchmakingRoleGranted_Filter>;
 };
 
-
 export type SubscriptionMatchmakingRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMatchmakingRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9064,13 +8819,11 @@ export type SubscriptionMatchmakingRoleRevokedsArgs = {
   where?: InputMaybe<MatchmakingRoleRevoked_Filter>;
 };
 
-
 export type SubscriptionMekawarsItemsApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMekawarsItemsApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9082,13 +8835,11 @@ export type SubscriptionMekawarsItemsApprovalForAllsArgs = {
   where?: InputMaybe<MekawarsItemsApprovalForAll_Filter>;
 };
 
-
 export type SubscriptionMekawarsItemsInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMekawarsItemsInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9100,13 +8851,11 @@ export type SubscriptionMekawarsItemsInitializedsArgs = {
   where?: InputMaybe<MekawarsItemsInitialized_Filter>;
 };
 
-
 export type SubscriptionMekawarsItemsRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMekawarsItemsRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9118,13 +8867,11 @@ export type SubscriptionMekawarsItemsRoleAdminChangedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionMekawarsItemsRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMekawarsItemsRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9136,13 +8883,11 @@ export type SubscriptionMekawarsItemsRoleGrantedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleGranted_Filter>;
 };
 
-
 export type SubscriptionMekawarsItemsRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMekawarsItemsRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9154,13 +8899,11 @@ export type SubscriptionMekawarsItemsRoleRevokedsArgs = {
   where?: InputMaybe<MekawarsItemsRoleRevoked_Filter>;
 };
 
-
 export type SubscriptionMysteryBoxOpenedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionMysteryBoxOpenedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9172,13 +8915,11 @@ export type SubscriptionMysteryBoxOpenedsArgs = {
   where?: InputMaybe<MysteryBoxOpened_Filter>;
 };
 
-
 export type SubscriptionNewBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNewBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9190,13 +8931,11 @@ export type SubscriptionNewBucketsArgs = {
   where?: InputMaybe<NewBucket_Filter>;
 };
 
-
 export type SubscriptionNewFirstTeamArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNewFirstTeamsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9208,13 +8947,11 @@ export type SubscriptionNewFirstTeamsArgs = {
   where?: InputMaybe<NewFirstTeam_Filter>;
 };
 
-
 export type SubscriptionNtchangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtchangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9226,20 +8963,17 @@ export type SubscriptionNtchangesArgs = {
   where?: InputMaybe<NtChange_Filter>;
 };
 
-
 export type SubscriptionNtpouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionNtpouchApprovalForAllArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchApprovalForAllsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9251,13 +8985,11 @@ export type SubscriptionNtpouchApprovalForAllsArgs = {
   where?: InputMaybe<NtPouchApprovalForAll_Filter>;
 };
 
-
 export type SubscriptionNtpouchInitializedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchInitializedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9269,13 +9001,11 @@ export type SubscriptionNtpouchInitializedsArgs = {
   where?: InputMaybe<NtPouchInitialized_Filter>;
 };
 
-
 export type SubscriptionNtpouchRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9287,13 +9017,11 @@ export type SubscriptionNtpouchRoleAdminChangedsArgs = {
   where?: InputMaybe<NtPouchRoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionNtpouchRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9305,13 +9033,11 @@ export type SubscriptionNtpouchRoleGrantedsArgs = {
   where?: InputMaybe<NtPouchRoleGranted_Filter>;
 };
 
-
 export type SubscriptionNtpouchRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9323,13 +9049,11 @@ export type SubscriptionNtpouchRoleRevokedsArgs = {
   where?: InputMaybe<NtPouchRoleRevoked_Filter>;
 };
 
-
 export type SubscriptionNtpouchTransferBatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchTransferBatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9341,13 +9065,11 @@ export type SubscriptionNtpouchTransferBatchesArgs = {
   where?: InputMaybe<NtPouchTransferBatch_Filter>;
 };
 
-
 export type SubscriptionNtpouchTransferSingleArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchTransferSinglesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9359,13 +9081,11 @@ export type SubscriptionNtpouchTransferSinglesArgs = {
   where?: InputMaybe<NtPouchTransferSingle_Filter>;
 };
 
-
 export type SubscriptionNtpouchUriArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionNtpouchUrIsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9377,7 +9097,6 @@ export type SubscriptionNtpouchUrIsArgs = {
   where?: InputMaybe<NtPouchUri_Filter>;
 };
 
-
 export type SubscriptionNtpouchesArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -9388,13 +9107,11 @@ export type SubscriptionNtpouchesArgs = {
   where?: InputMaybe<NtPouch_Filter>;
 };
 
-
 export type SubscriptionOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9406,13 +9123,11 @@ export type SubscriptionOogasArgs = {
   where?: InputMaybe<Ooga_Filter>;
 };
 
-
 export type SubscriptionOpenBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionOpenBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9424,13 +9139,11 @@ export type SubscriptionOpenBoxesArgs = {
   where?: InputMaybe<OpenBox_Filter>;
 };
 
-
 export type SubscriptionRatingChangeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRatingChangesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9442,20 +9155,17 @@ export type SubscriptionRatingChangesArgs = {
   where?: InputMaybe<RatingChange_Filter>;
 };
 
-
 export type SubscriptionRemoveCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionRemoveCrewFromBucketArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRemoveCrewFromBucketsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9467,7 +9177,6 @@ export type SubscriptionRemoveCrewFromBucketsArgs = {
   where?: InputMaybe<RemoveCrewFromBucket_Filter>;
 };
 
-
 export type SubscriptionRemoveCrewsArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -9478,13 +9187,11 @@ export type SubscriptionRemoveCrewsArgs = {
   where?: InputMaybe<RemoveCrew_Filter>;
 };
 
-
 export type SubscriptionRemoveRoboFromCrewArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRemoveRoboFromCrewsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9496,13 +9203,11 @@ export type SubscriptionRemoveRoboFromCrewsArgs = {
   where?: InputMaybe<RemoveRoboFromCrew_Filter>;
 };
 
-
 export type SubscriptionResolveMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionResolveMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9514,13 +9219,11 @@ export type SubscriptionResolveMatchesArgs = {
   where?: InputMaybe<ResolveMatch_Filter>;
 };
 
-
 export type SubscriptionRoleAdminChangedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRoleAdminChangedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9532,13 +9235,11 @@ export type SubscriptionRoleAdminChangedsArgs = {
   where?: InputMaybe<RoleAdminChanged_Filter>;
 };
 
-
 export type SubscriptionRoleGrantedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRoleGrantedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9550,13 +9251,11 @@ export type SubscriptionRoleGrantedsArgs = {
   where?: InputMaybe<RoleGranted_Filter>;
 };
 
-
 export type SubscriptionRoleRevokedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionRoleRevokedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9568,13 +9267,11 @@ export type SubscriptionRoleRevokedsArgs = {
   where?: InputMaybe<RoleRevoked_Filter>;
 };
 
-
 export type SubscriptionSetBucketRandomSeedArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionSetBucketRandomSeedsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9586,13 +9283,11 @@ export type SubscriptionSetBucketRandomSeedsArgs = {
   where?: InputMaybe<SetBucketRandomSeed_Filter>;
 };
 
-
 export type SubscriptionSetItemAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionSetItemAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9604,13 +9299,11 @@ export type SubscriptionSetItemAttributesArgs = {
   where?: InputMaybe<SetItemAttribute_Filter>;
 };
 
-
 export type SubscriptionSetOogaAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionSetOogaAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9622,13 +9315,11 @@ export type SubscriptionSetOogaAttributesArgs = {
   where?: InputMaybe<SetOogaAttribute_Filter>;
 };
 
-
 export type SubscriptionSetPouchAttributeArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionSetPouchAttributesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9640,13 +9331,11 @@ export type SubscriptionSetPouchAttributesArgs = {
   where?: InputMaybe<SetPouchAttribute_Filter>;
 };
 
-
 export type SubscriptionStakeBabyOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionStakeBabyOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9658,20 +9347,17 @@ export type SubscriptionStakeBabyOogasArgs = {
   where?: InputMaybe<StakeBabyOoga_Filter>;
 };
 
-
 export type SubscriptionTransferArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionTransferBatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionTransferBatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9683,13 +9369,11 @@ export type SubscriptionTransferBatchesArgs = {
   where?: InputMaybe<TransferBatch_Filter>;
 };
 
-
 export type SubscriptionTransferSingleArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionTransferSinglesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9701,7 +9385,6 @@ export type SubscriptionTransferSinglesArgs = {
   where?: InputMaybe<TransferSingle_Filter>;
 };
 
-
 export type SubscriptionTransfersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -9712,13 +9395,11 @@ export type SubscriptionTransfersArgs = {
   where?: InputMaybe<Transfer_Filter>;
 };
 
-
 export type SubscriptionUnstakeBabyOogaArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionUnstakeBabyOogasArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9730,13 +9411,11 @@ export type SubscriptionUnstakeBabyOogasArgs = {
   where?: InputMaybe<UnstakeBabyOoga_Filter>;
 };
 
-
 export type SubscriptionUpgradeBoxArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionUpgradeBoxesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9748,13 +9427,11 @@ export type SubscriptionUpgradeBoxesArgs = {
   where?: InputMaybe<UpgradeBox_Filter>;
 };
 
-
 export type SubscriptionUriArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionUrisArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9766,20 +9443,17 @@ export type SubscriptionUrisArgs = {
   where?: InputMaybe<Uri_Filter>;
 };
 
-
 export type SubscriptionUserArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
 
-
 export type SubscriptionUserItemAmountArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionUserItemAmountsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9791,13 +9465,11 @@ export type SubscriptionUserItemAmountsArgs = {
   where?: InputMaybe<UserItemAmount_Filter>;
 };
 
-
 export type SubscriptionUserNtPouchAmountArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionUserNtPouchAmountsArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9809,7 +9481,6 @@ export type SubscriptionUserNtPouchAmountsArgs = {
   where?: InputMaybe<UserNtPouchAmount_Filter>;
 };
 
-
 export type SubscriptionUsersArgs = {
   block?: InputMaybe<Block_Height>;
   first?: InputMaybe<Scalars['Int']>;
@@ -9820,13 +9491,11 @@ export type SubscriptionUsersArgs = {
   where?: InputMaybe<User_Filter>;
 };
 
-
 export type SubscriptionWithdrawPouchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionWithdrawPouchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9838,13 +9507,11 @@ export type SubscriptionWithdrawPouchesArgs = {
   where?: InputMaybe<WithdrawPouch_Filter>;
 };
 
-
 export type SubscriptionWonBoxFromMatchArgs = {
   block?: InputMaybe<Block_Height>;
   id: Scalars['ID'];
   subgraphError?: _SubgraphErrorPolicy_;
 };
-
 
 export type SubscriptionWonBoxFromMatchesArgs = {
   block?: InputMaybe<Block_Height>;
@@ -9974,7 +9641,7 @@ export enum TransferBatch_OrderBy {
   operator = 'operator',
   to = 'to',
   transactionHash = 'transactionHash',
-  values = 'values'
+  values = 'values',
 }
 
 export type TransferSingle = {
@@ -10088,7 +9755,7 @@ export enum TransferSingle_OrderBy {
   to = 'to',
   tokenId = 'tokenId',
   transactionHash = 'transactionHash',
-  value = 'value'
+  value = 'value',
 }
 
 export type Transfer_Filter = {
@@ -10169,7 +9836,7 @@ export enum Transfer_OrderBy {
   id = 'id',
   to = 'to',
   tokenId = 'tokenId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type Uri = {
@@ -10259,7 +9926,7 @@ export enum Uri_OrderBy {
   id = 'id',
   tokenId = 'tokenId',
   transactionHash = 'transactionHash',
-  value = 'value'
+  value = 'value',
 }
 
 export type UnstakeBabyOoga = {
@@ -10347,7 +10014,7 @@ export enum UnstakeBabyOoga_OrderBy {
   id = 'id',
   oogaId = 'oogaId',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type UpgradeBox = {
@@ -10445,7 +10112,7 @@ export enum UpgradeBox_OrderBy {
   newBabyOogaCharge = 'newBabyOogaCharge',
   newSlotState = 'newSlotState',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type User = {
@@ -10457,7 +10124,6 @@ export type User = {
   ntPouchAmounts: Array<UserNtPouchAmount>;
 };
 
-
 export type UserCrewsArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<Crew_OrderBy>;
@@ -10465,7 +10131,6 @@ export type UserCrewsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Crew_Filter>;
 };
-
 
 export type UserItemAmountsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -10475,7 +10140,6 @@ export type UserItemAmountsArgs = {
   where?: InputMaybe<UserItemAmount_Filter>;
 };
 
-
 export type UserNotStakedOogasArgs = {
   first?: InputMaybe<Scalars['Int']>;
   orderBy?: InputMaybe<Ooga_OrderBy>;
@@ -10483,7 +10147,6 @@ export type UserNotStakedOogasArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<Ooga_Filter>;
 };
-
 
 export type UserNtPouchAmountsArgs = {
   first?: InputMaybe<Scalars['Int']>;
@@ -10572,7 +10235,7 @@ export enum UserItemAmount_OrderBy {
   amount = 'amount',
   id = 'id',
   item = 'item',
-  user = 'user'
+  user = 'user',
 }
 
 export type UserNtPouchAmount = {
@@ -10654,7 +10317,7 @@ export enum UserNtPouchAmount_OrderBy {
   amount = 'amount',
   id = 'id',
   ntPouch = 'ntPouch',
-  user = 'user'
+  user = 'user',
 }
 
 export type User_Filter = {
@@ -10683,7 +10346,7 @@ export enum User_OrderBy {
   id = 'id',
   itemAmounts = 'itemAmounts',
   notStakedOogas = 'notStakedOogas',
-  ntPouchAmounts = 'ntPouchAmounts'
+  ntPouchAmounts = 'ntPouchAmounts',
 }
 
 export type WithdrawPouch = {
@@ -10771,7 +10434,7 @@ export enum WithdrawPouch_OrderBy {
   crewId = 'crewId',
   id = 'id',
   pouchId = 'pouchId',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type WonBoxFromMatch = {
@@ -10889,7 +10552,7 @@ export enum WonBoxFromMatch_OrderBy {
   id = 'id',
   newBabyOogaCharge = 'newBabyOogaCharge',
   slotIndex = 'slotIndex',
-  transactionHash = 'transactionHash'
+  transactionHash = 'transactionHash',
 }
 
 export type _Block_ = {
@@ -10923,5 +10586,5 @@ export enum _SubgraphErrorPolicy_ {
   /** Data will be returned even if the subgraph has indexing errors */
   allow = 'allow',
   /** If the subgraph has indexing errors, data will be omitted. The default. */
-  deny = 'deny'
+  deny = 'deny',
 }
