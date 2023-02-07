@@ -1,22 +1,33 @@
 import type { FC } from 'react';
 import { useState } from 'react';
+import { ApolloQueryResult } from '@apollo/client';
 import { GridItem, Flex, Text } from '@chakra-ui/react';
 import CustomButton from '../../components/CustomButton';
 import { useWeb3Context } from '../../context';
 import useCrewsContract from '../../lib/contracts/useCrewsContract';
-import { useGetMyOogasLazyQuery } from '../../lib/graphql/operations/GetMyOoga.generated';
+import { GetMyOogasQuery, useGetMyOogasLazyQuery } from '../../lib/graphql/operations/GetMyOoga.generated';
 import { useMyCrewsLazyQuery } from '../../lib/graphql/operations/MyCrews.generated';
-import type { Ooga } from '../../lib/graphql/types';
+import type { Exact, Ooga } from '../../lib/graphql/types';
+import { RefetchMyCrew } from '../index.page';
 
 interface MekaApeItemProps {
   ooga: Ooga | undefined;
+  refetchMyCrew: RefetchMyCrew;
+  refetchMyOogas: (
+    variables?:
+      | Partial<
+          Exact<{
+            address: string;
+          }>
+        >
+      | undefined,
+  ) => Promise<ApolloQueryResult<GetMyOogasQuery>>;
 }
 
-const MekaApeItem: FC<MekaApeItemProps> = ({ ooga }) => {
+const MekaApeItem: FC<MekaApeItemProps> = ({ ooga, refetchMyCrew, refetchMyOogas }) => {
   const { address } = useWeb3Context();
   const { contract } = useCrewsContract();
   const [loading, setLoading] = useState<boolean>(false);
-  const [getMyCrews] = useMyCrewsLazyQuery();
   const [getMyOogas] = useGetMyOogasLazyQuery();
 
   const handleCreateCrew = async () => {
@@ -31,17 +42,9 @@ const MekaApeItem: FC<MekaApeItemProps> = ({ ooga }) => {
             .then(async () => {
               setLoading(false);
 
-              await getMyCrews({
-                variables: {
-                  address,
-                },
-              });
+              await refetchMyCrew();
 
-              await getMyOogas({
-                variables: {
-                  address,
-                },
-              });
+              await refetchMyOogas();
             })
             .catch((error) => {
               console.error('handleCreateCrew error', error);

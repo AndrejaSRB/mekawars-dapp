@@ -1,34 +1,34 @@
 import type { FC } from 'react';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { Heading, Grid, Box } from '@chakra-ui/react';
 import { useWeb3Context } from '../../context';
-import { useGetMyOogasLazyQuery } from '../../lib/graphql/operations/GetMyOoga.generated';
+import { useGetMyOogasQuery } from '../../lib/graphql/operations/GetMyOoga.generated';
 import type { Ooga } from '../../lib/graphql/types';
+import { RefetchMyCrew } from '../index.page';
 import MekaApeItem from './MekaApeItem';
 
-const MyMekaApes: FC = () => {
+interface MyMekaApesProps {
+  refetchMyCrew: RefetchMyCrew;
+}
+
+const MyMekaApes: FC<MyMekaApesProps> = ({ refetchMyCrew }) => {
   const { address } = useWeb3Context();
-  const [getMyOogas, { data: myOogas }] = useGetMyOogasLazyQuery({
+
+  const { data: myOogas, refetch: refetchMyOogas } = useGetMyOogasQuery({
     fetchPolicy: 'no-cache',
+    skip: !address,
+    variables: {
+      address: address as string,
+    },
   });
 
   const renderMyOogas = useCallback((ooga: Ooga) => {
     if (ooga?.oogaType === 3 && !ooga?.inCrew) {
-      return <MekaApeItem ooga={ooga} key={ooga?.id} />;
+      return <MekaApeItem ooga={ooga} key={ooga?.id} refetchMyCrew={refetchMyCrew} refetchMyOogas={refetchMyOogas} />;
     } else {
       return null;
     }
   }, []);
-
-  useEffect(() => {
-    if (address) {
-      void getMyOogas({
-        variables: {
-          address,
-        },
-      });
-    }
-  }, [address, getMyOogas]);
 
   return (
     <Box mt={4}>

@@ -1,33 +1,20 @@
 import type { FC } from 'react';
-import { useCallback, useEffect } from 'react';
-import { Heading, Grid, Box, Text, GridItem, Flex } from '@chakra-ui/react';
-import { useWeb3Context } from '../../context';
-import { useMyCrewsLazyQuery } from '../../lib/graphql/operations/MyCrews.generated';
+import { useCallback } from 'react';
+import { Heading, Grid, Box, Text } from '@chakra-ui/react';
 import type { Crew } from '../../lib/graphql/types';
 import CrewItem from './CrewItem';
 
 export type SmallCrew = 'id' | 'mekaLeader' | 'durability' | 'active' | 'rating';
 
-const MyCrews: FC = () => {
-  const { address } = useWeb3Context();
-  const [getMyCrews, { data: myCrews }] = useMyCrewsLazyQuery({
-    fetchPolicy: 'no-cache',
-  });
+interface MyCrewsProps {
+  myCrews: Pick<Crew, SmallCrew>[] | undefined | null;
+}
 
+const MyCrews: FC<MyCrewsProps> = ({ myCrews }) => {
   const renderMyCrews = useCallback(
     (crew: Pick<Crew, SmallCrew> | undefined) => <CrewItem key={crew?.id} crew={crew} />,
     [],
   );
-
-  useEffect(() => {
-    if (address) {
-      getMyCrews({
-        variables: {
-          address,
-        },
-      });
-    }
-  }, [address, getMyCrews]);
 
   return (
     <Box mt={4}>
@@ -41,11 +28,7 @@ const MyCrews: FC = () => {
           lg: 'repeat(4, 1fr)',
         }}
       >
-        {myCrews?.crews && myCrews?.crews?.length > 0 ? (
-          myCrews?.crews?.map(renderMyCrews)
-        ) : (
-          <Text>There is no any crew.</Text>
-        )}
+        {myCrews && myCrews?.length > 0 ? myCrews?.map(renderMyCrews) : <Text>There is no any crew.</Text>}
       </Grid>
     </Box>
   );
