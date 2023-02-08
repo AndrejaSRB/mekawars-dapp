@@ -1,0 +1,14 @@
+query GetBoxSlots {
+  boxSlots {
+    id
+    index
+    state
+    crew {
+      id
+    }
+    box_rarity
+    box_level
+    box_createdAt
+    babyOogaCharge
+  }
+}

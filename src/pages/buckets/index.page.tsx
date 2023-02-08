@@ -4,12 +4,13 @@ import { Box, Grid, GridItem, Heading, Text } from '@chakra-ui/react';
 import Navigation from '../../components/Navigation';
 import { useGetBucketsQuery } from '../../lib/graphql/operations/GetBuckets.generated';
 import { Bucket } from '../../lib/graphql/types';
+import BucketItem from './components/BucketItem';
 
 const BucketsPage: NextPage = () => {
   const { data, loading } = useGetBucketsQuery();
 
   const renderBuckets = useCallback(
-    (bucket: Bucket | undefined) => <GridItem key={bucket?.id}>{bucket?.id}</GridItem>,
+    (bucket: Bucket | undefined) => <BucketItem key={bucket?.id} bucket={bucket} />,
     [],
   );
 

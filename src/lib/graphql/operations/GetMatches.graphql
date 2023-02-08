@@ -1,0 +1,32 @@
+query GetMatches {
+  matches {
+    id
+    wonCrewId
+    firstCrewWithBucket {
+      id
+      crew {
+        id
+        active
+        level
+        ntAmount
+        rating
+        firstTeam {
+          id
+        }
+      }
+    }
+    secondCrewWithBucket {
+      id
+      crew {
+        id
+        active
+        level
+        ntAmount
+        rating
+        firstTeam {
+          id
+        }
+      }
+    }
+  }
+}

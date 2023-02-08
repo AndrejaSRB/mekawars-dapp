@@ -23,7 +23,7 @@ const CrewInvetory: FC<CrewInvetoryProps> = ({ crew, isLoading, sortedCrewsIds, 
         refetch={refetch}
       />
     ),
-    [],
+    [isLoading],
   );
 
   return (

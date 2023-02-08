@@ -1,10 +1,22 @@
-import { FC, useCallback, useMemo } from 'react';
-import { Grid, Heading, Box, Text, GridItem } from '@chakra-ui/react';
-import { Crew, Ooga } from '../../../../../lib/graphql/types';
+import { FC, useCallback } from 'react';
+import { Grid, Heading, Box } from '@chakra-ui/react';
+import { BoxSlot, Crew } from '../../../../../lib/graphql/types';
 import { RefetchCrew } from '../../index.page';
-import BoxSlot from './BoxSlot';
+import BoxSlotItem from './BoxSlotItem';
 
-const BoxSlots: FC = () => {
+interface BoxSlotsProps {
+  refetch: RefetchCrew;
+  isLoading: boolean;
+  crewId: string | undefined;
+  crew: Pick<Crew, 'boxSlots'> | undefined | null;
+}
+
+const BoxSlots: FC<BoxSlotsProps> = ({ crew, crewId, refetch, isLoading }) => {
+  const renderBoxSlots = useCallback(
+    (boxSlot: BoxSlot) => <BoxSlotItem key={boxSlot?.id} boxSlot={boxSlot} crewId={crewId} refetch={refetch} />,
+    [isLoading],
+  );
+
   return (
     <Box mt={4}>
       <Heading>Box Slots</Heading>
@@ -14,16 +26,14 @@ const BoxSlots: FC = () => {
         gap={3}
         templateColumns={{
           base: 'repeat(2, 1fr)',
-          md: 'repeat(5, 1fr)',
+          md: 'repeat(3, 1fr)',
         }}
         borderColor="gray.500"
         borderWidth="1px"
         borderRadius={8}
         p={3}
       >
-        <BoxSlot />
-        <BoxSlot />
-        <BoxSlot />
+        {crew && crew?.boxSlots && crew?.boxSlots?.map(renderBoxSlots)}
       </Grid>
     </Box>
   );

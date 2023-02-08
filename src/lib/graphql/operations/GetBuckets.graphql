@@ -3,5 +3,17 @@ query GetBuckets {
     id
     state
     createdAt
+    resolvedMatches {
+      id
+    }
+    crewInBuckets {
+      id
+      firstTeam {
+        id
+      }
+      crew {
+        id
+      }
+    }
   }
 }

@@ -11,7 +11,7 @@ interface StakedRobosProps {
 const StakedRobos: FC<StakedRobosProps> = ({ oogasList, isLoading }) => {
   const renderOogas = useCallback(
     (ooga: Ooga) => <StakedRobo key={ooga.id} id={ooga?.id} oogaType={ooga?.oogaType} oogaLevel={ooga?.level} />,
-    [],
+    [isLoading],
   );
 
   return (

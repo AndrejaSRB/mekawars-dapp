@@ -6,6 +6,12 @@ import { InventoryItem } from '../../../../../lib/graphql/types';
 import GetItemAbility from '../../../../../types/GetItemAbility';
 import { RefetchCrew } from '../../index.page';
 
+const getItemType: Record<string, string> = {
+  0: 'Basic RoboOoga',
+  1: 'Basic MekaApe',
+  2: 'Special MekaApe',
+};
+
 interface SingleInvetoryItemProps {
   item: Pick<InventoryItem, 'id' | 'attributes' | 'index'> | undefined | null;
   sortedCrewsIds: string[] | undefined;
@@ -97,6 +103,16 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item, crewId, sorted
         <Text fontSize="sm">Level:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
           {item?.attributes?.level}
+        </Text>
+      </Flex>
+
+      <Flex align="center">
+        <Text fontSize="sm">Item Type:</Text>
+        <Text ml={1} fontSize="sm" fontWeight={800}>
+          {item?.attributes &&
+            item?.attributes?.itemType !== undefined &&
+            item?.attributes?.itemType !== null &&
+            getItemType[item?.attributes?.itemType]}
         </Text>
       </Flex>
 

@@ -42,11 +42,23 @@ query GetMyCrew($crewId: String!) {
         id
         wonCrewId
       }
-      crewIds {
+      crewInBuckets {
         id
         firstTeam {
           id
         }
+      }
+    }
+    boxSlots {
+      babyOogaCharge
+      box_createdAt
+      box_level
+      box_rarity
+      id
+      index
+      state
+      stakedBabyOoga {
+        id
       }
     }
   }

@@ -1,36 +1,29 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
 import * as Types from '../types';
 
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type GetOogaInventoryQueryVariables = Types.Exact<{
   oogaId: Types.Scalars['String'];
 }>;
 
-export type GetOogaInventoryQuery = {
-  __typename?: 'Query';
-  inventoryItems: Array<{
-    __typename?: 'InventoryItem';
-    index: number;
-    active: boolean;
-    id: string;
-    equipedToOoga?: { __typename?: 'Ooga'; id: string; oogaType?: number | null } | null;
-  }>;
-};
+
+export type GetOogaInventoryQuery = { __typename?: 'Query', inventoryItems: Array<{ __typename?: 'InventoryItem', index: number, active: boolean, id: string, equipedToOoga?: { __typename?: 'Ooga', id: string, oogaType?: number | null } | null }> };
+
 
 export const GetOogaInventoryDocument = gql`
-  query GetOogaInventory($oogaId: String!) {
-    inventoryItems(where: { equipedToOoga_: { id: $oogaId } }) {
-      index
-      active
+    query GetOogaInventory($oogaId: String!) {
+  inventoryItems(where: {equipedToOoga_: {id: $oogaId}}) {
+    index
+    active
+    id
+    equipedToOoga {
       id
-      equipedToOoga {
-        id
-        oogaType
-      }
+      oogaType
     }
   }
-`;
+}
+    `;
 
 /**
  * __useGetOogaInventoryQuery__
@@ -48,18 +41,14 @@ export const GetOogaInventoryDocument = gql`
  *   },
  * });
  */
-export function useGetOogaInventoryQuery(
-  baseOptions: Apollo.QueryHookOptions<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>(GetOogaInventoryDocument, options);
-}
-export function useGetOogaInventoryLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>(GetOogaInventoryDocument, options);
-}
+export function useGetOogaInventoryQuery(baseOptions: Apollo.QueryHookOptions<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>(GetOogaInventoryDocument, options);
+      }
+export function useGetOogaInventoryLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>(GetOogaInventoryDocument, options);
+        }
 export type GetOogaInventoryQueryHookResult = ReturnType<typeof useGetOogaInventoryQuery>;
 export type GetOogaInventoryLazyQueryHookResult = ReturnType<typeof useGetOogaInventoryLazyQuery>;
 export type GetOogaInventoryQueryResult = Apollo.QueryResult<GetOogaInventoryQuery, GetOogaInventoryQueryVariables>;

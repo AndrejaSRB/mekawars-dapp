@@ -8,9 +8,7 @@ Marks the GraphQL type as indexable entity.  Each type that should be an entity 
 """
 directive @entity on OBJECT
 
-"""
-Defined a Subgraph ID for an object type
-"""
+"""Defined a Subgraph ID for an object type"""
 directive @subgraphId(id: String!) on OBJECT
 
 type AddCrewToBucket {
@@ -23,9 +21,7 @@ type AddCrewToBucket {
 }
 
 input AddCrewToBucket_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [AddCrewToBucket_filter]
   blockNumber: BigInt
@@ -103,9 +99,7 @@ type AddItemToInventory {
 }
 
 input AddItemToInventory_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [AddItemToInventory_filter]
   blockNumber: BigInt
@@ -191,9 +185,7 @@ type AddRoboToCrew {
 }
 
 input AddRoboToCrew_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [AddRoboToCrew_filter]
   blockNumber: BigInt
@@ -281,9 +273,7 @@ type ApprovalForAll {
 }
 
 input ApprovalForAll_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [ApprovalForAll_filter]
   approved: Boolean
@@ -360,9 +350,7 @@ enum ApprovalForAll_orderBy {
 }
 
 input Approval_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Approval_filter]
   approved: Bytes
@@ -465,9 +453,7 @@ type BoxInitialized {
 }
 
 input BoxInitialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BoxInitialized_filter]
   blockNumber: BigInt
@@ -547,9 +533,7 @@ input BoxOpened_filter {
   NTWon_not: BigInt
   NTWon_not_in: [BigInt!]
 
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BoxOpened_filter]
   blockNumber: BigInt
@@ -644,9 +628,7 @@ type BoxRoleAdminChanged {
 }
 
 input BoxRoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BoxRoleAdminChanged_filter]
   blockNumber: BigInt
@@ -739,9 +721,7 @@ type BoxRoleGranted {
 }
 
 input BoxRoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -834,9 +814,7 @@ type BoxRoleRevoked {
 }
 
 input BoxRoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -931,9 +909,7 @@ type BoxSlot {
 }
 
 input BoxSlot_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BoxSlot_filter]
   babyOogaCharge: BigInt
@@ -1073,9 +1049,7 @@ type BoxUpgraded {
 }
 
 input BoxUpgraded_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BoxUpgraded_filter]
   blockNumber: BigInt
@@ -1162,29 +1136,15 @@ enum BoxUpgraded_orderBy {
 
 type Bucket {
   createdAt: BigInt
-  crewIds(
-    first: Int = 100
-    orderBy: CrewInBucket_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: CrewInBucket_filter
-  ): [CrewInBucket!]
+  crewInBuckets(first: Int = 100, orderBy: CrewInBucket_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: CrewInBucket_filter): [CrewInBucket!]
   id: String!
   randomSeed: BigInt
-  resolvedMatches(
-    first: Int = 100
-    orderBy: Match_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Match_filter
-  ): [Match!]!
+  resolvedMatches(first: Int = 100, orderBy: Match_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Match_filter): [Match!]!
   state: Int
 }
 
 input Bucket_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Bucket_filter]
   createdAt: BigInt
@@ -1195,13 +1155,7 @@ input Bucket_filter {
   createdAt_lte: BigInt
   createdAt_not: BigInt
   createdAt_not_in: [BigInt!]
-  crewIds: [String!]
-  crewIds_: CrewInBucket_filter
-  crewIds_contains: [String!]
-  crewIds_contains_nocase: [String!]
-  crewIds_not: [String!]
-  crewIds_not_contains: [String!]
-  crewIds_not_contains_nocase: [String!]
+  crewInBuckets_: CrewInBucket_filter
   id: String
   id_contains: String
   id_contains_nocase: String
@@ -1244,7 +1198,7 @@ input Bucket_filter {
 
 enum Bucket_orderBy {
   createdAt
-  crewIds
+  crewInBuckets
   id
   randomSeed
   resolvedMatches
@@ -1261,9 +1215,7 @@ type BuyMysteryBox {
 }
 
 input BuyMysteryBox_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [BuyMysteryBox_filter]
   blockNumber: BigInt
@@ -1342,9 +1294,7 @@ type ChangeBucketState {
 }
 
 input ChangeBucketState_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [ChangeBucketState_filter]
   blockNumber: BigInt
@@ -1426,9 +1376,7 @@ type ContractParameter {
 }
 
 input ContractParameter_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [ContractParameter_filter]
   box_babyOogaChargeNeededForUpgrade: BigInt
@@ -1550,40 +1498,16 @@ enum ContractParameter_orderBy {
 
 type Crew {
   active: Boolean!
-  boxSlots(
-    first: Int = 100
-    orderBy: BoxSlot_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: BoxSlot_filter
-  ): [BoxSlot!]!
+  boxSlots(first: Int = 100, orderBy: BoxSlot_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: BoxSlot_filter): [BoxSlot!]!
   currentlyInBucket: Bucket
   durability: BigInt!
-  firstTeam(
-    first: Int = 100
-    orderBy: Ooga_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Ooga_filter
-  ): [Ooga!]!
+  firstTeam(first: Int = 100, orderBy: Ooga_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Ooga_filter): [Ooga!]!
   id: String!
-  inventory(
-    first: Int = 100
-    orderBy: InventoryItem_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: InventoryItem_filter
-  ): [InventoryItem!]
+  inventory(first: Int = 100, orderBy: InventoryItem_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: InventoryItem_filter): [InventoryItem!]
   level: BigInt
   mekaLeader: Ooga!
   ntAmount: BigInt
-  oogasInCrew(
-    first: Int = 100
-    orderBy: Ooga_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Ooga_filter
-  ): [Ooga!]
+  oogasInCrew(first: Int = 100, orderBy: Ooga_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Ooga_filter): [Ooga!]
   owner: User!
   rating: BigInt!
 }
@@ -1591,20 +1515,12 @@ type Crew {
 type CrewInBucket {
   bucket: Bucket
   crew: Crew
-  firstTeam(
-    first: Int = 100
-    orderBy: Ooga_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Ooga_filter
-  ): [Ooga!]!
+  firstTeam(first: Int = 100, orderBy: Ooga_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Ooga_filter): [Ooga!]!
   id: String!
 }
 
 input CrewInBucket_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [CrewInBucket_filter]
   bucket: String
@@ -1687,9 +1603,7 @@ enum CrewInBucket_orderBy {
 }
 
 input Crew_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   active: Boolean
   active_in: [Boolean!]
@@ -1849,9 +1763,7 @@ type CrewsInitialized {
 }
 
 input CrewsInitialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [CrewsInitialized_filter]
   blockNumber: BigInt
@@ -1920,9 +1832,7 @@ type CrewsRoleAdminChanged {
 }
 
 input CrewsRoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [CrewsRoleAdminChanged_filter]
   blockNumber: BigInt
@@ -2015,9 +1925,7 @@ type CrewsRoleGranted {
 }
 
 input CrewsRoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -2110,9 +2018,7 @@ type CrewsRoleRevoked {
 }
 
 input CrewsRoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -2204,9 +2110,7 @@ type DeleteItemToInventory {
 }
 
 input DeleteItemToInventory_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [DeleteItemToInventory_filter]
   blockNumber: BigInt
@@ -2284,9 +2188,7 @@ type DepositPouch {
 }
 
 input DepositPouch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   amount: BigInt
   amount_gt: BigInt
@@ -2372,9 +2274,7 @@ type DurabilityChange {
 }
 
 input DurabilityChange_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [DurabilityChange_filter]
   blockNumber: BigInt
@@ -2452,9 +2352,7 @@ type EquipItemToOoga {
 }
 
 input EquipItemToOoga_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [EquipItemToOoga_filter]
   blockNumber: BigInt
@@ -2541,9 +2439,7 @@ type EquipSpecialItem {
 }
 
 input EquipSpecialItem_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [EquipSpecialItem_filter]
   blockNumber: BigInt
@@ -2628,9 +2524,7 @@ type Initialized {
 }
 
 input Initialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Initialized_filter]
   blockNumber: BigInt
@@ -2699,9 +2593,7 @@ type InventoryItem {
 }
 
 input InventoryItem_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   active: Boolean
   active_in: [Boolean!]
@@ -2832,9 +2724,7 @@ type Item {
 }
 
 input Item_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   abilities: [Int!]
   abilities_contains: [Int!]
@@ -2947,9 +2837,7 @@ type LevelChange {
 }
 
 input LevelChange_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [LevelChange_filter]
   blockNumber: BigInt
@@ -3029,9 +2917,7 @@ type MakeNewCrew {
 }
 
 input MakeNewCrew_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MakeNewCrew_filter]
   blockNumber: BigInt
@@ -3129,16 +3015,14 @@ enum MakeNewCrew_orderBy {
 
 type Match {
   bucket: Bucket
-  firstCrew: CrewInBucket
+  firstCrewWithBucket: CrewInBucket
   id: String!
-  secondCrew: CrewInBucket
+  secondCrewWithBucket: CrewInBucket
   wonCrewId: String
 }
 
 input Match_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Match_filter]
   bucket: String
@@ -3162,27 +3046,27 @@ input Match_filter {
   bucket_not_starts_with_nocase: String
   bucket_starts_with: String
   bucket_starts_with_nocase: String
-  firstCrew: String
-  firstCrew_: CrewInBucket_filter
-  firstCrew_contains: String
-  firstCrew_contains_nocase: String
-  firstCrew_ends_with: String
-  firstCrew_ends_with_nocase: String
-  firstCrew_gt: String
-  firstCrew_gte: String
-  firstCrew_in: [String!]
-  firstCrew_lt: String
-  firstCrew_lte: String
-  firstCrew_not: String
-  firstCrew_not_contains: String
-  firstCrew_not_contains_nocase: String
-  firstCrew_not_ends_with: String
-  firstCrew_not_ends_with_nocase: String
-  firstCrew_not_in: [String!]
-  firstCrew_not_starts_with: String
-  firstCrew_not_starts_with_nocase: String
-  firstCrew_starts_with: String
-  firstCrew_starts_with_nocase: String
+  firstCrewWithBucket: String
+  firstCrewWithBucket_: CrewInBucket_filter
+  firstCrewWithBucket_contains: String
+  firstCrewWithBucket_contains_nocase: String
+  firstCrewWithBucket_ends_with: String
+  firstCrewWithBucket_ends_with_nocase: String
+  firstCrewWithBucket_gt: String
+  firstCrewWithBucket_gte: String
+  firstCrewWithBucket_in: [String!]
+  firstCrewWithBucket_lt: String
+  firstCrewWithBucket_lte: String
+  firstCrewWithBucket_not: String
+  firstCrewWithBucket_not_contains: String
+  firstCrewWithBucket_not_contains_nocase: String
+  firstCrewWithBucket_not_ends_with: String
+  firstCrewWithBucket_not_ends_with_nocase: String
+  firstCrewWithBucket_not_in: [String!]
+  firstCrewWithBucket_not_starts_with: String
+  firstCrewWithBucket_not_starts_with_nocase: String
+  firstCrewWithBucket_starts_with: String
+  firstCrewWithBucket_starts_with_nocase: String
   id: String
   id_contains: String
   id_contains_nocase: String
@@ -3204,27 +3088,27 @@ input Match_filter {
   id_starts_with: String
   id_starts_with_nocase: String
   or: [Match_filter]
-  secondCrew: String
-  secondCrew_: CrewInBucket_filter
-  secondCrew_contains: String
-  secondCrew_contains_nocase: String
-  secondCrew_ends_with: String
-  secondCrew_ends_with_nocase: String
-  secondCrew_gt: String
-  secondCrew_gte: String
-  secondCrew_in: [String!]
-  secondCrew_lt: String
-  secondCrew_lte: String
-  secondCrew_not: String
-  secondCrew_not_contains: String
-  secondCrew_not_contains_nocase: String
-  secondCrew_not_ends_with: String
-  secondCrew_not_ends_with_nocase: String
-  secondCrew_not_in: [String!]
-  secondCrew_not_starts_with: String
-  secondCrew_not_starts_with_nocase: String
-  secondCrew_starts_with: String
-  secondCrew_starts_with_nocase: String
+  secondCrewWithBucket: String
+  secondCrewWithBucket_: CrewInBucket_filter
+  secondCrewWithBucket_contains: String
+  secondCrewWithBucket_contains_nocase: String
+  secondCrewWithBucket_ends_with: String
+  secondCrewWithBucket_ends_with_nocase: String
+  secondCrewWithBucket_gt: String
+  secondCrewWithBucket_gte: String
+  secondCrewWithBucket_in: [String!]
+  secondCrewWithBucket_lt: String
+  secondCrewWithBucket_lte: String
+  secondCrewWithBucket_not: String
+  secondCrewWithBucket_not_contains: String
+  secondCrewWithBucket_not_contains_nocase: String
+  secondCrewWithBucket_not_ends_with: String
+  secondCrewWithBucket_not_ends_with_nocase: String
+  secondCrewWithBucket_not_in: [String!]
+  secondCrewWithBucket_not_starts_with: String
+  secondCrewWithBucket_not_starts_with_nocase: String
+  secondCrewWithBucket_starts_with: String
+  secondCrewWithBucket_starts_with_nocase: String
   wonCrewId: String
   wonCrewId_contains: String
   wonCrewId_contains_nocase: String
@@ -3249,9 +3133,9 @@ input Match_filter {
 
 enum Match_orderBy {
   bucket
-  firstCrew
+  firstCrewWithBucket
   id
-  secondCrew
+  secondCrewWithBucket
   wonCrewId
 }
 
@@ -3264,9 +3148,7 @@ type MatchmakingInitialized {
 }
 
 input MatchmakingInitialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MatchmakingInitialized_filter]
   blockNumber: BigInt
@@ -3335,9 +3217,7 @@ type MatchmakingRoleAdminChanged {
 }
 
 input MatchmakingRoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MatchmakingRoleAdminChanged_filter]
   blockNumber: BigInt
@@ -3430,9 +3310,7 @@ type MatchmakingRoleGranted {
 }
 
 input MatchmakingRoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -3525,9 +3403,7 @@ type MatchmakingRoleRevoked {
 }
 
 input MatchmakingRoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -3620,9 +3496,7 @@ type MekawarsItemsApprovalForAll {
 }
 
 input MekawarsItemsApprovalForAll_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -3707,9 +3581,7 @@ type MekawarsItemsInitialized {
 }
 
 input MekawarsItemsInitialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MekawarsItemsInitialized_filter]
   blockNumber: BigInt
@@ -3778,9 +3650,7 @@ type MekawarsItemsRoleAdminChanged {
 }
 
 input MekawarsItemsRoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MekawarsItemsRoleAdminChanged_filter]
   blockNumber: BigInt
@@ -3873,9 +3743,7 @@ type MekawarsItemsRoleGranted {
 }
 
 input MekawarsItemsRoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -3968,9 +3836,7 @@ type MekawarsItemsRoleRevoked {
 }
 
 input MekawarsItemsRoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -4073,9 +3939,7 @@ input MysteryBoxOpened_filter {
   NTWon_not: BigInt
   NTWon_not_in: [BigInt!]
 
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [MysteryBoxOpened_filter]
   blockNumber: BigInt
@@ -4161,9 +4025,7 @@ type NTChange {
 }
 
 input NTChange_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTChange_filter]
   blockNumber: BigInt
@@ -4257,9 +4119,7 @@ type NTPouchApprovalForAll {
 }
 
 input NTPouchApprovalForAll_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -4344,9 +4204,7 @@ type NTPouchInitialized {
 }
 
 input NTPouchInitialized_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTPouchInitialized_filter]
   blockNumber: BigInt
@@ -4415,9 +4273,7 @@ type NTPouchRoleAdminChanged {
 }
 
 input NTPouchRoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTPouchRoleAdminChanged_filter]
   blockNumber: BigInt
@@ -4510,9 +4366,7 @@ type NTPouchRoleGranted {
 }
 
 input NTPouchRoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -4605,9 +4459,7 @@ type NTPouchRoleRevoked {
 }
 
 input NTPouchRoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -4702,9 +4554,7 @@ type NTPouchTransferBatch {
 }
 
 input NTPouchTransferBatch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTPouchTransferBatch_filter]
   blockNumber: BigInt
@@ -4813,9 +4663,7 @@ type NTPouchTransferSingle {
 }
 
 input NTPouchTransferSingle_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTPouchTransferSingle_filter]
   blockNumber: BigInt
@@ -4925,9 +4773,7 @@ type NTPouchURI {
 }
 
 input NTPouchURI_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NTPouchURI_filter]
   blockNumber: BigInt
@@ -5007,9 +4853,7 @@ enum NTPouchURI_orderBy {
 }
 
 input NTPouch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   active: Boolean
   active_in: [Boolean!]
@@ -5084,9 +4928,7 @@ type NewBucket {
 }
 
 input NewBucket_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NewBucket_filter]
   blockNumber: BigInt
@@ -5163,9 +5005,7 @@ type NewFirstTeam {
 }
 
 input NewFirstTeam_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [NewFirstTeam_filter]
   blockNumber: BigInt
@@ -5242,9 +5082,7 @@ type Ooga {
 }
 
 input Ooga_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Ooga_filter]
   attack: BigInt
@@ -5374,9 +5212,7 @@ type OpenBox {
 }
 
 input OpenBox_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [OpenBox_filter]
   blockNumber: BigInt
@@ -5452,18 +5288,14 @@ enum OpenBox_orderBy {
   transactionHash
 }
 
-"""
-Defines the order direction, either ascending or descending
-"""
+"""Defines the order direction, either ascending or descending"""
 enum OrderDirection {
   asc
   desc
 }
 
 type Query {
-  """
-  Access to subgraph metadata
-  """
+  """Access to subgraph metadata"""
   _meta(block: Block_height): _Meta_
   addCrewToBucket(
     """
@@ -7745,9 +7577,7 @@ type RatingChange {
 }
 
 input RatingChange_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [RatingChange_filter]
   blockNumber: BigInt
@@ -7833,9 +7663,7 @@ type RemoveCrewFromBucket {
 }
 
 input RemoveCrewFromBucket_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [RemoveCrewFromBucket_filter]
   blockNumber: BigInt
@@ -7903,9 +7731,7 @@ enum RemoveCrewFromBucket_orderBy {
 }
 
 input RemoveCrew_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [RemoveCrew_filter]
   blockNumber: BigInt
@@ -7984,9 +7810,7 @@ type RemoveRoboFromCrew {
 }
 
 input RemoveRoboFromCrew_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [RemoveRoboFromCrew_filter]
   blockNumber: BigInt
@@ -8065,9 +7889,7 @@ type ResolveMatch {
 }
 
 input ResolveMatch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [ResolveMatch_filter]
   blockNumber: BigInt
@@ -8163,9 +7985,7 @@ type RoleAdminChanged {
 }
 
 input RoleAdminChanged_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [RoleAdminChanged_filter]
   blockNumber: BigInt
@@ -8258,9 +8078,7 @@ type RoleGranted {
 }
 
 input RoleGranted_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -8353,9 +8171,7 @@ type RoleRevoked {
 }
 
 input RoleRevoked_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   account: Bytes
   account_contains: Bytes
@@ -8447,9 +8263,7 @@ type SetBucketRandomSeed {
 }
 
 input SetBucketRandomSeed_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [SetBucketRandomSeed_filter]
   blockNumber: BigInt
@@ -8531,9 +8345,7 @@ type SetItemAttribute {
 }
 
 input SetItemAttribute_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [SetItemAttribute_filter]
   blockNumber: BigInt
@@ -8656,9 +8468,7 @@ type SetOogaAttribute {
 }
 
 input SetOogaAttribute_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [SetOogaAttribute_filter]
   blockNumber: BigInt
@@ -8763,9 +8573,7 @@ type SetPouchAttribute {
 }
 
 input SetPouchAttribute_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [SetPouchAttribute_filter]
   blockNumber: BigInt
@@ -8848,9 +8656,7 @@ type StakeBabyOoga {
 }
 
 input StakeBabyOoga_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [StakeBabyOoga_filter]
   blockNumber: BigInt
@@ -8927,9 +8733,7 @@ enum StakeBabyOoga_orderBy {
 }
 
 type Subscription {
-  """
-  Access to subgraph metadata
-  """
+  """Access to subgraph metadata"""
   _meta(block: Block_height): _Meta_
   addCrewToBucket(
     """
@@ -11224,9 +11028,7 @@ type TransferBatch {
 }
 
 input TransferBatch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [TransferBatch_filter]
   blockNumber: BigInt
@@ -11335,9 +11137,7 @@ type TransferSingle {
 }
 
 input TransferSingle_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [TransferSingle_filter]
   blockNumber: BigInt
@@ -11438,9 +11238,7 @@ enum TransferSingle_orderBy {
 }
 
 input Transfer_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [Transfer_filter]
   blockNumber: BigInt
@@ -11530,9 +11328,7 @@ type URI {
 }
 
 input URI_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [URI_filter]
   blockNumber: BigInt
@@ -11622,9 +11418,7 @@ type UnstakeBabyOoga {
 }
 
 input UnstakeBabyOoga_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [UnstakeBabyOoga_filter]
   blockNumber: BigInt
@@ -11712,9 +11506,7 @@ type UpgradeBox {
 }
 
 input UpgradeBox_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [UpgradeBox_filter]
   blockNumber: BigInt
@@ -11800,35 +11592,11 @@ enum UpgradeBox_orderBy {
 }
 
 type User {
-  crews(
-    first: Int = 100
-    orderBy: Crew_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Crew_filter
-  ): [Crew!]!
+  crews(first: Int = 100, orderBy: Crew_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Crew_filter): [Crew!]!
   id: Bytes!
-  itemAmounts(
-    first: Int = 100
-    orderBy: UserItemAmount_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: UserItemAmount_filter
-  ): [UserItemAmount!]!
-  notStakedOogas(
-    first: Int = 100
-    orderBy: Ooga_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: Ooga_filter
-  ): [Ooga!]!
-  ntPouchAmounts(
-    first: Int = 100
-    orderBy: UserNTPouchAmount_orderBy
-    orderDirection: OrderDirection
-    skip: Int = 0
-    where: UserNTPouchAmount_filter
-  ): [UserNTPouchAmount!]!
+  itemAmounts(first: Int = 100, orderBy: UserItemAmount_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: UserItemAmount_filter): [UserItemAmount!]!
+  notStakedOogas(first: Int = 100, orderBy: Ooga_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: Ooga_filter): [Ooga!]!
+  ntPouchAmounts(first: Int = 100, orderBy: UserNTPouchAmount_orderBy, orderDirection: OrderDirection, skip: Int = 0, where: UserNTPouchAmount_filter): [UserNTPouchAmount!]!
 }
 
 type UserItemAmount {
@@ -11839,9 +11607,7 @@ type UserItemAmount {
 }
 
 input UserItemAmount_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   amount: BigInt
   amount_gt: BigInt
@@ -11922,9 +11688,7 @@ type UserNTPouchAmount {
 }
 
 input UserNTPouchAmount_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   amount: BigInt
   amount_gt: BigInt
@@ -11998,9 +11762,7 @@ enum UserNTPouchAmount_orderBy {
 }
 
 input User_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [User_filter]
   crews_: Crew_filter
@@ -12039,9 +11801,7 @@ type WithdrawPouch {
 }
 
 input WithdrawPouch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   amount: BigInt
   amount_gt: BigInt
@@ -12131,9 +11891,7 @@ type WonBoxFromMatch {
 }
 
 input WonBoxFromMatch_filter {
-  """
-  Filter for the block changed event.
-  """
+  """Filter for the block changed event."""
   _change_block: BlockChangedFilter
   and: [WonBoxFromMatch_filter]
   blockNumber: BigInt
@@ -12237,44 +11995,30 @@ enum WonBoxFromMatch_orderBy {
 }
 
 type _Block_ {
-  """
-  The hash of the block
-  """
+  """The hash of the block"""
   hash: Bytes
 
-  """
-  The block number
-  """
+  """The block number"""
   number: Int!
 
-  """
-  Integer representation of the timestamp stored in blocks for the chain
-  """
+  """Integer representation of the timestamp stored in blocks for the chain"""
   timestamp: Int
 }
 
-"""
-The type for the top-level _meta field
-"""
+"""The type for the top-level _meta field"""
 type _Meta_ {
   "Information about a specific subgraph block. The hash of the block\nwill be null if the _meta field has a block constraint that asks for\na block number. It will be filled if the _meta field has no block constraint\nand therefore asks for the latest  block\n"
   block: _Block_!
 
-  """
-  The deployment ID
-  """
+  """The deployment ID"""
   deployment: String!
 
-  """
-  If `true`, the subgraph encountered indexing errors at some past block
-  """
+  """If `true`, the subgraph encountered indexing errors at some past block"""
   hasIndexingErrors: Boolean!
 }
 
 enum _SubgraphErrorPolicy_ {
-  """
-  Data will be returned even if the subgraph has indexing errors
-  """
+  """Data will be returned even if the subgraph has indexing errors"""
   allow
 
   """

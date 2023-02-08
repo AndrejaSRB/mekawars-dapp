@@ -1,37 +1,27 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
 import * as Types from '../types';
 
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
-export type GetItemListQueryVariables = Types.Exact<{ [key: string]: never }>;
+export type GetItemListQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
-export type GetItemListQuery = {
-  __typename?: 'Query';
-  items: Array<{
-    __typename?: 'Item';
-    id: string;
-    itemType: number;
-    attack: string;
-    health: string;
-    season: string;
-    level: string;
-    abilities: Array<number | null>;
-  }>;
-};
+
+export type GetItemListQuery = { __typename?: 'Query', items: Array<{ __typename?: 'Item', id: string, itemType: number, attack: string, health: string, season: string, level: string, abilities: Array<number | null> }> };
+
 
 export const GetItemListDocument = gql`
-  query GetItemList {
-    items {
-      id
-      itemType
-      attack
-      health
-      season
-      level
-      abilities
-    }
+    query GetItemList {
+  items {
+    id
+    itemType
+    attack
+    health
+    season
+    level
+    abilities
   }
-`;
+}
+    `;
 
 /**
  * __useGetItemListQuery__
@@ -48,18 +38,14 @@ export const GetItemListDocument = gql`
  *   },
  * });
  */
-export function useGetItemListQuery(
-  baseOptions?: Apollo.QueryHookOptions<GetItemListQuery, GetItemListQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetItemListQuery, GetItemListQueryVariables>(GetItemListDocument, options);
-}
-export function useGetItemListLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<GetItemListQuery, GetItemListQueryVariables>,
-) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetItemListQuery, GetItemListQueryVariables>(GetItemListDocument, options);
-}
+export function useGetItemListQuery(baseOptions?: Apollo.QueryHookOptions<GetItemListQuery, GetItemListQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetItemListQuery, GetItemListQueryVariables>(GetItemListDocument, options);
+      }
+export function useGetItemListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetItemListQuery, GetItemListQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetItemListQuery, GetItemListQueryVariables>(GetItemListDocument, options);
+        }
 export type GetItemListQueryHookResult = ReturnType<typeof useGetItemListQuery>;
 export type GetItemListLazyQueryHookResult = ReturnType<typeof useGetItemListLazyQuery>;
 export type GetItemListQueryResult = Apollo.QueryResult<GetItemListQuery, GetItemListQueryVariables>;

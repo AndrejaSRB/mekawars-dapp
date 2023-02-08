@@ -1,83 +1,51 @@
-import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
 import * as Types from '../types';
 
+import { gql } from '@apollo/client';
+import * as Apollo from '@apollo/client';
 const defaultOptions = {} as const;
 export type GetUserQueryVariables = Types.Exact<{
   address: Types.Scalars['String'];
 }>;
 
-export type GetUserQuery = {
-  __typename?: 'Query';
-  user?: {
-    __typename?: 'User';
-    id: string;
-    itemAmounts: Array<{
-      __typename?: 'UserItemAmount';
-      id: string;
-      amount?: string | null;
-      item?: {
-        __typename?: 'Item';
-        id: string;
-        abilities: Array<number | null>;
-        attack: string;
-        health: string;
-        itemType: number;
-        level: string;
-        season: string;
-      } | null;
-    }>;
-    notStakedOogas: Array<{
-      __typename?: 'Ooga';
-      id: string;
-      oogaType?: number | null;
-      level?: number | null;
-      health?: string | null;
-    }>;
-    ntPouchAmounts: Array<{
-      __typename?: 'UserNTPouchAmount';
-      id: string;
-      amount?: string | null;
-      ntPouch?: { __typename?: 'NTPouch'; id: string; active: boolean; amount: string } | null;
-    }>;
-  } | null;
-};
+
+export type GetUserQuery = { __typename?: 'Query', user?: { __typename?: 'User', id: string, itemAmounts: Array<{ __typename?: 'UserItemAmount', id: string, amount?: string | null, item?: { __typename?: 'Item', id: string, abilities: Array<number | null>, attack: string, health: string, itemType: number, level: string, season: string } | null }>, notStakedOogas: Array<{ __typename?: 'Ooga', id: string, oogaType?: number | null, level?: number | null, health?: string | null }>, ntPouchAmounts: Array<{ __typename?: 'UserNTPouchAmount', id: string, amount?: string | null, ntPouch?: { __typename?: 'NTPouch', id: string, active: boolean, amount: string } | null }> } | null };
+
 
 export const GetUserDocument = gql`
-  query GetUser($address: String!) {
-    user(id: $address) {
+    query GetUser($address: String!) {
+  user(id: $address) {
+    id
+    itemAmounts {
       id
-      itemAmounts {
+      amount
+      item {
         id
-        amount
-        item {
-          id
-          abilities
-          attack
-          health
-          itemType
-          level
-          season
-        }
-      }
-      notStakedOogas {
-        id
-        oogaType
-        level
+        abilities
+        attack
         health
+        itemType
+        level
+        season
       }
-      ntPouchAmounts {
+    }
+    notStakedOogas {
+      id
+      oogaType
+      level
+      health
+    }
+    ntPouchAmounts {
+      id
+      amount
+      ntPouch {
         id
+        active
         amount
-        ntPouch {
-          id
-          active
-          amount
-        }
       }
     }
   }
-`;
+}
+    `;
 
 /**
  * __useGetUserQuery__
@@ -96,13 +64,13 @@ export const GetUserDocument = gql`
  * });
  */
 export function useGetUserQuery(baseOptions: Apollo.QueryHookOptions<GetUserQuery, GetUserQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options);
-}
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options);
+      }
 export function useGetUserLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetUserQuery, GetUserQueryVariables>) {
-  const options = { ...defaultOptions, ...baseOptions };
-  return Apollo.useLazyQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options);
-}
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetUserQuery, GetUserQueryVariables>(GetUserDocument, options);
+        }
 export type GetUserQueryHookResult = ReturnType<typeof useGetUserQuery>;
 export type GetUserLazyQueryHookResult = ReturnType<typeof useGetUserLazyQuery>;
 export type GetUserQueryResult = Apollo.QueryResult<GetUserQuery, GetUserQueryVariables>;

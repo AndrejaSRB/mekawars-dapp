@@ -15,7 +15,7 @@ interface FirstTeamProps {
 const FirstTeam: FC<FirstTeamProps> = ({ sortedCrews, crewId, refetch, isLoading }) => {
   const renderOogas = useCallback(
     (ooga: Ooga) => <TeamItem key={ooga.id} id={ooga?.id} oogaType={ooga?.oogaType} />,
-    [],
+    [isLoading],
   );
 
   return (

@@ -25,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "@walletconnect/web3-provider": "^1.8.0",
+    "date-fns": "^2.29.3",
     "ethers": "^5.7.1",
     "framer-motion": "^7.5.3",
     "next": "12.3.1",
