@@ -8,7 +8,6 @@ interface MatchItemProps {
 }
 
 const MatchItem: FC<MatchItemProps> = ({ match }) => {
-  console.log('MATCH ITEM', match?.secondCrewWithBucket?.crew?.id);
   return (
     <GridItem as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
       <Flex align="center">
