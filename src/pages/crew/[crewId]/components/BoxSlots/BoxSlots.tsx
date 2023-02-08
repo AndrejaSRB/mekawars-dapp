@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { Grid, Heading, Box } from '@chakra-ui/react';
+import { Grid, Heading, Box, Text } from '@chakra-ui/react';
 import { BoxSlot, Crew } from '../../../../../lib/graphql/types';
 import { RefetchCrew } from '../../index.page';
 import BoxSlotItem from './BoxSlotItem';
@@ -33,7 +33,13 @@ const BoxSlots: FC<BoxSlotsProps> = ({ crew, crewId, refetch, isLoading }) => {
         borderRadius={8}
         p={3}
       >
-        {crew && crew?.boxSlots && crew?.boxSlots?.map(renderBoxSlots)}
+        {isLoading ? (
+          <Text>Loading Box Slots...</Text>
+        ) : crew && crew?.boxSlots && crew?.boxSlots?.length > 0 ? (
+          crew?.boxSlots?.map(renderBoxSlots)
+        ) : (
+          <Text>There are no box slots.</Text>
+        )}
       </Grid>
     </Box>
   );
