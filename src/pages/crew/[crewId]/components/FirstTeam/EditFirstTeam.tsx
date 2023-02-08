@@ -50,7 +50,8 @@ const EditFirstTeam: FC<EditFirstTeamProps> = ({ crewId, refetch }) => {
         <GridItem as={Flex} flexDir="column">
           <Text mb={1}>
             Enter the team Ooga ids list. The order is IMPORTANT! For example the list of IDs: 3,1,8,5 Also if you skip
-            some number in the list who is already in the first team, that ooga will be removed from the first team.
+            some number in the list who is already in the first team, that ooga will be removed from the first team. Do
+            not put any additional empty space between numbers, use the following pattern: 3,1,8,5 etc.
           </Text>
 
           <Input mt={3} value={itemsIds} onChange={handleChangeItemIds} placeholder="Enter list of IDs: 3,1,8,5" />

@@ -26,6 +26,7 @@ const DepositNTPouch: FC<DepositNTPouchProps> = ({ crewId, refetch }) => {
 
   const handleDeposit = async () => {
     if (crewId && ntPouchId !== '' && amount !== '') {
+      console.log('+crewId, +ntPouchId, +amount', +crewId, +ntPouchId, +amount);
       await contract
         ?.depositPouch(+crewId, +ntPouchId, +amount)
         .then(async (tsx) => {

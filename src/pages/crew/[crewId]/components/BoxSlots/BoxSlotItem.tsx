@@ -56,6 +56,8 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch, contractP
     }
   }, [contractParams, boxSlot]);
 
+  const isEmptyStatus = useMemo(() => boxSlot && boxSlot?.state === 0, [boxSlot?.state]);
+
   const { contract } = useBoxContract();
 
   const handleChangeBabyOogaId = (event: ChangeEvent<HTMLInputElement>) => {
@@ -228,19 +230,23 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch, contractP
         </Text>
       </Flex>
 
-      <Flex align="center" mb={1}>
-        <Text fontSize="sm">Box Rarity:</Text>
-        <Text ml={1} fontSize="sm" fontWeight={800}>
-          {boxSlot?.box_rarity}
-        </Text>
-      </Flex>
+      {!isEmptyStatus && (
+        <Flex align="center" mb={1}>
+          <Text fontSize="sm">Box Rarity:</Text>
+          <Text ml={1} fontSize="sm" fontWeight={800}>
+            {boxSlot?.box_rarity}
+          </Text>
+        </Flex>
+      )}
 
-      <Flex align="center" mb={1}>
-        <Text fontSize="sm">Box Created At:</Text>
-        <Text ml={1} fontSize="sm" fontWeight={800}>
-          {createdDate && format(new Date(createdDate), 'dd-MM-yyyy')}
-        </Text>
-      </Flex>
+      {!isEmptyStatus && (
+        <Flex align="center" mb={1}>
+          <Text fontSize="sm">Box Created At:</Text>
+          <Text ml={1} fontSize="sm" fontWeight={800}>
+            {createdDate && format(new Date(createdDate), 'dd-MM-yyyy')}
+          </Text>
+        </Flex>
+      )}
 
       <Flex align="center" mb={1}>
         <Text fontSize="sm">State:</Text>
@@ -249,12 +255,14 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch, contractP
         </Text>
       </Flex>
 
-      <Flex align="center" mb={1}>
-        <Text fontSize="sm">Box Level:</Text>
-        <Text ml={1} fontSize="sm" fontWeight={800}>
-          {boxSlot?.box_level}
-        </Text>
-      </Flex>
+      {!isEmptyStatus && (
+        <Flex align="center" mb={1}>
+          <Text fontSize="sm">Box Level:</Text>
+          <Text ml={1} fontSize="sm" fontWeight={800}>
+            {boxSlot?.box_level}
+          </Text>
+        </Flex>
+      )}
 
       <Flex align="center" mb={1}>
         <Text fontSize="sm">Baby Ooga Charge:</Text>
@@ -270,28 +278,36 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch, contractP
         </Text>
       </Flex>
 
-      <Flex align="center" mb={1}>
-        <Text fontSize="sm">Able to Open:</Text>
-        <Text ml={1} fontSize="sm" fontWeight={800}>
-          {isAbleToOpen ? 'Yes' : 'No'}
-        </Text>
-      </Flex>
+      {!isEmptyStatus && (
+        <Flex align="center" mb={1}>
+          <Text fontSize="sm">Able to Open:</Text>
+          <Text ml={1} fontSize="sm" fontWeight={800}>
+            {isAbleToOpen ? 'Yes' : 'No'}
+          </Text>
+        </Flex>
+      )}
 
-      <Flex align="center" mt={4}>
-        <CustomButton size="sm" w="50%" mr={1} isLoading={loading} onClick={handleOpen}>
-          Open
-        </CustomButton>
-        <CustomButton size="sm" w="50%" onClick={handleInstant} isLoading={loading}>
-          Instant
-        </CustomButton>
-      </Flex>
+      {!isEmptyStatus && (
+        <Flex align="center" mt={4}>
+          <CustomButton size="sm" w="50%" mr={1} isLoading={loading} onClick={handleOpen}>
+            Open
+          </CustomButton>
+          <CustomButton size="sm" w="50%" onClick={handleInstant} isLoading={loading}>
+            Instant
+          </CustomButton>
+        </Flex>
+      )}
 
-      <Text fontSize="sm" mt={4}>
-        You can upgrade your box ONLY if the box has staked BabyOoga and baby Ooga Charge is 5.
-      </Text>
-      <CustomButton mt={1} size="sm" w="100%" onClick={handleUpgrade} isLoading={loading}>
-        Upgrade
-      </CustomButton>
+      {!isEmptyStatus && (
+        <>
+          <Text fontSize="sm" mt={4}>
+            You can upgrade your box ONLY if the box has staked BabyOoga and baby Ooga Charge is 5.
+          </Text>
+          <CustomButton mt={1} size="sm" w="100%" onClick={handleUpgrade} isLoading={loading}>
+            Upgrade
+          </CustomButton>
+        </>
+      )}
 
       <Flex align="center" flexDir="column" mt={4} borderTopWidth="1px" pt={2}>
         <Text fontSize="sm">Stake Baby Ooga</Text>
