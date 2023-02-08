@@ -35,7 +35,7 @@ const Matches: FC<MatchesProps> = ({ myMatches, loading }) => {
         ) : myMatches && myMatches?.length > 0 ? (
           myMatches?.map(renderMatches)
         ) : (
-          <Text>There are not matches.</Text>
+          <Text>There are no matches.</Text>
         )}
       </Grid>
     </Box>
