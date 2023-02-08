@@ -1,9 +1,10 @@
 import { format } from 'date-fns';
+import compareAsc from 'date-fns/compareAsc';
 import { ChangeEvent, FC, useMemo, useState } from 'react';
 import { Flex, GridItem, Input, Text } from '@chakra-ui/react';
 import CustomButton from '../../../../../components/CustomButton';
 import useBoxContract from '../../../../../lib/contracts/useBoxContract';
-import { BoxSlot } from '../../../../../lib/graphql/types';
+import { BoxSlot, ContractParameter } from '../../../../../lib/graphql/types';
 import { convertSecondsToMinutes } from '../../../../../utils/convertSecondsToMinutes';
 import { RefetchCrew } from '../../index.page';
 
@@ -14,26 +15,46 @@ const BoxSlotStateString: Record<number, string> = {
   3: 'Upgrade requested',
 };
 
+type BoxSlotElements =
+  | 'id'
+  | 'index'
+  | 'box_rarity'
+  | 'box_createdAt'
+  | 'state'
+  | 'box_level'
+  | 'babyOogaCharge'
+  | 'stakedBabyOoga';
+
 interface BoxSlotItemProps {
   crewId: string | undefined;
   refetch: RefetchCrew;
-  boxSlot:
-    | Pick<
-        BoxSlot,
-        'id' | 'index' | 'box_rarity' | 'box_createdAt' | 'state' | 'box_level' | 'babyOogaCharge' | 'stakedBabyOoga'
-      >
+  boxSlot: Pick<BoxSlot, BoxSlotElements> | undefined | null;
+  contractParams:
+    | Pick<ContractParameter, 'box_boxWaitingTime' | 'box_babyOogaChargeNeededForUpgrade'>
     | undefined
     | null;
 }
 
-const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
+const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch, contractParams }) => {
   const [babyOogaId, setBabyOogaID] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
-  const date = useMemo(
+  const createdDate = useMemo(
     () => (boxSlot && boxSlot?.box_createdAt ? new Date(convertSecondsToMinutes(+boxSlot.box_createdAt)) : null),
     [boxSlot],
   );
+
+  const isAbleToOpen = useMemo(() => {
+    if (contractParams && contractParams.box_boxWaitingTime && boxSlot && boxSlot?.box_createdAt) {
+      if (+contractParams.box_boxWaitingTime - (Date.now() / 1000 - +boxSlot?.box_createdAt) > 0) {
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }, [contractParams, boxSlot]);
 
   const { contract } = useBoxContract();
 
@@ -42,7 +63,14 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
   };
 
   const handleOpen = async () => {
-    if (crewId && boxSlot && boxSlot?.index !== undefined && boxSlot?.index !== null && boxSlot?.state === 1) {
+    if (
+      crewId &&
+      boxSlot &&
+      boxSlot?.index !== undefined &&
+      boxSlot?.index !== null &&
+      boxSlot?.state === 1 &&
+      isAbleToOpen
+    ) {
       await contract
         ?.openBox(+crewId, boxSlot?.index)
         .then(async (tsx) => {
@@ -148,6 +176,42 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
     }
   };
 
+  const handleUpgrade = async () => {
+    if (
+      crewId &&
+      boxSlot &&
+      boxSlot?.index !== undefined &&
+      boxSlot?.index !== null &&
+      boxSlot?.stakedBabyOoga &&
+      boxSlot?.babyOogaCharge !== undefined &&
+      boxSlot?.babyOogaCharge !== null &&
+      contractParams?.box_babyOogaChargeNeededForUpgrade !== null &&
+      contractParams?.box_babyOogaChargeNeededForUpgrade !== undefined &&
+      +boxSlot?.babyOogaCharge >= +contractParams?.box_babyOogaChargeNeededForUpgrade
+    ) {
+      await contract
+        ?.upgradeBox(+crewId, +boxSlot?.index)
+        .then(async (tsx) => {
+          setLoading(true);
+
+          tsx
+            .wait()
+            .then(async () => {
+              setLoading(false);
+              await refetch();
+            })
+            .finally(async () => {
+              setLoading(false);
+
+              setBabyOogaID('');
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
   return (
     <GridItem as={Flex} flexDir="column" border="1px solid white" borderRadius={8} p={3}>
       <Flex align="center" mb={1}>
@@ -174,7 +238,7 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
       <Flex align="center" mb={1}>
         <Text fontSize="sm">Box Created At:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
-          {date && format(new Date(date), 'dd-MM-yyyy')}
+          {createdDate && format(new Date(createdDate), 'dd-MM-yyyy')}
         </Text>
       </Flex>
 
@@ -206,6 +270,13 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
         </Text>
       </Flex>
 
+      <Flex align="center" mb={1}>
+        <Text fontSize="sm">Able to Open:</Text>
+        <Text ml={1} fontSize="sm" fontWeight={800}>
+          {isAbleToOpen ? 'Yes' : 'No'}
+        </Text>
+      </Flex>
+
       <Flex align="center" mt={4}>
         <CustomButton size="sm" w="50%" mr={1} isLoading={loading} onClick={handleOpen}>
           Open
@@ -214,6 +285,13 @@ const BoxSlotItem: FC<BoxSlotItemProps> = ({ boxSlot, crewId, refetch }) => {
           Instant
         </CustomButton>
       </Flex>
+
+      <Text fontSize="sm" mt={4}>
+        You can upgrade your box ONLY if the box has staked BabyOoga and baby Ooga Charge is 5.
+      </Text>
+      <CustomButton mt={1} size="sm" w="100%" onClick={handleUpgrade} isLoading={loading}>
+        Upgrade
+      </CustomButton>
 
       <Flex align="center" flexDir="column" mt={4} borderTopWidth="1px" pt={2}>
         <Text fontSize="sm">Stake Baby Ooga</Text>

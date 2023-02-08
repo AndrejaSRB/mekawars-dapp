@@ -3,6 +3,7 @@ import { Heading, Grid, GridItem, Flex, Box, Text } from '@chakra-ui/react';
 import CustomButton from '../../../../components/CustomButton';
 import CustomNumberField from '../../../../components/CustomNumberField';
 import useBoxContract from '../../../../lib/contracts/useBoxContract';
+import { ContractParameter } from '../../../../lib/graphql/types';
 import { RefetchCrew } from '../index.page';
 
 interface BuyMysteryBoxProps {

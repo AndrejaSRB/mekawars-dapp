@@ -13,7 +13,7 @@ const getItemType: Record<string, string> = {
 };
 
 interface SingleInvetoryItemProps {
-  item: Pick<InventoryItem, 'id' | 'attributes' | 'index'> | undefined | null;
+  item: Pick<InventoryItem, 'id' | 'attributes' | 'index' | 'active'> | undefined | null;
   sortedCrewsIds: string[] | undefined;
   crewId: string | undefined;
   refetch: RefetchCrew;
@@ -48,6 +48,31 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item, crewId, sorted
 
       await contract
         ?.editFirstTeamAndEquipItems(+crewId, sortedCrewsIds, moveItems)
+        .then(async (tsx) => {
+          setLoading(true);
+
+          tsx
+            .wait()
+            .then(async () => {
+              setLoading(false);
+              await refetch();
+            })
+            .finally(async () => {
+              setLoading(false);
+
+              setOogaId('');
+            });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
+  const handleBurn = async () => {
+    if (crewId && item) {
+      await contract
+        ?.deleteItemFromInventory(+crewId, +item?.index)
         .then(async (tsx) => {
           setLoading(true);
 
@@ -107,6 +132,13 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item, crewId, sorted
       </Flex>
 
       <Flex align="center">
+        <Text fontSize="sm">Active:</Text>
+        <Text ml={1} fontSize="sm" fontWeight={800}>
+          {item?.active ? 'Active' : 'Inactive'}
+        </Text>
+      </Flex>
+
+      <Flex align="center">
         <Text fontSize="sm">Item Type:</Text>
         <Text ml={1} fontSize="sm" fontWeight={800}>
           {item?.attributes &&
@@ -134,6 +166,12 @@ const SingleInventoryItem: FC<SingleInvetoryItemProps> = ({ item, crewId, sorted
 
         <CustomButton size="sm" w="100%" mt={1} isLoading={loading} onClick={handleClickSet}>
           Set
+        </CustomButton>
+      </Flex>
+
+      <Flex mt={4} borderTopWidth="1px">
+        <CustomButton size="sm" w="100%" mt={1} isLoading={loading} onClick={handleBurn}>
+          Burn
         </CustomButton>
       </Flex>
     </GridItem>

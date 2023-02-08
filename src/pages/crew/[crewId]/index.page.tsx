@@ -6,6 +6,7 @@ import { Box, Grid, Text } from '@chakra-ui/react';
 import ConnectYourWallet from '../../../components/ConnectYourWallet';
 import Navigation from '../../../components/Navigation';
 import { useWeb3Context } from '../../../context';
+import { useGetContractParametersQuery } from '../../../lib/graphql/operations/GetContractParameters.generated';
 import { GetMyCrewQuery, useGetMyCrewQuery } from '../../../lib/graphql/operations/GetCrew.generated';
 import { GetMatchesQuery, useGetMatchesQuery } from '../../../lib/graphql/operations/GetMatches.generated';
 import { Exact, Match, Ooga } from '../../../lib/graphql/types';
@@ -42,6 +43,8 @@ const CrewPage: NextPage = () => {
   const { address } = useWeb3Context();
   const router = useRouter();
   const crewId = flatten(router.query.crewId);
+
+  const { data: contractParams } = useGetContractParametersQuery();
 
   const { data, refetch, loading } = useGetMyCrewQuery({
     fetchPolicy: 'no-cache',
@@ -97,7 +100,13 @@ const CrewPage: NextPage = () => {
         <>
           <Text>Crew ID: {crewId}</Text>
 
-          <JoinToMatchMakingQueue crewId={crewId} crew={data?.crew} refetch={refetch} refetchMatches={refetchMatches} />
+          <JoinToMatchMakingQueue
+            crewId={crewId}
+            crew={data?.crew}
+            refetch={refetch}
+            refetchMatches={refetchMatches}
+            contractParams={contractParams?.contractParameter}
+          />
 
           <CrewStats crewStats={data?.crew} />
 
@@ -105,7 +114,13 @@ const CrewPage: NextPage = () => {
 
           <StakedRobos oogasList={data?.crew} isLoading={loading} />
 
-          <BoxSlots crew={data?.crew} refetch={refetch} isLoading={loading} crewId={crewId} />
+          <BoxSlots
+            crew={data?.crew}
+            refetch={refetch}
+            isLoading={loading}
+            crewId={crewId}
+            contractParams={contractParams?.contractParameter}
+          />
 
           <CrewInvetory
             crew={data?.crew}

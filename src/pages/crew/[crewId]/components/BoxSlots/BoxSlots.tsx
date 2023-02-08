@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react';
 import { Grid, Heading, Box, Text } from '@chakra-ui/react';
-import { BoxSlot, Crew } from '../../../../../lib/graphql/types';
+import { BoxSlot, ContractParameter, Crew } from '../../../../../lib/graphql/types';
 import { RefetchCrew } from '../../index.page';
 import BoxSlotItem from './BoxSlotItem';
 
@@ -9,11 +9,23 @@ interface BoxSlotsProps {
   isLoading: boolean;
   crewId: string | undefined;
   crew: Pick<Crew, 'boxSlots'> | undefined | null;
+  contractParams:
+    | Pick<ContractParameter, 'box_boxWaitingTime' | 'box_babyOogaChargeNeededForUpgrade'>
+    | undefined
+    | null;
 }
 
-const BoxSlots: FC<BoxSlotsProps> = ({ crew, crewId, refetch, isLoading }) => {
+const BoxSlots: FC<BoxSlotsProps> = ({ crew, crewId, refetch, isLoading, contractParams }) => {
   const renderBoxSlots = useCallback(
-    (boxSlot: BoxSlot) => <BoxSlotItem key={boxSlot?.id} boxSlot={boxSlot} crewId={crewId} refetch={refetch} />,
+    (boxSlot: BoxSlot) => (
+      <BoxSlotItem
+        key={boxSlot?.id}
+        boxSlot={boxSlot}
+        crewId={crewId}
+        refetch={refetch}
+        contractParams={contractParams}
+      />
+    ),
     [isLoading],
   );
 

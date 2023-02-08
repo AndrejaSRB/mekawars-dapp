@@ -1,0 +1,15 @@
+query GetContractParameters {
+  contractParameter(id: "1") {
+    id
+    box_babyOogaChargeNeededForUpgrade
+    box_boxWaitingTime
+    box_instantOpenBoxPrice
+    crews_burnInventoryItemNTAmount
+    crews_crewStartDurability
+    matchmaking_durabilityDecrease
+    matchmaking_maxBucketSize
+    matchmaking_maxRatingDiff
+    matchmaking_minBucketSize
+    matchmaking_minTimeOffset
+  }
+}

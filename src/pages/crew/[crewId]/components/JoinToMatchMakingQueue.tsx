@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import CustomButton from '../../../../components/CustomButton';
 import useMatchMakingContract from '../../../../lib/contracts/useMatchMakingContract';
-import { Crew } from '../../../../lib/graphql/types';
+import { ContractParameter, Crew } from '../../../../lib/graphql/types';
 import { RefetchCrew, RefetchMatches } from '../index.page';
 
 interface JoinToMatchMakingQueueProps {
@@ -10,9 +10,16 @@ interface JoinToMatchMakingQueueProps {
   crew: Pick<Crew, 'currentlyInBucket'> | undefined | null;
   refetch: RefetchCrew;
   refetchMatches: RefetchMatches;
+  contractParams: Pick<ContractParameter, 'matchmaking_minBucketSize'> | undefined | null;
 }
 
-const JoinToMatchMakingQueue: FC<JoinToMatchMakingQueueProps> = ({ crewId, crew, refetch, refetchMatches }) => {
+const JoinToMatchMakingQueue: FC<JoinToMatchMakingQueueProps> = ({
+  crewId,
+  crew,
+  refetch,
+  refetchMatches,
+  contractParams,
+}) => {
   const [loading, setLoading] = useState<boolean>(false);
   const { contract } = useMatchMakingContract();
 
@@ -104,7 +111,9 @@ const JoinToMatchMakingQueue: FC<JoinToMatchMakingQueueProps> = ({ crewId, crew,
     crew?.currentlyInBucket &&
     crew?.currentlyInBucket?.state === 0 &&
     crew?.currentlyInBucket?.crewInBuckets &&
-    crew?.currentlyInBucket?.crewInBuckets?.length >= 4
+    contractParams?.matchmaking_minBucketSize !== null &&
+    contractParams?.matchmaking_minBucketSize !== undefined &&
+    crew?.currentlyInBucket?.crewInBuckets?.length >= +contractParams?.matchmaking_minBucketSize
   ) {
     return (
       <Flex align="center" justify="center" w="100%">
